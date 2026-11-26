@@ -5,149 +5,20 @@ No network required. Dictation content is separate from level content.
 from tuhoc.paths import PROJECT_ROOT
 from pathlib import Path
 import json
-import re
 import shutil
 import sys
-import unicodedata
 import tkinter as tk
-import subprocess
 import threading
 import queue
-import shutil as shutil_module
-from array import array
 from tkinter import filedialog, messagebox
-from difflib import SequenceMatcher
+
+from tuhoc.library.audio import MP3Player, waveform_peaks
+from tuhoc.library.dictation_check import _canonical_tokens, _tone_new_style, check_dictation, text_tokens
 
 DEFAULT_ITEMS = [
     {"id":"ct001", "title":"Bài 1 - Buổi sáng ở Sài Gòn", "audio":"audio/ct001.mp3", "answer":"Sáng nay, má dẫn em ra chợ. Hai má con ghé mua trái cây.", "note":"Thêm file MP3 tương ứng hoặc đổi đường dẫn trong giao diện."},
     {"id":"ct002", "title":"Bài 2 - Ghé thăm bà ngoại", "audio":"audio/ct002.mp3", "answer":"Chiều thứ bảy, anh Hai chở em qua thăm ngoại.", "note":"Thêm file MP3 tương ứng hoặc đổi đường dẫn trong giao diện."}
 ]
-
-
-# Dấu thanh kiểu cũ (hoà, khoẻ, thuỷ) và kiểu mới (hòa, khỏe, thủy) đều đúng chính tả.
-# Chỉ đổi ở âm tiết mở kết thúc bằng oa/oe/uy; không đụng "qu", "oai", "huỳnh"...
-_OLD_TONE_STYLE=re.compile('(?<!q)([ou])([aey])([\u0300\u0301\u0303\u0309\u0323])(?![\\w\u0300-\u036f])')
-_VALID_OLD_PAIRS={('o','a'),('o','e'),('u','y')}
-
-
-def _tone_new_style(match):
-    first,second,tone=match.groups()
-    if (first,second) not in _VALID_OLD_PAIRS:return match.group(0)
-    return first+tone+second
-
-
-def text_tokens(text):
-    text=unicodedata.normalize('NFD',str(text)).casefold()
-    text=unicodedata.normalize('NFC',_OLD_TONE_STYLE.sub(_tone_new_style,text))
-    return re.findall(r'[^\W_]+',text,flags=re.UNICODE)
-
-
-def _canonical_tokens(text, equivalences):
-    """Replace explicitly authorized equivalent phrases with one comparison token.
-
-    Sort by length so a longer expression wins over an overlapping short one.
-    No automatic contraction expansion: e.g. 'he\'s' may mean 'he has'.
-    """
-    tokens=text_tokens(text)
-    groups=[]
-    for index, group in enumerate(equivalences or []):
-        if not isinstance(group,(list,tuple)) or len(group)<2:
-            continue
-        for phrase in group:
-            phrase_tokens=text_tokens(phrase)
-            if phrase_tokens:
-                groups.append((phrase_tokens, f'__equiv_{index}__'))
-    groups.sort(key=lambda x:len(x[0]),reverse=True)
-    output=[];i=0
-    while i<len(tokens):
-        found=next(((v,len(t)) for t,v in groups if tokens[i:i+len(t)]==t),None)
-        if found:
-            output.append(found[0]);i+=found[1]
-        else:
-            output.append(tokens[i]);i+=1
-    return output
-
-
-def check_dictation(expected, given, accepted_variants=None, equivalences=None):
-    """Accent-sensitive word comparison, punctuation and casing ignored."""
-    # A whole-answer variant is an alternative reference text; the highest score wins.
-    candidates=[expected]+list(accepted_variants or [])
-    if len(candidates)>1:
-        results=[check_dictation(ref,given,equivalences=equivalences) for ref in candidates]
-        best=max(results,key=lambda r:(r['passed'],r['score'],-len(r['issues'])))
-        return dict(best, accepted_reference=candidates[results.index(best)])
-    reference=_canonical_tokens(expected,equivalences)
-    actual=_canonical_tokens(given,equivalences)
-    matcher=SequenceMatcher(a=reference,b=actual,autojunk=False)
-    correct=sum(block.size for block in matcher.get_matching_blocks())
-    total=max(len(reference),len(actual),1)  # từ viết thừa cũng bị tính
-    issues=[]
-    for tag,a,b,c,d in matcher.get_opcodes():
-        if tag=='equal':continue
-        issues.append({'kind':tag,'expected':' '.join(reference[a:b]),'written':' '.join(actual[c:d])})
-    return {'score':round(100*correct/total,1),'matched':correct,'total':len(reference),'issues':issues,
-            'passed':len(reference)>0 and reference==actual}
-
-
-
-# Decode only a low-rate mono preview for lightweight waveform visualization.
-_WAVE_CACHE = {}
-
-def waveform_peaks(path, bars=320):
-    """Return 0..1 peak levels derived from the real MP3/WAV waveform.
-
-    The preview uses ffmpeg to decode the actual audio file to a mono PCM stream,
-    then samples peak values per bar. The shaping keeps transients sharp so the UI
-    looks closer to a modern editing/player waveform instead of rounded equalizer bars.
-    """
-    source = Path(path)
-    stat = source.stat()
-    key = (str(source.resolve()), stat.st_mtime_ns, stat.st_size, bars)
-    if key in _WAVE_CACHE:
-        return _WAVE_CACHE[key]
-    ffmpeg = shutil_module.which('ffmpeg')
-    if not ffmpeg:
-        try:
-            import imageio_ffmpeg
-            ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
-        except (ImportError, OSError):
-            return None
-    command = [ffmpeg, '-nostdin', '-v', 'error', '-i', str(source), '-vn',
-               '-ac', '1', '-ar', '1000', '-f', 's16le', '-acodec', 'pcm_s16le', 'pipe:1']
-    try:
-        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                                timeout=45, check=False)
-    except (OSError, subprocess.TimeoutExpired):
-        return None
-    if result.returncode != 0 or len(result.stdout) < 2:
-        return None
-    samples = array('h')
-    samples.frombytes(result.stdout[:len(result.stdout) // 2 * 2])
-    if not samples:
-        return None
-    size = len(samples)
-    raw_peaks = []
-    for index in range(bars):
-        a = int(index * size / bars)
-        b = max(a + 1, int((index + 1) * size / bars))
-        chunk = samples[a:b]
-        peak = max(abs(v) for v in chunk) / 32768
-        raw_peaks.append(peak)
-    if not raw_peaks:
-        return None
-    sorted_peaks = sorted(raw_peaks)
-    ref = sorted_peaks[max(0, int(len(sorted_peaks) * 0.96) - 1)] or max(raw_peaks) or 1.0
-    floor = min(raw_peaks)
-    span = max(ref - floor, 1e-6)
-    shaped = []
-    for value in raw_peaks:
-        normalized = max(0.0, min(1.0, (value - floor) / span))
-        # Keep the waveform crisp: lower values remain visible but peaks stay sharp.
-        shaped.append(max(0.06, normalized ** 1.18))
-    if len(_WAVE_CACHE) > 25:
-        _WAVE_CACHE.clear()
-    _WAVE_CACHE[key] = shaped
-    return shaped
 
 
 class WaveformSeek(tk.Canvas):
@@ -354,110 +225,6 @@ class ModernAudioControls(tk.Canvas):
                 break
 
 
-class MP3Player:
-    """MP3 playback with position, duration, pause and seek (Windows MCI)."""
-    def __init__(self):
-        self.alias='tuhoc_dictation';self.active=False;self.paused=False
-        self._pygame=False;self._duration=0;self._offset=0;self._started=0
-
-    def _mci(self, command, query=False):
-        import ctypes
-        buffer=ctypes.create_unicode_buffer(256) if query else None
-        err=ctypes.windll.winmm.mciSendStringW(command,buffer,256 if query else 0,None)
-        if err:
-            text=ctypes.create_unicode_buffer(256)
-            ctypes.windll.winmm.mciGetErrorStringW(err,text,256)
-            raise RuntimeError(f'Lỗi phát MP3 ({err}): {text.value}')
-        return buffer.value if query else ''
-
-    def play(self,path):
-        self.stop()
-        path=Path(path).resolve()
-        if not path.is_file():raise FileNotFoundError('Không tìm thấy file nghe: '+str(path))
-        if sys.platform=='win32':
-            try:
-                kind=' type mpegvideo' if path.suffix.lower()=='.mp3' else ''
-                self._mci(f'open "{path}"{kind} alias {self.alias}')
-                self.active=True
-                self._mci(f'set {self.alias} time format milliseconds')
-                self._duration=int(self._mci(f'status {self.alias} length',True))
-                self._mci(f'play {self.alias} from 0')
-            except Exception:
-                self.stop();raise
-        else:
-            try:
-                import pygame
-            except ImportError as exc:raise RuntimeError('Cài pygame: pip install pygame') from exc
-            if not pygame.mixer.get_init():pygame.mixer.init()
-            pygame.mixer.music.load(str(path));pygame.mixer.music.play()
-            self._pygame=True;self.active=True
-            self._duration=0
-            try:
-                from mutagen import File
-                metadata=File(path)
-                if metadata and metadata.info:self._duration=int(metadata.info.length*1000)
-            except (ImportError,OSError,ValueError):pass
-            self._offset=0
-        self.paused=False
-
-    def duration_ms(self):return max(0,self._duration)
-
-    def position_ms(self):
-        if not self.active:return 0
-        if sys.platform=='win32':
-            try:return max(0,int(self._mci(f'status {self.alias} position',True)))
-            except RuntimeError:return 0
-        import pygame
-        position=pygame.mixer.music.get_pos()
-        return max(0,self._offset+(position if position>=0 else 0))
-
-    def is_finished(self):
-        if not self.active or self.paused:return False
-        if sys.platform=='win32':
-            try:return self._mci(f'status {self.alias} mode',True).lower()=='stopped'
-            except RuntimeError:return False
-        import pygame
-        return not pygame.mixer.music.get_busy()
-
-    def pause(self):
-        if not self.active or self.paused:return
-        if sys.platform=='win32':self._mci(f'pause {self.alias}')
-        else:
-            import pygame
-            pygame.mixer.music.pause()
-        self.paused=True
-
-    def resume(self):
-        if not self.active or not self.paused:return
-        if sys.platform=='win32':self._mci(f'resume {self.alias}')
-        else:
-            import pygame
-            pygame.mixer.music.unpause()
-        self.paused=False
-
-    def seek(self,ms):
-        if not self.active:return
-        ms=max(0,min(int(ms),self._duration)) if self._duration else max(0,int(ms))
-        if sys.platform=='win32':
-            self._mci(f'play {self.alias} from {ms}')
-            if self.paused:self._mci(f'pause {self.alias}')
-        else:
-            import pygame
-            pygame.mixer.music.play(start=ms/1000.)
-            if self.paused:pygame.mixer.music.pause()
-            self._offset=ms
-
-    def stop(self):
-        if not self.active:return
-        if self._pygame:
-            import pygame
-            pygame.mixer.music.stop()
-        elif sys.platform=='win32':
-            try:self._mci(f'close {self.alias}')
-            except RuntimeError:pass
-        self.active=False;self.paused=False;self._pygame=False
-
-
 class DictationMixin:
     def _dictation_paths(self):
         # The selected subject owns its own MP3s and answer key, next to main.py.
@@ -511,7 +278,7 @@ class DictationMixin:
         # Accept explicit absolute local path, or relative path rooted at the dictation folder.
         return path.resolve() if path.is_absolute() else (folder/path).resolve()
 
-    def dictation_page(self):
+    def legacy_dictation_page(self):
         body=self.layout('🎧 CHÉP CHÍNH TẢ • '+('TIẾNG VIỆT' if self.lang=='vi' else 'TIẾNG ANH'))
         self.label(body,'Nghe file MP3, chép lại vào ô trả lời, rồi kiểm tra với đáp án đã lưu.',12).pack(anchor='w',pady=6)
         items=self._load_dictation();folder,key=self._dictation_paths()
@@ -537,7 +304,7 @@ class DictationMixin:
         if getattr(self,'_dictation_load_failed',False):
             messagebox.showwarning('Không thể sửa','File đáp án đang lỗi. Sửa hoặc khôi phục file trước, '
                                    'để tránh ghi đè mất các bài đã có.')
-            return self.dictation_page()
+            return self.legacy_dictation_page()
         old=next((x for x in items if x['id']==item_id),{})
         body=self.layout('✎ TẠO / SỬA BÀI CHÉP CHÍNH TẢ')
         folder,key=self._dictation_paths()
@@ -596,13 +363,13 @@ class DictationMixin:
                 temp.replace(key)
             except OSError as exc:
                 messagebox.showerror('Không thể lưu',str(exc));return
-            messagebox.showinfo('Đã lưu','Đã lưu đáp án vào '+str(key));self.dictation_page()
+            messagebox.showinfo('Đã lưu','Đã lưu đáp án vào '+str(key));self.legacy_dictation_page()
         self.action_button(body,'💾 LƯU BÀI CHÉP CHÍNH TẢ',save).pack(anchor='w',pady=14)
 
     def dictation_exercise(self,item_id):
         items=self._load_dictation()
         index=next((i for i,item in enumerate(items) if item['id']==item_id),None)
-        if index is None:return self.dictation_page()
+        if index is None:return self.legacy_dictation_page()
         item=items[index]
         body=self.layout('🎧 '+item['title'])
         audio=self._audio_path(item['audio'])
@@ -759,7 +526,7 @@ class DictationMixin:
         row2=tk.Frame(body,bg=body['bg']);row2.pack(anchor='w',pady=10)
         self.action_button(row2,'✓ KIỂM TRA ĐÁP ÁN',check).pack(side='left',padx=5)
         self.button(row2,'✎ SỬA BÀI',lambda:self.dictation_editor(item_id)).pack(side='left',padx=5)
-        self.button(row2,'← VỀ DANH SÁCH CHÍNH TẢ',self.dictation_page).pack(side='left',padx=5)
+        self.button(row2,'← VỀ DANH SÁCH CHÍNH TẢ',self.legacy_dictation_page).pack(side='left',padx=5)
         if index+1<len(items):
             self.button(row2,'BÀI TIẾP THEO →',lambda:self.dictation_exercise(items[index+1]['id'])).pack(side='left',padx=5)
         else:

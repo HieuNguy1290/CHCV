@@ -46,6 +46,7 @@ from tuhoc.lessons.modern_games import ModernGamesMixin
 from tuhoc.lessons.lesson_flow import LessonFlowMixin
 from tuhoc.lessons.upgrade_v2 import GameAppMixin
 from tuhoc.lessons.dictation_vi import DictationMixin
+from tuhoc.library.ui_mixin import LibraryMixin
 from tuhoc.lessons.level_flow import LevelFlowMixin
 from tuhoc.ui.wheel_scroll import install_wheel_scroll
 from tuhoc.ui.drag_scroll import bind_menu_pan, install_drag_scroll
@@ -123,6 +124,16 @@ class Storage:
         ''')
         self.conn.executescript('''
             CREATE TABLE IF NOT EXISTS lesson_progress (student_id INTEGER NOT NULL, topic_id TEXT NOT NULL, correct INTEGER NOT NULL, total INTEGER NOT NULL, completed INTEGER NOT NULL DEFAULT 0, updated_at TEXT DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY(student_id,topic_id));
+            CREATE TABLE IF NOT EXISTS library_progress (
+                student_id INTEGER NOT NULL, text_id TEXT NOT NULL,
+                mode TEXT NOT NULL CHECK(mode IN ('read', 'dictation')),
+                best_score REAL NOT NULL, attempts INTEGER NOT NULL, passed INTEGER NOT NULL,
+                last_at TEXT NOT NULL, PRIMARY KEY(student_id, text_id, mode)
+            );
+            CREATE TRIGGER IF NOT EXISTS delete_student_library_progress
+            AFTER DELETE ON students BEGIN
+                DELETE FROM library_progress WHERE student_id=OLD.id;
+            END;
         ''')
         self.conn.commit()
         self._migrate_vocabulary_lang(path)
@@ -140,6 +151,14 @@ class Storage:
 
     def lesson_progress(self,student):
         return self.conn.execute('SELECT * FROM lesson_progress WHERE student_id=?',(student,)).fetchall()
+
+    def save_library_result(self, student, text_id, mode, score, passed):
+        from tuhoc.library.progress import save_result
+        save_result(self.conn, student, text_id, mode, score, passed)
+
+    def library_progress(self, student, text_id=None):
+        from tuhoc.library.progress import results
+        return results(self.conn, student, text_id)
 
     def completion_summary(self,student):
         row=self.conn.execute('SELECT COUNT(*) completed, COALESCE(SUM(perfect),0) perfect, COALESCE(MIN(CASE WHEN seconds>0 THEN seconds END),0) best_seconds FROM completion_events WHERE student_id=?',(student,)).fetchone()
@@ -594,7 +613,7 @@ class TeachingTooltip:
             self.popup = None
 
 
-class App(ModernGamesMixin, DictationMixin, GameAppMixin, LevelFlowMixin, LessonFlowMixin, ContentManager, MiniGamesMixin, tk.Tk):
+class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlowMixin, LessonFlowMixin, ContentManager, MiniGamesMixin, tk.Tk):
     def __init__(self):
         super().__init__()
         self.title('Dev by HiHieu (Beta)'); self.geometry('1140x780'); self.minsize(850,590)
@@ -1974,10 +1993,12 @@ class App(ModernGamesMixin, DictationMixin, GameAppMixin, LevelFlowMixin, Lesson
         self.label(body,'Lưu ý: 3 thành tựu là mẫu; lượt hoàn thành bài tập được tính mỗi lần nộp bài hoàn chỉnh. Kết quả level cần tích hợp sự kiện hoàn thành từ bộ máy Level.',10,color='#64748B').pack(anchor='w',pady=12)
 
     def reading_menu(self):
-        """Open the reading section without requiring users to find its submenu."""
-        return self.reading_topics()
+        return self.library_page('read')
 
-    def reading_topics(self):
+    def dictation_page(self):
+        return self.library_page('dictation')
+
+    def legacy_reading_topics(self):
         body=self.layout('📚 Tập đọc / Reading')
         self.label(body,'Chọn chủ đề để xem danh sách bài đọc.',12).pack(anchor='w',pady=8)
         for theme in self._themes():

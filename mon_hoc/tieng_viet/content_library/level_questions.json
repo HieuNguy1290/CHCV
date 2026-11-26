@@ -1,0 +1,5241 @@
+[
+  {
+    "id": "vi.question.family.1.picture.demo",
+    "theme": "Family & Friends",
+    "level": 1,
+    "type": "picture_choice",
+    "prompt": "Quan sát hình. Bạn nhỏ có biểu cảm như thế nào?",
+    "image": "images/hinh_mau.png",
+    "options": [
+      "Vui vẻ",
+      "Buồn bã",
+      "Giận dữ",
+      "Lo lắng"
+    ],
+    "answer": "Vui vẻ",
+    "accepted_answers": [
+      "Vui vẻ"
+    ],
+    "schema_version": "2.2",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.1.0",
+    "theme": "Family & Friends",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Má nấu cơm cho cả nhà.”",
+    "options": [
+      "má",
+      "ba",
+      "ngoại",
+      "nội"
+    ],
+    "answer": "má",
+    "accepted_answers": [
+      "má"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.1.1",
+    "theme": "Family & Friends",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ba đọc báo ở hàng ba.”",
+    "options": [
+      "ba",
+      "má",
+      "ngoại",
+      "nội"
+    ],
+    "answer": "ba",
+    "accepted_answers": [
+      "ba"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.1.2",
+    "theme": "Family & Friends",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Chiều nay em sang thăm ngoại.”",
+    "options": [
+      "ngoại",
+      "má",
+      "ba",
+      "nội"
+    ],
+    "answer": "ngoại",
+    "accepted_answers": [
+      "ngoại"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.2.0",
+    "theme": "Family & Friends",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Nội kể chuyện hồi xưa.”",
+    "options": [
+      "nội",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "nội",
+    "accepted_answers": [
+      "nội"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.2.1",
+    "theme": "Family & Friends",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Anh Hai đưa em đi học.”",
+    "options": [
+      "anh Hai",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "anh Hai",
+    "accepted_answers": [
+      "anh Hai"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.2.2",
+    "theme": "Family & Friends",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Chị Ba xếp tập vở.”",
+    "options": [
+      "chị Ba",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "chị Ba",
+    "accepted_answers": [
+      "chị Ba"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.3.0",
+    "theme": "Family & Friends",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cậu ghé chơi buổi trưa.”",
+    "options": [
+      "cậu",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "cậu",
+    "accepted_answers": [
+      "cậu"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.3.1",
+    "theme": "Family & Friends",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Mợ đem bánh qua biếu ngoại.”",
+    "options": [
+      "mợ",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "mợ",
+    "accepted_answers": [
+      "mợ"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.3.2",
+    "theme": "Family & Friends",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Dì chỉ em đọc sách.”",
+    "options": [
+      "dì",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "dì",
+    "accepted_answers": [
+      "dì"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.4.0",
+    "theme": "Family & Friends",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Chú vá chiếc xe đạp.”",
+    "options": [
+      "chú",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "chú",
+    "accepted_answers": [
+      "chú"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.4.1",
+    "theme": "Family & Friends",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Thím đem giỏ ra chợ.”",
+    "options": [
+      "thím",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "thím",
+    "accepted_answers": [
+      "thím"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.4.2",
+    "theme": "Family & Friends",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cháu chào ông bà.”",
+    "options": [
+      "cháu",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "cháu",
+    "accepted_answers": [
+      "cháu"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.5.0",
+    "theme": "Family & Friends",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cả xóm cùng dọn con hẻm.”",
+    "options": [
+      "xóm",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "xóm",
+    "accepted_answers": [
+      "xóm"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.5.1",
+    "theme": "Family & Friends",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Bữa cơm có canh chua.”",
+    "options": [
+      "bữa cơm",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "bữa cơm",
+    "accepted_answers": [
+      "bữa cơm"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.5.2",
+    "theme": "Family & Friends",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cả nhà ngồi mát ngoài hàng ba.”",
+    "options": [
+      "hàng ba",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "hàng ba",
+    "accepted_answers": [
+      "hàng ba"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.6.0",
+    "theme": "Family & Friends",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Má nấu cơm cho cả nhà.”",
+    "options": [
+      "má",
+      "ba",
+      "ngoại",
+      "nội"
+    ],
+    "answer": "má",
+    "accepted_answers": [
+      "má"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.6.1",
+    "theme": "Family & Friends",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ba đọc báo ở hàng ba.”",
+    "options": [
+      "ba",
+      "má",
+      "ngoại",
+      "nội"
+    ],
+    "answer": "ba",
+    "accepted_answers": [
+      "ba"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.6.2",
+    "theme": "Family & Friends",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Chiều nay em sang thăm ngoại.”",
+    "options": [
+      "ngoại",
+      "má",
+      "ba",
+      "nội"
+    ],
+    "answer": "ngoại",
+    "accepted_answers": [
+      "ngoại"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.7.0",
+    "theme": "Family & Friends",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Nội kể chuyện hồi xưa.”",
+    "options": [
+      "nội",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "nội",
+    "accepted_answers": [
+      "nội"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.7.1",
+    "theme": "Family & Friends",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Anh Hai đưa em đi học.”",
+    "options": [
+      "anh Hai",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "anh Hai",
+    "accepted_answers": [
+      "anh Hai"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.7.2",
+    "theme": "Family & Friends",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Chị Ba xếp tập vở.”",
+    "options": [
+      "chị Ba",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "chị Ba",
+    "accepted_answers": [
+      "chị Ba"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.8.0",
+    "theme": "Family & Friends",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cậu ghé chơi buổi trưa.”",
+    "options": [
+      "cậu",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "cậu",
+    "accepted_answers": [
+      "cậu"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.8.1",
+    "theme": "Family & Friends",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Mợ đem bánh qua biếu ngoại.”",
+    "options": [
+      "mợ",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "mợ",
+    "accepted_answers": [
+      "mợ"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.8.2",
+    "theme": "Family & Friends",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Dì chỉ em đọc sách.”",
+    "options": [
+      "dì",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "dì",
+    "accepted_answers": [
+      "dì"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.9.0",
+    "theme": "Family & Friends",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Chú vá chiếc xe đạp.”",
+    "options": [
+      "chú",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "chú",
+    "accepted_answers": [
+      "chú"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.9.1",
+    "theme": "Family & Friends",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Thím đem giỏ ra chợ.”",
+    "options": [
+      "thím",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "thím",
+    "accepted_answers": [
+      "thím"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.9.2",
+    "theme": "Family & Friends",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cháu chào ông bà.”",
+    "options": [
+      "cháu",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "cháu",
+    "accepted_answers": [
+      "cháu"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.10.0",
+    "theme": "Family & Friends",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cả xóm cùng dọn con hẻm.”",
+    "options": [
+      "xóm",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "xóm",
+    "accepted_answers": [
+      "xóm"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.10.1",
+    "theme": "Family & Friends",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Bữa cơm có canh chua.”",
+    "options": [
+      "bữa cơm",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "bữa cơm",
+    "accepted_answers": [
+      "bữa cơm"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.family.10.2",
+    "theme": "Family & Friends",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cả nhà ngồi mát ngoài hàng ba.”",
+    "options": [
+      "hàng ba",
+      "má",
+      "ba",
+      "ngoại"
+    ],
+    "answer": "hàng ba",
+    "accepted_answers": [
+      "hàng ba"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.1.0",
+    "theme": "sports",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Lũ trẻ đá banh ở sân đất.”",
+    "options": [
+      "đá banh",
+      "trái banh",
+      "đạp xe",
+      "bơi lội"
+    ],
+    "answer": "đá banh",
+    "accepted_answers": [
+      "đá banh"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.1.1",
+    "theme": "sports",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái banh lăn vô sân.”",
+    "options": [
+      "trái banh",
+      "đá banh",
+      "đạp xe",
+      "bơi lội"
+    ],
+    "answer": "trái banh",
+    "accepted_answers": [
+      "trái banh"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.1.2",
+    "theme": "sports",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Em đạp xe ra đầu hẻm.”",
+    "options": [
+      "đạp xe",
+      "đá banh",
+      "trái banh",
+      "bơi lội"
+    ],
+    "answer": "đạp xe",
+    "accepted_answers": [
+      "đạp xe"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.2.0",
+    "theme": "sports",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Anh tập bơi lội ở hồ.”",
+    "options": [
+      "bơi lội",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "bơi lội",
+    "accepted_answers": [
+      "bơi lội"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.2.1",
+    "theme": "sports",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Các bạn chạy đua tới vạch.”",
+    "options": [
+      "chạy đua",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "chạy đua",
+    "accepted_answers": [
+      "chạy đua"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.2.2",
+    "theme": "sports",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Mấy chị em chơi nhảy dây.”",
+    "options": [
+      "nhảy dây",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "nhảy dây",
+    "accepted_answers": [
+      "nhảy dây"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.3.0",
+    "theme": "sports",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Sân banh gần trường.”",
+    "options": [
+      "sân banh",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "sân banh",
+    "accepted_answers": [
+      "sân banh"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.3.1",
+    "theme": "sports",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Đội banh ra sân đúng giờ.”",
+    "options": [
+      "đội banh",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "đội banh",
+    "accepted_answers": [
+      "đội banh"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.3.2",
+    "theme": "sports",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ba dạy em đánh cầu lông.”",
+    "options": [
+      "cầu lông",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "cầu lông",
+    "accepted_answers": [
+      "cầu lông"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.4.0",
+    "theme": "sports",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cây vợt đặt ngay ngắn.”",
+    "options": [
+      "vợt",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "vợt",
+    "accepted_answers": [
+      "vợt"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.4.1",
+    "theme": "sports",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Buổi sớm em tập thể dục.”",
+    "options": [
+      "tập thể dục",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "tập thể dục",
+    "accepted_answers": [
+      "tập thể dục"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.4.2",
+    "theme": "sports",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Em bắt banh bằng hai tay.”",
+    "options": [
+      "bắt banh",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "bắt banh",
+    "accepted_answers": [
+      "bắt banh"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.5.0",
+    "theme": "sports",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Bạn chuyền banh qua phía tôi.”",
+    "options": [
+      "chuyền banh",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "chuyền banh",
+    "accepted_answers": [
+      "chuyền banh"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.5.1",
+    "theme": "sports",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cả đội reo khi bạn về đích.”",
+    "options": [
+      "về đích",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "về đích",
+    "accepted_answers": [
+      "về đích"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.5.2",
+    "theme": "sports",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Các đội thi đấu rất vui.”",
+    "options": [
+      "thi đấu",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "thi đấu",
+    "accepted_answers": [
+      "thi đấu"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.6.0",
+    "theme": "sports",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Lũ trẻ đá banh ở sân đất.”",
+    "options": [
+      "đá banh",
+      "trái banh",
+      "đạp xe",
+      "bơi lội"
+    ],
+    "answer": "đá banh",
+    "accepted_answers": [
+      "đá banh"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.6.1",
+    "theme": "sports",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái banh lăn vô sân.”",
+    "options": [
+      "trái banh",
+      "đá banh",
+      "đạp xe",
+      "bơi lội"
+    ],
+    "answer": "trái banh",
+    "accepted_answers": [
+      "trái banh"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.6.2",
+    "theme": "sports",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Em đạp xe ra đầu hẻm.”",
+    "options": [
+      "đạp xe",
+      "đá banh",
+      "trái banh",
+      "bơi lội"
+    ],
+    "answer": "đạp xe",
+    "accepted_answers": [
+      "đạp xe"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.7.0",
+    "theme": "sports",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Anh tập bơi lội ở hồ.”",
+    "options": [
+      "bơi lội",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "bơi lội",
+    "accepted_answers": [
+      "bơi lội"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.7.1",
+    "theme": "sports",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Các bạn chạy đua tới vạch.”",
+    "options": [
+      "chạy đua",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "chạy đua",
+    "accepted_answers": [
+      "chạy đua"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.7.2",
+    "theme": "sports",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Mấy chị em chơi nhảy dây.”",
+    "options": [
+      "nhảy dây",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "nhảy dây",
+    "accepted_answers": [
+      "nhảy dây"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.8.0",
+    "theme": "sports",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Sân banh gần trường.”",
+    "options": [
+      "sân banh",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "sân banh",
+    "accepted_answers": [
+      "sân banh"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.8.1",
+    "theme": "sports",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Đội banh ra sân đúng giờ.”",
+    "options": [
+      "đội banh",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "đội banh",
+    "accepted_answers": [
+      "đội banh"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.8.2",
+    "theme": "sports",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ba dạy em đánh cầu lông.”",
+    "options": [
+      "cầu lông",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "cầu lông",
+    "accepted_answers": [
+      "cầu lông"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.9.0",
+    "theme": "sports",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cây vợt đặt ngay ngắn.”",
+    "options": [
+      "vợt",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "vợt",
+    "accepted_answers": [
+      "vợt"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.9.1",
+    "theme": "sports",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Buổi sớm em tập thể dục.”",
+    "options": [
+      "tập thể dục",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "tập thể dục",
+    "accepted_answers": [
+      "tập thể dục"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.9.2",
+    "theme": "sports",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Em bắt banh bằng hai tay.”",
+    "options": [
+      "bắt banh",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "bắt banh",
+    "accepted_answers": [
+      "bắt banh"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.10.0",
+    "theme": "sports",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Bạn chuyền banh qua phía tôi.”",
+    "options": [
+      "chuyền banh",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "chuyền banh",
+    "accepted_answers": [
+      "chuyền banh"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.10.1",
+    "theme": "sports",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cả đội reo khi bạn về đích.”",
+    "options": [
+      "về đích",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "về đích",
+    "accepted_answers": [
+      "về đích"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.sports.10.2",
+    "theme": "sports",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Các đội thi đấu rất vui.”",
+    "options": [
+      "thi đấu",
+      "đá banh",
+      "trái banh",
+      "đạp xe"
+    ],
+    "answer": "thi đấu",
+    "accepted_answers": [
+      "thi đấu"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.1.0",
+    "theme": "actions",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Má đi chợ từ sớm.”",
+    "options": [
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi",
+      "ghé thăm"
+    ],
+    "answer": "đi chợ",
+    "accepted_answers": [
+      "đi chợ"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.1.1",
+    "theme": "actions",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Em xách giỏ giùm má.”",
+    "options": [
+      "xách giỏ",
+      "đi chợ",
+      "ngồi chơi",
+      "ghé thăm"
+    ],
+    "answer": "xách giỏ",
+    "accepted_answers": [
+      "xách giỏ"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.1.2",
+    "theme": "actions",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ngoại ngồi chơi ngoài hàng ba.”",
+    "options": [
+      "ngồi chơi",
+      "đi chợ",
+      "xách giỏ",
+      "ghé thăm"
+    ],
+    "answer": "ngồi chơi",
+    "accepted_answers": [
+      "ngồi chơi"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.2.0",
+    "theme": "actions",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Chiều nay cậu ghé thăm.”",
+    "options": [
+      "ghé thăm",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "ghé thăm",
+    "accepted_answers": [
+      "ghé thăm"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.2.1",
+    "theme": "actions",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cả nhà cùng dọn dẹp.”",
+    "options": [
+      "dọn dẹp",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "dọn dẹp",
+    "accepted_answers": [
+      "dọn dẹp"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.2.2",
+    "theme": "actions",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Em quét nhà sạch sẽ.”",
+    "options": [
+      "quét nhà",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "quét nhà",
+    "accepted_answers": [
+      "quét nhà"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.3.0",
+    "theme": "actions",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Má nhờ em lặt rau.”",
+    "options": [
+      "lặt rau",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "lặt rau",
+    "accepted_answers": [
+      "lặt rau"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.3.1",
+    "theme": "actions",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Chị Ba vo gạo nấu cơm.”",
+    "options": [
+      "vo gạo",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "vo gạo",
+    "accepted_answers": [
+      "vo gạo"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.3.2",
+    "theme": "actions",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ăn xong em rửa chén.”",
+    "options": [
+      "rửa chén",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "rửa chén",
+    "accepted_answers": [
+      "rửa chén"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.4.0",
+    "theme": "actions",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ba mở cửa đón khách.”",
+    "options": [
+      "mở cửa",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "mở cửa",
+    "accepted_answers": [
+      "mở cửa"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.4.1",
+    "theme": "actions",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Gió mạnh nên em khép cửa.”",
+    "options": [
+      "khép cửa",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "khép cửa",
+    "accepted_answers": [
+      "khép cửa"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.4.2",
+    "theme": "actions",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ông ngồi đọc báo.”",
+    "options": [
+      "đọc báo",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "đọc báo",
+    "accepted_answers": [
+      "đọc báo"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.5.0",
+    "theme": "actions",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Em thử viết một bài thơ.”",
+    "options": [
+      "viết thơ",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "viết thơ",
+    "accepted_answers": [
+      "viết thơ"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.5.1",
+    "theme": "actions",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ba nghe đài buổi tối.”",
+    "options": [
+      "nghe đài",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "nghe đài",
+    "accepted_answers": [
+      "nghe đài"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.5.2",
+    "theme": "actions",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Sáng em tới trường.”",
+    "options": [
+      "tới trường",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "tới trường",
+    "accepted_answers": [
+      "tới trường"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.6.0",
+    "theme": "actions",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Má đi chợ từ sớm.”",
+    "options": [
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi",
+      "ghé thăm"
+    ],
+    "answer": "đi chợ",
+    "accepted_answers": [
+      "đi chợ"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.6.1",
+    "theme": "actions",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Em xách giỏ giùm má.”",
+    "options": [
+      "xách giỏ",
+      "đi chợ",
+      "ngồi chơi",
+      "ghé thăm"
+    ],
+    "answer": "xách giỏ",
+    "accepted_answers": [
+      "xách giỏ"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.6.2",
+    "theme": "actions",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ngoại ngồi chơi ngoài hàng ba.”",
+    "options": [
+      "ngồi chơi",
+      "đi chợ",
+      "xách giỏ",
+      "ghé thăm"
+    ],
+    "answer": "ngồi chơi",
+    "accepted_answers": [
+      "ngồi chơi"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.7.0",
+    "theme": "actions",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Chiều nay cậu ghé thăm.”",
+    "options": [
+      "ghé thăm",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "ghé thăm",
+    "accepted_answers": [
+      "ghé thăm"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.7.1",
+    "theme": "actions",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Cả nhà cùng dọn dẹp.”",
+    "options": [
+      "dọn dẹp",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "dọn dẹp",
+    "accepted_answers": [
+      "dọn dẹp"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.7.2",
+    "theme": "actions",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Em quét nhà sạch sẽ.”",
+    "options": [
+      "quét nhà",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "quét nhà",
+    "accepted_answers": [
+      "quét nhà"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.8.0",
+    "theme": "actions",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Má nhờ em lặt rau.”",
+    "options": [
+      "lặt rau",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "lặt rau",
+    "accepted_answers": [
+      "lặt rau"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.8.1",
+    "theme": "actions",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Chị Ba vo gạo nấu cơm.”",
+    "options": [
+      "vo gạo",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "vo gạo",
+    "accepted_answers": [
+      "vo gạo"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.8.2",
+    "theme": "actions",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ăn xong em rửa chén.”",
+    "options": [
+      "rửa chén",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "rửa chén",
+    "accepted_answers": [
+      "rửa chén"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.9.0",
+    "theme": "actions",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ba mở cửa đón khách.”",
+    "options": [
+      "mở cửa",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "mở cửa",
+    "accepted_answers": [
+      "mở cửa"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.9.1",
+    "theme": "actions",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Gió mạnh nên em khép cửa.”",
+    "options": [
+      "khép cửa",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "khép cửa",
+    "accepted_answers": [
+      "khép cửa"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.9.2",
+    "theme": "actions",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ông ngồi đọc báo.”",
+    "options": [
+      "đọc báo",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "đọc báo",
+    "accepted_answers": [
+      "đọc báo"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.10.0",
+    "theme": "actions",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Em thử viết một bài thơ.”",
+    "options": [
+      "viết thơ",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "viết thơ",
+    "accepted_answers": [
+      "viết thơ"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.10.1",
+    "theme": "actions",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Ba nghe đài buổi tối.”",
+    "options": [
+      "nghe đài",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "nghe đài",
+    "accepted_answers": [
+      "nghe đài"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.actions.10.2",
+    "theme": "actions",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Sáng em tới trường.”",
+    "options": [
+      "tới trường",
+      "đi chợ",
+      "xách giỏ",
+      "ngồi chơi"
+    ],
+    "answer": "tới trường",
+    "accepted_answers": [
+      "tới trường"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.1.0",
+    "theme": "animals",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con mèo nằm bên cửa.”",
+    "options": [
+      "con mèo",
+      "con chó",
+      "con vịt",
+      "con gà"
+    ],
+    "answer": "con mèo",
+    "accepted_answers": [
+      "con mèo"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.1.1",
+    "theme": "animals",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con chó chạy ra sân.”",
+    "options": [
+      "con chó",
+      "con mèo",
+      "con vịt",
+      "con gà"
+    ],
+    "answer": "con chó",
+    "accepted_answers": [
+      "con chó"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.1.2",
+    "theme": "animals",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con vịt lội dưới ao.”",
+    "options": [
+      "con vịt",
+      "con mèo",
+      "con chó",
+      "con gà"
+    ],
+    "answer": "con vịt",
+    "accepted_answers": [
+      "con vịt"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.2.0",
+    "theme": "animals",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con gà bới đất kiếm mồi.”",
+    "options": [
+      "con gà",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con gà",
+    "accepted_answers": [
+      "con gà"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.2.1",
+    "theme": "animals",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con cá bơi trong lu.”",
+    "options": [
+      "con cá",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con cá",
+    "accepted_answers": [
+      "con cá"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.2.2",
+    "theme": "animals",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con trâu đi chậm trên đường làng.”",
+    "options": [
+      "con trâu",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con trâu",
+    "accepted_answers": [
+      "con trâu"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.3.0",
+    "theme": "animals",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con bò ăn cỏ ngoài đồng.”",
+    "options": [
+      "con bò",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con bò",
+    "accepted_answers": [
+      "con bò"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.3.1",
+    "theme": "animals",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con chim đậu trên mái ngói.”",
+    "options": [
+      "con chim",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con chim",
+    "accepted_answers": [
+      "con chim"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.3.2",
+    "theme": "animals",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con bướm bay qua vườn.”",
+    "options": [
+      "con bướm",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con bướm",
+    "accepted_answers": [
+      "con bướm"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.4.0",
+    "theme": "animals",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con ong hút mật hoa.”",
+    "options": [
+      "con ong",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con ong",
+    "accepted_answers": [
+      "con ong"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.4.1",
+    "theme": "animals",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con kiến tha mồi về tổ.”",
+    "options": [
+      "con kiến",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con kiến",
+    "accepted_answers": [
+      "con kiến"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.4.2",
+    "theme": "animals",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con ếch kêu sau cơn mưa.”",
+    "options": [
+      "con ếch",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con ếch",
+    "accepted_answers": [
+      "con ếch"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.5.0",
+    "theme": "animals",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con cua bò bên bờ mương.”",
+    "options": [
+      "con cua",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con cua",
+    "accepted_answers": [
+      "con cua"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.5.1",
+    "theme": "animals",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con tép nhỏ trong rổ.”",
+    "options": [
+      "con tép",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con tép",
+    "accepted_answers": [
+      "con tép"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.5.2",
+    "theme": "animals",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con dế gáy trong bụi cỏ.”",
+    "options": [
+      "con dế",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con dế",
+    "accepted_answers": [
+      "con dế"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.6.0",
+    "theme": "animals",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con mèo nằm bên cửa.”",
+    "options": [
+      "con mèo",
+      "con chó",
+      "con vịt",
+      "con gà"
+    ],
+    "answer": "con mèo",
+    "accepted_answers": [
+      "con mèo"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.6.1",
+    "theme": "animals",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con chó chạy ra sân.”",
+    "options": [
+      "con chó",
+      "con mèo",
+      "con vịt",
+      "con gà"
+    ],
+    "answer": "con chó",
+    "accepted_answers": [
+      "con chó"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.6.2",
+    "theme": "animals",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con vịt lội dưới ao.”",
+    "options": [
+      "con vịt",
+      "con mèo",
+      "con chó",
+      "con gà"
+    ],
+    "answer": "con vịt",
+    "accepted_answers": [
+      "con vịt"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.7.0",
+    "theme": "animals",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con gà bới đất kiếm mồi.”",
+    "options": [
+      "con gà",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con gà",
+    "accepted_answers": [
+      "con gà"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.7.1",
+    "theme": "animals",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con cá bơi trong lu.”",
+    "options": [
+      "con cá",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con cá",
+    "accepted_answers": [
+      "con cá"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.7.2",
+    "theme": "animals",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con trâu đi chậm trên đường làng.”",
+    "options": [
+      "con trâu",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con trâu",
+    "accepted_answers": [
+      "con trâu"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.8.0",
+    "theme": "animals",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con bò ăn cỏ ngoài đồng.”",
+    "options": [
+      "con bò",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con bò",
+    "accepted_answers": [
+      "con bò"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.8.1",
+    "theme": "animals",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con chim đậu trên mái ngói.”",
+    "options": [
+      "con chim",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con chim",
+    "accepted_answers": [
+      "con chim"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.8.2",
+    "theme": "animals",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con bướm bay qua vườn.”",
+    "options": [
+      "con bướm",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con bướm",
+    "accepted_answers": [
+      "con bướm"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.9.0",
+    "theme": "animals",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con ong hút mật hoa.”",
+    "options": [
+      "con ong",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con ong",
+    "accepted_answers": [
+      "con ong"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.9.1",
+    "theme": "animals",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con kiến tha mồi về tổ.”",
+    "options": [
+      "con kiến",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con kiến",
+    "accepted_answers": [
+      "con kiến"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.9.2",
+    "theme": "animals",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con ếch kêu sau cơn mưa.”",
+    "options": [
+      "con ếch",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con ếch",
+    "accepted_answers": [
+      "con ếch"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.10.0",
+    "theme": "animals",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con cua bò bên bờ mương.”",
+    "options": [
+      "con cua",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con cua",
+    "accepted_answers": [
+      "con cua"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.10.1",
+    "theme": "animals",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con tép nhỏ trong rổ.”",
+    "options": [
+      "con tép",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con tép",
+    "accepted_answers": [
+      "con tép"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.animals.10.2",
+    "theme": "animals",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Con dế gáy trong bụi cỏ.”",
+    "options": [
+      "con dế",
+      "con mèo",
+      "con chó",
+      "con vịt"
+    ],
+    "answer": "con dế",
+    "accepted_answers": [
+      "con dế"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.1.0",
+    "theme": "fruits",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái xoài chín thơm lừng.”",
+    "options": [
+      "trái xoài",
+      "trái ổi",
+      "trái mít",
+      "trái mận"
+    ],
+    "answer": "trái xoài",
+    "accepted_answers": [
+      "trái xoài"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.1.1",
+    "theme": "fruits",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Má mua một rổ trái ổi.”",
+    "options": [
+      "trái ổi",
+      "trái xoài",
+      "trái mít",
+      "trái mận"
+    ],
+    "answer": "trái ổi",
+    "accepted_answers": [
+      "trái ổi"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.1.2",
+    "theme": "fruits",
+    "level": 1,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái mít có múi vàng.”",
+    "options": [
+      "trái mít",
+      "trái xoài",
+      "trái ổi",
+      "trái mận"
+    ],
+    "answer": "trái mít",
+    "accepted_answers": [
+      "trái mít"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.2.0",
+    "theme": "fruits",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái mận đỏ giòn ngọt.”",
+    "options": [
+      "trái mận",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái mận",
+    "accepted_answers": [
+      "trái mận"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.2.1",
+    "theme": "fruits",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái bưởi có vỏ dày.”",
+    "options": [
+      "trái bưởi",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái bưởi",
+    "accepted_answers": [
+      "trái bưởi"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.2.2",
+    "theme": "fruits",
+    "level": 2,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái dừa có nước mát.”",
+    "options": [
+      "trái dừa",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái dừa",
+    "accepted_answers": [
+      "trái dừa"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.3.0",
+    "theme": "fruits",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Nải chuối đặt trên bàn.”",
+    "options": [
+      "trái chuối",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái chuối",
+    "accepted_answers": [
+      "trái chuối"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.3.1",
+    "theme": "fruits",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái cam chín mọng.”",
+    "options": [
+      "trái cam",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái cam",
+    "accepted_answers": [
+      "trái cam"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.3.2",
+    "theme": "fruits",
+    "level": 3,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái quýt dễ lột vỏ.”",
+    "options": [
+      "trái quýt",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái quýt",
+    "accepted_answers": [
+      "trái quýt"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.4.0",
+    "theme": "fruits",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Chôm chôm có vỏ nhiều gai mềm.”",
+    "options": [
+      "trái chôm chôm",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái chôm chôm",
+    "accepted_answers": [
+      "trái chôm chôm"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.4.1",
+    "theme": "fruits",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Sầu riêng có mùi đặc trưng.”",
+    "options": [
+      "trái sầu riêng",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái sầu riêng",
+    "accepted_answers": [
+      "trái sầu riêng"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.4.2",
+    "theme": "fruits",
+    "level": 4,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái nhãn mọc thành chùm.”",
+    "options": [
+      "trái nhãn",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái nhãn",
+    "accepted_answers": [
+      "trái nhãn"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.5.0",
+    "theme": "fruits",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Vú sữa có lớp vỏ nhẵn.”",
+    "options": [
+      "trái vú sữa",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái vú sữa",
+    "accepted_answers": [
+      "trái vú sữa"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.5.1",
+    "theme": "fruits",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái thơm có mắt ngoài vỏ.”",
+    "options": [
+      "trái thơm",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái thơm",
+    "accepted_answers": [
+      "trái thơm"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.5.2",
+    "theme": "fruits",
+    "level": 5,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái cóc ăn chấm muối ớt.”",
+    "options": [
+      "trái cóc",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái cóc",
+    "accepted_answers": [
+      "trái cóc"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.6.0",
+    "theme": "fruits",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái xoài chín thơm lừng.”",
+    "options": [
+      "trái xoài",
+      "trái ổi",
+      "trái mít",
+      "trái mận"
+    ],
+    "answer": "trái xoài",
+    "accepted_answers": [
+      "trái xoài"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.6.1",
+    "theme": "fruits",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Má mua một rổ trái ổi.”",
+    "options": [
+      "trái ổi",
+      "trái xoài",
+      "trái mít",
+      "trái mận"
+    ],
+    "answer": "trái ổi",
+    "accepted_answers": [
+      "trái ổi"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.6.2",
+    "theme": "fruits",
+    "level": 6,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái mít có múi vàng.”",
+    "options": [
+      "trái mít",
+      "trái xoài",
+      "trái ổi",
+      "trái mận"
+    ],
+    "answer": "trái mít",
+    "accepted_answers": [
+      "trái mít"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.7.0",
+    "theme": "fruits",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái mận đỏ giòn ngọt.”",
+    "options": [
+      "trái mận",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái mận",
+    "accepted_answers": [
+      "trái mận"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.7.1",
+    "theme": "fruits",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái bưởi có vỏ dày.”",
+    "options": [
+      "trái bưởi",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái bưởi",
+    "accepted_answers": [
+      "trái bưởi"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.7.2",
+    "theme": "fruits",
+    "level": 7,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái dừa có nước mát.”",
+    "options": [
+      "trái dừa",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái dừa",
+    "accepted_answers": [
+      "trái dừa"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.8.0",
+    "theme": "fruits",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Nải chuối đặt trên bàn.”",
+    "options": [
+      "trái chuối",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái chuối",
+    "accepted_answers": [
+      "trái chuối"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.8.1",
+    "theme": "fruits",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái cam chín mọng.”",
+    "options": [
+      "trái cam",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái cam",
+    "accepted_answers": [
+      "trái cam"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.8.2",
+    "theme": "fruits",
+    "level": 8,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái quýt dễ lột vỏ.”",
+    "options": [
+      "trái quýt",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái quýt",
+    "accepted_answers": [
+      "trái quýt"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.9.0",
+    "theme": "fruits",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Chôm chôm có vỏ nhiều gai mềm.”",
+    "options": [
+      "trái chôm chôm",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái chôm chôm",
+    "accepted_answers": [
+      "trái chôm chôm"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.9.1",
+    "theme": "fruits",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Sầu riêng có mùi đặc trưng.”",
+    "options": [
+      "trái sầu riêng",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái sầu riêng",
+    "accepted_answers": [
+      "trái sầu riêng"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.9.2",
+    "theme": "fruits",
+    "level": 9,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái nhãn mọc thành chùm.”",
+    "options": [
+      "trái nhãn",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái nhãn",
+    "accepted_answers": [
+      "trái nhãn"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.10.0",
+    "theme": "fruits",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Vú sữa có lớp vỏ nhẵn.”",
+    "options": [
+      "trái vú sữa",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái vú sữa",
+    "accepted_answers": [
+      "trái vú sữa"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.10.1",
+    "theme": "fruits",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái thơm có mắt ngoài vỏ.”",
+    "options": [
+      "trái thơm",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái thơm",
+    "accepted_answers": [
+      "trái thơm"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "id": "vi.question.fruits.10.2",
+    "theme": "fruits",
+    "level": 10,
+    "type": "choice",
+    "prompt": "Từ nào xuất hiện trong câu: “Trái cóc ăn chấm muối ớt.”",
+    "options": [
+      "trái cóc",
+      "trái xoài",
+      "trái ổi",
+      "trái mít"
+    ],
+    "answer": "trái cóc",
+    "accepted_answers": [
+      "trái cóc"
+    ],
+    "schema_version": "2.1",
+    "lesson": 1
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "v21",
+    "prompt": "Cuối tuần, Hoa nhìn thấy phòng mình bừa bộn. Sách vở nằm ngổn ngang, quần áo để lung tung. Hoa quyết định tự dọn dẹp phòng. Em cất sách vở vào tủ, xếp quần áo gọn gàng. Hoa còn lau bàn học và quét nhà. Sau hai tiếng đồng hồ, phòng Hoa sạch sẽ, ngăn nắp. Mẹ vào phòng, ngạc nhiên: \"Ai dọn phòng vậy?\" Hoa trả lời: \"Dạ, con tự dọn ạ!\" Mẹ vui vẻ: \"Con đã biết dọn dẹp phòng của mình rồi!\"\nĐiều gì thể hiện Hoa đã trưởng thành?",
+    "type": "choice",
+    "lesson": 1,
+    "options": [
+      "Hoa làm việc chăm chỉ.",
+      "Hoa nghe lời mẹ dặn.",
+      "Hoa tự giác làm việc nhà.",
+      "Hoa dọn phòng nhanh chóng"
+    ],
+    "answer": "Hoa tự giác làm việc nhà.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_002",
+    "prompt": "Số bông hoa không màu ít (kém) hơn số bông hoa có màu bao nhiêu (mấy) bông hoa?",
+    "type": "picture_choice",
+    "lesson": 1,
+    "options": [
+      "5 bông.",
+      "3 bông.",
+      "2 bông.",
+      "4 bông."
+    ],
+    "answer": "3 bông.",
+    "accepted_answers": [],
+    "image": "media/Câu 2.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_003",
+    "prompt": "Bạn hãy chọn đáp án đúng.",
+    "type": "picture_choice",
+    "lesson": 1,
+    "options": [
+      "48 đơn vị.",
+      "46 đơn vị.",
+      "44 đơn vị.",
+      "42 đơn vị."
+    ],
+    "answer": "46 đơn vị.",
+    "accepted_answers": [],
+    "image": "media/Câu 3.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "v2.4",
+    "prompt": "Em hãy chọn hình đúng.\nSố 56 bao gồm",
+    "type": "image_multi_choice",
+    "lesson": 2,
+    "options": [
+      "media/câu 4 đáp án 1.png",
+      "media/câu 4 đáp án 2.png",
+      "media/câu 4 đáp án 3.png"
+    ],
+    "answer": "media/câu 4 đáp án 3.png",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0",
+    "image_options": [
+      {
+        "image": "media/câu 4 đáp án 1.png"
+      },
+      {
+        "image": "media/câu 4 đáp án 2.png"
+      },
+      {
+        "image": "media/câu 4 đáp án 3.png"
+      }
+    ],
+    "correct_index": 2,
+    "image_size": [
+      120,
+      80
+    ]
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_006",
+    "prompt": "Bạn hãy chọn đáp án đúng.\nEm hãy đọc đoạn văn giới thiệu về bản thân sau đây và cho biết bạn nhỏ trong đoạn văn tên là gì?\n\"Em tên là Hoàng Nam. Em học lớp 2A, trường tiểu học Đặng Văn Ngữ. Em rất thích đá banh.\"",
+    "type": "choice",
+    "lesson": 1,
+    "options": [
+      "Văn Ngữ",
+      "Minh Anh",
+      "Mai Khôi",
+      "Hoàng Nam"
+    ],
+    "answer": "Hoàng Nam",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_007",
+    "prompt": "Bạn hãy chọn đáp án đúng.\nCó 5 cây bút mực và 7 cây bút chì. Hỏi số bút chì hơn số bút mực là bao nhiêu cây bút?",
+    "type": "picture_choice",
+    "lesson": 1,
+    "options": [
+      "2 cây.",
+      "7 cây.",
+      "5 cây.",
+      "1 cây."
+    ],
+    "answer": "2 cây.",
+    "accepted_answers": [],
+    "image": "media/Câu 6.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_008",
+    "prompt": "Bạn hãy chọn câu trả lời đúng.\nPhép so sánh nào dưới đây là đúng.",
+    "type": "choice",
+    "lesson": 1,
+    "options": [
+      "52 > 55",
+      "52 = 55",
+      "52 < 55",
+      "55 < 52"
+    ],
+    "answer": "52 < 55",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 1,
+    "id": "aa_11",
+    "prompt": "Hãy chọn từ đúng",
+    "type": "conversation_gaps",
+    "lesson": 1,
+    "dialogue": [
+      {
+        "speaker": "An",
+        "text": "Happy birthday!",
+        "hidden_indices": [
+          1
+        ]
+      },
+      {
+        "speaker": "Phong",
+        "text": "Thank you! Do you like the cake?",
+        "hidden_indices": [
+          0,
+          1
+        ]
+      }
+    ],
+    "distractors": [
+      "cho",
+      "an",
+      "phong"
+    ],
+    "options": [
+      "birthday!",
+      "Thank",
+      "you!",
+      "cho",
+      "an",
+      "phong"
+    ],
+    "answer": "birthday! | Thank | you!",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 1,
+    "id": "lloas",
+    "prompt": "Hoàn thành câu",
+    "type": "sentence_gaps",
+    "lesson": 1,
+    "source_text": "a b c d e",
+    "hidden_indices": [
+      1,
+      4
+    ],
+    "distractors": [
+      "d",
+      "a"
+    ],
+    "options": [
+      "b",
+      "e",
+      "d",
+      "a"
+    ],
+    "answer": "a b c d e",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_0008",
+    "prompt": "Bạn hãy chọn câu trả lời đúng.\nNhìn hình và trả lời câu hỏi. Số lượng con chim nhiều hơn con bướm trong hình là bao nhiêu con?",
+    "type": "picture_choice",
+    "lesson": 1,
+    "options": [
+      "3 con.",
+      "4 con.",
+      "1 con.",
+      "2 con."
+    ],
+    "answer": "3 con.",
+    "accepted_answers": [],
+    "image": "media/câu 8.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 1,
+    "id": "Vio_009",
+    "prompt": "Bạn hãy chọn câu trả lời đúng.\nMột tổ công nhân may được 82 cái áo màu xanh và 60 cái áo màu vàng. Hỏi rằng cái áo màu nào may được ít hơn?",
+    "type": "image_multi_choice",
+    "lesson": 1,
+    "image_options": [
+      {
+        "image": "media/câu 9 áo xanh.png"
+      },
+      {
+        "image": "media/câu 9 áo vàng.png"
+      },
+      {
+        "image": "media/câu 9 áo đỏ.png"
+      },
+      {
+        "image": "media/câu 9 áo hồng.png"
+      }
+    ],
+    "options": [
+      "media/câu 9 áo xanh.png",
+      "media/câu 9 áo vàng.png",
+      "media/câu 9 áo đỏ.png",
+      "media/câu 9 áo hồng.png"
+    ],
+    "answer": "media/câu 9 áo xanh.png",
+    "correct_index": 0,
+    "image_size": [
+      120,
+      80
+    ],
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 1,
+    "id": "Vio_010",
+    "prompt": "Em hãy chọn câu trả lời đúng.\nỞ một xưởng may áo, công nhân may được 82 cái áo màu vàng, 60 cái áo màu xanh, 70 cái áo màu đỏ và 62 cái áo màu hồng. Hỏi áo màu nào may được ít nhất?",
+    "type": "image_multi_choice",
+    "lesson": 1,
+    "image_options": [
+      {
+        "image": "media/câu 9 áo xanh.png"
+      },
+      {
+        "image": "media/câu 9 áo vàng.png"
+      },
+      {
+        "image": "media/câu 9 áo hồng.png"
+      },
+      {
+        "image": "media/câu 9 áo đỏ.png"
+      }
+    ],
+    "options": [
+      "media/câu 9 áo xanh.png",
+      "media/câu 9 áo vàng.png",
+      "media/câu 9 áo hồng.png",
+      "media/câu 9 áo đỏ.png"
+    ],
+    "answer": "media/câu 9 áo xanh.png",
+    "correct_index": 0,
+    "image_size": [
+      120,
+      80
+    ],
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_00(",
+    "prompt": "Em hãy chọn câu trả lời đúng.\nTại một xưởng may, các công nhân đã may ra được 80 cái áo màu đỏ, 72 cái áo màu xanh, 60 cái áo màu vàng và 66 cái áo màu xanh. Hỏi áo màu nào may được ít nhất?",
+    "type": "image_multi_choice",
+    "lesson": 1,
+    "image_options": [
+      {
+        "image": "media/câu 9 áo đỏ.png"
+      },
+      {
+        "image": "media/câu 9 áo hồng.png"
+      },
+      {
+        "image": "media/câu 9 áo vàng.png"
+      },
+      {
+        "image": "media/câu 9 áo xanh.png"
+      }
+    ],
+    "options": [
+      "media/câu 9 áo đỏ.png",
+      "media/câu 9 áo hồng.png",
+      "media/câu 9 áo vàng.png",
+      "media/câu 9 áo xanh.png"
+    ],
+    "answer": "media/câu 9 áo vàng.png",
+    "correct_index": 2,
+    "image_size": [
+      120,
+      80
+    ],
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_011",
+    "prompt": "Hằng ngày, vào mỗi buổi sáng, ba phải dẫn Gia Kỳ đi học. Hôm nay, Gia Kỳ nói với ba rằng: \"Dạ, ba ơi, con muốn tự đi học một mình ạ!\" Ba tuy lo lắng nhưng vẫn đồng ý cho phép. Gia Kỳ cẩn thận nhìn bên trái và phải mỗi khi cần đi qua đường. Gia Kỳ luôn đi đúng trên vỉa hè, không chạy nhảy. Vào lớp, Gia Kỳ kể với cô giáo của mình \"Dạ cô ơi, hôm nay con tự đi học đến lớp ạ!\" Cô giáo cười: \"Gia Kỳ đã biết tự chăm sóc cho bản thân rồi!\" Chiều về nhà, Gia Kỳ tự hào kể với ba về chuyến đi học một mình đầu tiên của mình. \nCâu hỏi: Gia Kỳ làm gì mỗi khi băng qua đường?",
+    "type": "choice",
+    "lesson": 1,
+    "options": [
+      "Hét lớn cho mọi người biết.",
+      "Đi thẳng một mạch không dừng.",
+      "Nhìn bên trái và phải.",
+      "Chạy thiệt nhanh."
+    ],
+    "answer": "Nhìn bên trái và phải.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_012",
+    "prompt": "Một hôm, vào chiều thứ 7, Kiệt đang làm bài tập trong phòng thì nghe thấy có tiếng bước chân của bà nội trên cầu thang. Bà vừa đi chợ về, tay còn xách rất nhiều đồ ăn. Kiệt để bút xuống bàn, liền chạy nhanh ra ngoài giúp bà nội xách đồ ăn đi cất. Bà nội mỉm cười nhìn Kiệt \"Kiệt của bà nội là giỏi nhứt (nhất)!\". Kiệt cảm thấy rất vui!\nCâu hỏi: Sau khi giúp bà nội xách đồ, Kiệt cảm thấy ... ?",
+    "type": "choice",
+    "lesson": 1,
+    "options": [
+      "Buồn.",
+      "Vui.",
+      "Đói bụng.",
+      "Mệt."
+    ],
+    "answer": "Vui.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_013",
+    "prompt": "Em hãy chọn câu trả lời đúng.\nEm hãy đọc đoạn văn sau đây và cho biết bạn nhỏ trong đoạn văn đang học tại trường nào?\n\" Em tên là Hoài Phương. Em học lớp 2D, trường tiểu học Nguyễn Du. Em rất thích vẽ tranh. \"",
+    "type": "choice",
+    "lesson": 1,
+    "options": [
+      "Trường tiểu học Trần Phú.",
+      "Trường tiểu học Nguyễn Du.",
+      "Trường tiểu học Đặng Văn Ngữ.",
+      "Trường tiểu học Khởi Nghĩa."
+    ],
+    "answer": "Trường tiểu học Nguyễn Du.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_014",
+    "prompt": "Em hãy chọn câu trả lời đúng.\nCâu nào trong các đáp án dưới đây là giới thiệu sở thích của bản thân?",
+    "type": "choice",
+    "lesson": 1,
+    "options": [
+      "Em rất thích đọc sách.",
+      "Em học lớp 2B.",
+      "Em đang đọc sách.",
+      "Em tên là HiHieu."
+    ],
+    "answer": "Em rất thích đọc sách.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_015",
+    "prompt": "Em hãy điền số lớn nhất vào ô trống.",
+    "type": "picture_missing_letters",
+    "lesson": 1,
+    "image": "media/câu 15.png",
+    "answer": "90",
+    "hidden_indices": [
+      0,
+      1
+    ],
+    "options": [],
+    "accepted_answers": [],
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_016",
+    "prompt": "Em hãy chọn câu phù hợp để hoàn thiện đoạn văn sau:\n\"Mình tên là Mai. Mình học lớp 2B, trường tiểu học Đặng Văn Ngữ. Mình rất thích vẽ tranh ......\"",
+    "type": "choice",
+    "lesson": 1,
+    "options": [
+      ". Mình thích đi chợ với mẹ.",
+      ". Mình rất vui được làm quen với các bạn.",
+      ". Ba mẹ mình là bác sĩ.",
+      ". Mình không còn gì để giới thiệu nữa."
+    ],
+    "answer": ". Mình rất vui được làm quen với các bạn.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "id": "Vio_017",
+    "prompt": "Em hãy nối cột bên trái với câu trả lời phù hợp ở bên phải.",
+    "type": "matching",
+    "lesson": 1,
+    "matching_mode": "Chữ ↔ Chữ",
+    "options": [
+      "Nhà của em ở đâu? = Nhà của em ở Phú Nhuận.",
+      "Em thích học môn nào nhất. = Em thích học môn Toán nhất.",
+      "Họ và tên của em là gì? = Em tên là Nguyễn Thành Công.",
+      "Em có nhiều bạn bè không? = Em có rất nhiều bạn bè"
+    ],
+    "answer": "Nhà của em ở đâu? = Nhà của em ở Phú Nhuận. | Em thích học môn nào nhất. = Em thích học môn Toán nhất. | Họ và tên của em là gì? = Em tên là Nguyễn Thành Công. | Em có nhiều bạn bè không? = Em có rất nhiều bạn bè",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v17",
+    "prompt": "Bạn hãy chọn đáp án đúng.",
+    "level": 1,
+    "lesson": 1,
+    "type": "picture_choice",
+    "options": [
+      "7 hình.",
+      "2 hình.",
+      "5 hình.",
+      "1 hình."
+    ],
+    "answer": "2 hình.",
+    "accepted_answers": [],
+    "image": "media/câu 17.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v18",
+    "prompt": "Chọn đáp án đúng",
+    "level": 1,
+    "lesson": 1,
+    "type": "picture_choice",
+    "options": [
+      "68",
+      "50",
+      "62",
+      "27"
+    ],
+    "answer": "68",
+    "accepted_answers": [],
+    "image": "media/18.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v19",
+    "prompt": "Chọn đáp án đúng.",
+    "level": 1,
+    "lesson": 1,
+    "type": "picture_choice",
+    "options": [
+      "85",
+      "79",
+      "90",
+      "81"
+    ],
+    "answer": "79",
+    "accepted_answers": [],
+    "image": "media/19.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v20",
+    "prompt": "Chọn đáp án đúng.",
+    "level": 1,
+    "lesson": 1,
+    "type": "picture_choice",
+    "options": [
+      "10 con.",
+      "8 con.",
+      "26 con.",
+      "12 con."
+    ],
+    "answer": "10 con.",
+    "accepted_answers": [],
+    "image": "media/20.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v22",
+    "prompt": "Vào sáng hôm nay, Gia Kỳ thức dậy sớm hơn mọi ngày. Gia Kỳ không còn kêu ba mẹ như trước nữa. Gia Kỳ tự đi đánh răng và rửa mặt, lấy đồ và thay đồ đi học. Gia Kỳ còn xếp mền gối gọn gàng. Sau đó, Gia Kỳ xuống dưới nhà tự ngồi ăn sáng. Ba thấy vừa ngạc nhiên và vui, ba nói \"Hôm nay Gia Kỳ của ba dậy sớm ta!\", \"Gia Kỳ của ba đã lớn thiệt rồi!\".\nĐiều gì cho thấy Gia Kỳ đã trưởng thành?",
+    "level": 1,
+    "lesson": 1,
+    "type": "choice",
+    "options": [
+      "Gia Kỳ biết đi xe đạp.",
+      "Gia Kỳ đã tự giác làm các công việc của mình.",
+      "Gia Kỳ chơi lego với em Louis.",
+      "Gia Kỳ dậy sớm."
+    ],
+    "answer": "Gia Kỳ đã tự giác làm các công việc của mình.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.1",
+    "prompt": "Em hãy chọn câu mô tả đúng cho hình bên dưới.",
+    "level": 1,
+    "lesson": 2,
+    "type": "picture_choice",
+    "options": [
+      "Bé gái đang ngồi ở bàn học để làm bài tập Toán.",
+      "Bé gái đang xếp quần áo gọn gàng và cất vào trong tủ.",
+      "Bé gái đang hái trái mận phụ bà nội.",
+      "Bé gái đang dọn dẹp đồ chơi Lego bỏ vào hộp."
+    ],
+    "answer": "Bé gái đang xếp quần áo gọn gàng và cất vào trong tủ.",
+    "accepted_answers": [],
+    "image": "media/câu 1.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.2",
+    "prompt": "Em hãy nhìn hình bên dưới và điền vào ô trống đáp án phù hợp.",
+    "level": 1,
+    "lesson": 2,
+    "type": "image_write_answer",
+    "image": "media/câu 2.png",
+    "answer": "17",
+    "accepted_answers": [],
+    "options": [],
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.3",
+    "prompt": "Nhìn hình bên dưới và chọn đáp án đúng.\nBạn trong hình đang làm việc gì?",
+    "level": 1,
+    "lesson": 2,
+    "type": "picture_choice",
+    "options": [
+      "Đang chơi Lego.",
+      "Đang rửa chén.",
+      "Đang chơi với nước.",
+      "Đang rửa tay."
+    ],
+    "answer": "Đang rửa chén.",
+    "accepted_answers": [],
+    "image": "media/câu 3.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.5",
+    "prompt": "Em hãy chọn đáp án phù hợp điền vào chổ trống để được câu đúng.\nTừ \"em bé\" chỉ sự vật thuộc nhóm ..........",
+    "level": 1,
+    "lesson": 2,
+    "type": "choice",
+    "options": [
+      "Đồ vật.",
+      "Cây cối.",
+      "Con người.",
+      "Con vật."
+    ],
+    "answers": [
+      "Hộp sữa.",
+      "Gấu bông."
+    ],
+    "answer": "Con người.",
+    "image": "",
+    "audio": "",
+    "passage": "Từ nào dưới đây là từ chỉ sự vật về đồ vật?",
+    "accepted_answers": [],
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.6",
+    "prompt": "Em hãy chọn câu trả lời đúng.",
+    "level": 1,
+    "lesson": 2,
+    "type": "text_multi_select",
+    "options": [
+      "Bay lên.",
+      "Hộp sữa.",
+      "Cây cam.",
+      "Gấu bông."
+    ],
+    "answers": [
+      "Hộp sữa.",
+      "Gấu bông."
+    ],
+    "answer": "Hộp sữa. | Gấu bông.",
+    "image": "",
+    "audio": "",
+    "passage": "Từ nào dưới đây là từ chỉ sự vật về đồ vật?",
+    "accepted_answers": [],
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.7",
+    "prompt": "Em hãy chọn câu trả lời đúng.\nSố liền sau của 56 được ghi lên trái banh nào dưới đây?",
+    "level": 1,
+    "lesson": 2,
+    "type": "image_multi_choice",
+    "image_options": [
+      {
+        "image": "media/câu 7 đáp án 1.png"
+      },
+      {
+        "image": "media/câu 7 đáp án 2.png"
+      },
+      {
+        "image": "media/câu 7 đáp án 3.png"
+      }
+    ],
+    "options": [
+      "media/câu 7 đáp án 1.png",
+      "media/câu 7 đáp án 2.png",
+      "media/câu 7 đáp án 3.png"
+    ],
+    "answer": "media/câu 7 đáp án 1.png",
+    "correct_index": 0,
+    "image_size": [
+      120,
+      80
+    ],
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.8",
+    "prompt": "Ghi số thích hợp vào chổ trống:\nAnh Hai câu được 2 con cá và 1 chục con cá. Vậy là anh Hai câu được ...... con cá.",
+    "level": 1,
+    "lesson": 2,
+    "type": "fill",
+    "options": [],
+    "answer": "12",
+    "accepted_answers": [
+      "12"
+    ],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.9",
+    "prompt": "Em hãy chọn đáp án đúng.\nTừ hai số trong hình, tạo thành số có hàng đơn vị bằng 8 là số",
+    "level": 1,
+    "lesson": 2,
+    "type": "picture_choice",
+    "options": [
+      "48",
+      "84",
+      "44",
+      "42"
+    ],
+    "answer": "48",
+    "accepted_answers": [],
+    "image": "media/câu 9.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.10",
+    "prompt": "Em hãy chọn câu trả lời đúng.\nTrong các khẳng định dưới đây, khẳng định nào là đúng?",
+    "level": 1,
+    "lesson": 2,
+    "type": "choice",
+    "options": [
+      "Số liền sau của 37 là 38.",
+      "Số liền sau của 37 là 35.",
+      "Số liền sau của 37 là 37.",
+      "Số liền sau của 37 là 36."
+    ],
+    "answer": "Số liền sau của 37 là 38.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.11",
+    "prompt": "Em hãy gạch chân dưới đáp án phù hợp với hình bên dưới:",
+    "level": 1,
+    "lesson": 2,
+    "type": "image_underline_choice",
+    "image": "media/câu 11.png",
+    "options": [
+      "Trái cam",
+      "Cây mít",
+      "Trái táo",
+      "Trái mít",
+      "Trái sầu riêng."
+    ],
+    "answer": "Trái mít",
+    "answer_mode": "multiple",
+    "answers": [
+      "Trái mít"
+    ],
+    "accepted_answers": [],
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.12",
+    "prompt": "Em hãy chọn đáp án thích hợp để điền vào chổ trống.\nTừ hai trong ba thẻ số sau, có thể ghép được tất cả bao nhiêu số có hai chữ số?",
+    "level": 1,
+    "lesson": 2,
+    "type": "dropdown_fill_blank",
+    "options": [
+      "3",
+      "6",
+      "4"
+    ],
+    "answer": "4",
+    "image": "media/câu 12.png",
+    "accepted_answers": [],
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.13",
+    "prompt": "Hãy chọn đáp án đúng.\nTừ chỉ sự vật nhóm con người trong câu \"Chú bộ đội đứng gác ở cổng.\" là ..........",
+    "level": 1,
+    "lesson": 2,
+    "type": "choice",
+    "options": [
+      "đứng gác",
+      "Chú bộ đội",
+      "cổng"
+    ],
+    "answer": "Chú bộ đội",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.14",
+    "prompt": "Em hãy nối câu phù hợp với hình.",
+    "level": 1,
+    "lesson": 2,
+    "type": "matching",
+    "matching_mode": "Chữ ↔ Hình",
+    "options": [
+      "Em đang lau nhà, giúp phòng thêm sạch sẽ và mát mẻ. = img:media/câu 14 hình 1.png",
+      "Em đang dọn dẹp bàn học, sắp xếp sách vở gọn gàng và ngăn nắp. = img:media/câu 14 hình 2.png",
+      "Em ngồi phụ mẹ lặt rau và chuẩn bị bữa tối cho gia đình. = img:media/câu 14 hình 3.png"
+    ],
+    "answer": "Em đang lau nhà, giúp phòng thêm sạch sẽ và mát mẻ. = img:media/câu 14 hình 1.png | Em đang dọn dẹp bàn học, sắp xếp sách vở gọn gàng và ngăn nắp. = img:media/câu 14 hình 2.png | Em ngồi phụ mẹ lặt rau và chuẩn bị bữa tối cho gia đình. = img:media/câu 14 hình 3.png",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.15",
+    "prompt": "Em hãy điền số thích hợp vào ô trống.\nSố liền trước của 46 là ......",
+    "level": 1,
+    "lesson": 2,
+    "type": "fill",
+    "options": [],
+    "answer": "45",
+    "accepted_answers": [
+      "45"
+    ],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.16",
+    "prompt": "Khi viết một câu để tả về một việc em làm ở nhà, em có thể kể việc nào sau đây?",
+    "level": 1,
+    "lesson": 2,
+    "type": "choice",
+    "options": [
+      "Em kể về một chuyến đi chơi xa cùng gia đình nhân dịp nghỉ hè.",
+      "Em kể về một trò chơi thú vị mà em chơi ở trường.",
+      "Em kể về việc mà em phụ mẹ quét nhà, xếp đồ và rửa chén.",
+      "Em kể lại câu chuyện cổ tích mà em đã được nghe ở trường."
+    ],
+    "answer": "Em kể về việc mà em phụ mẹ quét nhà, xếp đồ và rửa chén.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.17",
+    "prompt": "Bạn hãy điền số thích hợp vào chổ trống.\nSố liền sau của số gồm 4 chục và 3 đơn vị là ....",
+    "level": 1,
+    "lesson": 2,
+    "type": "fill",
+    "options": [],
+    "answer": "44",
+    "accepted_answers": [
+      "44"
+    ],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.18",
+    "prompt": "Bạn hãy ghi số thích hợp vào ô trống.\nCho số như hình",
+    "level": 1,
+    "lesson": 2,
+    "type": "multi_fill_blanks",
+    "blank_text": "Nếu đổi chỗ chữ số hàng chục và chữ số hàng đơn vị của số trên, ta được số mới là [[1]] chục và [[2]] đơn vị.",
+    "blank_answers": [
+      "8",
+      "6"
+    ],
+    "answer": "8 | 6",
+    "options": [],
+    "image": "media/câu 18.png",
+    "accepted_answers": [],
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.19",
+    "prompt": "Em hãy ghi số thích hợp vào ô trống.\nCho dãy số sau:",
+    "level": 1,
+    "lesson": 2,
+    "type": "multi_fill_blanks",
+    "blank_text": "Trong dãy số trên:\na) Có [[1]] số có số chục là 7.\nb) Có [[2]] số lớn hơn 63 và nhỏ hơn 69.",
+    "blank_answers": [
+      "3",
+      "5"
+    ],
+    "answer": "3 | 5",
+    "options": [],
+    "image": "media/câu 19.png",
+    "accepted_answers": [],
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.20",
+    "prompt": "Em hãy chọn đáp án đúng.\nNhìn vào hình bên dưới, kết quả của phép tính được ghi trên bong bóng nằm ở vị trí nào?",
+    "level": 1,
+    "lesson": 2,
+    "type": "picture_choice",
+    "options": [
+      "Vị trí B",
+      "Vị trí A",
+      "Vị trí D",
+      "Vị trí C"
+    ],
+    "answer": "Vị trí B",
+    "accepted_answers": [],
+    "image": "media/câu 20.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.21",
+    "prompt": "Em hãy chọn cách sắp xếp hợp lí các câu sau để hoàn thành đoạn văn kể về một việc làm ở nhà.\n 1. Em lặt rau phụ mẹ để chuẩn bị nấu canh.\n 2. Em cảm thấy rất vui vì đã phụ mẹ được một việc nhỏ.\n 3. Em rửa sạch rau rồi bỏ vào rổ.",
+    "level": 1,
+    "lesson": 2,
+    "type": "choice",
+    "options": [
+      "(1) -> (3) -> (2)",
+      "(2) -> (3) -> (1)",
+      "(3) -> (1) -> (2)",
+      "(1) -> (3) -> (2)"
+    ],
+    "answer": "(1) -> (3) -> (2)",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.22",
+    "prompt": "Em hãy tìm từ chỉ người làm các công việc sau: trồng lúa, trồng khoai, nuôi heo, nuôi cá...",
+    "level": 1,
+    "lesson": 2,
+    "type": "choice",
+    "options": [
+      "Bác sĩ",
+      "Công an",
+      "Công nhân",
+      "Nông dân"
+    ],
+    "answer": "Nông dân",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.23",
+    "prompt": "Điền số thích hợp vào chổ trống:",
+    "level": 1,
+    "lesson": 2,
+    "type": "multi_fill_blanks",
+    "blank_text": "Số còn thiếu trong các số trên là [[1]] chục và [[2]] đơn vị.",
+    "blank_answers": [
+      "1",
+      "5"
+    ],
+    "answer": "1 | 5",
+    "options": [],
+    "image": "media/câu 23.png",
+    "accepted_answers": [],
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.24",
+    "prompt": "Em hãy gạch dưới những từ chỉ sự vật thuộc nhóm thực vật.",
+    "level": 1,
+    "lesson": 2,
+    "type": "image_underline_choice",
+    "image": "media/câu 24.png",
+    "options": [
+      "cá heo",
+      "cây ổi",
+      "cây chổi",
+      "cây lộc vừng",
+      "cây roi mây"
+    ],
+    "answer": "cây ổi",
+    "answer_mode": "multiple",
+    "answers": [
+      "cây ổi",
+      "cây lộc vừng"
+    ],
+    "accepted_answers": [],
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.25",
+    "prompt": "Hãy chọn từ chỉ con vật phù hợp vào chổ trống.\n\t..... kêu \"meo, meo\"",
+    "level": 1,
+    "lesson": 2,
+    "type": "choice",
+    "options": [
+      "Con cọp",
+      "Con mèo",
+      "Con heo"
+    ],
+    "answer": "Con mèo",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.26",
+    "prompt": "Em hãy điền số thích hợp vào chổ trống.\nSố nhỏ nhất có 2 chữ số giống nhau được ghép từ 3 chữ số 2; 4; 7 là ......",
+    "level": 1,
+    "lesson": 2,
+    "type": "fill",
+    "options": [],
+    "answer": "22",
+    "accepted_answers": [
+      "22"
+    ],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.27",
+    "prompt": "Đề bài: Viết đoạn văn về một việc em đã phụ ba mẹ ở nhà.\nĐoạn văn nào dưới đây phù hợp với đề bài trên?",
+    "level": 1,
+    "lesson": 2,
+    "type": "choice",
+    "options": [
+      "Tối qua, em tự lấy cơm và ăn hết phần của mình. Cơm rất ngon nên em ăn rất nhanh. Em thấy no và thích thú.",
+      "Buổi sáng, em cùng ba đi dạo quanh công viên. Hai cha con vừa đi vừa trò chuyện và ngắm nhìn cây cối xanh mát. Em cảm thấy rất thoải mái sau buổi đi dạo ấy.",
+      "Hôm nay, em phụ mẹ lặt rau chuẩn bị cho bữa cơm tối. Em bỏ những lá úa, rửa sạch từng bó rau rồi để gọn vào rổ. Em cảm thấy rất vui vì đã góp một phần nhỏ vào bữa ăn của gia đình.",
+      "Chiều nay, em chơi cùng em trai ở phòng khách. Em lấy đồ chơi và xếp ra cho em. Hai chị em cùng chơi rất vui vẻ."
+    ],
+    "answer": "Hôm nay, em phụ mẹ lặt rau chuẩn bị cho bữa cơm tối. Em bỏ những lá úa, rửa sạch từng bó rau rồi để gọn vào rổ. Em cảm thấy rất vui vì đã góp một phần nhỏ vào bữa ăn của gia đình.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.28",
+    "prompt": "Em hãy gạch chân từ chỉ sự vật thuộc nhóm thực vật trong câu sau.",
+    "level": 1,
+    "lesson": 2,
+    "type": "sentence_underline_words",
+    "source_text": "Ba em đang tưới cho cây hoa lan",
+    "correct_word_indices": [
+      5,
+      6,
+      7
+    ],
+    "options": [],
+    "answer": "cây | hoa | lan",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.29",
+    "prompt": "Em hãy điền số thích hợp vào chổ trống.\nVới 4 chữ số 5; 2; 6; 8 có thể ghép được bao nhiêu số có 2 chữ số giống nhau?",
+    "level": 1,
+    "lesson": 2,
+    "type": "fill",
+    "options": [],
+    "answer": "4 số",
+    "accepted_answers": [
+      "4 số"
+    ],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "v2.30",
+    "prompt": "Em hãy chọn các câu và sắp xếp thích hợp để ghé thành một đoạn văn hoàn chỉnh nói về việc xếp quần áo.",
+    "level": 1,
+    "lesson": 2,
+    "type": "order",
+    "options": [
+      "Ở nhà, em hay giúp mẹ xếp quần áo.",
+      "Em nhẹ nhàng xếp từng cái áo, cái quần.",
+      "Sau đó, em đem quần áo đã xếp ngăn nắp cất vào tủ.",
+      "Em rất vui khi thấy tủ quần áo gọn gàng."
+    ],
+    "answer": "Ở nhà, em hay giúp mẹ xếp quần áo.| Em nhẹ nhàng xếp từng cái áo, cái quần.| Sau đó, em đem quần áo đã xếp ngăn nắp cất vào tủ.| Em rất vui khi thấy tủ quần áo gọn gàng.",
+    "accepted_answers": [
+      "Ở nhà, em hay giúp mẹ xếp quần áo.",
+      "Em nhẹ nhàng xếp từng cái áo, cái quần.",
+      "Sau đó, em đem quần áo đã xếp ngăn nắp cất vào tủ.",
+      "Em rất vui khi thấy tủ quần áo gọn gàng."
+    ],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [
+      "36"
+    ],
+    "id": "vio.l1.lesson3.01",
+    "type": "image_write_answer",
+    "prompt": "Bạn hãy điền số thích hợp vào ô trống.\n34 + 2 = ?",
+    "answer": "36",
+    "options": [],
+    "image": "media/vio_l1_l3_q01.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [
+      "58"
+    ],
+    "id": "vio.l1.lesson3.02",
+    "type": "image_write_answer",
+    "prompt": "Bạn hãy điền số thích hợp vào ô trống.\n53 + 5 = ?",
+    "answer": "58",
+    "options": [],
+    "image": "media/vio_l1_l3_q02.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.03",
+    "type": "choice",
+    "prompt": "Cho phép tính được đặt tính như hình. Số thích hợp điền vào dấu ? là",
+    "answer": "56",
+    "options": [
+      "66",
+      "16",
+      "46",
+      "56"
+    ],
+    "image": "media/vio_l1_l3_q03.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.04",
+    "type": "choice",
+    "prompt": "Câu nào dưới đây không phải là câu giới thiệu?",
+    "answer": "Em đi học.",
+    "options": [
+      "Con mèo là vật nuôi trong nhà.",
+      "Sài Gòn là thành phố hiện đại nhất Việt Nam.",
+      "Cô giáo là người dạy học.",
+      "Em đi học."
+    ],
+    "image": ""
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.05",
+    "type": "image_write_answer",
+    "prompt": "Dựa vào mẫu, số thích hợp điền vào dấu ? là:",
+    "answer": "80",
+    "options": [],
+    "image": "media/vio_l1_l3_q05.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.06",
+    "type": "picture_choice",
+    "prompt": "Em hãy chọn bạn viết đúng chính tả tên của mình.",
+    "answer": "Bạn đội nón.",
+    "options": [
+      "Bạn đội nón.",
+      "Bạn không đội nón."
+    ],
+    "image": "media/vio_l1_l3_q06.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.07",
+    "type": "choice",
+    "prompt": "Câu nào dưới đây là câu giới thiệu (Ai là gì?)?",
+    "answer": "Ba em là bác sĩ.",
+    "options": [
+      "Mẹ em đi chợ.",
+      "Ba em là bác sĩ.",
+      "Bé Lan rất ngoan.",
+      "Em đang chơi."
+    ],
+    "image": ""
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.08",
+    "type": "dropdown_fill_blank",
+    "prompt": "Kết quả của phép tính trên ô tô là: 87 − 7 = ?",
+    "answer": "80",
+    "options": [
+      "70",
+      "80",
+      "90",
+      "87"
+    ],
+    "image": "media/vio_l1_l3_q08.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.09",
+    "type": "choice",
+    "prompt": "Câu nào là câu giới thiệu về người?",
+    "answer": "Em là học sinh lớp Hai.",
+    "options": [
+      "Trái táo là một loại trái cây.",
+      "Cây bút là đồ dùng học tập.",
+      "Em là học sinh lớp Hai.",
+      "Con mèo là vật nuôi."
+    ],
+    "image": ""
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.10",
+    "type": "choice",
+    "prompt": "Em cần viết hoa tên riêng trong trường hợp đó là .....",
+    "answer": "tên người",
+    "options": [
+      "tên loài hoa",
+      "tên người"
+    ],
+    "image": ""
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.11",
+    "type": "picture_choice",
+    "prompt": "Số gồm 5 chục và 7 đơn vị. Em hãy giúp chú khỉ chọn đúng món ăn của mình nhé!",
+    "answer": "57",
+    "options": [
+      "57",
+      "75",
+      "67"
+    ],
+    "image": "media/câu 11_8f07d026ca7e.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.12",
+    "type": "image_write_answer",
+    "prompt": "Dựa vào hình bên dưới, số thích hợp điền vào dấu ? là:",
+    "answer": "70",
+    "options": [],
+    "image": "media/câu 12_3f57d7e5bdaf.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.13",
+    "type": "choice",
+    "prompt": "Em hãy chọn cách viết đúng về họ và tên",
+    "answer": "Võ Thị Sáu",
+    "options": [
+      "Võ thị Sáu",
+      "Võ Thị Sáu",
+      "Võ thị sáu"
+    ],
+    "image": ""
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.14",
+    "type": "multi_fill_blanks",
+    "prompt": "Số 74 gồm mấy chục và mấy đơn vị? Số gồm 3 chục và 9 đơn vị là số nào?",
+    "answer": "7 | 4 | 39",
+    "options": [],
+    "image": "media/vio_l1_l3_q14.png",
+    "blank_answers": [
+      "7",
+      "4",
+      "39"
+    ],
+    "blank_text": "Số 74 gồm [[1]] chục và [[2]] đơn vị. Số gồm 3 chục và 9 đơn vị là [[3]]."
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.15",
+    "type": "choice",
+    "prompt": "Quan sát hình, số thích hợp điền vào dấu ? là",
+    "answer": "90",
+    "options": [
+      "80",
+      "85",
+      "100",
+      "90"
+    ],
+    "image": "media/câu 15.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.16",
+    "type": "image_letter_pick",
+    "prompt": "Em chọn các tên người thích hợp điền vào chỗ trống.",
+    "answer": "Huyền | Kiệt",
+    "options": [
+      "Huyền",
+      "Kiệt",
+      "nhiên",
+      "tuấn"
+    ],
+    "image": "",
+    "blank_answers": [
+      "Huyền",
+      "Kiệt"
+    ],
+    "blank_text": "Mẹ em tên là ....\nAnh trai em tên là ....",
+    "distractors": [
+      "nhiên",
+      "tuấn"
+    ]
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.17",
+    "type": "choice",
+    "prompt": "Em hãy chọn đáp án đúng\nEm hãy đặt câu hỏi cho thành phần in đậm trong câu:\nLan là học sinh giỏi.",
+    "answer": "Ai là học sinh giỏi?",
+    "options": [
+      "Lan thế nào?",
+      "Lan là ai?",
+      "Lan làm gì?",
+      "Ai là học sinh giỏi?"
+    ],
+    "image": ""
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.18",
+    "type": "choice",
+    "prompt": "Em hãy chọn đáp án đúng.\nCâu nào giới thiệu về nghề nghiệp của người được nói đến?",
+    "answer": "Mẹ em là bác sĩ.",
+    "options": [
+      "Mẹ em là bác sĩ.",
+      "Mẹ em hiền.",
+      "Mẹ em đang làm việc.",
+      "Mẹ em nấu ăn ngon."
+    ],
+    "image": ""
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.19",
+    "type": "dropdown_fill_blank",
+    "prompt": "Bạn hãy chọn đáp án thích hợp để điền vào ô trống.\n\n\tSố thích hợp đề ghi vào tam giác là?",
+    "answer": "50",
+    "options": [
+      "40",
+      "50",
+      "60",
+      "77"
+    ],
+    "image": "media/câu 19_350c6fbebd28.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.20",
+    "type": "choice",
+    "prompt": "Em hãy chọn đáp án đúng.\n\nNgôi nhà nào có tên chủ nhà được viết đúng?",
+    "answer": "Ngôi nhà số 10",
+    "options": [
+      "Ngôi nhà số 8",
+      "Ngôi nhà số 9",
+      "Ngôi nhà số 10"
+    ],
+    "image": "media/câu 20_ab78207ff2ed.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.21",
+    "type": "choice",
+    "prompt": "Em hãy chọn đáp án đúng.\n\nCó bao nhiêu tên riêng viết chưa đúng quy tắc?",
+    "answer": "2 tên",
+    "options": [
+      "2 tên",
+      "0 tên",
+      "3 tên",
+      "1 tên"
+    ],
+    "image": "media/câu 21.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.22",
+    "type": "matching",
+    "prompt": "Hãy nối đáp án phù hợp.",
+    "answer": "img:media/câu 22 hình 1.png = 62 | img:media/câu 22 hình 2.png = 28 | img:media/câu 22 hình 3.png = 46",
+    "options": [
+      "img:media/câu 22 hình 1.png = 62",
+      "img:media/câu 22 hình 2.png = 28",
+      "img:media/câu 22 hình 3.png = 46"
+    ],
+    "image": "",
+    "matching_mode": "Hình ↔ Chữ"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.23",
+    "type": "choice",
+    "prompt": "Trên thuyền có 17 hành khách, đến bến có 2 hành khách lên thuyền. Hỏi lúc đó trên thuyền có bao nhiêu hành khách?",
+    "answer": "19 hành khách",
+    "options": [
+      "18 hành khách",
+      "19 hành khách",
+      "15 hành khách",
+      "20 hành khách"
+    ],
+    "image": "media/câu 23_5a48d3d786ff.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.25",
+    "type": "multi_fill_blanks",
+    "prompt": "Em hãy giúp những chú mèo tìm đúng cá của mình. Điền số vào dấu ba chấm và dấu hỏi chấm.",
+    "answer": "42 | 24",
+    "options": [],
+    "image": "media/câu 24_feb0785fad4d.png",
+    "blank_answers": [
+      "42",
+      "24"
+    ],
+    "blank_text": "Số cần điền vào dấu ba chấm là [[1]]. Số cần điền vào dấu hỏi chấm là [[2]]."
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [
+      "10"
+    ],
+    "id": "vio.l1.lesson3.26",
+    "type": "fill",
+    "prompt": "Bạn hãy điền số thích hợp vào chổ trống.\nCó bao nhiêu số có 2 chữ số và có chữ số hàng chục là 3?",
+    "answer": "10",
+    "options": [],
+    "image": ""
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.27",
+    "type": "image_sentence_fill",
+    "prompt": "Em hãy chọn đáp án đúng điền vào chỗ trống để được câu giới thiệu “Ai là gì?”:",
+    "answer": "Bạn Minh",
+    "options": [
+      "Bạn Minh",
+      "Chú công an",
+      "Chú bảo vệ"
+    ],
+    "image": "",
+    "blank_text": ".... là bạn học giỏi nhất lớp tôi.",
+    "blank_answers": [
+      "Bạn Minh"
+    ],
+    "distractors": [
+      "Chú công an",
+      "Chú bảo vệ"
+    ]
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [
+      "2"
+    ],
+    "id": "vio.l1.lesson3.28",
+    "type": "fill",
+    "prompt": "Bạn hãy ghi vào ô trống.\nCho các thẻ như hình bên dưới. Có thể lập được bao nhiêu số có hai chữ số và có số chục là 4\n(Mỗi thẻ chỉ được dùng một lần)",
+    "answer": "2",
+    "options": [],
+    "image": "media/câu 27.png"
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.29",
+    "type": "text_multi_select",
+    "prompt": "Hãy chọn các từ viết đúng chính tả là tên người.",
+    "answer": "Phan Mạnh Dũng | Ngô Thị Yến Nhi | Nguyễn Tiến Linh | Hồ Ngọc Hà",
+    "options": [
+      "Phan Mạnh Dũng",
+      "Ngô Thị Yến Nhi",
+      "Hồ ngọc hà",
+      "Phan manh dũng",
+      "Ngô thị Yến Nhi",
+      "Phan Mạnh dũng",
+      "Nguyễn Tiến Linh",
+      "Hồ Ngọc Hà"
+    ],
+    "image": "",
+    "answers": [
+      "Phan Mạnh Dũng",
+      "Ngô Thị Yến Nhi",
+      "Nguyễn Tiến Linh",
+      "Hồ Ngọc Hà"
+    ],
+    "passage": ""
+  },
+  {
+    "theme": "Vioedu",
+    "level": 1,
+    "lesson": 3,
+    "schema_version": "2.0",
+    "audio": "",
+    "accepted_answers": [],
+    "id": "vio.l1.lesson3.30",
+    "type": "choice",
+    "prompt": "Em hãy chọn đúng câu trả lời cho câu hỏi \"là gì?\" trong kiểu câu giới thiệu \"Ai(con gì? cái gì?) là gì? “Hà Nội là thủ đô của nước Việt Nam”, bộ phận trả lời cho câu hỏi “là gì?” sau đây:",
+    "answer": "là thủ đô của nước Việt Nam",
+    "options": [
+      "thủ đô của nước Việt Nam",
+      "Hà Nội",
+      "Việt Nam",
+      "là thủ đô của nước Việt Nam"
+    ],
+    "image": "media/câu 29.png"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.1",
+    "prompt": "Bạn hãy chọn câu trả lời đúng.",
+    "level": 1,
+    "lesson": 4,
+    "type": "image_multi_choice",
+    "layout": {
+      "question_image": {
+        "x": 0.10999999999999999,
+        "y": 0.2775324675324675,
+        "width": 0.38,
+        "height": 0.28
+      }
+    },
+    "image_options": [
+      {
+        "image": "media/câu 1 hình 1.png"
+      },
+      {
+        "image": "media/câu 1 hình 2.png"
+      },
+      {
+        "image": "media/câu 1 hình 3.png"
+      }
+    ],
+    "options": [
+      "media/câu 1 hình 1.png",
+      "media/câu 1 hình 2.png",
+      "media/câu 1 hình 3.png"
+    ],
+    "answer": "media/câu 1 hình 1.png",
+    "correct_index": 0,
+    "image_size": [
+      120,
+      80
+    ],
+    "accepted_answers": [],
+    "image": "media/câu 1_a85f1ebec453.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.2",
+    "prompt": "Bạn hãy chọn đáp án đúng.\nHiệu số bút màu của bạn Miu và bạn Chip là bao nhiêu?",
+    "level": 1,
+    "lesson": 4,
+    "type": "choice",
+    "layout": {},
+    "options": [
+      "3 cây",
+      "1 cây",
+      "4 cây",
+      "2 cây"
+    ],
+    "answer": "3 cây",
+    "accepted_answers": [],
+    "image": "media/câu 2_d03e4b60face.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.3",
+    "prompt": "**Bạn hãy điền số thích hợp vào chỗ trống.**\nTrong dĩa có 8 trái dâu và 3 trái táo. Hỏi hiệu số trái dâu và số trái táo là bao nhiêu?",
+    "level": 1,
+    "lesson": 4,
+    "type": "fill",
+    "layout": {},
+    "options": [],
+    "answer": "5",
+    "accepted_answers": [
+      "5 trái"
+    ],
+    "image": "media/câu 4.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.4",
+    "prompt": "**Bạn hãy chọn câu trả lời chính xác**.\n\nCâu nào sau đây thể hiện cảm xúc khi tham gia trò chơi kéo co?",
+    "level": 1,
+    "lesson": 4,
+    "type": "choice",
+    "layout": {},
+    "options": [
+      "Em đem theo dây thừng để chơi.",
+      "Em chơi vào giờ ra chơi.",
+      "Em rất vui khi đội của mình chiến thắng.",
+      "Em và các bạn đang chờ tới lượt đội mình thi đấu."
+    ],
+    "answer": "Em rất vui khi đội của mình chiến thắng.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.5",
+    "prompt": "**Bạn hãy điền đáp án vào chỗ trống**.\n\nTrên khay có 7 ổ bánh mì và 4 cái bánh quy. Hỏi hiệu số bánh mì và số bánh quy là bao nhiêu?\n7 - 4 = ?",
+    "level": 1,
+    "lesson": 4,
+    "type": "fill",
+    "layout": {},
+    "options": [],
+    "answer": "3",
+    "accepted_answers": [
+      "3"
+    ],
+    "image": "media/câu 6.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.6",
+    "prompt": "**Bạn hãy chọn câu trả lời đúng**.",
+    "level": 1,
+    "lesson": 4,
+    "type": "choice",
+    "layout": {},
+    "options": [
+      "đi làm.",
+      "ăn uống.",
+      "trường học.",
+      "học tập."
+    ],
+    "answer": "trường học.",
+    "accepted_answers": [],
+    "image": "media/câu 7.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.7",
+    "prompt": "**Bạn hãy chọn câu trả lời đúng**.\n\nTừ \"**nhảy dây**\" thuộc loại từ nào?",
+    "level": 1,
+    "lesson": 4,
+    "type": "choice",
+    "layout": {},
+    "options": [
+      "Từ chỉ đặc điểm.",
+      "Từ chỉ đồ vật.",
+      "Từ chỉ hành động.",
+      "Từ chỉ màu sắc."
+    ],
+    "answer": "Từ chỉ hành động.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.8",
+    "prompt": "**Em hãy điền đáp án thích hợp vào chỗ trống**.",
+    "level": 1,
+    "lesson": 4,
+    "type": "fill",
+    "layout": {},
+    "options": [],
+    "answer": "14",
+    "accepted_answers": [
+      "14"
+    ],
+    "image": "media/câu 9_6d0e84c81005.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.9",
+    "prompt": "**Em hãy chọn câu trả lời đúng**.\n\nTrong đoạn văn nói về hoạt động thể dục thể thao, câu nào dưới đây thể hiện về suy nghĩ riêng của em?",
+    "level": 1,
+    "lesson": 4,
+    "type": "choice",
+    "layout": {},
+    "options": [
+      "Thời gian chơi.",
+      "Cảm xúc khi tham gia.",
+      "Tên hoạt động.",
+      "Tên trường."
+    ],
+    "answer": "Cảm xúc khi tham gia.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.10",
+    "prompt": "**Em hãy chọn câu trả lời phù hợp**.\n\nKhi viết một đoạn văn mô tả hoạt động thể dục thể thao, em cần trả lời cho câu hỏi nào dưới đây?",
+    "level": 1,
+    "lesson": 4,
+    "type": "choice",
+    "layout": {},
+    "options": [
+      "Em ăn món gì?",
+      "Em thích màu gì?",
+      "Em đã tham gia môn thể thao nào?",
+      "Nhà của em ở đâu?"
+    ],
+    "answer": "Em đã tham gia môn thể thao nào?",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.11",
+    "prompt": "**Hãy chọn đáp án phù hợp cho \"....\"**.",
+    "level": 1,
+    "lesson": 4,
+    "type": "image_letter_pick",
+    "layout": {},
+    "blank_text": "Từ chỉ hành động: |a ...., ...., .... |a/\nTừ chỉ sự vật: |b ...., ...., .... |b/",
+    "blank_answers": [
+      "vẽ tranh",
+      "đánh cầu lông",
+      "đi học",
+      "hoa hồng",
+      "con đường",
+      "căn nhà"
+    ],
+    "distractors": [],
+    "options": [
+      "vẽ tranh",
+      "đánh cầu lông",
+      "đi học",
+      "hoa hồng",
+      "con đường",
+      "căn nhà"
+    ],
+    "answer": "vẽ tranh | đánh cầu lông | đi học | hoa hồng | con đường | căn nhà",
+    "image": "",
+    "group_syntax": true,
+    "group_answer_text": "|a vẽ tranh, đánh cầu lông, đi học\n|b hoa hồng, con đường, căn nhà",
+    "blank_group_ids": [
+      "a",
+      "a",
+      "a",
+      "b",
+      "b",
+      "b"
+    ],
+    "unordered_groups": false,
+    "audio": "",
+    "accepted_answers": [],
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.12",
+    "prompt": "**Bạn hãy ghi true (đúng) hoặc false (sai) vào ô trống**.\n\nTừ nào là từ chỉ **hành động**.",
+    "level": 1,
+    "lesson": 4,
+    "type": "multi_fill_blanks",
+    "layout": {},
+    "blank_text": "[[1]] múa\n[[2]] lượn\n[[3]] méo\n[[4]] dài\n[[5]] nói",
+    "blank_answers": [
+      "true",
+      "true",
+      "false",
+      "false",
+      "true"
+    ],
+    "answer": "true | true | false | false | true",
+    "options": [],
+    "image": "",
+    "audio": "",
+    "accepted_answers": [],
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Family & Friends",
+    "id": "ve4.13",
+    "prompt": "**Em hãy điền số thích hợp vào ô trống**.\nTrong giỏ có 14 trái táo, mẹ lấy ra 2 trái để làm nước ép. Hỏi còn bao nhiêu trái trong giỏ?",
+    "level": 1,
+    "lesson": 1,
+    "type": "multi_fill_blanks",
+    "layout": {},
+    "blank_text": "Trả lời:\n[[1]] - [[2]] = [[3]]\nTrong giỏ còn lại [[4]] trái táo.",
+    "blank_answers": [
+      "14",
+      "2",
+      "12",
+      "12"
+    ],
+    "answer": "14 | 2 | 12 | 12",
+    "options": [],
+    "image": "media/câu 14.png",
+    "audio": "",
+    "accepted_answers": [],
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.14",
+    "prompt": "**Bạn hãy chọn đáp án đúng**.\n\nCho: 7 + 8 .... 8 + 7\nDấu cần điền vào .... là",
+    "level": 1,
+    "lesson": 4,
+    "type": "choice",
+    "layout": {},
+    "options": [
+      "<",
+      ">",
+      "="
+    ],
+    "answer": "=",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.15",
+    "prompt": "**Bạn hãy chọn câu trả lời phù hợp**.\nCâu \"Em chơi đá banh cùng các bạn trong sân trường\" trả lời cho câu hỏi nào dưới đây?",
+    "level": 1,
+    "lesson": 4,
+    "type": "choice",
+    "layout": {},
+    "options": [
+      "Em cảm thấy thế nào?",
+      "Hoạt động diễn ra khi nào?",
+      "Em tham gia cùng ai, ở đâu?",
+      "Hoạt động gì?"
+    ],
+    "answer": "Hoạt động gì?",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.16",
+    "prompt": "Phép tính của cô giáo đưa ra có kết quả .... 11.",
+    "level": 1,
+    "lesson": 4,
+    "type": "dropdown_fill_blank",
+    "layout": {},
+    "options": [
+      ">",
+      "<",
+      "="
+    ],
+    "answer": ">",
+    "image": "media/câu 17_ecffe575d8c0.png",
+    "inline_options_text": ">\n<\n=\n",
+    "inline_answers_text": ">",
+    "blank_options": [
+      [
+        ">",
+        "<",
+        "="
+      ]
+    ],
+    "blank_answers": [
+      ">"
+    ],
+    "accepted_answers": [],
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.17",
+    "prompt": "Hoạt động nào dưới đây thể hiện việc trò chuyện với người khác?",
+    "level": 1,
+    "lesson": 4,
+    "type": "choice",
+    "layout": {},
+    "options": [
+      "Nói chuyện",
+      "Nấu cơm",
+      "Tưới cây",
+      "Bơi"
+    ],
+    "answer": "Nói chuyện",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.18",
+    "prompt": "**Chọn các từ chỉ hành động (hoạt động) trong câu dưới đây**",
+    "level": 1,
+    "lesson": 4,
+    "type": "text_multi_select",
+    "layout": {},
+    "options": [
+      "giặt",
+      "đang",
+      "lau",
+      "ba",
+      "mẹ"
+    ],
+    "answers": [
+      "giặt",
+      "lau"
+    ],
+    "answer": "giặt | lau",
+    "image": "",
+    "audio": "",
+    "passage": "Ba em đang lau nhà, mẹ em thì giặt đồ.",
+    "accepted_answers": [],
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.19",
+    "prompt": "**Bạn hãy chọn đáp án đúng**.\nLấy số bút màu trong hình trừ đi 3 cây bút màu thì còn lại bao nhiêu cây bút màu?",
+    "level": 1,
+    "lesson": 4,
+    "type": "picture_choice",
+    "layout": {},
+    "options": [
+      "11 cây bút màu",
+      "10 cây bút màu",
+      "8 cây bút màu",
+      "9 cây bút màu"
+    ],
+    "answer": "10 cây bút màu",
+    "accepted_answers": [],
+    "image": "media/câu 20_26e003461bb1.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.20",
+    "prompt": "**Bạn hãy chọn đáp án đúng**.\nChi lấy 3 trái dâu tây trong dĩa. Hỏi trong dĩa còn lại bao nhiêu trái dâu tây?",
+    "level": 1,
+    "lesson": 4,
+    "type": "picture_choice",
+    "layout": {},
+    "options": [
+      "16 trái",
+      "13 trái",
+      "11 trái",
+      "10 trái"
+    ],
+    "answer": "10 trái",
+    "accepted_answers": [],
+    "image": "media/câu 21_ef012efaf5bc.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.21",
+    "prompt": "**Em hãy chọn đáp án phù hợp để hoàn chỉnh câu dưới đây**.",
+    "level": 1,
+    "lesson": 4,
+    "type": "inline_dropdown_fill",
+    "layout": {},
+    "blank_text": "Khi viết: \"Em thấy rất vui và khỏe khoắn.\"\n-> Câu này thuộc phần .... trong đoạn văn.",
+    "blank_options": [
+      [
+        "cảm xúc",
+        "trò chơi",
+        "mở đầu"
+      ]
+    ],
+    "blank_answers": [
+      "cảm xúc"
+    ],
+    "preselect": false,
+    "options": [],
+    "answer": "cảm xúc",
+    "image": "",
+    "accepted_answers": [],
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.22",
+    "prompt": "**Em hãy đọc đoạn văn sau và trả lời câu hỏi**.\n\"Giờ ra chơi, em thường nhảy dây cùng các bạn. Tụi em đứng thành hàng dài, hai bạn cầm hai đầu dây, những bạn còn lại nhảy dây qua lại. Có bạn nhảy rất giỏi và nhảy qua được rất nhiều lần. Trò chơi này giúp cho em rèn luyện được sự nhanh nhẹn.\"\nĐoạn văn trên đang nói về hoạt động gì?",
+    "level": 1,
+    "lesson": 4,
+    "type": "choice",
+    "layout": {},
+    "options": [
+      "Cầu lông",
+      "Nhảy dây",
+      "Đá banh",
+      "Kéo co"
+    ],
+    "answer": "Nhảy dây",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.23",
+    "prompt": "Em hãy chọn đáp án thích hợp điền vào chỗ trống để được đoạn văn hoàn chỉnh:",
+    "level": 1,
+    "lesson": 4,
+    "type": "image_letter_pick",
+    "layout": {},
+    "blank_text": "Giờ ra chơi, em và các bạn cùng nhau chơi nhảy cò cò. Chúng em dùng phấn .... trên sân. Em cố gắng .... thật nhanh bằng một chân để ..... Tiếng cười nỏi . khiến sân truờng rất vui vẻ. Em rất thich trò chơi này.",
+    "blank_answers": [
+      "vẽ các ô vuông",
+      "nhảy",
+      "không chạm vạch"
+    ],
+    "distractors": [
+      "rộn ràng",
+      "khỏe mạnh"
+    ],
+    "options": [
+      "vẽ các ô vuông",
+      "nhảy",
+      "không chạm vạch",
+      "rộn ràng",
+      "khỏe mạnh"
+    ],
+    "answer": "vẽ các ô vuông | nhảy | không chạm vạch",
+    "image": "",
+    "unordered_groups": false,
+    "audio": "",
+    "accepted_answers": [],
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.24",
+    "prompt": "**Bạn hãy chọn đáp án đúng**.\nHỏi hai anh em có tổng cộng bao nhiêu chai nước?",
+    "level": 1,
+    "lesson": 4,
+    "type": "picture_choice",
+    "layout": {},
+    "options": [
+      "17 chai nước",
+      "18 chai nước",
+      "15 chai nước",
+      "16 chai nước"
+    ],
+    "answer": "17 chai nước",
+    "accepted_answers": [],
+    "image": "media/câu 25.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.25",
+    "prompt": "**Bạn hãy điền số thích hợp vào ô trống**.\nSố cây cam trong vườn bằng số tròn chục liền sau của 32. Số cây táo bằng số liền trước của 28. Số cây bưởi bằng hiệu số cây cam và cây táo. Hỏi trong vườn có bao nhiêu cây bưởi?",
+    "level": 1,
+    "lesson": 4,
+    "type": "fill",
+    "layout": {},
+    "options": [],
+    "answer": "13",
+    "accepted_answers": [
+      "13"
+    ],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.26",
+    "prompt": "**Bạn hãy chọn đáp án đúng**.\nHỏi hai anh em có tổng cộng bao nhiêu chai nước?",
+    "level": 1,
+    "lesson": 4,
+    "type": "picture_choice",
+    "layout": {},
+    "options": [
+      "14 chai nước",
+      "12 chai nước",
+      "11 chai nước",
+      "13 chai nước"
+    ],
+    "answer": "13 chai nước",
+    "accepted_answers": [],
+    "image": "media/câu 27_59e4a08abdf2.png",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.27",
+    "prompt": "**Em hãy hoàn thành đoạn văn sau**.",
+    "level": 1,
+    "lesson": 4,
+    "type": "image_sentence_fill",
+    "layout": {},
+    "blank_text": "Vào buổi chiều, em cùng với ba mẹ .... trong công viên. Mẹ .... hoa, ba ...., còn em chơi cầu tuột với các bạn. Gió .... mát rượi, cây cối đung đưa nhè nhẹ. Cả nhà cười nói vui vẻ bên nhau.",
+    "blank_answers": [
+      "đi dạo",
+      "tưới",
+      "chụp hình",
+      "thổi"
+    ],
+    "distractors": [],
+    "options": [
+      "đi dạo",
+      "tưới",
+      "chụp hình",
+      "thổi"
+    ],
+    "answer": "đi dạo | tưới | chụp hình | thổi",
+    "image": "",
+    "accepted_answers": [],
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.28",
+    "prompt": "**Bạn hãy điền số thích hợp vào chổ trống**.",
+    "level": 1,
+    "lesson": 4,
+    "type": "sentence_gaps",
+    "layout": {},
+    "source_text": "Trong vườn có số bông hoa hồng bằng số tròn chục liền sau của 38. Số bông hoa cúc trong vườn bằng số liền trước của 25. Số bông hoa hướng dương bằng hiệu số bông hoa hồng và số bông hoa cúc. Vậy, số bông hoa hướng dương trong vườn là 16 bông.",
+    "hidden_indices": [
+      52
+    ],
+    "distractors": [
+      "26",
+      "63",
+      "13"
+    ],
+    "options": [
+      "16",
+      "26",
+      "63",
+      "13"
+    ],
+    "answer": "Trong vườn có số bông hoa hồng bằng số tròn chục liền sau của 38. Số bông hoa cúc trong vườn bằng số liền trước của 25. Số bông hoa hướng dương bằng hiệu số bông hoa hồng và số bông hoa cúc. Vậy, số bông hoa hướng dương trong vườn là 16 bông.",
+    "image": "",
+    "accepted_answers": [],
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Vioedu",
+    "id": "ve4.29",
+    "prompt": "**Em hãy chọn đáp án đúng**.\nCâu nào không có từ chỉ hoạt động?",
+    "level": 1,
+    "lesson": 4,
+    "type": "choice",
+    "layout": {},
+    "options": [
+      "Chúng em ca bài ca thiếu nhi.",
+      "Mẹ nấu cơm cho gia đình.",
+      "Trời hôm nay thật mát mẻ.",
+      "Bé chạy ra sân chơi."
+    ],
+    "answer": "Trời hôm nay thật mát mẻ.",
+    "accepted_answers": [],
+    "image": "",
+    "audio": ""
+  }
+]

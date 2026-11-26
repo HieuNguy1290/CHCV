@@ -1,0 +1,8282 @@
+[
+  {
+    "theme": "Family & Friends",
+    "level": 1,
+    "id": "01",
+    "type": "choice",
+    "prompt": "What color is it?",
+    "options": [
+      "Red",
+      "Yellow",
+      "blue",
+      "pink"
+    ],
+    "answer": "Red",
+    "accepted_answers": [
+      "Red"
+    ],
+    "image": "media/Red.png",
+    "audio": "",
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 1,
+    "id": "family_1_5",
+    "type": "listening_choice",
+    "prompt": "Write the color name",
+    "options": [
+      "a",
+      "s",
+      "d",
+      "f"
+    ],
+    "answer": "a",
+    "accepted_answers": [],
+    "image": "media/Blue.png",
+    "audio": "media/1-05 Listening 5.mp3",
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 1,
+    "id": "family_1_6",
+    "type": "picture_choice",
+    "prompt": "What is the color name?",
+    "options": [
+      "Red",
+      "Pink",
+      "Blue",
+      "Orange"
+    ],
+    "answer": "Pink",
+    "accepted_answers": [],
+    "image": "media/Pink.png",
+    "audio": "",
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 2,
+    "id": "family_2_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “ông” là gì?",
+    "options": [
+      "grandfather",
+      "grandmother",
+      "brother",
+      "sister"
+    ],
+    "answer": "grandfather",
+    "accepted_answers": [
+      "grandfather"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 2,
+    "id": "family_2_2",
+    "type": "true_false",
+    "prompt": "“grandmother” có nghĩa là “bà”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 2,
+    "id": "family_2_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “anh trai”.",
+    "options": [],
+    "answer": "brother",
+    "accepted_answers": [
+      "brother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 2,
+    "id": "family_2_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “chị gái” là gì?",
+    "options": [
+      "sister",
+      "grandfather",
+      "grandmother",
+      "brother"
+    ],
+    "answer": "sister",
+    "accepted_answers": [
+      "sister"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 2,
+    "id": "family_2_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: BABY",
+    "options": [],
+    "answer": "baby",
+    "accepted_answers": [
+      "baby"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 2,
+    "id": "family_2_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “ông”: r - e - h - t - a - f - d - n - a - r - g",
+    "options": [],
+    "answer": "grandfather",
+    "accepted_answers": [
+      "grandfather"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 2,
+    "id": "family_2_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “bà” là gì?",
+    "options": [
+      "grandmother",
+      "grandfather",
+      "brother",
+      "sister"
+    ],
+    "answer": "grandmother",
+    "accepted_answers": [
+      "grandmother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 2,
+    "id": "family_2_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “anh trai”.",
+    "options": [],
+    "answer": "brother",
+    "accepted_answers": [
+      "brother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 2,
+    "id": "family_2_9",
+    "type": "true_false",
+    "prompt": "“sister” có nghĩa là “chị gái”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 2,
+    "id": "family_2_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “em bé” là gì?",
+    "options": [
+      "baby",
+      "grandfather",
+      "grandmother",
+      "brother"
+    ],
+    "answer": "baby",
+    "accepted_answers": [
+      "baby"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 3,
+    "id": "family_3_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “anh trai” là gì?",
+    "options": [
+      "brother",
+      "sister",
+      "baby",
+      "family"
+    ],
+    "answer": "brother",
+    "accepted_answers": [
+      "brother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 3,
+    "id": "family_3_2",
+    "type": "true_false",
+    "prompt": "“sister” có nghĩa là “chị gái”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 3,
+    "id": "family_3_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “em bé”.",
+    "options": [],
+    "answer": "baby",
+    "accepted_answers": [
+      "baby"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 3,
+    "id": "family_3_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “gia đình” là gì?",
+    "options": [
+      "family",
+      "brother",
+      "sister",
+      "baby"
+    ],
+    "answer": "family",
+    "accepted_answers": [
+      "family"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 3,
+    "id": "family_3_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: PARENTS",
+    "options": [],
+    "answer": "parents",
+    "accepted_answers": [
+      "parents"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 3,
+    "id": "family_3_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “anh trai”: r - e - h - t - o - r - b",
+    "options": [],
+    "answer": "brother",
+    "accepted_answers": [
+      "brother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 3,
+    "id": "family_3_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “chị gái” là gì?",
+    "options": [
+      "sister",
+      "brother",
+      "baby",
+      "family"
+    ],
+    "answer": "sister",
+    "accepted_answers": [
+      "sister"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 3,
+    "id": "family_3_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “em bé”.",
+    "options": [],
+    "answer": "baby",
+    "accepted_answers": [
+      "baby"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 3,
+    "id": "family_3_9",
+    "type": "true_false",
+    "prompt": "“family” có nghĩa là “gia đình”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 3,
+    "id": "family_3_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “bố mẹ” là gì?",
+    "options": [
+      "parents",
+      "brother",
+      "sister",
+      "baby"
+    ],
+    "answer": "parents",
+    "accepted_answers": [
+      "parents"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 4,
+    "id": "family_4_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “em bé” là gì?",
+    "options": [
+      "baby",
+      "family",
+      "parents",
+      "home"
+    ],
+    "answer": "baby",
+    "accepted_answers": [
+      "baby"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 4,
+    "id": "family_4_2",
+    "type": "true_false",
+    "prompt": "“family” có nghĩa là “gia đình”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 4,
+    "id": "family_4_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “bố mẹ”.",
+    "options": [],
+    "answer": "parents",
+    "accepted_answers": [
+      "parents"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 4,
+    "id": "family_4_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “ngôi nhà” là gì?",
+    "options": [
+      "home",
+      "baby",
+      "family",
+      "parents"
+    ],
+    "answer": "home",
+    "accepted_answers": [
+      "home"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 4,
+    "id": "family_4_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: UNCLE",
+    "options": [],
+    "answer": "uncle",
+    "accepted_answers": [
+      "uncle"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 4,
+    "id": "family_4_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “em bé”: y - b - a - b",
+    "options": [],
+    "answer": "baby",
+    "accepted_answers": [
+      "baby"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 4,
+    "id": "family_4_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “gia đình” là gì?",
+    "options": [
+      "family",
+      "baby",
+      "parents",
+      "home"
+    ],
+    "answer": "family",
+    "accepted_answers": [
+      "family"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 4,
+    "id": "family_4_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “bố mẹ”.",
+    "options": [],
+    "answer": "parents",
+    "accepted_answers": [
+      "parents"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 4,
+    "id": "family_4_9",
+    "type": "true_false",
+    "prompt": "“home” có nghĩa là “ngôi nhà”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 4,
+    "id": "family_4_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “chú” là gì?",
+    "options": [
+      "uncle",
+      "baby",
+      "family",
+      "parents"
+    ],
+    "answer": "uncle",
+    "accepted_answers": [
+      "uncle"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 5,
+    "id": "family_5_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “bố mẹ” là gì?",
+    "options": [
+      "parents",
+      "home",
+      "uncle",
+      "aunt"
+    ],
+    "answer": "parents",
+    "accepted_answers": [
+      "parents"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 5,
+    "id": "family_5_2",
+    "type": "true_false",
+    "prompt": "“home” có nghĩa là “ngôi nhà”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 5,
+    "id": "family_5_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “chú”.",
+    "options": [],
+    "answer": "uncle",
+    "accepted_answers": [
+      "uncle"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 5,
+    "id": "family_5_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “cô” là gì?",
+    "options": [
+      "aunt",
+      "parents",
+      "home",
+      "uncle"
+    ],
+    "answer": "aunt",
+    "accepted_answers": [
+      "aunt"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 5,
+    "id": "family_5_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: COUSIN",
+    "options": [],
+    "answer": "cousin",
+    "accepted_answers": [
+      "cousin"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 5,
+    "id": "family_5_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “bố mẹ”: s - t - n - e - r - a - p",
+    "options": [],
+    "answer": "parents",
+    "accepted_answers": [
+      "parents"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 5,
+    "id": "family_5_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “ngôi nhà” là gì?",
+    "options": [
+      "home",
+      "parents",
+      "uncle",
+      "aunt"
+    ],
+    "answer": "home",
+    "accepted_answers": [
+      "home"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 5,
+    "id": "family_5_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “chú”.",
+    "options": [],
+    "answer": "uncle",
+    "accepted_answers": [
+      "uncle"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 5,
+    "id": "family_5_9",
+    "type": "true_false",
+    "prompt": "“aunt” có nghĩa là “cô”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 5,
+    "id": "family_5_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “anh chị em họ” là gì?",
+    "options": [
+      "cousin",
+      "parents",
+      "home",
+      "uncle"
+    ],
+    "answer": "cousin",
+    "accepted_answers": [
+      "cousin"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 6,
+    "id": "family_6_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “chú” là gì?",
+    "options": [
+      "uncle",
+      "aunt",
+      "cousin",
+      "love"
+    ],
+    "answer": "uncle",
+    "accepted_answers": [
+      "uncle"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 6,
+    "id": "family_6_2",
+    "type": "true_false",
+    "prompt": "“aunt” có nghĩa là “cô”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 6,
+    "id": "family_6_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “anh chị em họ”.",
+    "options": [],
+    "answer": "cousin",
+    "accepted_answers": [
+      "cousin"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 6,
+    "id": "family_6_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “yêu thương” là gì?",
+    "options": [
+      "love",
+      "uncle",
+      "aunt",
+      "cousin"
+    ],
+    "answer": "love",
+    "accepted_answers": [
+      "love"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 6,
+    "id": "family_6_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: HELP",
+    "options": [],
+    "answer": "help",
+    "accepted_answers": [
+      "help"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 6,
+    "id": "family_6_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “chú”: e - l - c - n - u",
+    "options": [],
+    "answer": "uncle",
+    "accepted_answers": [
+      "uncle"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 6,
+    "id": "family_6_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “cô” là gì?",
+    "options": [
+      "aunt",
+      "uncle",
+      "cousin",
+      "love"
+    ],
+    "answer": "aunt",
+    "accepted_answers": [
+      "aunt"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 6,
+    "id": "family_6_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “anh chị em họ”.",
+    "options": [],
+    "answer": "cousin",
+    "accepted_answers": [
+      "cousin"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 6,
+    "id": "family_6_9",
+    "type": "true_false",
+    "prompt": "“love” có nghĩa là “yêu thương”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 6,
+    "id": "family_6_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “giúp đỡ” là gì?",
+    "options": [
+      "help",
+      "uncle",
+      "aunt",
+      "cousin"
+    ],
+    "answer": "help",
+    "accepted_answers": [
+      "help"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 7,
+    "id": "family_7_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “anh chị em họ” là gì?",
+    "options": [
+      "cousin",
+      "love",
+      "help",
+      "father"
+    ],
+    "answer": "cousin",
+    "accepted_answers": [
+      "cousin"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 7,
+    "id": "family_7_2",
+    "type": "true_false",
+    "prompt": "“love” có nghĩa là “yêu thương”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 7,
+    "id": "family_7_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “giúp đỡ”.",
+    "options": [],
+    "answer": "help",
+    "accepted_answers": [
+      "help"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 7,
+    "id": "family_7_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “bố” là gì?",
+    "options": [
+      "father",
+      "cousin",
+      "love",
+      "help"
+    ],
+    "answer": "father",
+    "accepted_answers": [
+      "father"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 7,
+    "id": "family_7_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: MOTHER",
+    "options": [],
+    "answer": "mother",
+    "accepted_answers": [
+      "mother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 7,
+    "id": "family_7_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “anh chị em họ”: n - i - s - u - o - c",
+    "options": [],
+    "answer": "cousin",
+    "accepted_answers": [
+      "cousin"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 7,
+    "id": "family_7_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “yêu thương” là gì?",
+    "options": [
+      "love",
+      "cousin",
+      "help",
+      "father"
+    ],
+    "answer": "love",
+    "accepted_answers": [
+      "love"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 7,
+    "id": "family_7_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “giúp đỡ”.",
+    "options": [],
+    "answer": "help",
+    "accepted_answers": [
+      "help"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 7,
+    "id": "family_7_9",
+    "type": "true_false",
+    "prompt": "“father” có nghĩa là “bố”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 7,
+    "id": "family_7_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “mẹ” là gì?",
+    "options": [
+      "mother",
+      "cousin",
+      "love",
+      "help"
+    ],
+    "answer": "mother",
+    "accepted_answers": [
+      "mother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 8,
+    "id": "family_8_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “giúp đỡ” là gì?",
+    "options": [
+      "help",
+      "father",
+      "mother",
+      "grandfather"
+    ],
+    "answer": "help",
+    "accepted_answers": [
+      "help"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 8,
+    "id": "family_8_2",
+    "type": "true_false",
+    "prompt": "“father” có nghĩa là “bố”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 8,
+    "id": "family_8_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “mẹ”.",
+    "options": [],
+    "answer": "mother",
+    "accepted_answers": [
+      "mother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 8,
+    "id": "family_8_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “ông” là gì?",
+    "options": [
+      "grandfather",
+      "help",
+      "father",
+      "mother"
+    ],
+    "answer": "grandfather",
+    "accepted_answers": [
+      "grandfather"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 8,
+    "id": "family_8_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: GRANDMOTHER",
+    "options": [],
+    "answer": "grandmother",
+    "accepted_answers": [
+      "grandmother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 8,
+    "id": "family_8_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “giúp đỡ”: p - l - e - h",
+    "options": [],
+    "answer": "help",
+    "accepted_answers": [
+      "help"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 8,
+    "id": "family_8_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “bố” là gì?",
+    "options": [
+      "father",
+      "help",
+      "mother",
+      "grandfather"
+    ],
+    "answer": "father",
+    "accepted_answers": [
+      "father"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 8,
+    "id": "family_8_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “mẹ”.",
+    "options": [],
+    "answer": "mother",
+    "accepted_answers": [
+      "mother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 8,
+    "id": "family_8_9",
+    "type": "true_false",
+    "prompt": "“grandfather” có nghĩa là “ông”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 8,
+    "id": "family_8_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “bà” là gì?",
+    "options": [
+      "grandmother",
+      "help",
+      "father",
+      "mother"
+    ],
+    "answer": "grandmother",
+    "accepted_answers": [
+      "grandmother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 9,
+    "id": "family_9_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “mẹ” là gì?",
+    "options": [
+      "mother",
+      "grandfather",
+      "grandmother",
+      "brother"
+    ],
+    "answer": "mother",
+    "accepted_answers": [
+      "mother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 9,
+    "id": "family_9_2",
+    "type": "true_false",
+    "prompt": "“grandfather” có nghĩa là “ông”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 9,
+    "id": "family_9_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “bà”.",
+    "options": [],
+    "answer": "grandmother",
+    "accepted_answers": [
+      "grandmother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 9,
+    "id": "family_9_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “anh trai” là gì?",
+    "options": [
+      "brother",
+      "mother",
+      "grandfather",
+      "grandmother"
+    ],
+    "answer": "brother",
+    "accepted_answers": [
+      "brother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 9,
+    "id": "family_9_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: SISTER",
+    "options": [],
+    "answer": "sister",
+    "accepted_answers": [
+      "sister"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 9,
+    "id": "family_9_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “mẹ”: r - e - h - t - o - m",
+    "options": [],
+    "answer": "mother",
+    "accepted_answers": [
+      "mother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 9,
+    "id": "family_9_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “ông” là gì?",
+    "options": [
+      "grandfather",
+      "mother",
+      "grandmother",
+      "brother"
+    ],
+    "answer": "grandfather",
+    "accepted_answers": [
+      "grandfather"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 9,
+    "id": "family_9_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “bà”.",
+    "options": [],
+    "answer": "grandmother",
+    "accepted_answers": [
+      "grandmother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 9,
+    "id": "family_9_9",
+    "type": "true_false",
+    "prompt": "“brother” có nghĩa là “anh trai”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 9,
+    "id": "family_9_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “chị gái” là gì?",
+    "options": [
+      "sister",
+      "mother",
+      "grandfather",
+      "grandmother"
+    ],
+    "answer": "sister",
+    "accepted_answers": [
+      "sister"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 10,
+    "id": "family_10_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “bà” là gì?",
+    "options": [
+      "grandmother",
+      "brother",
+      "sister",
+      "baby"
+    ],
+    "answer": "grandmother",
+    "accepted_answers": [
+      "grandmother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 10,
+    "id": "family_10_2",
+    "type": "true_false",
+    "prompt": "“brother” có nghĩa là “anh trai”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 10,
+    "id": "family_10_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “chị gái”.",
+    "options": [],
+    "answer": "sister",
+    "accepted_answers": [
+      "sister"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 10,
+    "id": "family_10_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “em bé” là gì?",
+    "options": [
+      "baby",
+      "grandmother",
+      "brother",
+      "sister"
+    ],
+    "answer": "baby",
+    "accepted_answers": [
+      "baby"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 10,
+    "id": "family_10_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: FAMILY",
+    "options": [],
+    "answer": "family",
+    "accepted_answers": [
+      "family"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 10,
+    "id": "family_10_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “bà”: r - e - h - t - o - m - d - n - a - r - g",
+    "options": [],
+    "answer": "grandmother",
+    "accepted_answers": [
+      "grandmother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 10,
+    "id": "family_10_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “anh trai” là gì?",
+    "options": [
+      "brother",
+      "grandmother",
+      "sister",
+      "baby"
+    ],
+    "answer": "brother",
+    "accepted_answers": [
+      "brother"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 10,
+    "id": "family_10_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “chị gái”.",
+    "options": [],
+    "answer": "sister",
+    "accepted_answers": [
+      "sister"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 10,
+    "id": "family_10_9",
+    "type": "true_false",
+    "prompt": "“baby” có nghĩa là “em bé”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 10,
+    "id": "family_10_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “gia đình” là gì?",
+    "options": [
+      "family",
+      "grandmother",
+      "brother",
+      "sister"
+    ],
+    "answer": "family",
+    "accepted_answers": [
+      "family"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 1,
+    "id": "sports_1_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “bóng đá” là gì?",
+    "options": [
+      "football",
+      "basketball",
+      "swimming",
+      "running"
+    ],
+    "answer": "football",
+    "accepted_answers": [
+      "football"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 1,
+    "id": "sports_1_2",
+    "type": "true_false",
+    "prompt": "“basketball” có nghĩa là “bóng rổ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 1,
+    "id": "sports_1_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “bơi lội”.",
+    "options": [],
+    "answer": "swimming",
+    "accepted_answers": [
+      "swimming"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 1,
+    "id": "sports_1_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “chạy bộ” là gì?",
+    "options": [
+      "running",
+      "football",
+      "basketball",
+      "swimming"
+    ],
+    "answer": "running",
+    "accepted_answers": [
+      "running"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 1,
+    "id": "sports_1_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: CYCLING",
+    "options": [],
+    "answer": "cycling",
+    "accepted_answers": [
+      "cycling"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 1,
+    "id": "sports_1_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “bóng đá”: l - l - a - b - t - o - o - f",
+    "options": [],
+    "answer": "football",
+    "accepted_answers": [
+      "football"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 1,
+    "id": "sports_1_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “bóng rổ” là gì?",
+    "options": [
+      "basketball",
+      "football",
+      "swimming",
+      "running"
+    ],
+    "answer": "basketball",
+    "accepted_answers": [
+      "basketball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 1,
+    "id": "sports_1_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “bơi lội”.",
+    "options": [],
+    "answer": "swimming",
+    "accepted_answers": [
+      "swimming"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 1,
+    "id": "sports_1_9",
+    "type": "true_false",
+    "prompt": "“running” có nghĩa là “chạy bộ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 1,
+    "id": "sports_1_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “đạp xe” là gì?",
+    "options": [
+      "cycling",
+      "football",
+      "basketball",
+      "swimming"
+    ],
+    "answer": "cycling",
+    "accepted_answers": [
+      "cycling"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 2,
+    "id": "sports_2_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “bơi lội” là gì?",
+    "options": [
+      "swimming",
+      "running",
+      "cycling",
+      "badminton"
+    ],
+    "answer": "swimming",
+    "accepted_answers": [
+      "swimming"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 2,
+    "id": "sports_2_2",
+    "type": "true_false",
+    "prompt": "“running” có nghĩa là “chạy bộ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 2,
+    "id": "sports_2_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “đạp xe”.",
+    "options": [],
+    "answer": "cycling",
+    "accepted_answers": [
+      "cycling"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 2,
+    "id": "sports_2_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “cầu lông” là gì?",
+    "options": [
+      "badminton",
+      "swimming",
+      "running",
+      "cycling"
+    ],
+    "answer": "badminton",
+    "accepted_answers": [
+      "badminton"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 2,
+    "id": "sports_2_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: TENNIS",
+    "options": [],
+    "answer": "tennis",
+    "accepted_answers": [
+      "tennis"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 2,
+    "id": "sports_2_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “bơi lội”: g - n - i - m - m - i - w - s",
+    "options": [],
+    "answer": "swimming",
+    "accepted_answers": [
+      "swimming"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 2,
+    "id": "sports_2_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “chạy bộ” là gì?",
+    "options": [
+      "running",
+      "swimming",
+      "cycling",
+      "badminton"
+    ],
+    "answer": "running",
+    "accepted_answers": [
+      "running"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 2,
+    "id": "sports_2_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “đạp xe”.",
+    "options": [],
+    "answer": "cycling",
+    "accepted_answers": [
+      "cycling"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 2,
+    "id": "sports_2_9",
+    "type": "true_false",
+    "prompt": "“badminton” có nghĩa là “cầu lông”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 2,
+    "id": "sports_2_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quần vợt” là gì?",
+    "options": [
+      "tennis",
+      "swimming",
+      "running",
+      "cycling"
+    ],
+    "answer": "tennis",
+    "accepted_answers": [
+      "tennis"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 3,
+    "id": "sports_3_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “đạp xe” là gì?",
+    "options": [
+      "cycling",
+      "badminton",
+      "tennis",
+      "volleyball"
+    ],
+    "answer": "cycling",
+    "accepted_answers": [
+      "cycling"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 3,
+    "id": "sports_3_2",
+    "type": "true_false",
+    "prompt": "“badminton” có nghĩa là “cầu lông”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 3,
+    "id": "sports_3_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quần vợt”.",
+    "options": [],
+    "answer": "tennis",
+    "accepted_answers": [
+      "tennis"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 3,
+    "id": "sports_3_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “bóng chuyền” là gì?",
+    "options": [
+      "volleyball",
+      "cycling",
+      "badminton",
+      "tennis"
+    ],
+    "answer": "volleyball",
+    "accepted_answers": [
+      "volleyball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 3,
+    "id": "sports_3_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: SKATING",
+    "options": [],
+    "answer": "skating",
+    "accepted_answers": [
+      "skating"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 3,
+    "id": "sports_3_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “đạp xe”: g - n - i - l - c - y - c",
+    "options": [],
+    "answer": "cycling",
+    "accepted_answers": [
+      "cycling"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 3,
+    "id": "sports_3_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “cầu lông” là gì?",
+    "options": [
+      "badminton",
+      "cycling",
+      "tennis",
+      "volleyball"
+    ],
+    "answer": "badminton",
+    "accepted_answers": [
+      "badminton"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 3,
+    "id": "sports_3_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quần vợt”.",
+    "options": [],
+    "answer": "tennis",
+    "accepted_answers": [
+      "tennis"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 3,
+    "id": "sports_3_9",
+    "type": "true_false",
+    "prompt": "“volleyball” có nghĩa là “bóng chuyền”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 3,
+    "id": "sports_3_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “trượt patin” là gì?",
+    "options": [
+      "skating",
+      "cycling",
+      "badminton",
+      "tennis"
+    ],
+    "answer": "skating",
+    "accepted_answers": [
+      "skating"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 4,
+    "id": "sports_4_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quần vợt” là gì?",
+    "options": [
+      "tennis",
+      "volleyball",
+      "skating",
+      "jump"
+    ],
+    "answer": "tennis",
+    "accepted_answers": [
+      "tennis"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 4,
+    "id": "sports_4_2",
+    "type": "true_false",
+    "prompt": "“volleyball” có nghĩa là “bóng chuyền”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 4,
+    "id": "sports_4_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “trượt patin”.",
+    "options": [],
+    "answer": "skating",
+    "accepted_answers": [
+      "skating"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 4,
+    "id": "sports_4_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “nhảy” là gì?",
+    "options": [
+      "jump",
+      "tennis",
+      "volleyball",
+      "skating"
+    ],
+    "answer": "jump",
+    "accepted_answers": [
+      "jump"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 4,
+    "id": "sports_4_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: TEAM",
+    "options": [],
+    "answer": "team",
+    "accepted_answers": [
+      "team"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 4,
+    "id": "sports_4_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “quần vợt”: s - i - n - n - e - t",
+    "options": [],
+    "answer": "tennis",
+    "accepted_answers": [
+      "tennis"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 4,
+    "id": "sports_4_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “bóng chuyền” là gì?",
+    "options": [
+      "volleyball",
+      "tennis",
+      "skating",
+      "jump"
+    ],
+    "answer": "volleyball",
+    "accepted_answers": [
+      "volleyball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 4,
+    "id": "sports_4_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “trượt patin”.",
+    "options": [],
+    "answer": "skating",
+    "accepted_answers": [
+      "skating"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 4,
+    "id": "sports_4_9",
+    "type": "true_false",
+    "prompt": "“jump” có nghĩa là “nhảy”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 4,
+    "id": "sports_4_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “đội” là gì?",
+    "options": [
+      "team",
+      "tennis",
+      "volleyball",
+      "skating"
+    ],
+    "answer": "team",
+    "accepted_answers": [
+      "team"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 5,
+    "id": "sports_5_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “trượt patin” là gì?",
+    "options": [
+      "skating",
+      "jump",
+      "team",
+      "ball"
+    ],
+    "answer": "skating",
+    "accepted_answers": [
+      "skating"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 5,
+    "id": "sports_5_2",
+    "type": "true_false",
+    "prompt": "“jump” có nghĩa là “nhảy”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 5,
+    "id": "sports_5_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “đội”.",
+    "options": [],
+    "answer": "team",
+    "accepted_answers": [
+      "team"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 5,
+    "id": "sports_5_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả bóng” là gì?",
+    "options": [
+      "ball",
+      "skating",
+      "jump",
+      "team"
+    ],
+    "answer": "ball",
+    "accepted_answers": [
+      "ball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 5,
+    "id": "sports_5_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: COACH",
+    "options": [],
+    "answer": "coach",
+    "accepted_answers": [
+      "coach"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 5,
+    "id": "sports_5_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “trượt patin”: g - n - i - t - a - k - s",
+    "options": [],
+    "answer": "skating",
+    "accepted_answers": [
+      "skating"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 5,
+    "id": "sports_5_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “nhảy” là gì?",
+    "options": [
+      "jump",
+      "skating",
+      "team",
+      "ball"
+    ],
+    "answer": "jump",
+    "accepted_answers": [
+      "jump"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 5,
+    "id": "sports_5_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “đội”.",
+    "options": [],
+    "answer": "team",
+    "accepted_answers": [
+      "team"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 5,
+    "id": "sports_5_9",
+    "type": "true_false",
+    "prompt": "“ball” có nghĩa là “quả bóng”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 5,
+    "id": "sports_5_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “huấn luyện viên” là gì?",
+    "options": [
+      "coach",
+      "skating",
+      "jump",
+      "team"
+    ],
+    "answer": "coach",
+    "accepted_answers": [
+      "coach"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 6,
+    "id": "sports_6_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “đội” là gì?",
+    "options": [
+      "team",
+      "ball",
+      "coach",
+      "win"
+    ],
+    "answer": "team",
+    "accepted_answers": [
+      "team"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 6,
+    "id": "sports_6_2",
+    "type": "true_false",
+    "prompt": "“ball” có nghĩa là “quả bóng”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 6,
+    "id": "sports_6_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “huấn luyện viên”.",
+    "options": [],
+    "answer": "coach",
+    "accepted_answers": [
+      "coach"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 6,
+    "id": "sports_6_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “chiến thắng” là gì?",
+    "options": [
+      "win",
+      "team",
+      "ball",
+      "coach"
+    ],
+    "answer": "win",
+    "accepted_answers": [
+      "win"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 6,
+    "id": "sports_6_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: PRACTICE",
+    "options": [],
+    "answer": "practice",
+    "accepted_answers": [
+      "practice"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 6,
+    "id": "sports_6_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “đội”: m - a - e - t",
+    "options": [],
+    "answer": "team",
+    "accepted_answers": [
+      "team"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 6,
+    "id": "sports_6_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả bóng” là gì?",
+    "options": [
+      "ball",
+      "team",
+      "coach",
+      "win"
+    ],
+    "answer": "ball",
+    "accepted_answers": [
+      "ball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 6,
+    "id": "sports_6_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “huấn luyện viên”.",
+    "options": [],
+    "answer": "coach",
+    "accepted_answers": [
+      "coach"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 6,
+    "id": "sports_6_9",
+    "type": "true_false",
+    "prompt": "“win” có nghĩa là “chiến thắng”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 6,
+    "id": "sports_6_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “luyện tập” là gì?",
+    "options": [
+      "practice",
+      "team",
+      "ball",
+      "coach"
+    ],
+    "answer": "practice",
+    "accepted_answers": [
+      "practice"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 7,
+    "id": "sports_7_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “huấn luyện viên” là gì?",
+    "options": [
+      "coach",
+      "win",
+      "practice",
+      "football"
+    ],
+    "answer": "coach",
+    "accepted_answers": [
+      "coach"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 7,
+    "id": "sports_7_2",
+    "type": "true_false",
+    "prompt": "“win” có nghĩa là “chiến thắng”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 7,
+    "id": "sports_7_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “luyện tập”.",
+    "options": [],
+    "answer": "practice",
+    "accepted_answers": [
+      "practice"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 7,
+    "id": "sports_7_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “bóng đá” là gì?",
+    "options": [
+      "football",
+      "coach",
+      "win",
+      "practice"
+    ],
+    "answer": "football",
+    "accepted_answers": [
+      "football"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 7,
+    "id": "sports_7_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: BASKETBALL",
+    "options": [],
+    "answer": "basketball",
+    "accepted_answers": [
+      "basketball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 7,
+    "id": "sports_7_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “huấn luyện viên”: h - c - a - o - c",
+    "options": [],
+    "answer": "coach",
+    "accepted_answers": [
+      "coach"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 7,
+    "id": "sports_7_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “chiến thắng” là gì?",
+    "options": [
+      "win",
+      "coach",
+      "practice",
+      "football"
+    ],
+    "answer": "win",
+    "accepted_answers": [
+      "win"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 7,
+    "id": "sports_7_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “luyện tập”.",
+    "options": [],
+    "answer": "practice",
+    "accepted_answers": [
+      "practice"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 7,
+    "id": "sports_7_9",
+    "type": "true_false",
+    "prompt": "“football” có nghĩa là “bóng đá”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 7,
+    "id": "sports_7_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “bóng rổ” là gì?",
+    "options": [
+      "basketball",
+      "coach",
+      "win",
+      "practice"
+    ],
+    "answer": "basketball",
+    "accepted_answers": [
+      "basketball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 8,
+    "id": "sports_8_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “luyện tập” là gì?",
+    "options": [
+      "practice",
+      "football",
+      "basketball",
+      "swimming"
+    ],
+    "answer": "practice",
+    "accepted_answers": [
+      "practice"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 8,
+    "id": "sports_8_2",
+    "type": "true_false",
+    "prompt": "“football” có nghĩa là “bóng đá”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 8,
+    "id": "sports_8_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “bóng rổ”.",
+    "options": [],
+    "answer": "basketball",
+    "accepted_answers": [
+      "basketball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 8,
+    "id": "sports_8_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “bơi lội” là gì?",
+    "options": [
+      "swimming",
+      "practice",
+      "football",
+      "basketball"
+    ],
+    "answer": "swimming",
+    "accepted_answers": [
+      "swimming"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 8,
+    "id": "sports_8_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: RUNNING",
+    "options": [],
+    "answer": "running",
+    "accepted_answers": [
+      "running"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 8,
+    "id": "sports_8_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “luyện tập”: e - c - i - t - c - a - r - p",
+    "options": [],
+    "answer": "practice",
+    "accepted_answers": [
+      "practice"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 8,
+    "id": "sports_8_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “bóng đá” là gì?",
+    "options": [
+      "football",
+      "practice",
+      "basketball",
+      "swimming"
+    ],
+    "answer": "football",
+    "accepted_answers": [
+      "football"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 8,
+    "id": "sports_8_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “bóng rổ”.",
+    "options": [],
+    "answer": "basketball",
+    "accepted_answers": [
+      "basketball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 8,
+    "id": "sports_8_9",
+    "type": "true_false",
+    "prompt": "“swimming” có nghĩa là “bơi lội”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 8,
+    "id": "sports_8_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “chạy bộ” là gì?",
+    "options": [
+      "running",
+      "practice",
+      "football",
+      "basketball"
+    ],
+    "answer": "running",
+    "accepted_answers": [
+      "running"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 9,
+    "id": "sports_9_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “bóng rổ” là gì?",
+    "options": [
+      "basketball",
+      "swimming",
+      "running",
+      "cycling"
+    ],
+    "answer": "basketball",
+    "accepted_answers": [
+      "basketball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 9,
+    "id": "sports_9_2",
+    "type": "true_false",
+    "prompt": "“swimming” có nghĩa là “bơi lội”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 9,
+    "id": "sports_9_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “chạy bộ”.",
+    "options": [],
+    "answer": "running",
+    "accepted_answers": [
+      "running"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 9,
+    "id": "sports_9_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “đạp xe” là gì?",
+    "options": [
+      "cycling",
+      "basketball",
+      "swimming",
+      "running"
+    ],
+    "answer": "cycling",
+    "accepted_answers": [
+      "cycling"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 9,
+    "id": "sports_9_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: BADMINTON",
+    "options": [],
+    "answer": "badminton",
+    "accepted_answers": [
+      "badminton"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 9,
+    "id": "sports_9_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “bóng rổ”: l - l - a - b - t - e - k - s - a - b",
+    "options": [],
+    "answer": "basketball",
+    "accepted_answers": [
+      "basketball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 9,
+    "id": "sports_9_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “bơi lội” là gì?",
+    "options": [
+      "swimming",
+      "basketball",
+      "running",
+      "cycling"
+    ],
+    "answer": "swimming",
+    "accepted_answers": [
+      "swimming"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 9,
+    "id": "sports_9_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “chạy bộ”.",
+    "options": [],
+    "answer": "running",
+    "accepted_answers": [
+      "running"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 9,
+    "id": "sports_9_9",
+    "type": "true_false",
+    "prompt": "“cycling” có nghĩa là “đạp xe”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 9,
+    "id": "sports_9_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “cầu lông” là gì?",
+    "options": [
+      "badminton",
+      "basketball",
+      "swimming",
+      "running"
+    ],
+    "answer": "badminton",
+    "accepted_answers": [
+      "badminton"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 10,
+    "id": "sports_10_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “chạy bộ” là gì?",
+    "options": [
+      "running",
+      "cycling",
+      "badminton",
+      "tennis"
+    ],
+    "answer": "running",
+    "accepted_answers": [
+      "running"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 10,
+    "id": "sports_10_2",
+    "type": "true_false",
+    "prompt": "“cycling” có nghĩa là “đạp xe”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 10,
+    "id": "sports_10_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “cầu lông”.",
+    "options": [],
+    "answer": "badminton",
+    "accepted_answers": [
+      "badminton"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 10,
+    "id": "sports_10_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quần vợt” là gì?",
+    "options": [
+      "tennis",
+      "running",
+      "cycling",
+      "badminton"
+    ],
+    "answer": "tennis",
+    "accepted_answers": [
+      "tennis"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 10,
+    "id": "sports_10_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: VOLLEYBALL",
+    "options": [],
+    "answer": "volleyball",
+    "accepted_answers": [
+      "volleyball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 10,
+    "id": "sports_10_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “chạy bộ”: g - n - i - n - n - u - r",
+    "options": [],
+    "answer": "running",
+    "accepted_answers": [
+      "running"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 10,
+    "id": "sports_10_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “đạp xe” là gì?",
+    "options": [
+      "cycling",
+      "running",
+      "badminton",
+      "tennis"
+    ],
+    "answer": "cycling",
+    "accepted_answers": [
+      "cycling"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 10,
+    "id": "sports_10_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “cầu lông”.",
+    "options": [],
+    "answer": "badminton",
+    "accepted_answers": [
+      "badminton"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 10,
+    "id": "sports_10_9",
+    "type": "true_false",
+    "prompt": "“tennis” có nghĩa là “quần vợt”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "sports",
+    "level": 10,
+    "id": "sports_10_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “bóng chuyền” là gì?",
+    "options": [
+      "volleyball",
+      "running",
+      "cycling",
+      "badminton"
+    ],
+    "answer": "volleyball",
+    "accepted_answers": [
+      "volleyball"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 1,
+    "id": "actions_1_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “đi bộ” là gì?",
+    "options": [
+      "walk",
+      "run",
+      "jump",
+      "read"
+    ],
+    "answer": "walk",
+    "accepted_answers": [
+      "walk"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 1,
+    "id": "actions_1_2",
+    "type": "true_false",
+    "prompt": "“run” có nghĩa là “chạy”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 1,
+    "id": "actions_1_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “nhảy”.",
+    "options": [],
+    "answer": "jump",
+    "accepted_answers": [
+      "jump"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 1,
+    "id": "actions_1_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “đọc” là gì?",
+    "options": [
+      "read",
+      "walk",
+      "run",
+      "jump"
+    ],
+    "answer": "read",
+    "accepted_answers": [
+      "read"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 1,
+    "id": "actions_1_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: WRITE",
+    "options": [],
+    "answer": "write",
+    "accepted_answers": [
+      "write"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 1,
+    "id": "actions_1_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “đi bộ”: k - l - a - w",
+    "options": [],
+    "answer": "walk",
+    "accepted_answers": [
+      "walk"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 1,
+    "id": "actions_1_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “chạy” là gì?",
+    "options": [
+      "run",
+      "walk",
+      "jump",
+      "read"
+    ],
+    "answer": "run",
+    "accepted_answers": [
+      "run"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 1,
+    "id": "actions_1_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “nhảy”.",
+    "options": [],
+    "answer": "jump",
+    "accepted_answers": [
+      "jump"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 1,
+    "id": "actions_1_9",
+    "type": "true_false",
+    "prompt": "“read” có nghĩa là “đọc”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 1,
+    "id": "actions_1_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “viết” là gì?",
+    "options": [
+      "write",
+      "walk",
+      "run",
+      "jump"
+    ],
+    "answer": "write",
+    "accepted_answers": [
+      "write"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 2,
+    "id": "actions_2_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “nhảy” là gì?",
+    "options": [
+      "jump",
+      "read",
+      "write",
+      "eat"
+    ],
+    "answer": "jump",
+    "accepted_answers": [
+      "jump"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 2,
+    "id": "actions_2_2",
+    "type": "true_false",
+    "prompt": "“read” có nghĩa là “đọc”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 2,
+    "id": "actions_2_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “viết”.",
+    "options": [],
+    "answer": "write",
+    "accepted_answers": [
+      "write"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 2,
+    "id": "actions_2_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “ăn” là gì?",
+    "options": [
+      "eat",
+      "jump",
+      "read",
+      "write"
+    ],
+    "answer": "eat",
+    "accepted_answers": [
+      "eat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 2,
+    "id": "actions_2_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: DRINK",
+    "options": [],
+    "answer": "drink",
+    "accepted_answers": [
+      "drink"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 2,
+    "id": "actions_2_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “nhảy”: p - m - u - j",
+    "options": [],
+    "answer": "jump",
+    "accepted_answers": [
+      "jump"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 2,
+    "id": "actions_2_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “đọc” là gì?",
+    "options": [
+      "read",
+      "jump",
+      "write",
+      "eat"
+    ],
+    "answer": "read",
+    "accepted_answers": [
+      "read"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 2,
+    "id": "actions_2_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “viết”.",
+    "options": [],
+    "answer": "write",
+    "accepted_answers": [
+      "write"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 2,
+    "id": "actions_2_9",
+    "type": "true_false",
+    "prompt": "“eat” có nghĩa là “ăn”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 2,
+    "id": "actions_2_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “uống” là gì?",
+    "options": [
+      "drink",
+      "jump",
+      "read",
+      "write"
+    ],
+    "answer": "drink",
+    "accepted_answers": [
+      "drink"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 3,
+    "id": "actions_3_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “viết” là gì?",
+    "options": [
+      "write",
+      "eat",
+      "drink",
+      "sleep"
+    ],
+    "answer": "write",
+    "accepted_answers": [
+      "write"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 3,
+    "id": "actions_3_2",
+    "type": "true_false",
+    "prompt": "“eat” có nghĩa là “ăn”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 3,
+    "id": "actions_3_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “uống”.",
+    "options": [],
+    "answer": "drink",
+    "accepted_answers": [
+      "drink"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 3,
+    "id": "actions_3_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “ngủ” là gì?",
+    "options": [
+      "sleep",
+      "write",
+      "eat",
+      "drink"
+    ],
+    "answer": "sleep",
+    "accepted_answers": [
+      "sleep"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 3,
+    "id": "actions_3_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: SING",
+    "options": [],
+    "answer": "sing",
+    "accepted_answers": [
+      "sing"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 3,
+    "id": "actions_3_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “viết”: e - t - i - r - w",
+    "options": [],
+    "answer": "write",
+    "accepted_answers": [
+      "write"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 3,
+    "id": "actions_3_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “ăn” là gì?",
+    "options": [
+      "eat",
+      "write",
+      "drink",
+      "sleep"
+    ],
+    "answer": "eat",
+    "accepted_answers": [
+      "eat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 3,
+    "id": "actions_3_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “uống”.",
+    "options": [],
+    "answer": "drink",
+    "accepted_answers": [
+      "drink"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 3,
+    "id": "actions_3_9",
+    "type": "true_false",
+    "prompt": "“sleep” có nghĩa là “ngủ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 3,
+    "id": "actions_3_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “hát” là gì?",
+    "options": [
+      "sing",
+      "write",
+      "eat",
+      "drink"
+    ],
+    "answer": "sing",
+    "accepted_answers": [
+      "sing"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 4,
+    "id": "actions_4_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “uống” là gì?",
+    "options": [
+      "drink",
+      "sleep",
+      "sing",
+      "dance"
+    ],
+    "answer": "drink",
+    "accepted_answers": [
+      "drink"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 4,
+    "id": "actions_4_2",
+    "type": "true_false",
+    "prompt": "“sleep” có nghĩa là “ngủ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 4,
+    "id": "actions_4_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “hát”.",
+    "options": [],
+    "answer": "sing",
+    "accepted_answers": [
+      "sing"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 4,
+    "id": "actions_4_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “nhảy múa” là gì?",
+    "options": [
+      "dance",
+      "drink",
+      "sleep",
+      "sing"
+    ],
+    "answer": "dance",
+    "accepted_answers": [
+      "dance"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 4,
+    "id": "actions_4_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: LISTEN",
+    "options": [],
+    "answer": "listen",
+    "accepted_answers": [
+      "listen"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 4,
+    "id": "actions_4_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “uống”: k - n - i - r - d",
+    "options": [],
+    "answer": "drink",
+    "accepted_answers": [
+      "drink"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 4,
+    "id": "actions_4_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “ngủ” là gì?",
+    "options": [
+      "sleep",
+      "drink",
+      "sing",
+      "dance"
+    ],
+    "answer": "sleep",
+    "accepted_answers": [
+      "sleep"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 4,
+    "id": "actions_4_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “hát”.",
+    "options": [],
+    "answer": "sing",
+    "accepted_answers": [
+      "sing"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 4,
+    "id": "actions_4_9",
+    "type": "true_false",
+    "prompt": "“dance” có nghĩa là “nhảy múa”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 4,
+    "id": "actions_4_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “lắng nghe” là gì?",
+    "options": [
+      "listen",
+      "drink",
+      "sleep",
+      "sing"
+    ],
+    "answer": "listen",
+    "accepted_answers": [
+      "listen"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 5,
+    "id": "actions_5_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “hát” là gì?",
+    "options": [
+      "sing",
+      "dance",
+      "listen",
+      "draw"
+    ],
+    "answer": "sing",
+    "accepted_answers": [
+      "sing"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 5,
+    "id": "actions_5_2",
+    "type": "true_false",
+    "prompt": "“dance” có nghĩa là “nhảy múa”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 5,
+    "id": "actions_5_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “lắng nghe”.",
+    "options": [],
+    "answer": "listen",
+    "accepted_answers": [
+      "listen"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 5,
+    "id": "actions_5_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “vẽ” là gì?",
+    "options": [
+      "draw",
+      "sing",
+      "dance",
+      "listen"
+    ],
+    "answer": "draw",
+    "accepted_answers": [
+      "draw"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 5,
+    "id": "actions_5_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: PLAY",
+    "options": [],
+    "answer": "play",
+    "accepted_answers": [
+      "play"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 5,
+    "id": "actions_5_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “hát”: g - n - i - s",
+    "options": [],
+    "answer": "sing",
+    "accepted_answers": [
+      "sing"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 5,
+    "id": "actions_5_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “nhảy múa” là gì?",
+    "options": [
+      "dance",
+      "sing",
+      "listen",
+      "draw"
+    ],
+    "answer": "dance",
+    "accepted_answers": [
+      "dance"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 5,
+    "id": "actions_5_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “lắng nghe”.",
+    "options": [],
+    "answer": "listen",
+    "accepted_answers": [
+      "listen"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 5,
+    "id": "actions_5_9",
+    "type": "true_false",
+    "prompt": "“draw” có nghĩa là “vẽ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 5,
+    "id": "actions_5_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “chơi” là gì?",
+    "options": [
+      "play",
+      "sing",
+      "dance",
+      "listen"
+    ],
+    "answer": "play",
+    "accepted_answers": [
+      "play"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 6,
+    "id": "actions_6_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “lắng nghe” là gì?",
+    "options": [
+      "listen",
+      "draw",
+      "play",
+      "open"
+    ],
+    "answer": "listen",
+    "accepted_answers": [
+      "listen"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 6,
+    "id": "actions_6_2",
+    "type": "true_false",
+    "prompt": "“draw” có nghĩa là “vẽ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 6,
+    "id": "actions_6_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “chơi”.",
+    "options": [],
+    "answer": "play",
+    "accepted_answers": [
+      "play"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 6,
+    "id": "actions_6_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “mở” là gì?",
+    "options": [
+      "open",
+      "listen",
+      "draw",
+      "play"
+    ],
+    "answer": "open",
+    "accepted_answers": [
+      "open"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 6,
+    "id": "actions_6_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: CLOSE",
+    "options": [],
+    "answer": "close",
+    "accepted_answers": [
+      "close"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 6,
+    "id": "actions_6_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “lắng nghe”: n - e - t - s - i - l",
+    "options": [],
+    "answer": "listen",
+    "accepted_answers": [
+      "listen"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 6,
+    "id": "actions_6_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “vẽ” là gì?",
+    "options": [
+      "draw",
+      "listen",
+      "play",
+      "open"
+    ],
+    "answer": "draw",
+    "accepted_answers": [
+      "draw"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 6,
+    "id": "actions_6_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “chơi”.",
+    "options": [],
+    "answer": "play",
+    "accepted_answers": [
+      "play"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 6,
+    "id": "actions_6_9",
+    "type": "true_false",
+    "prompt": "“open” có nghĩa là “mở”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 6,
+    "id": "actions_6_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “đóng” là gì?",
+    "options": [
+      "close",
+      "listen",
+      "draw",
+      "play"
+    ],
+    "answer": "close",
+    "accepted_answers": [
+      "close"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 7,
+    "id": "actions_7_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “chơi” là gì?",
+    "options": [
+      "play",
+      "open",
+      "close",
+      "walk"
+    ],
+    "answer": "play",
+    "accepted_answers": [
+      "play"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 7,
+    "id": "actions_7_2",
+    "type": "true_false",
+    "prompt": "“open” có nghĩa là “mở”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 7,
+    "id": "actions_7_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “đóng”.",
+    "options": [],
+    "answer": "close",
+    "accepted_answers": [
+      "close"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 7,
+    "id": "actions_7_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “đi bộ” là gì?",
+    "options": [
+      "walk",
+      "play",
+      "open",
+      "close"
+    ],
+    "answer": "walk",
+    "accepted_answers": [
+      "walk"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 7,
+    "id": "actions_7_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: RUN",
+    "options": [],
+    "answer": "run",
+    "accepted_answers": [
+      "run"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 7,
+    "id": "actions_7_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “chơi”: y - a - l - p",
+    "options": [],
+    "answer": "play",
+    "accepted_answers": [
+      "play"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 7,
+    "id": "actions_7_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “mở” là gì?",
+    "options": [
+      "open",
+      "play",
+      "close",
+      "walk"
+    ],
+    "answer": "open",
+    "accepted_answers": [
+      "open"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 7,
+    "id": "actions_7_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “đóng”.",
+    "options": [],
+    "answer": "close",
+    "accepted_answers": [
+      "close"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 7,
+    "id": "actions_7_9",
+    "type": "true_false",
+    "prompt": "“walk” có nghĩa là “đi bộ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 7,
+    "id": "actions_7_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “chạy” là gì?",
+    "options": [
+      "run",
+      "play",
+      "open",
+      "close"
+    ],
+    "answer": "run",
+    "accepted_answers": [
+      "run"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 8,
+    "id": "actions_8_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “đóng” là gì?",
+    "options": [
+      "close",
+      "walk",
+      "run",
+      "jump"
+    ],
+    "answer": "close",
+    "accepted_answers": [
+      "close"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 8,
+    "id": "actions_8_2",
+    "type": "true_false",
+    "prompt": "“walk” có nghĩa là “đi bộ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 8,
+    "id": "actions_8_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “chạy”.",
+    "options": [],
+    "answer": "run",
+    "accepted_answers": [
+      "run"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 8,
+    "id": "actions_8_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “nhảy” là gì?",
+    "options": [
+      "jump",
+      "close",
+      "walk",
+      "run"
+    ],
+    "answer": "jump",
+    "accepted_answers": [
+      "jump"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 8,
+    "id": "actions_8_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: READ",
+    "options": [],
+    "answer": "read",
+    "accepted_answers": [
+      "read"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 8,
+    "id": "actions_8_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “đóng”: e - s - o - l - c",
+    "options": [],
+    "answer": "close",
+    "accepted_answers": [
+      "close"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 8,
+    "id": "actions_8_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “đi bộ” là gì?",
+    "options": [
+      "walk",
+      "close",
+      "run",
+      "jump"
+    ],
+    "answer": "walk",
+    "accepted_answers": [
+      "walk"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 8,
+    "id": "actions_8_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “chạy”.",
+    "options": [],
+    "answer": "run",
+    "accepted_answers": [
+      "run"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 8,
+    "id": "actions_8_9",
+    "type": "true_false",
+    "prompt": "“jump” có nghĩa là “nhảy”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 8,
+    "id": "actions_8_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “đọc” là gì?",
+    "options": [
+      "read",
+      "close",
+      "walk",
+      "run"
+    ],
+    "answer": "read",
+    "accepted_answers": [
+      "read"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 9,
+    "id": "actions_9_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “chạy” là gì?",
+    "options": [
+      "run",
+      "jump",
+      "read",
+      "write"
+    ],
+    "answer": "run",
+    "accepted_answers": [
+      "run"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 9,
+    "id": "actions_9_2",
+    "type": "true_false",
+    "prompt": "“jump” có nghĩa là “nhảy”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 9,
+    "id": "actions_9_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “đọc”.",
+    "options": [],
+    "answer": "read",
+    "accepted_answers": [
+      "read"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 9,
+    "id": "actions_9_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “viết” là gì?",
+    "options": [
+      "write",
+      "run",
+      "jump",
+      "read"
+    ],
+    "answer": "write",
+    "accepted_answers": [
+      "write"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 9,
+    "id": "actions_9_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: EAT",
+    "options": [],
+    "answer": "eat",
+    "accepted_answers": [
+      "eat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 9,
+    "id": "actions_9_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “chạy”: n - u - r",
+    "options": [],
+    "answer": "run",
+    "accepted_answers": [
+      "run"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 9,
+    "id": "actions_9_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “nhảy” là gì?",
+    "options": [
+      "jump",
+      "run",
+      "read",
+      "write"
+    ],
+    "answer": "jump",
+    "accepted_answers": [
+      "jump"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 9,
+    "id": "actions_9_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “đọc”.",
+    "options": [],
+    "answer": "read",
+    "accepted_answers": [
+      "read"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 9,
+    "id": "actions_9_9",
+    "type": "true_false",
+    "prompt": "“write” có nghĩa là “viết”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 9,
+    "id": "actions_9_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “ăn” là gì?",
+    "options": [
+      "eat",
+      "run",
+      "jump",
+      "read"
+    ],
+    "answer": "eat",
+    "accepted_answers": [
+      "eat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 10,
+    "id": "actions_10_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “đọc” là gì?",
+    "options": [
+      "read",
+      "write",
+      "eat",
+      "drink"
+    ],
+    "answer": "read",
+    "accepted_answers": [
+      "read"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 10,
+    "id": "actions_10_2",
+    "type": "true_false",
+    "prompt": "“write” có nghĩa là “viết”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 10,
+    "id": "actions_10_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “ăn”.",
+    "options": [],
+    "answer": "eat",
+    "accepted_answers": [
+      "eat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 10,
+    "id": "actions_10_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “uống” là gì?",
+    "options": [
+      "drink",
+      "read",
+      "write",
+      "eat"
+    ],
+    "answer": "drink",
+    "accepted_answers": [
+      "drink"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 10,
+    "id": "actions_10_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: SLEEP",
+    "options": [],
+    "answer": "sleep",
+    "accepted_answers": [
+      "sleep"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 10,
+    "id": "actions_10_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “đọc”: d - a - e - r",
+    "options": [],
+    "answer": "read",
+    "accepted_answers": [
+      "read"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 10,
+    "id": "actions_10_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “viết” là gì?",
+    "options": [
+      "write",
+      "read",
+      "eat",
+      "drink"
+    ],
+    "answer": "write",
+    "accepted_answers": [
+      "write"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 10,
+    "id": "actions_10_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “ăn”.",
+    "options": [],
+    "answer": "eat",
+    "accepted_answers": [
+      "eat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 10,
+    "id": "actions_10_9",
+    "type": "true_false",
+    "prompt": "“drink” có nghĩa là “uống”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "actions",
+    "level": 10,
+    "id": "actions_10_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “ngủ” là gì?",
+    "options": [
+      "sleep",
+      "read",
+      "write",
+      "eat"
+    ],
+    "answer": "sleep",
+    "accepted_answers": [
+      "sleep"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “con mèo” là gì?",
+    "options": [
+      "cat",
+      "dog",
+      "bird",
+      "fish"
+    ],
+    "answer": "cat",
+    "accepted_answers": [
+      "cat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_2",
+    "type": "true_false",
+    "prompt": "“dog” có nghĩa là “con chó”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “con chim”.",
+    "options": [],
+    "answer": "bird",
+    "accepted_answers": [
+      "bird"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “con cá” là gì?",
+    "options": [
+      "fish",
+      "cat",
+      "dog",
+      "bird"
+    ],
+    "answer": "fish",
+    "accepted_answers": [
+      "fish"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: LION",
+    "options": [],
+    "answer": "lion",
+    "accepted_answers": [
+      "lion"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “con mèo”: t - a - c",
+    "options": [],
+    "answer": "cat",
+    "accepted_answers": [
+      "cat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “con chó” là gì?",
+    "options": [
+      "dog",
+      "cat",
+      "bird",
+      "fish"
+    ],
+    "answer": "dog",
+    "accepted_answers": [
+      "dog"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “con chim”.",
+    "options": [],
+    "answer": "bird",
+    "accepted_answers": [
+      "bird"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_9",
+    "type": "true_false",
+    "prompt": "“fish” có nghĩa là “con cá”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “sư tử” là gì?",
+    "options": [
+      "lion",
+      "cat",
+      "dog",
+      "bird"
+    ],
+    "answer": "lion",
+    "accepted_answers": [
+      "lion"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 2,
+    "id": "animals_2_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “con chim” là gì?",
+    "options": [
+      "bird",
+      "fish",
+      "lion",
+      "tiger"
+    ],
+    "answer": "bird",
+    "accepted_answers": [
+      "bird"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 2,
+    "id": "animals_2_2",
+    "type": "true_false",
+    "prompt": "“fish” có nghĩa là “con cá”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 2,
+    "id": "animals_2_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “sư tử”.",
+    "options": [],
+    "answer": "lion",
+    "accepted_answers": [
+      "lion"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 2,
+    "id": "animals_2_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “hổ” là gì?",
+    "options": [
+      "tiger",
+      "bird",
+      "fish",
+      "lion"
+    ],
+    "answer": "tiger",
+    "accepted_answers": [
+      "tiger"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 2,
+    "id": "animals_2_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: ELEPHANT",
+    "options": [],
+    "answer": "elephant",
+    "accepted_answers": [
+      "elephant"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 2,
+    "id": "animals_2_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “con chim”: d - r - i - b",
+    "options": [],
+    "answer": "bird",
+    "accepted_answers": [
+      "bird"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 2,
+    "id": "animals_2_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “con cá” là gì?",
+    "options": [
+      "fish",
+      "bird",
+      "lion",
+      "tiger"
+    ],
+    "answer": "fish",
+    "accepted_answers": [
+      "fish"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 2,
+    "id": "animals_2_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “sư tử”.",
+    "options": [],
+    "answer": "lion",
+    "accepted_answers": [
+      "lion"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 2,
+    "id": "animals_2_9",
+    "type": "true_false",
+    "prompt": "“tiger” có nghĩa là “hổ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 2,
+    "id": "animals_2_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “voi” là gì?",
+    "options": [
+      "elephant",
+      "bird",
+      "fish",
+      "lion"
+    ],
+    "answer": "elephant",
+    "accepted_answers": [
+      "elephant"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 3,
+    "id": "animals_3_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “sư tử” là gì?",
+    "options": [
+      "lion",
+      "tiger",
+      "elephant",
+      "monkey"
+    ],
+    "answer": "lion",
+    "accepted_answers": [
+      "lion"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 3,
+    "id": "animals_3_2",
+    "type": "true_false",
+    "prompt": "“tiger” có nghĩa là “hổ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 3,
+    "id": "animals_3_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “voi”.",
+    "options": [],
+    "answer": "elephant",
+    "accepted_answers": [
+      "elephant"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 3,
+    "id": "animals_3_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “khỉ” là gì?",
+    "options": [
+      "monkey",
+      "lion",
+      "tiger",
+      "elephant"
+    ],
+    "answer": "monkey",
+    "accepted_answers": [
+      "monkey"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 3,
+    "id": "animals_3_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: RABBIT",
+    "options": [],
+    "answer": "rabbit",
+    "accepted_answers": [
+      "rabbit"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 3,
+    "id": "animals_3_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “sư tử”: n - o - i - l",
+    "options": [],
+    "answer": "lion",
+    "accepted_answers": [
+      "lion"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 3,
+    "id": "animals_3_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “hổ” là gì?",
+    "options": [
+      "tiger",
+      "lion",
+      "elephant",
+      "monkey"
+    ],
+    "answer": "tiger",
+    "accepted_answers": [
+      "tiger"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 3,
+    "id": "animals_3_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “voi”.",
+    "options": [],
+    "answer": "elephant",
+    "accepted_answers": [
+      "elephant"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 3,
+    "id": "animals_3_9",
+    "type": "true_false",
+    "prompt": "“monkey” có nghĩa là “khỉ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 3,
+    "id": "animals_3_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “thỏ” là gì?",
+    "options": [
+      "rabbit",
+      "lion",
+      "tiger",
+      "elephant"
+    ],
+    "answer": "rabbit",
+    "accepted_answers": [
+      "rabbit"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 4,
+    "id": "animals_4_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “voi” là gì?",
+    "options": [
+      "elephant",
+      "monkey",
+      "rabbit",
+      "duck"
+    ],
+    "answer": "elephant",
+    "accepted_answers": [
+      "elephant"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 4,
+    "id": "animals_4_2",
+    "type": "true_false",
+    "prompt": "“monkey” có nghĩa là “khỉ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 4,
+    "id": "animals_4_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “thỏ”.",
+    "options": [],
+    "answer": "rabbit",
+    "accepted_answers": [
+      "rabbit"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 4,
+    "id": "animals_4_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “vịt” là gì?",
+    "options": [
+      "duck",
+      "elephant",
+      "monkey",
+      "rabbit"
+    ],
+    "answer": "duck",
+    "accepted_answers": [
+      "duck"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 4,
+    "id": "animals_4_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: COW",
+    "options": [],
+    "answer": "cow",
+    "accepted_answers": [
+      "cow"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 4,
+    "id": "animals_4_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “voi”: t - n - a - h - p - e - l - e",
+    "options": [],
+    "answer": "elephant",
+    "accepted_answers": [
+      "elephant"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 4,
+    "id": "animals_4_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “khỉ” là gì?",
+    "options": [
+      "monkey",
+      "elephant",
+      "rabbit",
+      "duck"
+    ],
+    "answer": "monkey",
+    "accepted_answers": [
+      "monkey"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 4,
+    "id": "animals_4_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “thỏ”.",
+    "options": [],
+    "answer": "rabbit",
+    "accepted_answers": [
+      "rabbit"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 4,
+    "id": "animals_4_9",
+    "type": "true_false",
+    "prompt": "“duck” có nghĩa là “vịt”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 4,
+    "id": "animals_4_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “bò” là gì?",
+    "options": [
+      "cow",
+      "elephant",
+      "monkey",
+      "rabbit"
+    ],
+    "answer": "cow",
+    "accepted_answers": [
+      "cow"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 5,
+    "id": "animals_5_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “thỏ” là gì?",
+    "options": [
+      "rabbit",
+      "duck",
+      "cow",
+      "horse"
+    ],
+    "answer": "rabbit",
+    "accepted_answers": [
+      "rabbit"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 5,
+    "id": "animals_5_2",
+    "type": "true_false",
+    "prompt": "“duck” có nghĩa là “vịt”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 5,
+    "id": "animals_5_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “bò”.",
+    "options": [],
+    "answer": "cow",
+    "accepted_answers": [
+      "cow"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 5,
+    "id": "animals_5_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “ngựa” là gì?",
+    "options": [
+      "horse",
+      "rabbit",
+      "duck",
+      "cow"
+    ],
+    "answer": "horse",
+    "accepted_answers": [
+      "horse"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 5,
+    "id": "animals_5_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: BEAR",
+    "options": [],
+    "answer": "bear",
+    "accepted_answers": [
+      "bear"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 5,
+    "id": "animals_5_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “thỏ”: t - i - b - b - a - r",
+    "options": [],
+    "answer": "rabbit",
+    "accepted_answers": [
+      "rabbit"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 5,
+    "id": "animals_5_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “vịt” là gì?",
+    "options": [
+      "duck",
+      "rabbit",
+      "cow",
+      "horse"
+    ],
+    "answer": "duck",
+    "accepted_answers": [
+      "duck"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 5,
+    "id": "animals_5_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “bò”.",
+    "options": [],
+    "answer": "cow",
+    "accepted_answers": [
+      "cow"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 5,
+    "id": "animals_5_9",
+    "type": "true_false",
+    "prompt": "“horse” có nghĩa là “ngựa”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 5,
+    "id": "animals_5_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “gấu” là gì?",
+    "options": [
+      "bear",
+      "rabbit",
+      "duck",
+      "cow"
+    ],
+    "answer": "bear",
+    "accepted_answers": [
+      "bear"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 6,
+    "id": "animals_6_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “bò” là gì?",
+    "options": [
+      "cow",
+      "horse",
+      "bear",
+      "frog"
+    ],
+    "answer": "cow",
+    "accepted_answers": [
+      "cow"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 6,
+    "id": "animals_6_2",
+    "type": "true_false",
+    "prompt": "“horse” có nghĩa là “ngựa”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 6,
+    "id": "animals_6_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “gấu”.",
+    "options": [],
+    "answer": "bear",
+    "accepted_answers": [
+      "bear"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 6,
+    "id": "animals_6_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “ếch” là gì?",
+    "options": [
+      "frog",
+      "cow",
+      "horse",
+      "bear"
+    ],
+    "answer": "frog",
+    "accepted_answers": [
+      "frog"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 6,
+    "id": "animals_6_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: GOAT",
+    "options": [],
+    "answer": "goat",
+    "accepted_answers": [
+      "goat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 6,
+    "id": "animals_6_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “bò”: w - o - c",
+    "options": [],
+    "answer": "cow",
+    "accepted_answers": [
+      "cow"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 6,
+    "id": "animals_6_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “ngựa” là gì?",
+    "options": [
+      "horse",
+      "cow",
+      "bear",
+      "frog"
+    ],
+    "answer": "horse",
+    "accepted_answers": [
+      "horse"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 6,
+    "id": "animals_6_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “gấu”.",
+    "options": [],
+    "answer": "bear",
+    "accepted_answers": [
+      "bear"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 6,
+    "id": "animals_6_9",
+    "type": "true_false",
+    "prompt": "“frog” có nghĩa là “ếch”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 6,
+    "id": "animals_6_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “dê” là gì?",
+    "options": [
+      "goat",
+      "cow",
+      "horse",
+      "bear"
+    ],
+    "answer": "goat",
+    "accepted_answers": [
+      "goat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 7,
+    "id": "animals_7_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “gấu” là gì?",
+    "options": [
+      "bear",
+      "frog",
+      "goat",
+      "cat"
+    ],
+    "answer": "bear",
+    "accepted_answers": [
+      "bear"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 7,
+    "id": "animals_7_2",
+    "type": "true_false",
+    "prompt": "“frog” có nghĩa là “ếch”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 7,
+    "id": "animals_7_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “dê”.",
+    "options": [],
+    "answer": "goat",
+    "accepted_answers": [
+      "goat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 7,
+    "id": "animals_7_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “con mèo” là gì?",
+    "options": [
+      "cat",
+      "bear",
+      "frog",
+      "goat"
+    ],
+    "answer": "cat",
+    "accepted_answers": [
+      "cat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 7,
+    "id": "animals_7_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: DOG",
+    "options": [],
+    "answer": "dog",
+    "accepted_answers": [
+      "dog"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 7,
+    "id": "animals_7_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “gấu”: r - a - e - b",
+    "options": [],
+    "answer": "bear",
+    "accepted_answers": [
+      "bear"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 7,
+    "id": "animals_7_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “ếch” là gì?",
+    "options": [
+      "frog",
+      "bear",
+      "goat",
+      "cat"
+    ],
+    "answer": "frog",
+    "accepted_answers": [
+      "frog"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 7,
+    "id": "animals_7_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “dê”.",
+    "options": [],
+    "answer": "goat",
+    "accepted_answers": [
+      "goat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 7,
+    "id": "animals_7_9",
+    "type": "true_false",
+    "prompt": "“cat” có nghĩa là “con mèo”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 7,
+    "id": "animals_7_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “con chó” là gì?",
+    "options": [
+      "dog",
+      "bear",
+      "frog",
+      "goat"
+    ],
+    "answer": "dog",
+    "accepted_answers": [
+      "dog"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 8,
+    "id": "animals_8_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “dê” là gì?",
+    "options": [
+      "goat",
+      "cat",
+      "dog",
+      "bird"
+    ],
+    "answer": "goat",
+    "accepted_answers": [
+      "goat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 8,
+    "id": "animals_8_2",
+    "type": "true_false",
+    "prompt": "“cat” có nghĩa là “con mèo”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 8,
+    "id": "animals_8_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “con chó”.",
+    "options": [],
+    "answer": "dog",
+    "accepted_answers": [
+      "dog"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 8,
+    "id": "animals_8_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “con chim” là gì?",
+    "options": [
+      "bird",
+      "goat",
+      "cat",
+      "dog"
+    ],
+    "answer": "bird",
+    "accepted_answers": [
+      "bird"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 8,
+    "id": "animals_8_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: FISH",
+    "options": [],
+    "answer": "fish",
+    "accepted_answers": [
+      "fish"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 8,
+    "id": "animals_8_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “dê”: t - a - o - g",
+    "options": [],
+    "answer": "goat",
+    "accepted_answers": [
+      "goat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 8,
+    "id": "animals_8_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “con mèo” là gì?",
+    "options": [
+      "cat",
+      "goat",
+      "dog",
+      "bird"
+    ],
+    "answer": "cat",
+    "accepted_answers": [
+      "cat"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 8,
+    "id": "animals_8_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “con chó”.",
+    "options": [],
+    "answer": "dog",
+    "accepted_answers": [
+      "dog"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 8,
+    "id": "animals_8_9",
+    "type": "true_false",
+    "prompt": "“bird” có nghĩa là “con chim”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 8,
+    "id": "animals_8_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “con cá” là gì?",
+    "options": [
+      "fish",
+      "goat",
+      "cat",
+      "dog"
+    ],
+    "answer": "fish",
+    "accepted_answers": [
+      "fish"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 9,
+    "id": "animals_9_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “con chó” là gì?",
+    "options": [
+      "dog",
+      "bird",
+      "fish",
+      "lion"
+    ],
+    "answer": "dog",
+    "accepted_answers": [
+      "dog"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 9,
+    "id": "animals_9_2",
+    "type": "true_false",
+    "prompt": "“bird” có nghĩa là “con chim”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 9,
+    "id": "animals_9_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “con cá”.",
+    "options": [],
+    "answer": "fish",
+    "accepted_answers": [
+      "fish"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 9,
+    "id": "animals_9_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “sư tử” là gì?",
+    "options": [
+      "lion",
+      "dog",
+      "bird",
+      "fish"
+    ],
+    "answer": "lion",
+    "accepted_answers": [
+      "lion"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 9,
+    "id": "animals_9_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: TIGER",
+    "options": [],
+    "answer": "tiger",
+    "accepted_answers": [
+      "tiger"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 9,
+    "id": "animals_9_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “con chó”: g - o - d",
+    "options": [],
+    "answer": "dog",
+    "accepted_answers": [
+      "dog"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 9,
+    "id": "animals_9_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “con chim” là gì?",
+    "options": [
+      "bird",
+      "dog",
+      "fish",
+      "lion"
+    ],
+    "answer": "bird",
+    "accepted_answers": [
+      "bird"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 9,
+    "id": "animals_9_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “con cá”.",
+    "options": [],
+    "answer": "fish",
+    "accepted_answers": [
+      "fish"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 9,
+    "id": "animals_9_9",
+    "type": "true_false",
+    "prompt": "“lion” có nghĩa là “sư tử”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 9,
+    "id": "animals_9_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “hổ” là gì?",
+    "options": [
+      "tiger",
+      "dog",
+      "bird",
+      "fish"
+    ],
+    "answer": "tiger",
+    "accepted_answers": [
+      "tiger"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 10,
+    "id": "animals_10_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “con cá” là gì?",
+    "options": [
+      "fish",
+      "lion",
+      "tiger",
+      "elephant"
+    ],
+    "answer": "fish",
+    "accepted_answers": [
+      "fish"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 10,
+    "id": "animals_10_2",
+    "type": "true_false",
+    "prompt": "“lion” có nghĩa là “sư tử”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 10,
+    "id": "animals_10_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “hổ”.",
+    "options": [],
+    "answer": "tiger",
+    "accepted_answers": [
+      "tiger"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 10,
+    "id": "animals_10_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “voi” là gì?",
+    "options": [
+      "elephant",
+      "fish",
+      "lion",
+      "tiger"
+    ],
+    "answer": "elephant",
+    "accepted_answers": [
+      "elephant"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 10,
+    "id": "animals_10_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: MONKEY",
+    "options": [],
+    "answer": "monkey",
+    "accepted_answers": [
+      "monkey"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 10,
+    "id": "animals_10_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “con cá”: h - s - i - f",
+    "options": [],
+    "answer": "fish",
+    "accepted_answers": [
+      "fish"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 10,
+    "id": "animals_10_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “sư tử” là gì?",
+    "options": [
+      "lion",
+      "fish",
+      "tiger",
+      "elephant"
+    ],
+    "answer": "lion",
+    "accepted_answers": [
+      "lion"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 10,
+    "id": "animals_10_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “hổ”.",
+    "options": [],
+    "answer": "tiger",
+    "accepted_answers": [
+      "tiger"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 10,
+    "id": "animals_10_9",
+    "type": "true_false",
+    "prompt": "“elephant” có nghĩa là “voi”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "animals",
+    "level": 10,
+    "id": "animals_10_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “khỉ” là gì?",
+    "options": [
+      "monkey",
+      "fish",
+      "lion",
+      "tiger"
+    ],
+    "answer": "monkey",
+    "accepted_answers": [
+      "monkey"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 1,
+    "id": "fruits_1_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả táo” là gì?",
+    "options": [
+      "apple",
+      "banana",
+      "orange",
+      "mango"
+    ],
+    "answer": "apple",
+    "accepted_answers": [
+      "apple"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 1,
+    "id": "fruits_1_2",
+    "type": "true_false",
+    "prompt": "“banana” có nghĩa là “quả chuối”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 1,
+    "id": "fruits_1_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả cam”.",
+    "options": [],
+    "answer": "orange",
+    "accepted_answers": [
+      "orange"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 1,
+    "id": "fruits_1_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả xoài” là gì?",
+    "options": [
+      "mango",
+      "apple",
+      "banana",
+      "orange"
+    ],
+    "answer": "mango",
+    "accepted_answers": [
+      "mango"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 1,
+    "id": "fruits_1_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: GRAPE",
+    "options": [],
+    "answer": "grape",
+    "accepted_answers": [
+      "grape"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 1,
+    "id": "fruits_1_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “quả táo”: e - l - p - p - a",
+    "options": [],
+    "answer": "apple",
+    "accepted_answers": [
+      "apple"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 1,
+    "id": "fruits_1_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả chuối” là gì?",
+    "options": [
+      "banana",
+      "apple",
+      "orange",
+      "mango"
+    ],
+    "answer": "banana",
+    "accepted_answers": [
+      "banana"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 1,
+    "id": "fruits_1_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả cam”.",
+    "options": [],
+    "answer": "orange",
+    "accepted_answers": [
+      "orange"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 1,
+    "id": "fruits_1_9",
+    "type": "true_false",
+    "prompt": "“mango” có nghĩa là “quả xoài”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 1,
+    "id": "fruits_1_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả nho” là gì?",
+    "options": [
+      "grape",
+      "apple",
+      "banana",
+      "orange"
+    ],
+    "answer": "grape",
+    "accepted_answers": [
+      "grape"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 2,
+    "id": "fruits_2_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả cam” là gì?",
+    "options": [
+      "orange",
+      "mango",
+      "grape",
+      "watermelon"
+    ],
+    "answer": "orange",
+    "accepted_answers": [
+      "orange"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 2,
+    "id": "fruits_2_2",
+    "type": "true_false",
+    "prompt": "“mango” có nghĩa là “quả xoài”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 2,
+    "id": "fruits_2_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả nho”.",
+    "options": [],
+    "answer": "grape",
+    "accepted_answers": [
+      "grape"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 2,
+    "id": "fruits_2_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “dưa hấu” là gì?",
+    "options": [
+      "watermelon",
+      "orange",
+      "mango",
+      "grape"
+    ],
+    "answer": "watermelon",
+    "accepted_answers": [
+      "watermelon"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 2,
+    "id": "fruits_2_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: PINEAPPLE",
+    "options": [],
+    "answer": "pineapple",
+    "accepted_answers": [
+      "pineapple"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 2,
+    "id": "fruits_2_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “quả cam”: e - g - n - a - r - o",
+    "options": [],
+    "answer": "orange",
+    "accepted_answers": [
+      "orange"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 2,
+    "id": "fruits_2_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả xoài” là gì?",
+    "options": [
+      "mango",
+      "orange",
+      "grape",
+      "watermelon"
+    ],
+    "answer": "mango",
+    "accepted_answers": [
+      "mango"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 2,
+    "id": "fruits_2_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả nho”.",
+    "options": [],
+    "answer": "grape",
+    "accepted_answers": [
+      "grape"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 2,
+    "id": "fruits_2_9",
+    "type": "true_false",
+    "prompt": "“watermelon” có nghĩa là “dưa hấu”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 2,
+    "id": "fruits_2_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả dứa” là gì?",
+    "options": [
+      "pineapple",
+      "orange",
+      "mango",
+      "grape"
+    ],
+    "answer": "pineapple",
+    "accepted_answers": [
+      "pineapple"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 3,
+    "id": "fruits_3_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả nho” là gì?",
+    "options": [
+      "grape",
+      "watermelon",
+      "pineapple",
+      "strawberry"
+    ],
+    "answer": "grape",
+    "accepted_answers": [
+      "grape"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 3,
+    "id": "fruits_3_2",
+    "type": "true_false",
+    "prompt": "“watermelon” có nghĩa là “dưa hấu”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 3,
+    "id": "fruits_3_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả dứa”.",
+    "options": [],
+    "answer": "pineapple",
+    "accepted_answers": [
+      "pineapple"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 3,
+    "id": "fruits_3_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “dâu tây” là gì?",
+    "options": [
+      "strawberry",
+      "grape",
+      "watermelon",
+      "pineapple"
+    ],
+    "answer": "strawberry",
+    "accepted_answers": [
+      "strawberry"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 3,
+    "id": "fruits_3_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: PEACH",
+    "options": [],
+    "answer": "peach",
+    "accepted_answers": [
+      "peach"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 3,
+    "id": "fruits_3_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “quả nho”: e - p - a - r - g",
+    "options": [],
+    "answer": "grape",
+    "accepted_answers": [
+      "grape"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 3,
+    "id": "fruits_3_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “dưa hấu” là gì?",
+    "options": [
+      "watermelon",
+      "grape",
+      "pineapple",
+      "strawberry"
+    ],
+    "answer": "watermelon",
+    "accepted_answers": [
+      "watermelon"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 3,
+    "id": "fruits_3_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả dứa”.",
+    "options": [],
+    "answer": "pineapple",
+    "accepted_answers": [
+      "pineapple"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 3,
+    "id": "fruits_3_9",
+    "type": "true_false",
+    "prompt": "“strawberry” có nghĩa là “dâu tây”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 3,
+    "id": "fruits_3_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả đào” là gì?",
+    "options": [
+      "peach",
+      "grape",
+      "watermelon",
+      "pineapple"
+    ],
+    "answer": "peach",
+    "accepted_answers": [
+      "peach"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 4,
+    "id": "fruits_4_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả dứa” là gì?",
+    "options": [
+      "pineapple",
+      "strawberry",
+      "peach",
+      "pear"
+    ],
+    "answer": "pineapple",
+    "accepted_answers": [
+      "pineapple"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 4,
+    "id": "fruits_4_2",
+    "type": "true_false",
+    "prompt": "“strawberry” có nghĩa là “dâu tây”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 4,
+    "id": "fruits_4_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả đào”.",
+    "options": [],
+    "answer": "peach",
+    "accepted_answers": [
+      "peach"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 4,
+    "id": "fruits_4_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả lê” là gì?",
+    "options": [
+      "pear",
+      "pineapple",
+      "strawberry",
+      "peach"
+    ],
+    "answer": "pear",
+    "accepted_answers": [
+      "pear"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 4,
+    "id": "fruits_4_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: LEMON",
+    "options": [],
+    "answer": "lemon",
+    "accepted_answers": [
+      "lemon"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 4,
+    "id": "fruits_4_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “quả dứa”: e - l - p - p - a - e - n - i - p",
+    "options": [],
+    "answer": "pineapple",
+    "accepted_answers": [
+      "pineapple"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 4,
+    "id": "fruits_4_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “dâu tây” là gì?",
+    "options": [
+      "strawberry",
+      "pineapple",
+      "peach",
+      "pear"
+    ],
+    "answer": "strawberry",
+    "accepted_answers": [
+      "strawberry"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 4,
+    "id": "fruits_4_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả đào”.",
+    "options": [],
+    "answer": "peach",
+    "accepted_answers": [
+      "peach"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 4,
+    "id": "fruits_4_9",
+    "type": "true_false",
+    "prompt": "“pear” có nghĩa là “quả lê”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 4,
+    "id": "fruits_4_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả chanh” là gì?",
+    "options": [
+      "lemon",
+      "pineapple",
+      "strawberry",
+      "peach"
+    ],
+    "answer": "lemon",
+    "accepted_answers": [
+      "lemon"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 5,
+    "id": "fruits_5_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả đào” là gì?",
+    "options": [
+      "peach",
+      "pear",
+      "lemon",
+      "papaya"
+    ],
+    "answer": "peach",
+    "accepted_answers": [
+      "peach"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 5,
+    "id": "fruits_5_2",
+    "type": "true_false",
+    "prompt": "“pear” có nghĩa là “quả lê”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 5,
+    "id": "fruits_5_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả chanh”.",
+    "options": [],
+    "answer": "lemon",
+    "accepted_answers": [
+      "lemon"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 5,
+    "id": "fruits_5_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “đu đủ” là gì?",
+    "options": [
+      "papaya",
+      "peach",
+      "pear",
+      "lemon"
+    ],
+    "answer": "papaya",
+    "accepted_answers": [
+      "papaya"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 5,
+    "id": "fruits_5_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: COCONUT",
+    "options": [],
+    "answer": "coconut",
+    "accepted_answers": [
+      "coconut"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 5,
+    "id": "fruits_5_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “quả đào”: h - c - a - e - p",
+    "options": [],
+    "answer": "peach",
+    "accepted_answers": [
+      "peach"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 5,
+    "id": "fruits_5_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả lê” là gì?",
+    "options": [
+      "pear",
+      "peach",
+      "lemon",
+      "papaya"
+    ],
+    "answer": "pear",
+    "accepted_answers": [
+      "pear"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 5,
+    "id": "fruits_5_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả chanh”.",
+    "options": [],
+    "answer": "lemon",
+    "accepted_answers": [
+      "lemon"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 5,
+    "id": "fruits_5_9",
+    "type": "true_false",
+    "prompt": "“papaya” có nghĩa là “đu đủ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 5,
+    "id": "fruits_5_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “dừa” là gì?",
+    "options": [
+      "coconut",
+      "peach",
+      "pear",
+      "lemon"
+    ],
+    "answer": "coconut",
+    "accepted_answers": [
+      "coconut"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 6,
+    "id": "fruits_6_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả chanh” là gì?",
+    "options": [
+      "lemon",
+      "papaya",
+      "coconut",
+      "guava"
+    ],
+    "answer": "lemon",
+    "accepted_answers": [
+      "lemon"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 6,
+    "id": "fruits_6_2",
+    "type": "true_false",
+    "prompt": "“papaya” có nghĩa là “đu đủ”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 6,
+    "id": "fruits_6_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “dừa”.",
+    "options": [],
+    "answer": "coconut",
+    "accepted_answers": [
+      "coconut"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 6,
+    "id": "fruits_6_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “ổi” là gì?",
+    "options": [
+      "guava",
+      "lemon",
+      "papaya",
+      "coconut"
+    ],
+    "answer": "guava",
+    "accepted_answers": [
+      "guava"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 6,
+    "id": "fruits_6_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: CHERRY",
+    "options": [],
+    "answer": "cherry",
+    "accepted_answers": [
+      "cherry"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 6,
+    "id": "fruits_6_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “quả chanh”: n - o - m - e - l",
+    "options": [],
+    "answer": "lemon",
+    "accepted_answers": [
+      "lemon"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 6,
+    "id": "fruits_6_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “đu đủ” là gì?",
+    "options": [
+      "papaya",
+      "lemon",
+      "coconut",
+      "guava"
+    ],
+    "answer": "papaya",
+    "accepted_answers": [
+      "papaya"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 6,
+    "id": "fruits_6_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “dừa”.",
+    "options": [],
+    "answer": "coconut",
+    "accepted_answers": [
+      "coconut"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 6,
+    "id": "fruits_6_9",
+    "type": "true_false",
+    "prompt": "“guava” có nghĩa là “ổi”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 6,
+    "id": "fruits_6_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “anh đào” là gì?",
+    "options": [
+      "cherry",
+      "lemon",
+      "papaya",
+      "coconut"
+    ],
+    "answer": "cherry",
+    "accepted_answers": [
+      "cherry"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 7,
+    "id": "fruits_7_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “dừa” là gì?",
+    "options": [
+      "coconut",
+      "guava",
+      "cherry",
+      "apple"
+    ],
+    "answer": "coconut",
+    "accepted_answers": [
+      "coconut"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 7,
+    "id": "fruits_7_2",
+    "type": "true_false",
+    "prompt": "“guava” có nghĩa là “ổi”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 7,
+    "id": "fruits_7_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “anh đào”.",
+    "options": [],
+    "answer": "cherry",
+    "accepted_answers": [
+      "cherry"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 7,
+    "id": "fruits_7_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả táo” là gì?",
+    "options": [
+      "apple",
+      "coconut",
+      "guava",
+      "cherry"
+    ],
+    "answer": "apple",
+    "accepted_answers": [
+      "apple"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 7,
+    "id": "fruits_7_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: BANANA",
+    "options": [],
+    "answer": "banana",
+    "accepted_answers": [
+      "banana"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 7,
+    "id": "fruits_7_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “dừa”: t - u - n - o - c - o - c",
+    "options": [],
+    "answer": "coconut",
+    "accepted_answers": [
+      "coconut"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 7,
+    "id": "fruits_7_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “ổi” là gì?",
+    "options": [
+      "guava",
+      "coconut",
+      "cherry",
+      "apple"
+    ],
+    "answer": "guava",
+    "accepted_answers": [
+      "guava"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 7,
+    "id": "fruits_7_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “anh đào”.",
+    "options": [],
+    "answer": "cherry",
+    "accepted_answers": [
+      "cherry"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 7,
+    "id": "fruits_7_9",
+    "type": "true_false",
+    "prompt": "“apple” có nghĩa là “quả táo”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 7,
+    "id": "fruits_7_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả chuối” là gì?",
+    "options": [
+      "banana",
+      "coconut",
+      "guava",
+      "cherry"
+    ],
+    "answer": "banana",
+    "accepted_answers": [
+      "banana"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 8,
+    "id": "fruits_8_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “anh đào” là gì?",
+    "options": [
+      "cherry",
+      "apple",
+      "banana",
+      "orange"
+    ],
+    "answer": "cherry",
+    "accepted_answers": [
+      "cherry"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 8,
+    "id": "fruits_8_2",
+    "type": "true_false",
+    "prompt": "“apple” có nghĩa là “quả táo”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 8,
+    "id": "fruits_8_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả chuối”.",
+    "options": [],
+    "answer": "banana",
+    "accepted_answers": [
+      "banana"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 8,
+    "id": "fruits_8_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả cam” là gì?",
+    "options": [
+      "orange",
+      "cherry",
+      "apple",
+      "banana"
+    ],
+    "answer": "orange",
+    "accepted_answers": [
+      "orange"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 8,
+    "id": "fruits_8_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: MANGO",
+    "options": [],
+    "answer": "mango",
+    "accepted_answers": [
+      "mango"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 8,
+    "id": "fruits_8_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “anh đào”: y - r - r - e - h - c",
+    "options": [],
+    "answer": "cherry",
+    "accepted_answers": [
+      "cherry"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 8,
+    "id": "fruits_8_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả táo” là gì?",
+    "options": [
+      "apple",
+      "cherry",
+      "banana",
+      "orange"
+    ],
+    "answer": "apple",
+    "accepted_answers": [
+      "apple"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 8,
+    "id": "fruits_8_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả chuối”.",
+    "options": [],
+    "answer": "banana",
+    "accepted_answers": [
+      "banana"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 8,
+    "id": "fruits_8_9",
+    "type": "true_false",
+    "prompt": "“orange” có nghĩa là “quả cam”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 8,
+    "id": "fruits_8_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả xoài” là gì?",
+    "options": [
+      "mango",
+      "cherry",
+      "apple",
+      "banana"
+    ],
+    "answer": "mango",
+    "accepted_answers": [
+      "mango"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 9,
+    "id": "fruits_9_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả chuối” là gì?",
+    "options": [
+      "banana",
+      "orange",
+      "mango",
+      "grape"
+    ],
+    "answer": "banana",
+    "accepted_answers": [
+      "banana"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 9,
+    "id": "fruits_9_2",
+    "type": "true_false",
+    "prompt": "“orange” có nghĩa là “quả cam”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 9,
+    "id": "fruits_9_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả xoài”.",
+    "options": [],
+    "answer": "mango",
+    "accepted_answers": [
+      "mango"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 9,
+    "id": "fruits_9_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả nho” là gì?",
+    "options": [
+      "grape",
+      "banana",
+      "orange",
+      "mango"
+    ],
+    "answer": "grape",
+    "accepted_answers": [
+      "grape"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 9,
+    "id": "fruits_9_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: WATERMELON",
+    "options": [],
+    "answer": "watermelon",
+    "accepted_answers": [
+      "watermelon"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 9,
+    "id": "fruits_9_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “quả chuối”: a - n - a - n - a - b",
+    "options": [],
+    "answer": "banana",
+    "accepted_answers": [
+      "banana"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 9,
+    "id": "fruits_9_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả cam” là gì?",
+    "options": [
+      "orange",
+      "banana",
+      "mango",
+      "grape"
+    ],
+    "answer": "orange",
+    "accepted_answers": [
+      "orange"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 9,
+    "id": "fruits_9_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “quả xoài”.",
+    "options": [],
+    "answer": "mango",
+    "accepted_answers": [
+      "mango"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 9,
+    "id": "fruits_9_9",
+    "type": "true_false",
+    "prompt": "“grape” có nghĩa là “quả nho”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 9,
+    "id": "fruits_9_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “dưa hấu” là gì?",
+    "options": [
+      "watermelon",
+      "banana",
+      "orange",
+      "mango"
+    ],
+    "answer": "watermelon",
+    "accepted_answers": [
+      "watermelon"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 10,
+    "id": "fruits_10_1",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả xoài” là gì?",
+    "options": [
+      "mango",
+      "grape",
+      "watermelon",
+      "pineapple"
+    ],
+    "answer": "mango",
+    "accepted_answers": [
+      "mango"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 10,
+    "id": "fruits_10_2",
+    "type": "true_false",
+    "prompt": "“grape” có nghĩa là “quả nho”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 10,
+    "id": "fruits_10_3",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “dưa hấu”.",
+    "options": [],
+    "answer": "watermelon",
+    "accepted_answers": [
+      "watermelon"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 10,
+    "id": "fruits_10_4",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “quả dứa” là gì?",
+    "options": [
+      "pineapple",
+      "mango",
+      "grape",
+      "watermelon"
+    ],
+    "answer": "pineapple",
+    "accepted_answers": [
+      "pineapple"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 10,
+    "id": "fruits_10_5",
+    "type": "error",
+    "prompt": "Sửa từ viết hoa thành chữ thường: STRAWBERRY",
+    "options": [],
+    "answer": "strawberry",
+    "accepted_answers": [
+      "strawberry"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 10,
+    "id": "fruits_10_6",
+    "type": "order",
+    "prompt": "Sắp xếp chữ cái để tạo từ có nghĩa “quả xoài”: o - g - n - a - m",
+    "options": [],
+    "answer": "mango",
+    "accepted_answers": [
+      "mango"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 10,
+    "id": "fruits_10_7",
+    "type": "choice",
+    "prompt": "Từ tiếng Anh tương ứng với “quả nho” là gì?",
+    "options": [
+      "grape",
+      "mango",
+      "watermelon",
+      "pineapple"
+    ],
+    "answer": "grape",
+    "accepted_answers": [
+      "grape"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 10,
+    "id": "fruits_10_8",
+    "type": "fill",
+    "prompt": "Viết từ tiếng Anh của “dưa hấu”.",
+    "options": [],
+    "answer": "watermelon",
+    "accepted_answers": [
+      "watermelon"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 10,
+    "id": "fruits_10_9",
+    "type": "true_false",
+    "prompt": "“pineapple” có nghĩa là “quả dứa”. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "fruits",
+    "level": 10,
+    "id": "fruits_10_10",
+    "type": "matching",
+    "prompt": "Từ tiếng Anh tương ứng với “dâu tây” là gì?",
+    "options": [
+      "strawberry",
+      "mango",
+      "grape",
+      "watermelon"
+    ],
+    "answer": "strawberry",
+    "accepted_answers": [
+      "strawberry"
+    ],
+    "schema_version": "2.0",
+    "lesson": 1
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 1,
+    "id": "FF_001",
+    "prompt": "Hãy sắp xếp thành câu đúng: hero / am / I",
+    "type": "order",
+    "options": [],
+    "answer": "hero am I",
+    "accepted_answers": [
+      "I am hero"
+    ],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 1,
+    "id": "FF_002",
+    "prompt": "Hãy nối từ phù hợp",
+    "type": "matching",
+    "matching_mode": "Chữ ↔ Chữ",
+    "options": [
+      "Ga = Chicken",
+      "Vit = Duck",
+      "Heo = Pig",
+      "Nha thuong = Hospital"
+    ],
+    "answer": "Ga = Chicken | Vit = Duck | Heo = Pig | Nha thuong = Hospital",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 1,
+    "id": "FF_0006",
+    "prompt": "Em hãy nghe và chọn đúng đáp án",
+    "type": "listening_choice",
+    "options": [
+      "Red",
+      "Blue",
+      "Pink",
+      "Yellow"
+    ],
+    "answer": "Yellow",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "media/01 Listening 1.mp3",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 1,
+    "id": "FF_00002",
+    "prompt": "nghe",
+    "type": "listening_choice",
+    "lesson": 9,
+    "options": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "answer": "a",
+    "accepted_answers": [],
+    "image": "",
+    "audio": "media/01 Listening 1.mp3",
+    "schema_version": "2.0"
+  },
+  {
+    "theme": "Family & Friends",
+    "level": 1,
+    "id": "dđ",
+    "prompt": "sss",
+    "type": "choice",
+    "lesson": 1,
+    "options": [
+      "â",
+      "ss"
+    ],
+    "answer": "ss",
+    "accepted_answers": [],
+    "image": "",
+    "audio": ""
+  }
+]

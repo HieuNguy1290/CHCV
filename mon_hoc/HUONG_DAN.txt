@@ -1,0 +1,9 @@
+VÍ DỤ 9 DẠNG BÀI TẬP - CHỦ ĐỀ animals / LEVEL 1
+
+- level_lessons.json: nội dung bài học, không chứa bài tập.
+- level_questions.json: chứa 9 dạng bài tập tương ứng với QUESTION_TYPES trong level_flow.py.
+- Sao lưu dữ liệu trước khi dùng. Nếu đã có level_questions.json, hãy THÊM các phần tử trong mảng vào file hiện tại, không ghi đè.
+- Thay images/cat.png và audio/cat.mp3 bằng đường dẫn đến các tệp media có thật của ứng dụng; thiếu tệp sẽ không hiển thị/phát được.
+- theme animals phải có trong themes.json, level 1 phải hợp lệ.
+- Dạng order và matching trong giao diện hiện tại dùng ô nhập chữ/radio, chưa phải kéo thả hoặc nối cặp thật.
+- Đường dẫn lưu trong ứng dụng: content_library/level_questions.json và content_library/level_lessons.json thuộc thư mục dữ liệu của môn học.

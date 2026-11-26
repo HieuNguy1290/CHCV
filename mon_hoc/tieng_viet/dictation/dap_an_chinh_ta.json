@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.1",
+  "language": "vi",
+  "items": [
+    {
+      "id": "ct001",
+      "title": "Bài 1 - Buổi sáng ở Sài Gòn",
+      "audio": "audio/ct001.mp3",
+      "answer": "Sáng nay, má dẫn em ra chợ. Hai má con ghé mua trái cây.",
+      "note": "Thêm file MP3 tương ứng hoặc đổi đường dẫn trong giao diện."
+    },
+    {
+      "id": "ct002",
+      "title": "Bài 2 - Ghé thăm bà ngoại",
+      "audio": "audio/ct002.mp3",
+      "answer": "Chiều thứ bảy, anh Hai chở em qua thăm ngoại.",
+      "note": "Thêm file MP3 tương ứng hoặc đổi đường dẫn trong giao diện."
+    }
+  ]
+}

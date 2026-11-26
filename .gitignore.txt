@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+*.sqlite3
+*.bak
+navigation_performance.log
+tools/checks/reports/*
+!tools/checks/reports/.gitignore

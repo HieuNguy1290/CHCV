@@ -1,0 +1,47 @@
+[
+  {
+    "code": "Family & Friends",
+    "title": "Tiếng Việt Miền Nam",
+    "icon": "⌂",
+    "icon_image": "",
+    "color": "#E8F3FF",
+    "max_level": 10,
+    "lesson_counts": {}
+  },
+  {
+    "code": "sports",
+    "title": "Thể thao",
+    "icon": "★",
+    "color": "#FFF2DF",
+    "max_level": 10
+  },
+  {
+    "code": "actions",
+    "title": "Hành động",
+    "icon": "➤",
+    "color": "#F1E9FF",
+    "max_level": 10
+  },
+  {
+    "code": "animals",
+    "title": "Con vật",
+    "icon": "♣",
+    "color": "#E8F7E8",
+    "max_level": 10
+  },
+  {
+    "code": "fruits",
+    "title": "Trái cây",
+    "icon": "●",
+    "color": "#FFF0EF",
+    "max_level": 10
+  },
+  {
+    "code": "Vioedu",
+    "title": "Đấu Trường Vio Edu",
+    "icon": "📘",
+    "icon_image": "",
+    "color": "#E8F3FF",
+    "max_level": 10
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "code": "Family & Friends",
+    "title": "Family & Friends",
+    "icon": "⌂",
+    "color": "#E8F3FF",
+    "max_level": 10
+  },
+  {
+    "code": "sports",
+    "title": "Sports",
+    "icon": "★",
+    "color": "#FFF2DF",
+    "max_level": 10
+  },
+  {
+    "code": "actions",
+    "title": "Actions",
+    "icon": "➤",
+    "color": "#F1E9FF",
+    "max_level": 10
+  },
+  {
+    "code": "animals",
+    "title": "Animals",
+    "icon": "♣",
+    "color": "#E8F7E8",
+    "max_level": 10
+  },
+  {
+    "code": "fruits",
+    "title": "Fruits",
+    "icon": "●",
+    "color": "#FFF0EF",
+    "max_level": 10
+  }
+]

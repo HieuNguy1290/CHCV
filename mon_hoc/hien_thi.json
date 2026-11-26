@@ -1,0 +1,20 @@
+{
+  "image_width": 700,
+  "image_height": 312,
+  "word_size": 38,
+  "text_size": 32,
+  "title_size": 34,
+  "content_size": 48,
+  "title_color": "#285D40",
+  "content_color": "#233C2A",
+  "auto_next": true,
+  "dragon_feedback_enabled": false,
+  "ui_font_scale": "medium",
+  "reduce_motion": true,
+  "feedback_sound": false,
+  "flashcard_theme": {
+    "id": "peach",
+    "image": ""
+  },
+  "flashcard_mode_en": "shuffle"
+}

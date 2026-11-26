@@ -1,0 +1,151 @@
+[
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_example_01",
+    "type": "choice",
+    "prompt": "Từ nào có nghĩa là con mèo?",
+    "options": [
+      "dog",
+      "cat",
+      "bird",
+      "fish"
+    ],
+    "answer": "cat",
+    "accepted_answers": [
+      "cat"
+    ],
+    "image": "",
+    "audio": ""
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_example_02",
+    "type": "picture_choice",
+    "prompt": "Con vật trong hình là gì?",
+    "options": [
+      "cat",
+      "dog",
+      "rabbit",
+      "bird"
+    ],
+    "answer": "cat",
+    "accepted_answers": [
+      "cat"
+    ],
+    "image": "images/cat.png",
+    "audio": ""
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_example_03",
+    "type": "true_false",
+    "prompt": "“Dog” có nghĩa là con chó. Đúng hay sai?",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": "Đúng",
+    "accepted_answers": [
+      "Đúng"
+    ],
+    "image": "",
+    "audio": ""
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_example_04",
+    "type": "fill",
+    "prompt": "Điền từ tiếng Anh của “con mèo”.",
+    "options": [],
+    "answer": "cat",
+    "accepted_answers": [
+      "cat"
+    ],
+    "image": "",
+    "audio": ""
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_example_05",
+    "type": "error",
+    "prompt": "Sửa lỗi chính tả trong từ “cta”.",
+    "options": [],
+    "answer": "cat",
+    "accepted_answers": [
+      "cat"
+    ],
+    "image": "",
+    "audio": ""
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_example_06",
+    "type": "order",
+    "prompt": "Sắp xếp các chữ cái c - a - t thành một từ tiếng Anh.",
+    "options": [],
+    "answer": "cat",
+    "accepted_answers": [
+      "cat"
+    ],
+    "image": "",
+    "audio": ""
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_example_07",
+    "type": "matching",
+    "prompt": "Chọn từ tiếng Anh ghép đúng với “con mèo”.",
+    "options": [
+      "dog",
+      "bird",
+      "cat",
+      "fish"
+    ],
+    "answer": "cat",
+    "accepted_answers": [
+      "cat"
+    ],
+    "image": "",
+    "audio": ""
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_example_08",
+    "type": "listening_choice",
+    "prompt": "Nghe âm thanh và chọn từ đúng.",
+    "options": [
+      "dog",
+      "cat",
+      "fish",
+      "bird"
+    ],
+    "answer": "cat",
+    "accepted_answers": [
+      "cat"
+    ],
+    "image": "",
+    "audio": "audio/cat.mp3"
+  },
+  {
+    "theme": "animals",
+    "level": 1,
+    "id": "animals_1_example_09",
+    "type": "listening_fill",
+    "prompt": "Nghe âm thanh và điền từ tiếng Anh.",
+    "options": [],
+    "answer": "cat",
+    "accepted_answers": [
+      "cat"
+    ],
+    "image": "",
+    "audio": "audio/cat.mp3"
+  }
+]

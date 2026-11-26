@@ -1,0 +1,41 @@
+--- /tmp/orig/tuhoc/exercises/pygame_exercises.py	2026-11-23 14:49:52.000000000 +0000
++++ /home/claude/beta/tuhoc/exercises/pygame_exercises.py	2026-11-25 06:30:41.551930266 +0000
+@@ -313,6 +313,9 @@
+     # Optional effect, controlled from the existing Settings page.
+     settings = getattr(parent, '_display_settings', {}) or {}
+     feedback_enabled = allow_feedback and bool(settings.get('dragon_feedback_enabled', False))
++    # Annotation tools: real quiz sessions only. Editor previews (allow_feedback=False)
++    # must render exactly the saved layout, so they never get the dock.
++    prepared['_tools_enabled'] = bool(allow_feedback) and bool(settings.get('exercise_tools_enabled', True))
+     results = queue.Queue(maxsize=1)
+     global _worker_thread
+     try:
+@@ -726,6 +729,10 @@
+                              (prompt_x, prompt_y, prompt_width), prompt_font.get_linesize()+7) if prompt_geometry else None
+     mini_fade = 0.0      # 0..1 fade of the floating mini player
+     mini_rects = None
++    tools = None
++    if question.get('_tools_enabled') and not question.get('_studio_scene'):
++        from tuhoc.exercises.exercise_tools import ExerciseTools
++        tools = ExerciseTools(pygame)
+     try:
+         pygame.key.start_text_input()
+         while True:
+@@ -1206,6 +1213,8 @@
+                 mini_opacity = mini_fade * (1.0 if mini_hover else 0.6)
+                 mini_rects = waveform.draw_mini(display_screen, mini_rect, mini_opacity, fonts[3])
+             draw_text('',fonts[3],(112,127,143),65,603)
++            if tools is not None and not zoom_open:
++                tools.draw(display_screen, content_scroll)
+             if _shutdown_requested.is_set() or _app_shutdown.is_set():
+                 return None
+             if zoom_open:
+@@ -1225,6 +1234,8 @@
+                 if ev.type==pygame.QUIT:
+                     if confirm_exit(): return None
+                     continue
++                if tools is not None and tools.handle_event(ev, content_scroll):
++                    continue
+                 if ev.type==pygame.KEYDOWN:
+                     if ev.key in (pygame.K_PAGEUP, pygame.K_PAGEDOWN, pygame.K_HOME, pygame.K_END):
+                         if ev.key == pygame.K_HOME:

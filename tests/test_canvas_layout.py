@@ -130,7 +130,7 @@ class LayoutTests(unittest.TestCase):
             pygame.init()
             try:
                 result = play(_run, q, ['cat', 'dog', 'bird'], None, False,
-                              '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf')
+                              None)
             finally:
                 pygame.quit()
         self.assertEqual(result['answer'], ['cat', 'dog', 'bird'])

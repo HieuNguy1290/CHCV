@@ -1,6 +1,6 @@
 """Tu Hoc v1.0 - offline desktop prototype (Python standard library)."""
 from tuhoc.ui.strings_vi import t
-from tuhoc.ui.ui_tokens import COLORS as TOKEN_COLORS, font_at, set_font_scale
+from tuhoc.ui.ui_tokens import COLORS as TOKEN_COLORS, font_at, set_appearance, set_font_scale
 import json
 import os
 import sqlite3
@@ -50,7 +50,8 @@ from tuhoc.library.ui_mixin import LibraryMixin
 from tuhoc.lessons.level_flow import LevelFlowMixin
 from tuhoc.ui.wheel_scroll import install_wheel_scroll
 from tuhoc.ui.drag_scroll import bind_menu_pan, install_drag_scroll
-from tuhoc.ui.ui_motion import animate_position, add_hover
+from tuhoc.ui.ui_motion import animate_position, add_hover, ease_out_cubic
+from tuhoc.ui.anchor_morph import AnchorMorph
 from tuhoc.ui.panel_animations import animate_magnetic_cascade, animate_reverse_cascade_left
 from tuhoc.ui.icon_animations import micro_rotation
 from tuhoc.storage.content_manager import ContentManager, read_custom_lessons, user_content_dir
@@ -106,6 +107,13 @@ def save_level_achievements(items):
 class Storage:
     def __init__(self, path=DB):
         self.conn = sqlite3.connect(path)
+        try:
+            self._initialize(path)
+        except BaseException:
+            self.conn.close()
+            raise
+
+    def _initialize(self, path):
         self.conn.row_factory = sqlite3.Row
         self.conn.executescript('''
             CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY, name TEXT NOT NULL, grade INTEGER NOT NULL, created_at TEXT DEFAULT CURRENT_TIMESTAMP);
@@ -139,8 +147,9 @@ class Storage:
         self._migrate_vocabulary_lang(path)
         self._migrate_vocabulary_images()
 
-    def save_lesson_progress(self,student,topic,correct,total,completed):
-        with self.conn:
+    def save_lesson_progress(self,student,topic,correct,total,completed, *, commit=True):
+        from contextlib import nullcontext
+        with self.conn if commit else nullcontext():
             if completed:
                 self.conn.execute('INSERT INTO completion_events(student_id,activity_type,activity_id,correct,total,perfect) VALUES(?,?,?,?,?,?)',(student,'lesson',str(topic),correct,total,int(total>0 and correct==total)))
             self.conn.execute("INSERT INTO lesson_progress(student_id,topic_id,correct,total,completed) VALUES(?,?,?,?,?) ON CONFLICT(student_id,topic_id) DO UPDATE SET correct=excluded.correct,total=excluded.total,completed=MAX(lesson_progress.completed,excluded.completed),updated_at=CURRENT_TIMESTAMP",(student,topic,correct,total,int(completed)))
@@ -258,8 +267,9 @@ class Storage:
         row=self.conn.execute("SELECT points FROM game_points WHERE student_id=?", (student,)).fetchone()
         return row[0] if row else 0
 
-    def add_points(self, student, amount=1):
-        with self.conn:
+    def add_points(self, student, amount=1, *, commit=True):
+        from contextlib import nullcontext
+        with self.conn if commit else nullcontext():
             self.conn.execute("INSERT INTO game_points(student_id, points) VALUES(?,?) ON CONFLICT(student_id) DO UPDATE SET points=points+excluded.points", (student, amount))
 
     def students(self):
@@ -279,15 +289,16 @@ class Storage:
             # Delete reviews first: they refer to vocabulary rows.
             for table in ('reviews', 'attempts', 'vocabulary', 'game_points',
                           'lesson_progress', 'level_scores', 'word_mastery',
-                          'rewards', 'learning_sessions', 'completion_events', 'achievement_claims',
+                          'rewards', 'learning_sessions', 'quiz_drafts', 'completion_events', 'achievement_claims',
                           'avatar_purchases', 'avatar_selection', 'vocabulary_sources', 'vocabulary_deck_names', 'quest_notification_reads'):
                 if self.conn.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (table,)).fetchone():
                     self.conn.execute(f'DELETE FROM {table} WHERE student_id=?', (sid,))
             self.conn.execute('DELETE FROM students WHERE id=?', (sid,))
         return True
 
-    def record(self, student, ex, correct, seconds, answer):
-        with self.conn:
+    def record(self, student, ex, correct, seconds, answer, *, commit=True):
+        from contextlib import nullcontext
+        with self.conn if commit else nullcontext():
             self.conn.execute('INSERT INTO attempts(student_id,exercise_id,exercise_type,content_version,correct,seconds,answer) VALUES(?,?,?,?,?,?,?)', (student, ex['id'], ex['type'], ex.get('version','1.0'), correct, max(0,seconds), answer))
 
     def stats(self, student):
@@ -343,11 +354,12 @@ class Storage:
         return bool(name) and bool(self.conn.execute(
             'SELECT 1 FROM vocabulary WHERE word_image=? OR meaning_image=? LIMIT 1',(name,name)).fetchone())
 
-    def save_word(self, student, word, meaning, lang=None, word_image='', meaning_image=''):
+    def save_word(self, student, word, meaning, lang=None, word_image='', meaning_image='', *, commit=True):
         word,lang=self.split_word_lang(word,lang)
         word=word.strip()
         if not word:return
-        with self.conn:
+        from contextlib import nullcontext
+        with self.conn if commit else nullcontext():
             self.conn.execute('INSERT OR IGNORE INTO vocabulary(student_id,word,meaning,due_at,lang,word_image,meaning_image) VALUES(?,?,?,?,?,?,?)', (student, word, meaning, time.time(), lang, str(word_image or ''), str(meaning_image or '')))
 
     def save_word_in_source(self, student, word, meaning, source_type='manual', theme='', level=0, source_title='', lang=None, word_image='', meaning_image=''):
@@ -631,6 +643,7 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
         self.style.configure('TCombobox',font=font_at(11))
         self.option_add('*Font', font_at(11))
         self._shell = None
+        self.morph = AnchorMorph(self)
         self._navigation_history = []
         self._navigation_current = None
         self._navigation_busy = False
@@ -640,6 +653,7 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
         self.recording_session = None
         self.recording_busy = False
         self.setup_upgrade()
+        self.apply_appearance()
         self.apply_font_preferences()
         self.reduce_motion=bool(self._display_settings.get('reduce_motion',False))
         self.ui_grid = UIGrid(self)
@@ -660,6 +674,27 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
         self.option_add('*Font',font_at(11))
         self.style.configure('TButton',font=font_at(11))
         self.style.configure('TCombobox',font=font_at(11))
+
+    def apply_appearance(self):
+        previous = TOKEN_COLORS.copy()
+        appearance = self._display_settings.get('ui_appearance', 'forest')
+        set_appearance(appearance)
+        self._dark_appearance = appearance == 'dark'
+        self.configure(bg=TOKEN_COLORS['background'])
+        style = getattr(self, 'style', None)
+        if style:
+            for widget in ('TFrame','TLabel','TLabelframe','TLabelframe.Label','TCheckbutton','TNotebook','TNotebook.Tab','TButton'):
+                style.configure(widget, background=TOKEN_COLORS['surface'], foreground=TOKEN_COLORS['text'])
+            for widget in ('TEntry','TCombobox','TSpinbox'):
+                style.configure(widget, fieldbackground=TOKEN_COLORS['surface'], foreground=TOKEN_COLORS['text'])
+                style.map(widget, fieldbackground=[('disabled', TOKEN_COLORS['disabled']), ('readonly', TOKEN_COLORS['tint'])],
+                          foreground=[('disabled', TOKEN_COLORS['disabled_text']), ('readonly', TOKEN_COLORS['text'])])
+            for widget in ('TButton','TNotebook.Tab','TCheckbutton'):
+                style.map(widget, background=[('disabled', TOKEN_COLORS['disabled']), ('pressed', TOKEN_COLORS['tint']),
+                                              ('active', TOKEN_COLORS['tint']), ('selected', TOKEN_COLORS['tint'])],
+                          foreground=[('disabled', TOKEN_COLORS['disabled_text'])])
+        if self._shell is not None:
+            self._shell.refresh_appearance(previous)
 
     def _stop_reading_tts(self):
         """Stop every speech subprocess started by this application."""
@@ -764,11 +799,8 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
             return
         current = self._navigation_current
         target = getattr(callback, '__func__', callback)
-        # Pygame exam is a transient window, NOT a Tkinter page. Repeated
-        # clicks must invoke it again even when the sidebar item is unchanged.
-        # Do not store it in page history or mark it as the current page.
-        #if getattr(target, '__name__', '') == 'exam_page':
-        if getattr(target, '__name__', '') in ('exam_page', 'exam_bank_editor'):
+        # SDL windows leave the current Tk page in the navigation history.
+        if getattr(target, '__name__', '') in ('open_bank_exam', 'exam_bank_editor'):
             callback()
             return
         # The page may have changed through a direct callback (lesson detail, quiz).
@@ -783,7 +815,6 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
         destination = self._page_callback_name(callback)
         try:
             callback()
-            self._start_sidebar_slide()
             if current is not None and not replace:
                 self._navigation_history.append(current)
                 self._navigation_history = self._navigation_history[-30:]
@@ -814,59 +845,41 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
         except Exception:
             return 0
 
-    def _start_sidebar_slide(self):
-        """Slide page body without moving the scroll region during animation.
-
-        The old implementation recomputed the scrollregion while the canvas
-        window was offset. On short pages this made the scrollbar and the
-        window fight each other, resulting in a vertical shake.
-        """
-        direction = getattr(self, '_sidebar_slide_direction', 0)
-        self._sidebar_slide_direction = 0
-        canvas = getattr(self, 'active_scroll_canvas', None)
-        item = getattr(self, '_sidebar_slide_window', None)
-        if self.reduce_motion or not direction or canvas is None or item is None:
-            return
-        if getattr(self, '_admin_page', '') in (t('history'), 'Lịch sử'):
+    def _start_page_morph(self, canvas, item, direction):
+        """Move the incoming page into place while revealing the shell palette."""
+        if self.reduce_motion or self.active_scroll_canvas is not canvas:
             return
         try:
-            if not canvas.winfo_exists():
+            veil=getattr(self._shell,'_veil_content',None)
+            if not canvas.winfo_exists() or (veil is not None and veil.winfo_exists()):
+                self._sidebar_slide_job=None
                 return
-            canvas.update_idletasks()
-            height = max(1, canvas.winfo_height())
-            distance = min(135, max(48, int(height * 0.16)))
-            start_y = direction * distance
-            # Lock scrolling while the window is moving.  Its bbox changes
-            # every frame; using it as the scrollregion causes oscillation.
-            body = canvas.nametowidget(canvas.itemcget(item, 'window'))
-            body_height = max(body.winfo_reqheight(), body.winfo_height(), height)
-            canvas.configure(scrollregion=(0, 0, max(1, canvas.winfo_width()), body_height + distance))
-            canvas.yview_moveto(0)
-            canvas.coords(item, 0, start_y)
+            canvas.configure(scrollregion=canvas.bbox(item))
+            start_x, start_y = 20*direction, 12*direction
+            base = TOKEN_COLORS['background']
+            accent = TOKEN_COLORS['tint']
+            channels = self.winfo_rgb(base),self.winfo_rgb(accent)
             started = time.monotonic()
-            duration = 0.22
-            old_job = getattr(self, '_sidebar_slide_job', None)
-            if old_job is not None:
-                try: self.after_cancel(old_job)
-                except (tk.TclError, RuntimeError): pass
             def tick():
                 try:
-                    if not canvas.winfo_exists() or getattr(self, 'active_scroll_canvas', None) is not canvas:
+                    if not canvas.winfo_exists() or self.active_scroll_canvas is not canvas:
                         self._sidebar_slide_job = None
                         return
-                    progress = min(1.0, (time.monotonic() - started) / duration)
-                    eased = 1 - (1 - progress) ** 3
-                    canvas.coords(item, 0, round(start_y * (1 - eased)))
+                    progress = min(1.0,(time.monotonic()-started)/.19)
+                    remain = 1-ease_out_cubic(progress)
+                    canvas.coords(item,round(start_x*remain),round(start_y*remain))
+                    color = '#%02x%02x%02x' % tuple(
+                        round((a+(b-a)*remain)/257) for a,b in zip(*channels))
+                    canvas.configure(bg=color)
                     if progress < 1:
                         self._sidebar_slide_job = self.after(16, tick)
                     else:
-                        canvas.coords(item, 0, 0)
-                        canvas.configure(scrollregion=(0, 0, max(1, canvas.winfo_width()), body_height))
-                        canvas.yview_moveto(0)
+                        canvas.configure(bg=base)
+                        canvas.configure(scrollregion=canvas.bbox(item))
                         self._sidebar_slide_job = None
                 except (tk.TclError, RuntimeError):
                     self._sidebar_slide_job = None
-            self._sidebar_slide_job = self.after(16, tick)
+            tick()
         except (tk.TclError, RuntimeError, KeyError):
             self._sidebar_slide_job = None
 
@@ -885,13 +898,14 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
             return
         self._navigation_busy = True
         target = self._navigation_history.pop()
-        self._sidebar_slide_direction = self._sidebar_navigation_direction(self._navigation_current, target)
+        self._sidebar_slide_direction = self._sidebar_navigation_direction(self._navigation_current, target) or -1
         started = time.perf_counter()
         origin = self._page_callback_name(self._navigation_current)
         destination = self._page_callback_name(target)
+        if origin == 'fixed_exam_page' and destination == 'exam_page':
+            self.morph.begin(getattr(self,'_fixed_morph_header',None),'fixed-card','Bộ đề')
         try:
             target()
-            self._start_sidebar_slide()
             self._navigation_current = target
             self._navigation_page_title = getattr(self, '_admin_page', None)
             self._measure_page_transition(origin, destination, 'back', started)
@@ -1119,6 +1133,8 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
         self._page_transition_job = self.after(16, tick)
 
     def clear(self):
+        if hasattr(self,'morph'):
+            self.morph.stop()
         slide_job = getattr(self, '_sidebar_slide_job', None)
         if slide_job is not None:
             try: self.after_cancel(slide_job)
@@ -1189,14 +1205,19 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
                           (time.perf_counter()-_destroy_start)*1000,
                           f'root_children={_destroy_count}')
 
-    def label(self,parent,text,size=12,bold=False,color=DARK,**kw):
-        return tk.Label(parent,text=text,font=font_at(size,'bold' if bold else 'normal'),fg=color,bg=parent.cget('bg'),wraplength=750,justify='left',**kw)
+    def label(self,parent,text,size=12,bold=False,color=None,**kw):
+        bg=parent.cget('bg')
+        if color is None and getattr(self,'_dark_appearance',False):
+            from tuhoc.ui.ui_tokens import contrast_ratio
+            rgb='#' + ''.join(f'{value//257:02x}' for value in self.winfo_rgb(bg))
+            color=TOKEN_COLORS['text'] if contrast_ratio(TOKEN_COLORS['text'],rgb)>=4.5 else '#17212C'
+        return tk.Label(parent,text=text,font=font_at(size,'bold' if bold else 'normal'),fg=color or TOKEN_COLORS['text'],bg=bg,wraplength=750,justify='left',**kw)
 
     def button(self,parent,text,command):
         # A short, visible selection pulse before page navigation.  The event
         # loop gets time to paint the pressed state before a heavy page builds.
-        button = tk.Button(parent,text=text,bg=GREEN,fg='white',
-                           activebackground=DARK,activeforeground='white',
+        button = tk.Button(parent,text=text,bg=TOKEN_COLORS['primary'],fg='white',
+                           activebackground=TOKEN_COLORS['primary_dark'],activeforeground='white',
                            font=font_at(11, 'bold'),bd=0,padx=17,pady=10,
                            cursor='hand2')
         def activate():
@@ -1226,8 +1247,8 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
                     try:
                         if button.winfo_exists():
                             button._selection_pending = False
-                            button.configure(bg=GREEN, fg='white',
-                                             activebackground=DARK,
+                            button.configure(bg=TOKEN_COLORS['primary'], fg='white',
+                                             activebackground=TOKEN_COLORS['primary_dark'],
                                              activeforeground='white',
                                              relief='flat', cursor='hand2')
                     except tk.TclError:
@@ -1243,21 +1264,20 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
                         pass
             click_start = time.perf_counter()
             self.after(0 if self.reduce_motion else 125,navigate)
-        # Match the soft green hover treatment used in subject selection.
-        button.bind('<Enter>',lambda e,b=button: b.configure(bg='#257B56') if not getattr(b,'_selection_pending',False) else None,add='+')
-        button.bind('<Leave>',lambda e,b=button: b.configure(bg=GREEN) if not getattr(b,'_selection_pending',False) else None,add='+')
+        button.bind('<Enter>',lambda e,b=button: b.configure(bg=TOKEN_COLORS['primary_hover']) if not getattr(b,'_selection_pending',False) else None,add='+')
+        button.bind('<Leave>',lambda e,b=button: b.configure(bg=TOKEN_COLORS['primary']) if not getattr(b,'_selection_pending',False) else None,add='+')
         button.configure(command=activate,highlightcolor=TOKEN_COLORS['focus'])
         keyboard_button(button)
         return button
 
     def action_button(self, parent, text, command):
         """Button for repeatable actions; do not register it as page navigation."""
-        button = tk.Button(parent, text=text, bg=GREEN, fg='white',
-                           activebackground=DARK, activeforeground='white',
+        button = tk.Button(parent, text=text, bg=TOKEN_COLORS['primary'], fg='white',
+                           activebackground=TOKEN_COLORS['primary_dark'], activeforeground='white',
                            font=font_at(11, 'bold'), bd=0, padx=17, pady=10,
                            cursor='hand2', command=command)
-        button.bind('<Enter>', lambda e, b=button: b.configure(bg='#257B56'), add='+')
-        button.bind('<Leave>', lambda e, b=button: b.configure(bg=GREEN), add='+')
+        button.bind('<Enter>', lambda e, b=button: b.configure(bg=TOKEN_COLORS['primary_hover']), add='+')
+        button.bind('<Leave>', lambda e, b=button: b.configure(bg=TOKEN_COLORS['primary']), add='+')
         button.configure(highlightcolor=TOKEN_COLORS['focus'])
         keyboard_button(button)
         return button
@@ -1371,6 +1391,10 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
 
     def _reading_focus(self, enabled=None, origin=None):
         """Session-only Reading Studio window with native window zoom transition."""
+        library_page = getattr(self, '_library_reading_page', None)
+        if library_page is not None:
+            library_page.set_expanded(enabled)
+            return
         import tkinter as tk
         import time
         active=bool(getattr(self,'_reading_focus_active',False))
@@ -1528,26 +1552,33 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
     def layout(self,title):
         """Reusable shell around untouched legacy page builders."""
         if getattr(self,'_reading_focus_active',False):self._reading_focus(False)
+        changed=getattr(self,'_admin_page',None)!=str(title) or self._shell is None
+        direction=self._sidebar_slide_direction or 1
+        self._sidebar_slide_direction=0
         self._admin_page=str(title)
         self.clear()
         if self._shell is None:
             self._shell=AppShell(self)
         self._shell.pack(fill="both",expand=True)
         self._shell.active(str(title))
-        container=tk.Frame(self._shell.content,bg=BG)
+        background=TOKEN_COLORS['background']
+        container=tk.Frame(self._shell.content,bg=background)
         container.pack(fill='both',expand=True)
         self._nav_container=container
         self._setup_teaching_tools(title)
-        canvas=tk.Canvas(container,bg=BG,highlightthickness=0,bd=0)
+        canvas=tk.Canvas(container,bg=background,highlightthickness=0,bd=0)
         self.active_scroll_canvas=canvas
         canvas.pack(side='left',fill='both',expand=True)
-        body=tk.Frame(canvas,bg=BG,padx=24,pady=16)
+        body=tk.Frame(canvas,bg=background,padx=24,pady=16)
         window=canvas.create_window((0,0),window=body,anchor='nw')
         self._sidebar_slide_window=window
         body.bind('<Configure>',lambda e=None:canvas.configure(scrollregion=canvas.bbox('all')) if getattr(self, '_sidebar_slide_job', None) is None else None)
         canvas.bind('<Configure>',lambda e=None:canvas.itemconfigure(window,width=e.width if e else canvas.winfo_width()))
-        self.label(body,title,20,True).pack(anchor='w',fill='x',pady=(0,12))
+        self._page_heading=self.label(body,title,20,True)
+        self._page_heading.pack(anchor='w',fill='x',pady=(0,12))
         self._page_transition_ready=False
+        if changed and not self.reduce_motion and not self.morph.has_pending():
+            self._sidebar_slide_job=self.after_idle(lambda:self._start_page_morph(canvas,window,direction))
         self.after_idle(lambda:focus_first(body) if body.winfo_exists() and
                         getattr(self,'active_scroll_canvas',None) is canvas else None)
         return body
@@ -2437,6 +2468,8 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
         return
 
     def show_profiles(self):
+        if self.student and self._shell is not None and self._shell.account.winfo_ismapped():
+            self.morph.begin(self._shell.account,f"profile:{self.student['id']}",self.student['name'])
         self._v8_active_reader=None
         self.student=None
         self.clear()
@@ -2448,6 +2481,8 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
         """Subject selection without the study sidebar; loading remains in switch_language."""
         from tuhoc.app.subject_ui import SubjectPage
         from tuhoc.app.subject_loading_screen import preload_async
+        if self._shell is not None and self._shell.subject_name.winfo_ismapped():
+            self.morph.begin(self._shell.subject_name,f"subject:{self.lang}",self._shell._subject_title())
         preload_async((self.winfo_width(),self.winfo_height()))
         self.clear()
         if self._shell is not None:
@@ -2768,15 +2803,24 @@ class App(ModernGamesMixin, LibraryMixin, DictationMixin, GameAppMixin, LevelFlo
         body=self.layout(t('home'))
         self._home_dashboard=HomeDashboard(self,body)
         self._shell.animate_home_entry()
+        self.morph.arrive('study-subject',self._shell.subject_name)
 
     def exam_page(self):
-        import threading
+        from tuhoc.exams.exam_mode_picker import show_exam_modes
+        show_exam_modes(self)
+
+    def fixed_exam_page(self):
+        from tuhoc.exams.fixed_exam_page import show_fixed_exams
+        show_fixed_exams(self)
+
+    def open_bank_exam(self):
         from tuhoc.exams.exam_pygame import run_exam
         if getattr(self, '_exam_thread', None) and self._exam_thread.is_alive():
             dialogs.showinfo('Kiểm tra', 'Cửa sổ kiểm tra đang mở.')
             return
         import tuhoc.exercises.pygame_session_guard as guard
-        if not guard.launch(run_exam, (self.data_dir, self.student['id'] if self.student else None), 'TuHocExamSDL'):
+        arguments=(self.data_dir,self.student['id'] if self.student else None,self.reduce_motion)
+        if not guard.launch(run_exam, arguments, 'TuHocExamSDL'):
             dialogs.showinfo('Kiểm tra', 'Một cửa sổ bài tập hoặc kiểm tra đang mở.')
 
     #def exam_bank_editor(self):

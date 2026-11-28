@@ -3,10 +3,10 @@
   "image_height": 312,
   "word_size": 38,
   "text_size": 32,
-  "title_size": 34,
-  "content_size": 48,
-  "title_color": "#285D40",
-  "content_color": "#233C2A",
+  "title_size": 17,
+  "content_size": 27,
+  "title_color": "#400040",
+  "content_color": "#000000",
   "auto_next": true,
   "dragon_feedback_enabled": false,
   "ui_font_scale": "medium",
@@ -16,5 +16,11 @@
     "id": "peach",
     "image": ""
   },
-  "flashcard_mode_en": "shuffle"
+  "flashcard_mode_en": "shuffle",
+  "library_reading": {
+    "theme": "dark",
+    "zoom": 1.0,
+    "spacing": 1.95
+  },
+  "ui_appearance": "plum"
 }

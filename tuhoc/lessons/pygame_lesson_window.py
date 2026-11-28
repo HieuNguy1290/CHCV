@@ -11,11 +11,11 @@ def available():
         return False
 
 
-def launch(title, lesson, blocks=(), data_dir=None, settings=None):
+def launch(title, lesson, blocks=(), data_dir=None, settings=None, *, finished=None):
     if not available():
         return False
     args = (str(title), dict(lesson), list(blocks), data_dir, dict(settings or {}))
-    return launch_guarded(_run, args, 'TuHocExpandedLesson')
+    return launch_guarded(_run, args, 'TuHocExpandedLesson', finished=finished)
 
 
 def _run(title, lesson, blocks, data_dir, settings):

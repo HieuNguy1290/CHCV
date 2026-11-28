@@ -282,7 +282,7 @@ class ExamBank:
     def grades(self):
         """Show student grades even before the exam bank has any questions."""
         grades={str(i) for i in range(1,13)}
-        for q in self.questions():
+        for q in self.questions() + self.reading_groups():
             if str(q.get('grade','')).strip(): grades.add(str(q['grade']).strip())
         db=self.folder.parent/'tu_hoc.sqlite3'
         if db.exists():

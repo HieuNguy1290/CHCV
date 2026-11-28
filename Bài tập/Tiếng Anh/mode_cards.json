@@ -1,0 +1,22 @@
+{
+  "lesson": {
+    "title": "Bài học",
+    "icon": "📖",
+    "image": "icons/44d911d8fd24.png"
+  },
+  "quiz": {
+    "title": "Bài tập",
+    "icon": "✎",
+    "image": "icons/d8cb82952bf7.png"
+  },
+  "vocab": {
+    "title": "Từ vựng",
+    "icon": "☆",
+    "image": "icons/eaa0cf8438c8.png"
+  },
+  "reading": {
+    "title": "Đọc / Reading",
+    "icon": "📖",
+    "image": "icons/cdbee7fd0799.png"
+  }
+}

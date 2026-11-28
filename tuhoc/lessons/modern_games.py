@@ -1,10 +1,13 @@
 """Standalone eight educational games: same engines, independent subject content."""
 from tuhoc.paths import PROJECT_ROOT
 import json, random, tkinter as tk
+import subprocess
+import sys
 from pathlib import Path
 from tkinter import messagebox
 
 ROOT=PROJECT_ROOT
+PUZZLE_ROOT = ROOT / "Games" / "Puzzle"
 NAVY='#293951'; GREEN='#237e64'; PALE='#edf7f3'; MUTED='#69788c'; WHITE='#ffffff'; GOLD='#ffdb85'
 TYPES={'picture','listen','difference','spell','memory','treasure','maze','sort'}
 
@@ -42,8 +45,48 @@ class ModernGamesMixin:
             l=tk.Label(parent,image=im,bg=parent['bg']);l.image=im;l.pack(pady=10);return l
         except tk.TclError:return None
     def games_page(self):
+        body = self.layout("🎮  Trò chơi")
+        games = self._panel(body)
+        puzzle_button = self._btn(games, "Puzzle", self._open_puzzle, PALE)
+        try:
+            icon = tk.PhotoImage(file=str(PUZZLE_ROOT / "web" / "icon-192.png"))
+        except tk.TclError:
+            pass
+        else:
+            puzzle_button.puzzle_icon = icon.subsample(3)
+            puzzle_button.configure(image=puzzle_button.puzzle_icon, compound="top")
+        puzzle_button.pack(side="left", padx=8, pady=8)
+        self._btn(games, "Trò chơi theo Level", self.lesson_games_page).pack(
+            side="left", padx=8, pady=8
+        )
+
+    def _open_puzzle(self):
+        if sys.platform != "win32":
+            messagebox.showinfo("Puzzle", "Bản Puzzle đi kèm chạy trên Windows.", parent=self)
+            return
+
+        executable = PUZZLE_ROOT / "portable-windows" / "puzzle.exe"
+        if not executable.is_file():
+            messagebox.showerror(
+                "Puzzle", "Không tìm thấy bản Puzzle cho Windows.", parent=self
+            )
+            return
+
+        try:
+            language = "vi" if getattr(self, "lang", "en") == "vi" else "en"
+            subprocess.Popen(
+                [str(executable), f"--tuhoc-language={language}"],
+                cwd=executable.parent,
+            )
+        except OSError as error:
+            messagebox.showerror(
+                "Puzzle", f"Không mở được Puzzle.\n{error}", parent=self
+            )
+
+    def lesson_games_page(self):
         lang=getattr(self,'lang','en');data=load_games(lang)
         body=self.layout('🎮  Vương quốc trò chơi')
+        self._btn(body, "← Trò chơi", self.games_page).pack(anchor="w")
         self._head(body,'🇻🇳  Trò chơi Tiếng Việt' if lang=='vi' else '🇬🇧  English games',
                    'Mỗi môn có nội dung riêng. Level quyết định những trò chơi được mở.')
         grid=tk.Frame(body,bg=body['bg']);grid.pack(fill='x')
@@ -60,7 +103,7 @@ class ModernGamesMixin:
         data=load_games(getattr(self,'lang','en'))
         rec=next((x for x in data['levels'] if x.get('level')==level),{})
         body=self.layout(f'🎲  Level {level}')
-        self._btn(body,'← Bản đồ Level',self.games_page).pack(anchor='w')
+        self._btn(body,'← Bản đồ Level',self.lesson_games_page).pack(anchor='w')
         self._head(body,f'Level {level} · Chọn trò chơi','Mỗi trò dùng ngân hàng nội dung riêng của môn đang chọn.')
         for game in rec.get('games',[]):
             if not game.get('enabled',True) or not game.get('items') or game.get('type') not in TYPES:continue

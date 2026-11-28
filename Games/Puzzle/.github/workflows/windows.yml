@@ -1,0 +1,44 @@
+name: Windows Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Windows MSIX
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Get Dependencies
+        run: flutter pub get
+
+      - name: Build Windows
+        run: flutter build windows --release
+
+      - name: Build MSIX
+        run: dart run msix:create
+
+      - name: Create Portable Zip
+        run: |
+          powershell Compress-Archive -Path build/windows/x64/runner/release/* -DestinationPath build/windows/x64/runner/release/puzzle-games-windows-portable.zip
+        shell: pwsh
+
+      - name: Upload Windows Portable Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: puzzle-games-windows-portable
+          path: build/windows/x64/runner/release/puzzle-games-windows-portable.zip
+
+      - name: Upload MSIX Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: puzzle-games-windows-msix
+          path: build/windows/x64/runner/Release/*.msix

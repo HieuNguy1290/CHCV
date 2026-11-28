@@ -1,0 +1,140 @@
+import 'package:cupertino_ui/cupertino_ui.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_localizations/flutter_localizations.dart'
+    hide GlobalMaterialLocalizations, GlobalCupertinoLocalizations;
+import 'package:flutter/foundation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:window_manager/window_manager.dart';
+import 'package:puzzle/l10n/app_localizations.dart';
+import 'data/models/user_data.dart';
+import 'data/models/game_streak.dart';
+import 'data/repositories/user_repository.dart';
+import 'providers/user_providers.dart';
+import 'providers/theme_provider.dart';
+import 'providers/locale_provider.dart';
+import 'providers/font_provider.dart';
+import 'ui/features/main_shell/main_shell.dart';
+import 'utils/design_system.dart';
+import 'widgets/error_boundary.dart';
+
+void main(List<String> arguments) async {
+  final stopwatch = Stopwatch()..start();
+  final tuhocLocale = arguments.contains('--tuhoc-language=vi')
+      ? const Locale('vi')
+      : arguments.contains('--tuhoc-language=en')
+          ? const Locale('en')
+          : null;
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  if (!kIsWeb &&
+      (defaultTargetPlatform == TargetPlatform.windows ||
+          defaultTargetPlatform == TargetPlatform.linux ||
+          defaultTargetPlatform == TargetPlatform.macOS)) {
+    await windowManager.ensureInitialized();
+    final windowOptions = WindowOptions(
+      size: const Size(1280, 720),
+      minimumSize: const Size(800, 600),
+      center: true,
+      title: tuhocLocale?.languageCode == 'vi' ? 'Trò chơi Puzzle' : 'Puzzle Games',
+    );
+    windowManager.waitUntilReadyToShow(windowOptions, () async {
+      await windowManager.show();
+      await windowManager.focus();
+    });
+  }
+
+  // Performance monitoring
+  if (kDebugMode) {
+    FlutterError.onError = (details) {
+      debugPrint('Flutter Error: ${details.exception}');
+      debugPrint('Stack: ${details.stack}');
+    };
+  }
+
+  await Hive.initFlutter();
+
+  Hive.registerAdapter(UserDataAdapter());
+  Hive.registerAdapter(GameStreakAdapter());
+
+  final userRepository = UserRepository();
+  await userRepository.init();
+
+  // Log app startup time
+  stopwatch.stop();
+  debugPrint('App startup time (sync): ${stopwatch.elapsedMilliseconds}ms');
+
+  runApp(
+    ProviderScope(
+      overrides: [
+        userRepositoryProvider.overrideWithValue(userRepository),
+        tuhocLocaleProvider.overrideWithValue(tuhocLocale),
+      ],
+      child: const ErrorBoundary(
+        child: MyApp(),
+      ),
+    ),
+  );
+}
+
+class MyApp extends ConsumerWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appThemeMode = ref.watch(themeNotifierProvider);
+    final appLocale =
+        ref.watch(tuhocLocaleProvider) ?? ref.watch(localeNotifierProvider);
+    final useSystemFont = ref.watch(fontNotifierProvider);
+    DesignSystem.useSystemFont = useSystemFont;
+
+    ThemeMode themeMode;
+    switch (appThemeMode) {
+      case AppThemeMode.light:
+        themeMode = ThemeMode.light;
+        break;
+      case AppThemeMode.dark:
+        themeMode = ThemeMode.dark;
+        break;
+      case AppThemeMode.system:
+        themeMode = ThemeMode.system;
+        break;
+    }
+
+    return MaterialApp(
+      onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
+      debugShowCheckedModeBanner: false,
+      theme: DesignSystem.buildTheme(Brightness.light,
+          useSystemFont: useSystemFont),
+      darkTheme: DesignSystem.buildTheme(Brightness.dark,
+          useSystemFont: useSystemFont),
+      themeMode: themeMode,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      locale: appLocale,
+      supportedLocales: [
+        const Locale('en'),
+        ...AppLocalizations.supportedLocales
+            .where((l) => l.languageCode != 'en'),
+      ],
+      localeListResolutionCallback: (locales, supportedLocales) {
+        if (locales != null) {
+          for (var locale in locales) {
+            for (var supportedLocale in supportedLocales) {
+              if (supportedLocale.languageCode == locale.languageCode) {
+                return supportedLocale;
+              }
+            }
+          }
+        }
+        return const Locale('en');
+      },
+      home: const MainShell(),
+    );
+  }
+}

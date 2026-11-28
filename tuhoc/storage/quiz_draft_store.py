@@ -1,20 +1,45 @@
 """Persistent, per-student quiz draft using the existing application SQLite connection."""
 import json
 import math
+from contextlib import nullcontext
 
 class QuizDraftStore:
     def __init__(self, connection):
         self.conn=connection
-        self.conn.execute('''CREATE TABLE IF NOT EXISTS quiz_drafts (
+        columns = self.conn.execute('PRAGMA table_info(quiz_drafts)').fetchall()
+        if columns and not any(column[1] == 'lesson_scope' for column in columns):
+            with self.conn:
+                self.conn.execute('BEGIN')
+                self.conn.execute('ALTER TABLE quiz_drafts RENAME TO quiz_drafts_legacy')
+                self._create_table()
+                rows = self.conn.execute('SELECT * FROM quiz_drafts_legacy').fetchall()
+                for student, language, theme, level, questions, answers, elapsed, updated in rows:
+                    scope = self._legacy_scope(questions)
+                    self.conn.execute('INSERT INTO quiz_drafts VALUES (?,?,?,?,?,?,?,?,?)',
+                                      (student, language, theme, level, scope, questions, answers, elapsed, updated))
+                self.conn.execute('DROP TABLE quiz_drafts_legacy')
+        elif not columns:
+            self._create_table()
+
+    def _create_table(self):
+        self.conn.execute('''CREATE TABLE quiz_drafts (
             student_id INTEGER NOT NULL, language TEXT NOT NULL,
-            theme TEXT NOT NULL, level INTEGER NOT NULL,
+            theme TEXT NOT NULL, level INTEGER NOT NULL, lesson_scope TEXT NOT NULL,
             questions TEXT NOT NULL, answers TEXT NOT NULL,
             elapsed REAL NOT NULL DEFAULT 0,
             updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
-            PRIMARY KEY(student_id, language, theme, level))''')
-        self.conn.commit()
+            PRIMARY KEY(student_id, language, theme, level, lesson_scope))''')
 
-    def save(self,student_id,language,theme,level,questions,answers,elapsed):
+    @staticmethod
+    def _legacy_scope(questions):
+        try:
+            rows = json.loads(questions)
+            lessons = {str(q.get('lesson') or '1').strip() for q in rows if isinstance(q, dict)}
+        except (TypeError, ValueError):
+            return ''
+        return lessons.pop() if len(lessons) == 1 else ''
+
+    def save(self,student_id,language,theme,level,questions,answers,elapsed, *, lesson_scope=''):
         if not isinstance(questions,list) or not isinstance(answers,(list,tuple)) or len(answers)>len(questions):
             raise ValueError('Invalid draft progress')
         payload=[]
@@ -27,19 +52,19 @@ class QuizDraftStore:
             payload.append({'answer':answer,'correct':ok})
         duration=float(elapsed)
         if not math.isfinite(duration) or duration<0:raise ValueError('Invalid duration')
-        self.conn.execute('''INSERT INTO quiz_drafts(student_id,language,theme,level,questions,answers,elapsed)
-            VALUES (?,?,?,?,?,?,?)
-            ON CONFLICT(student_id,language,theme,level) DO UPDATE SET
-            questions=excluded.questions, answers=excluded.answers,
-            elapsed=excluded.elapsed, updated_at=CURRENT_TIMESTAMP''',
-            (student_id,language,theme,level,json.dumps(questions,ensure_ascii=False),
-             json.dumps(payload,ensure_ascii=False),max(0.0,duration)))
-        self.conn.commit()
+        with self.conn:
+            self.conn.execute('''INSERT INTO quiz_drafts(student_id,language,theme,level,lesson_scope,questions,answers,elapsed)
+                VALUES (?,?,?,?,?,?,?,?)
+                ON CONFLICT(student_id,language,theme,level,lesson_scope) DO UPDATE SET
+                questions=excluded.questions, answers=excluded.answers,
+                elapsed=excluded.elapsed, updated_at=CURRENT_TIMESTAMP''',
+                (student_id,language,theme,level,lesson_scope,json.dumps(questions,ensure_ascii=False),
+                 json.dumps(payload,ensure_ascii=False),max(0.0,duration)))
 
-    def load(self,student_id,language,theme,level):
+    def load(self,student_id,language,theme,level, *, lesson_scope=''):
         row=self.conn.execute('''SELECT questions,answers,elapsed FROM quiz_drafts
-            WHERE student_id=? AND language=? AND theme=? AND level=?''',
-            (student_id,language,theme,level)).fetchone()
+            WHERE student_id=? AND language=? AND theme=? AND level=? AND lesson_scope=?''',
+            (student_id,language,theme,level,lesson_scope)).fetchone()
         if row is None:return None
         try:
             questions=json.loads(row[0]);raw=json.loads(row[1]);elapsed=float(row[2])
@@ -55,7 +80,7 @@ class QuizDraftStore:
         if not math.isfinite(elapsed) or elapsed<0:raise ValueError('Invalid duration')
         return {'questions':questions,'answers':answers,'elapsed':max(0.0,elapsed)}
 
-    def delete(self,student_id,language,theme,level):
-        self.conn.execute('DELETE FROM quiz_drafts WHERE student_id=? AND language=? AND theme=? AND level=?',
-                          (student_id,language,theme,level))
-        self.conn.commit()
+    def delete(self,student_id,language,theme,level, *, lesson_scope='', commit=True):
+        with self.conn if commit else nullcontext():
+            self.conn.execute('DELETE FROM quiz_drafts WHERE student_id=? AND language=? AND theme=? AND level=? AND lesson_scope=?',
+                              (student_id,language,theme,level,lesson_scope))

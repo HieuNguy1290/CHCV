@@ -1,0 +1,42 @@
+[
+  {
+    "code": "Family & Friends",
+    "title": "English",
+    "icon": "⌂",
+    "icon_image": "icons/70a124d593b6.png",
+    "color": "#E8F3FF",
+    "max_level": 10
+  },
+  {
+    "code": "sports",
+    "title": "Math",
+    "icon": "★",
+    "icon_image": "icons/6aae6c9df514.png",
+    "color": "#FFF2DF",
+    "max_level": 10
+  },
+  {
+    "code": "actions",
+    "title": "Physics",
+    "icon": "➤",
+    "icon_image": "icons/d6b53ab2f0e5.png",
+    "color": "#F1E9FF",
+    "max_level": 10
+  },
+  {
+    "code": "animals",
+    "title": "Chemistry",
+    "icon": "♣",
+    "icon_image": "",
+    "color": "#E8F7E8",
+    "max_level": 10
+  },
+  {
+    "code": "fruits",
+    "title": "Computer",
+    "icon": "●",
+    "icon_image": "",
+    "color": "#FFF0EF",
+    "max_level": 10
+  }
+]

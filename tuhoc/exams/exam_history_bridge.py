@@ -30,7 +30,10 @@ def exam_records(conn, student_id, subject=None):
                     continue
             except (KeyError, ValueError, TypeError, OverflowError):
                 continue
-            result.append((str(row.get('id','')), kind, str(row.get('lesson','')), str(row.get('level','')), stamp, correct, total))
+            title = str(row.get('lesson', ''))
+            if row.get('exam_mode') == 'fixed':
+                title = 'Bộ đề · ' + title
+            result.append((str(row.get('id','')), kind, title, str(row.get('level','')), stamp, correct, total))
         return result
     except (OSError, ValueError, TypeError, json.JSONDecodeError):
         return []

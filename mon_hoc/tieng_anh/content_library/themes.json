@@ -65,5 +65,14 @@
     "icon_image": "",
     "color": "#E8F3FF",
     "max_level": 10
+  },
+  {
+    "code": "theme_002",
+    "title": "Grammar",
+    "icon": "📘",
+    "icon_image": "",
+    "color": "#E8F3FF",
+    "max_level": 10,
+    "lesson_counts": {}
   }
 ]

@@ -6,7 +6,7 @@ from tuhoc.ui.strings_vi import t
 from tuhoc.ui.ui_components import Badge, LoadingState
 from tuhoc.ui.ui_tokens import font_at
 
-import json, random, time, datetime, re, shutil, math, os, sys
+import json, random, time, datetime, re, shutil, math, os, sys, sqlite3
 from pathlib import Path
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, colorchooser
@@ -92,23 +92,25 @@ class LearningService:
     def select_questions(self,sid,theme,level,limit=50):
         items=self.content.get('questions',theme,level)
         return sorted(items,key=lambda q:self.mastery(sid,q.get('answer',''))+random.random()*.15,reverse=True)[:limit]
-    def save_answer(self,sid,q,answer,correct,seconds):
-        word=str(q.get('answer','')).strip();self.db.record(sid,{'id':q['id'],'type':q.get('type','choice'),'version':'2.0'},int(correct),seconds,answer)
-        with self.db.conn:
+    def save_answer(self,sid,q,answer,correct,seconds, *, commit=True):
+        from contextlib import nullcontext
+        word=str(q.get('answer','')).strip();self.db.record(sid,{'id':q['id'],'type':q.get('type','choice'),'version':'2.0'},int(correct),seconds,answer,commit=commit)
+        with self.db.conn if commit else nullcontext():
             self.db.conn.execute('INSERT INTO word_mastery(student_id,word,correct,wrong,last_seen) VALUES(?,?,?,?,?) ON CONFLICT(student_id,word) DO UPDATE SET correct=correct+excluded.correct,wrong=wrong+excluded.wrong,last_seen=excluded.last_seen',(sid,self.wordkey(word).casefold(),int(correct),int(not correct),time.time()))
         if not correct and word:
             meaning=self.content.meaning(word)
-            if meaning or self.language=='vi':self.db.save_word(sid,self.wordkey(word),meaning)
-    def finish(self,sid,theme,level,correct,total,duration,threshold=.75):
+            if meaning or self.language=='vi':self.db.save_word(sid,self.wordkey(word),meaning,commit=commit)
+    def finish(self,sid,theme,level,correct,total,duration,threshold=.75, *, commit=True):
+        from contextlib import nullcontext
         ratio=correct/max(total,1);stars=(3 if ratio>=.95 else 2 if ratio>=.85 else 1) if ratio>=threshold else 0
         previous_stars=self.stars(sid,theme,level)
-        with self.db.conn:
+        with self.db.conn if commit else nullcontext():
             self.db.conn.execute('INSERT INTO learning_sessions(student_id,theme,level,started,seconds,correct,total) VALUES(?,?,?,?,?,?,?)',(sid,self.key(theme),level,time.time()-duration,duration,correct,total))
             self.db.conn.execute('INSERT INTO level_scores(student_id,theme,level,score,stars) VALUES(?,?,?,?,?) ON CONFLICT(student_id,theme,level) DO UPDATE SET score=MAX(score,excluded.score),stars=MAX(stars,excluded.stars),updated_at=CURRENT_TIMESTAMP',(sid,self.key(theme),level,ratio,stars))
-        self.db.save_lesson_progress(sid,f'{self.key(theme)}_{level}',correct,total,stars>0)
+        self.db.save_lesson_progress(sid,f'{self.key(theme)}_{level}',correct,total,stars>0,commit=commit)
         if stars:
             earned=max(0,stars-previous_stars)
-            if earned:self.db.add_points(sid,earned)
+            if earned:self.db.add_points(sid,earned,commit=commit)
         return stars
     def ensure_time_tables(self):
         self.db.conn.executescript("""CREATE TABLE IF NOT EXISTS app_usage_daily(student_id INTEGER NOT NULL,day TEXT NOT NULL,seconds REAL NOT NULL DEFAULT 0,PRIMARY KEY(student_id,day));
@@ -120,11 +122,14 @@ class LearningService:
         row=self.db.conn.execute('SELECT best_seconds FROM level_time_records WHERE student_id=? AND subject=? AND theme=? AND level=?',(sid,self.language,theme,level)).fetchone()
         return float(row[0]) if row else None
 
-    def record_level_time(self,sid,theme,level,seconds):
-        self.ensure_time_tables()
-        previous=self.best_level_time(sid,theme,level)
+    def record_level_time(self,sid,theme,level,seconds, *, commit=True):
+        from contextlib import nullcontext
+        if commit:
+            self.ensure_time_tables()
+        row=self.db.conn.execute('SELECT best_seconds FROM level_time_records WHERE student_id=? AND subject=? AND theme=? AND level=?',(sid,self.language,theme,level)).fetchone()
+        previous=float(row[0]) if row else None
         if previous is None or seconds<previous:
-            with self.db.conn:
+            with self.db.conn if commit else nullcontext():
                 self.db.conn.execute('INSERT INTO level_time_records(student_id,subject,theme,level,best_seconds) VALUES(?,?,?,?,?) ON CONFLICT(student_id,subject,theme,level) DO UPDATE SET best_seconds=excluded.best_seconds,updated_at=CURRENT_TIMESTAMP',(sid,self.language,theme,level,seconds))
         return previous
 
@@ -226,25 +231,46 @@ class GameAppMixin:
         p=PROJECT_ROOT/'mon_hoc'/'hien_thi.json';p.parent.mkdir(parents=True,exist_ok=True)
         p.write_text(json.dumps(self._display_settings,ensure_ascii=False,indent=2),encoding='utf8')
     def display_settings(self):
-        body=self.layout('⚙  Cỡ hình, cỡ chữ và màu sắc bài học')
+        body=self.layout('⚙  Cài đặt hiển thị')
+        from tuhoc.ui.ui_tokens import APPEARANCE_NAMES, COLORS, FONT_SCALES, appearance_colors
         c=self._card(body)
-        tk.Label(c,text='Thiết lập dùng cho cả hai môn học',bg='white',fg=INK,font=font_at(15, 'bold')).pack(anchor='w',pady=8)
+        c.configure(bg=COLORS['surface'], highlightbackground=COLORS['border'])
+        tk.Label(c,text='Thiết lập dùng cho cả hai môn học',bg=COLORS['surface'],fg=COLORS['text'],font=font_at(15, 'bold')).pack(anchor='w',pady=8)
         settings=self._display_settings
         controls={}
-        from tuhoc.ui.ui_tokens import FONT_SCALES
+        appearance = settings.get('ui_appearance')
+        if not isinstance(appearance, str) or appearance not in APPEARANCE_NAMES:
+            appearance = 'forest'
+        appearance_ids = {label: key for key, label in APPEARANCE_NAMES.items()}
+        theme_choice = tk.StringVar(value=APPEARANCE_NAMES[appearance])
+        theme_row = tk.Frame(c, bg=COLORS['surface'])
+        theme_row.pack(fill='x', pady=4)
+        tk.Label(theme_row, text='Theme giao diện', bg=COLORS['surface'], fg=COLORS['text']).pack(side='left', padx=(0,12))
+        theme_picker = ttk.Combobox(theme_row, values=tuple(appearance_ids), textvariable=theme_choice,
+                                   state='readonly', width=14)
+        theme_picker.pack(side='left')
+        swatches = [tk.Frame(theme_row, width=23, height=23, highlightthickness=1) for _ in range(3)]
+        for swatch in swatches:
+            swatch.pack(side='left', padx=(6,0))
+        def preview_theme(_event=None):
+            palette = appearance_colors(appearance_ids[theme_choice.get()])
+            for swatch, role in zip(swatches, ('primary', 'tint', 'background')):
+                swatch.configure(bg=palette[role], highlightbackground=palette['border'])
+        theme_picker.bind('<<ComboboxSelected>>', preview_theme)
+        preview_theme()
         labels=dict(zip(FONT_SCALES,('Nhỏ','Vừa','Lớn')))
         selected=tk.StringVar(value=labels.get(settings.get('ui_font_scale'),'Vừa'))
-        font_row=tk.Frame(c,bg='white')
+        font_row=tk.Frame(c,bg=COLORS['surface'])
         font_row.pack(fill='x',pady=4)
-        tk.Label(font_row,text='Cỡ chữ giao diện',bg='white',fg=INK).pack(side='left',padx=(0,12))
+        tk.Label(font_row,text='Cỡ chữ giao diện',bg=COLORS['surface'],fg=COLORS['text']).pack(side='left',padx=(0,12))
         ttk.Combobox(font_row,values=tuple(labels.values()),textvariable=selected,
                      state='readonly',width=8).pack(side='left')
         def slider(key,caption,minimum,maximum,default):
-            row=tk.Frame(c,bg='white');row.pack(fill='x',pady=(4,7))
-            tk.Label(row,text=caption,bg='white',fg=INK).pack(anchor='w')
+            row=tk.Frame(c,bg=COLORS['surface']);row.pack(fill='x',pady=(4,7))
+            tk.Label(row,text=caption,bg=COLORS['surface'],fg=COLORS['text']).pack(anchor='w')
             variable=tk.IntVar(value=int(settings.get(key,default)))
             tk.Scale(row,from_=minimum,to=maximum,orient='horizontal',length=440,
-                     resolution=1,variable=variable,bg='white',
+                     resolution=1,variable=variable,bg=COLORS['surface'],fg=COLORS['text'],troughcolor=COLORS['tint'],
                      command=lambda _value:update_preview()).pack(anchor='w')
             controls[key]=variable
         # Each lesson block consists of an independent title and content area.
@@ -270,21 +296,21 @@ class GameAppMixin:
             result=colorchooser.askcolor(color=colors[key].get(),title='Chọn màu cho '+('Title' if key=='title_color' else 'Content'),parent=self)
             if result and result[1]:colors[key].set(result[1]);update_preview()
         for key,caption in [('title_color','Màu Title'),('content_color','Màu Content')]:
-            row=tk.Frame(c,bg='white');row.pack(fill='x',pady=3)
-            tk.Label(row,text=caption,width=18,anchor='w',bg='white',fg=INK).pack(side='left')
+            row=tk.Frame(c,bg=COLORS['surface']);row.pack(fill='x',pady=3)
+            tk.Label(row,text=caption,width=18,anchor='w',bg=COLORS['surface'],fg=COLORS['text']).pack(side='left')
             swatch=tk.Button(row,textvariable=colors[key],command=lambda k=key:select_color(k),
                              font=font_at(11),relief='groove',padx=10)
             swatch.pack(side='left')
             colors[key].trace_add('write',lambda *_args,b=swatch,k=key:b.configure(fg=colors[k].get()))
         reduced=tk.BooleanVar(value=bool(settings.get('reduce_motion',False)))
-        tk.Checkbutton(c,text='Giảm chuyển động',variable=reduced,bg='white').pack(anchor='w',pady=4)
+        tk.Checkbutton(c,text='Giảm chuyển động',variable=reduced,bg=COLORS['surface'],fg=COLORS['text'],activebackground=COLORS['tint'],activeforeground=COLORS['text'],selectcolor=COLORS['background']).pack(anchor='w',pady=4)
         auto=tk.BooleanVar(value=bool(settings.get('auto_next',False)))
-        tk.Checkbutton(c,text='Tự động sang câu khi trả lời đúng',variable=auto,bg='white',font=font_at(12)).pack(anchor='w',pady=10)
+        tk.Checkbutton(c,text='Tự động sang câu khi trả lời đúng',variable=auto,bg=COLORS['surface'],fg=COLORS['text'],activebackground=COLORS['tint'],activeforeground=COLORS['text'],selectcolor=COLORS['background'],font=font_at(12)).pack(anchor='w',pady=10)
         sound=tk.BooleanVar(value=bool(settings.get('feedback_sound',False)))
-        tk.Checkbutton(c,text='Âm báo khi trả lời',variable=sound,bg='white').pack(anchor='w',pady=4)
+        tk.Checkbutton(c,text='Âm báo khi trả lời',variable=sound,bg=COLORS['surface'],fg=COLORS['text'],activebackground=COLORS['tint'],activeforeground=COLORS['text'],selectcolor=COLORS['background']).pack(anchor='w',pady=4)
         dragon_enabled=tk.BooleanVar(value=bool(settings.get('dragon_feedback_enabled',False)))
         tk.Checkbutton(c,text='Rồng Lân Ú: hiệu ứng mây ngũ sắc và mưa sao khi trả lời',
-                       variable=dragon_enabled,bg='white',font=font_at(12)).pack(anchor='w',pady=(4,10))
+                       variable=dragon_enabled,bg=COLORS['surface'],fg=COLORS['text'],activebackground=COLORS['tint'],activeforeground=COLORS['text'],selectcolor=COLORS['background'],font=font_at(12)).pack(anchor='w',pady=(4,10))
         update_preview()
         def save():
             for key,var in controls.items():settings[key]=var.get()
@@ -296,7 +322,12 @@ class GameAppMixin:
             settings['auto_next']=auto.get()
             settings['dragon_feedback_enabled']=dragon_enabled.get()
             settings['feedback_sound']=sound.get()
+            changed = settings.get('ui_appearance', 'forest') != appearance_ids[theme_choice.get()]
+            settings['ui_appearance'] = appearance_ids[theme_choice.get()]
             self._save_display_settings()
+            if changed:
+                self.apply_appearance()
+                self.display_settings()
             messagebox.showinfo('Đã lưu',t('settings_saved'))
         self.action_button(c,'LƯU THIẾT LẬP',save).pack(anchor='w',pady=8)
     def choose_language(self):
@@ -341,6 +372,9 @@ class GameAppMixin:
             raise
 
         def fail(exc):
+            morph=getattr(self,'morph',None)
+            if morph:
+                morph.pending=None
             self.lang, self.curriculum, self.learning, self._display_settings = previous
             self._subject_loading = False
             try:
@@ -442,6 +476,10 @@ class GameAppMixin:
     def _draft_key(self):
         return (self.student['id'], self.lang, self.s_theme, self.s_level)
 
+    def _draft_scope(self):
+        lesson = getattr(self, 's_lesson', None)
+        return str(lesson).strip() if lesson is not None else ''
+
     def _save_quiz_draft(self):
         if getattr(self, '_wrong_review_mode', False):
             return  # Review-only sessions never overwrite the normal Level draft.
@@ -450,40 +488,39 @@ class GameAppMixin:
         try:
             self._draft_store().save(*self._draft_key(), self.s_questions,
                                      [(a, ok) for _q, a, ok in self.s_answers],
-                                     max(0.0, time.monotonic()-self._quiz_timer_started))
+                                     max(0.0, time.monotonic()-self._quiz_timer_started),
+                                     lesson_scope=self._draft_scope())
             self._draft_saved_ok=True
-        except (OSError, ValueError, TypeError, RuntimeError) as exc:
+        except (OSError, ValueError, TypeError, RuntimeError, sqlite3.Error) as exc:
             self._draft_saved_ok=False
             print('Không lưu được tiến độ bài tập:', exc)
 
-    def start_session(self,theme,level,quiz_only=False):
+    def start_session(self,theme,level,quiz_only=False, *, lesson=None, questions=None):
         self._wrong_review_mode=False
         if not self.learning.unlocked(self.student['id'],theme,level):messagebox.showwarning('Level đang khóa','Em cần vượt qua level trước với ít nhất 75%.');return
-        self.s_theme=theme;self.s_level=level;self.s_started=time.monotonic();self.s_questions=self.learning.select_questions(self.student['id'],theme,level)
+        self.s_theme=theme;self.s_level=level;self.s_lesson=lesson;self.s_started=time.monotonic()
+        self.s_questions = questions if questions is not None else self.learning.select_questions(self.student['id'],theme,level)
         self._quiz_generation=getattr(self,'_quiz_generation',0)+1;self._quiz_pending_index=None;self._quiz_launch_retries=0;self.s_answers=[];self.s_wrong=[];self.s_combo=0;self.s_xp=0;self.s_retry=False;self._quiz_saved=False;self._quiz_duration=0;self._quiz_previous_best=None;self._quiz_timer_started=time.monotonic()
-        # A draft belongs to exactly one student, language, theme and level.
         try:
-            draft=self._draft_store().load(self.student['id'],self.lang,theme,level)
-        except (ValueError, OSError, RuntimeError) as exc:
+            draft=self._draft_store().load(*self._draft_key(), lesson_scope=self._draft_scope())
+        except (ValueError, OSError, RuntimeError, sqlite3.Error) as exc:
             print('Không đọc được tiến độ bài tập:',exc);draft=None
-        if draft and getattr(self,'_selected_lesson',None) is not None:
-            current_lesson=str(self._selected_lesson)
-            if any(str(q.get('lesson') or '1').strip()!=current_lesson for q in draft['questions']):
-                draft=None
-        if draft and 0 < len(draft['answers']) < len(draft['questions']):
+        if draft and draft['answers']:
             resume=messagebox.askyesnocancel('Tiếp tục bài tập?',
                 f'Bạn đã làm {len(draft["answers"])}/{len(draft["questions"])} câu.\n'
-                'Có: tiếp tục câu kế tiếp.\nKhông: làm lại từ đầu.\nHủy: giữ nguyên tiến độ.',parent=self)
+                'Có: tiếp tục bài tập hoặc lưu kết quả.\nKhông: làm lại từ đầu.\nHủy: giữ nguyên tiến độ.',parent=self)
             if resume is None:return
             if resume:
                 self.s_questions=draft['questions']
                 self.s_answers=[(q,answer,ok) for q,(answer,ok) in zip(draft['questions'],draft['answers'])]
                 self.s_combo=0;self.s_xp=0
                 self._quiz_timer_started=time.monotonic()-draft['elapsed']
+                self._lesson_quiz_active=True
                 self.session_quiz(len(self.s_answers));return
         if draft:
-            self._draft_store().delete(self.student['id'],self.lang,theme,level)
+            self._draft_store().delete(*self._draft_key(), lesson_scope=self._draft_scope())
         if quiz_only:
+            self._lesson_quiz_active=True
             self.session_quiz(0)
         else:
             self.session_learn(0)
@@ -518,20 +555,25 @@ class GameAppMixin:
         if not getattr(self,'_quiz_saved',False):
             duration=max(0.0,time.monotonic()-self._quiz_timer_started)
             self._quiz_duration=duration
-            for q,answer,ok in self.s_answers:
-                self.learning.save_answer(self.student['id'],q,
-                    self._quiz_answer_text(q,answer),ok,duration/max(total,1))
-            with self.db.conn:
-                self.db.conn.execute('''CREATE TABLE IF NOT EXISTS wrong_review_sessions
-                    (id INTEGER PRIMARY KEY, student_id INTEGER NOT NULL, subject TEXT NOT NULL,
-                     theme TEXT NOT NULL, level INTEGER NOT NULL, correct INTEGER NOT NULL,
-                     total INTEGER NOT NULL, seconds REAL NOT NULL,
-                     created_at TEXT DEFAULT CURRENT_TIMESTAMP)''')
-                self.db.conn.execute('''INSERT INTO wrong_review_sessions
-                    (student_id,subject,theme,level,correct,total,seconds)
-                    VALUES(?,?,?,?,?,?,?)''',
-                    (self.student['id'],self.lang,self.s_theme,self.s_level,
-                     correct,total,duration))
+            try:
+                with self.db.conn:
+                    for q,answer,ok in self.s_answers:
+                        self.learning.save_answer(self.student['id'],q,
+                            self._quiz_answer_text(q,answer),ok,duration/max(total,1),commit=False)
+                    self.db.conn.execute('''CREATE TABLE IF NOT EXISTS wrong_review_sessions
+                        (id INTEGER PRIMARY KEY, student_id INTEGER NOT NULL, subject TEXT NOT NULL,
+                         theme TEXT NOT NULL, level INTEGER NOT NULL, correct INTEGER NOT NULL,
+                         total INTEGER NOT NULL, seconds REAL NOT NULL,
+                         created_at TEXT DEFAULT CURRENT_TIMESTAMP)''')
+                    self.db.conn.execute('''INSERT INTO wrong_review_sessions
+                        (student_id,subject,theme,level,correct,total,seconds)
+                        VALUES(?,?,?,?,?,?,?)''',
+                        (self.student['id'],self.lang,self.s_theme,self.s_level,
+                         correct,total,duration))
+            except (sqlite3.Error, OSError) as exc:
+                messagebox.showerror('Không lưu được kết quả ôn tập', str(exc), parent=self)
+                self._quiz_exit_results()
+                return
             self._quiz_saved=True
         rows=[dict(question=dict(q),answer=self._quiz_answer_text(q,answer),correct=ok)
               for q,answer,ok in self.s_answers]
@@ -1035,7 +1077,8 @@ class GameAppMixin:
                  bg='white', fg=MUTED, font=font_at(13)).pack(anchor='w', pady=(0, 8))
         tk.Label(card, text=t('draft_saved' if getattr(self,'_draft_saved_ok',False) else 'draft_unsaved'),
                  bg='white', fg=MUTED, font=font_at(11)).pack(anchor='w', pady=(0, 12))
-        self.button(card, 'Tiếp tục làm bài', lambda: self._resume_quiz_from_results()).pack(anchor='w', pady=5)
+        label = 'Thử lưu kết quả' if total and completed == total else 'Tiếp tục làm bài'
+        self.button(card, label, lambda: self._resume_quiz_from_results()).pack(anchor='w', pady=5)
         self.button(card, 'Về danh sách bài học', self._return_to_home_lessons).pack(anchor='w', pady=5)
 
     def _resume_quiz_from_results(self):
@@ -1058,14 +1101,25 @@ class GameAppMixin:
         if not getattr(self,'_quiz_saved',False):
             duration=time.monotonic()-getattr(self,'_quiz_timer_started',self.s_started)
             self._quiz_duration=duration
-            self._quiz_previous_best=None
-            if total and correct==total:
-                self._quiz_previous_best=self.learning.record_level_time(self.student['id'],self.s_theme,self.s_level,duration)
-            for q,answer,ok in self.s_answers:
-                self.learning.save_answer(self.student['id'],q,self._quiz_answer_text(q,answer),ok,duration/max(total,1))
-            self._quiz_stars=self.learning.finish(self.student['id'],self.s_theme,self.s_level,correct,total,duration) if total else 0
+            previous = None
+            try:
+                drafts = self._draft_store()
+                if total and correct==total:
+                    self.learning.ensure_time_tables()
+                with self.db.conn:
+                    if total and correct==total:
+                        previous=self.learning.record_level_time(self.student['id'],self.s_theme,self.s_level,duration,commit=False)
+                    for q,answer,ok in self.s_answers:
+                        self.learning.save_answer(self.student['id'],q,self._quiz_answer_text(q,answer),ok,duration/max(total,1),commit=False)
+                    stars=self.learning.finish(self.student['id'],self.s_theme,self.s_level,correct,total,duration,commit=False) if total else 0
+                    drafts.delete(*self._draft_key(), lesson_scope=self._draft_scope(), commit=False)
+            except (sqlite3.Error, OSError) as exc:
+                messagebox.showerror('Không lưu được kết quả', str(exc), parent=self)
+                self._quiz_exit_results()
+                return
+            self._quiz_previous_best=previous
+            self._quiz_stars=stars
             self._quiz_saved=True
-            self._draft_store().delete(*self._draft_key())
         stars=self._quiz_stars
         previous=getattr(self,'_quiz_previous_best',None)
         duration=getattr(self,'_quiz_duration',0)

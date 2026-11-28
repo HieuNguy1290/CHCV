@@ -1,0 +1,263 @@
+import 'package:puzzle/l10n/app_localizations.dart';
+import 'package:puzzle/utils/l10n_game_helpers.dart';
+
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'd2_attention_engine.dart';
+import 'd2_attention_provider.dart';
+import '../../../../widgets/game_completion_dialog.dart';
+import '../../../../widgets/tangible.dart';
+import '../../../../utils/design_system.dart';
+import '../../../../utils/haptic_feedback.dart';
+import '../../../core/juice/game_scaffold.dart';
+
+class D2AttentionScreen extends ConsumerWidget {
+  const D2AttentionScreen({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(d2AttentionNotifierProvider);
+    final notifier = ref.read(d2AttentionNotifierProvider.notifier);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    ref.listen(d2AttentionNotifierProvider, (previous, next) {
+      if (next.isCompleted && !(previous?.isCompleted ?? false)) {
+        HapticFeedbackUtil.victory();
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => GameCompletionDialog(
+            title: L10nGameHelpers.getGameTitle(context, 'd2_attention'),
+            message: AppLocalizations.of(context)!.d2AttentionMessage((next.score).toString()),
+            onHome: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pop();
+            },
+            onPlayAgain: () {
+              notifier.reset();
+              Navigator.of(context).pop();
+            },
+          ),
+        );
+      }
+    });
+
+    return GameScaffold(
+      title: L10nGameHelpers.getGameTitle(context, 'd2_attention'),
+      subtitle: L10nGameHelpers.getGameTitle(context, 'd2_attention'),
+      onReset: () {
+        HapticFeedbackUtil.mediumImpact();
+        notifier.reset();
+      },
+      onHowToPlay: () {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(AppLocalizations.of(context)!.howToPlay.toUpperCase()),
+            content: Text(AppLocalizations.of(context)!.helpD2AttentionInstructions),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text(AppLocalizations.of(context)!.gotIt.toUpperCase()),
+              ),
+            ],
+          ),
+        );
+      },
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final isSmall = constraints.maxHeight < 550;
+          return Column(
+            children: [
+              // Stats header
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: DesignSystem.spaceLG, vertical: DesignSystem.spaceSM),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TangibleContainer(
+                      depth: 2.0,
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      radius: DesignSystem.radiusSM,
+                      child: Text(
+                        'BOARD: ${state.currentBoardIndex}/${state.totalBoards}',
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                      ),
+                    ),
+                    TangibleContainer(
+                      depth: 2.0,
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      radius: DesignSystem.radiusSM,
+                      child: Text(
+                        'SCORE: ${state.score}',
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: DesignSystem.primary),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              // Scanning Board Grid
+              Expanded(
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(DesignSystem.spaceLG),
+                    child: AspectRatio(
+                      aspectRatio: 1.0,
+                      child: TangibleContainer(
+                        color: isDark ? const Color(0xFF1E1E1E) : Colors.white,
+                        shadowColor: isDark ? Colors.black : DesignSystem.outline,
+                        depth: 4.0,
+                        radius: DesignSystem.radiusLG,
+                        padding: const EdgeInsets.all(DesignSystem.spaceMD),
+                        child: GridView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: D2AttentionEngine.gridSize,
+                            crossAxisSpacing: DesignSystem.spaceSM,
+                            mainAxisSpacing: DesignSystem.spaceSM,
+                          ),
+                          itemCount: state.board.length,
+                          itemBuilder: (context, index) {
+                            final item = state.board[index];
+                            final isSelected = state.selectedIds.contains(item.id);
+                            return _buildD2Tile(item, isSelected, isDark, context, notifier);
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              // Bottom action submission
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: DesignSystem.spaceLG, vertical: DesignSystem.spaceSM),
+                child: TangibleButton(
+                  onTap: () {
+                    HapticFeedbackUtil.mediumImpact();
+                    notifier.submitBoard();
+                  },
+                  color: DesignSystem.primary,
+                  shadowColor: DesignSystem.primaryShadow,
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  child: Center(
+                    child: Text(
+                      state.currentBoardIndex == state.totalBoards
+                          ? 'SUBMIT & FINISH'
+                          : 'SUBMIT BOARD',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: 1.5,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              if (!isSmall) const SizedBox(height: DesignSystem.spaceSM),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildD2Tile(
+    D2Item item,
+    bool isSelected,
+    bool isDark,
+    BuildContext context,
+    D2AttentionNotifier notifier,
+  ) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final resolvedColor = isSelected
+        ? DesignSystem.primary
+        : (isDark ? const Color(0xFF262626) : const Color(0xFFF8FAFC));
+    final resolvedShadow = isSelected ? DesignSystem.primaryShadow : colorScheme.outlineVariant;
+    final textColor = isSelected ? Colors.white : colorScheme.onSurface;
+    final dashColor = isSelected ? Colors.white : colorScheme.onSurface.withValues(alpha: 0.7);
+
+    return GestureDetector(
+      onTap: () {
+        HapticFeedbackUtil.lightImpact();
+        notifier.toggleItemSelection(item.id);
+      },
+      child: TangibleContainer(
+        depth: isSelected ? 0.0 : 3.0,
+        color: resolvedColor,
+        shadowColor: resolvedShadow,
+        radius: DesignSystem.radiusMD,
+        padding: EdgeInsets.zero,
+        child: Center(
+          child: FittedBox(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Dashes above
+                  SizedBox(
+                    height: 10,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        item.dashesAbove,
+                        (index) => Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 2),
+                          child: Container(
+                            width: 3,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              color: dashColor,
+                              borderRadius: BorderRadius.circular(1),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  // The D2 letter stimulus
+                  Text(
+                    item.letter,
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.w900,
+                      fontFamily: 'Courier',
+                      height: 1.0,
+                      color: textColor,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  // Dashes below
+                  SizedBox(
+                    height: 10,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        item.dashesBelow,
+                        (index) => Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 2),
+                          child: Container(
+                            width: 3,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              color: dashColor,
+                              borderRadius: BorderRadius.circular(1),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -1,6 +1,7 @@
 """Subject picker UI; delegates all content loading to switch_language()."""
 from tuhoc.paths import PROJECT_ROOT
 import tkinter as tk
+from tkinter import ttk
 from pathlib import Path
 import time
 from tuhoc.ui.theme_config import UI_COLORS as C
@@ -25,7 +26,10 @@ class SubjectPage:
         self.root.focus_set()
 
     def destroy(self,event):
-        if event.widget is self.root:self.jobs.cancel_all()
+        if event.widget is self.root:
+            self.jobs.cancel_all()
+            if getattr(self.app,'active_scroll_canvas',None) is self.canvas:
+                self.app.active_scroll_canvas=None
 
     def animate(self,ms,draw,done=None,delay=0):
         if self.jobs.reduced:
@@ -72,31 +76,54 @@ class SubjectPage:
         except (OSError,ValueError,KeyError,TypeError,AttributeError):return 0
 
     def build(self):
-        top=tk.Frame(self.root,bg=C['background']);top.pack(fill='x',padx=32,pady=(22,0))
-        tk.Button(top,text='←  Đổi tài khoản · Switch profile',command=self.back,bg=C['background'],fg=C['primary'],bd=0,font=('Segoe UI',12,'bold'),cursor='hand2',takefocus=True).pack(side='left')
-        title=tk.Frame(self.root,bg=C['background']);title.pack(pady=(60,32))
+        self.canvas=tk.Canvas(self.root,bg=C['background'],highlightthickness=0)
+        self.app.active_scroll_canvas=self.canvas
+        bar=ttk.Scrollbar(self.root,command=self.canvas.yview)
+        def update_scroll(first,last):
+            bar.set(first,last)
+            if float(last)-float(first)<1 and not bar.winfo_manager():
+                bar.pack(side='right',fill='y',before=self.canvas)
+            elif float(last)-float(first)>=1 and bar.winfo_manager():
+                bar.pack_forget()
+        self.canvas.configure(yscrollcommand=update_scroll)
+        self.canvas.pack(side='left',fill='both',expand=True)
+        content=tk.Frame(self.canvas,bg=C['background'])
+        window=self.canvas.create_window(0,0,window=content,anchor='nw')
+        content.bind('<Configure>',lambda _e:self.canvas.configure(scrollregion=self.canvas.bbox('all')))
+        self.canvas.bind('<Configure>',lambda e:self.canvas.itemconfigure(window,width=e.width))
+        top=tk.Frame(content,bg=C['background']);top.pack(fill='x',padx=32,pady=(18,0))
+        tk.Button(top,text='←  Đổi tài khoản · Switch profile',command=self.back,bg=C['background'],fg=C['primary_text'],bd=0,font=('Segoe UI',12,'bold'),cursor='hand2',takefocus=True).pack(side='left')
+        self.profile_badge=None
+        if self.app.student:
+            self.profile_badge=tk.Label(top,text=self.app.student['name'],bg=C['tint'],fg=C['text'],
+                                        padx=10,pady=5,font=('Segoe UI',11,'bold'))
+            self.profile_badge.pack(side='right')
+            morph=getattr(self.app,'morph',None)
+            if morph:
+                self.root.after_idle(lambda:morph.arrive('subject-profile',self.profile_badge))
+        title=tk.Frame(content,bg=C['background']);title.pack(pady=(24,16))
         tk.Label(title,text='Chọn Môn Học',font=('Segoe UI',30,'bold'),fg=C['text'],bg=C['background']).pack()
         name=self.app.student['name'] if self.app.student else ''
         tk.Label(title,text=f'Các em học môn nào hãy click vào chọn môn đó!',font=('Segoe UI',13),fg=C['muted'],bg=C['background']).pack(pady=8)
-        self.track=tk.Frame(self.root,bg=C['background']);self.track.pack(expand=True,anchor='n')
+        self.track=tk.Frame(content,bg=C['background']);self.track.pack(anchor='n')
         subjects=self.subjects()
         for i,(code,folder) in enumerate(subjects):self.card(code,folder,i,len(subjects))
         if not subjects:
             tk.Label(self.track,text='Không tìm thấy môn học.',bg=C['background'],fg=C['error'],font=('Segoe UI',13)).pack()
-        tk.Label(self.root,text='Phần mềm được phát triển by HiHieu Ver 1.0',font=('Segoe UI',11),fg=C['muted'],bg=C['background']).pack(side='bottom',pady=28)
+        tk.Label(content,text='Phần mềm được phát triển by HiHieu Ver 1.0',font=('Segoe UI',11),fg=C['muted'],bg=C['background']).pack(pady=12)
 
     def card(self,code,folder,i,count):
         name,english,initial,color=LABELS.get(folder,(folder.replace('_',' ').title(),folder.replace('_',' ').title(),folder[:2].upper(),C['tint']))
-        outer=tk.Frame(self.track,width=396,height=420,bg=C['background']);outer.pack(side='left',padx=12);outer.pack_propagate(False)
-        card=tk.Frame(outer,bg='white',width=380,height=390,highlightbackground=C['border'],highlightthickness=2)
+        outer=tk.Frame(self.track,width=378,height=368,bg=C['background']);outer.pack(side='left',padx=8);outer.pack_propagate(False)
+        card=tk.Frame(outer,bg=C['surface'],width=362,height=350,highlightbackground=C['border'],highlightthickness=2)
         card.place(x=8,y=12);card.pack_propagate(False)
-        banner=tk.Canvas(card,height=150,bg=color,highlightthickness=0)
-        banner.pack(fill='x');banner.create_text(190,75,text=initial,font=('Segoe UI',52,'bold'),fill=C['primary'])
-        inner=tk.Frame(card,bg='white',padx=22);inner.pack(fill='both',expand=True)
-        tk.Label(inner,text=name,font=('Segoe UI',20,'bold'),fg=C['text'],bg='white').pack(anchor='center',pady=(14,0))
-        tk.Label(inner,text=english,font=('Segoe UI',12),fg=C['muted'],bg='white').pack(anchor='center')
+        banner=tk.Canvas(card,height=110,bg=color,highlightthickness=0)
+        banner.pack(fill='x');banner.create_text(179,55,text=initial,font=('Segoe UI',45,'bold'),fill=C['primary'])
+        inner=tk.Frame(card,bg=C['surface'],padx=22);inner.pack(fill='both',expand=True)
+        tk.Label(inner,text=name,font=('Segoe UI',20,'bold'),fg=C['text'],bg=C['surface']).pack(anchor='center',pady=(14,0))
+        tk.Label(inner,text=english,font=('Segoe UI',12),fg=C['muted'],bg=C['surface']).pack(anchor='center')
         pct=self.progress(code)
-        label=tk.Label(inner,text=f'Tiến độ {pct}%',font=('Segoe UI',11),fg=C['muted'],bg='white')
+        label=tk.Label(inner,text=f'Tiến độ {pct}%',font=('Segoe UI',11),fg=C['muted'],bg=C['surface'])
         label.pack(anchor='center',pady=(15,5))
         bar=tk.Canvas(inner,height=8,bg=C['tint'],highlightthickness=0)
         bar.pack(fill='x');fill=bar.create_rectangle(0,0,0,8,fill=C['primary'],outline='')
@@ -116,6 +143,10 @@ class SubjectPage:
         banner.bind('<Button-1>',lambda e,j=i:self.set_index(j))
         btn.bind('<FocusIn>',lambda e,j=i:self.set_index(j),add='+')
         self.cards.append((card,outer,code,draw))
+        card.subject_morph_anchor=banner
+        morph=getattr(self.app,'morph',None)
+        if morph:
+            self.root.after_idle(lambda:morph.arrive(f'subject:{code}',banner))
         card.place_configure(x=8+(-30 if i==0 else 30),y=12)
         self.animate(200,lambda t,c=card,i=i:c.place_configure(x=round(8+(-30 if i==0 else 30)*(1-t))),delay=i*60)
 
@@ -159,6 +190,10 @@ class SubjectPage:
         if self.leaving:return
         self.leaving=True
         self.jobs.cancel_all()
+        morph=getattr(self.app,'morph',None)
+        if morph:
+            anchor=next((card.subject_morph_anchor for card,_,item,_ in self.cards if item==code),None)
+            morph.begin(anchor,'study-subject','Tiếng Việt' if code=='vi' else 'Tiếng Anh')
         for card,_,item,_ in self.cards:
             if item!=code:card.configure(highlightbackground=C['border'])
         def finish():
@@ -168,5 +203,8 @@ class SubjectPage:
 
     def back(self):
         if self.leaving:return 'break'
+        morph=getattr(self.app,'morph',None)
+        if morph and self.app.student:
+            morph.begin(self.profile_badge,f"profile:{self.app.student['id']}",self.app.student['name'])
         self.jobs.cancel_all();self.app.show_profiles()
         return 'break'

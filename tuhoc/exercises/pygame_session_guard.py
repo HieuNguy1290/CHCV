@@ -32,7 +32,7 @@ def release():
     _lock.release()
 
 
-def launch(target, args, name):
+def launch(target, args, name, *, finished=None):
     """Return False if another standalone SDL session is active."""
     if not acquire():
         return False
@@ -62,6 +62,8 @@ def launch(target, args, name):
                 pass
             finally:
                 _lock.release()
+                if finished is not None:
+                    finished.set()
 
     try:
         threading.Thread(target=runner, name=name, daemon=True).start()

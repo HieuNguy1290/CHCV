@@ -8,8 +8,6 @@ from tuhoc.ui.ui_components import Card, ProgressRing, ProgressBar, Toast, bind_
 from tuhoc.ui.ui_motion import smoothstep, MotionJobs
 from tuhoc.ui.theme_config import UI_COLORS
 
-GREEN=TOKEN_COLORS['primary']; DARK=TOKEN_COLORS['text']; MUTED=TOKEN_COLORS['muted']; BG=TOKEN_COLORS['background']
-
 class HomeDashboard:
     def __init__(self, app, body):
         self.app=app;self.body=body
@@ -39,13 +37,13 @@ class HomeDashboard:
     def _safe(self,fn):
         if self.alive and self.body.winfo_exists():fn()
 
-    def label(self,parent,text,size=12,bold=False,fg=DARK,bg=None,**kw):
-        return tk.Label(parent,text=text,font=font_at(size,'bold' if bold else 'normal'),fg=fg,bg=bg or parent.cget('bg'),**kw)
+    def label(self,parent,text,size=12,bold=False,fg=None,bg=None,**kw):
+        return tk.Label(parent,text=text,font=font_at(size,'bold' if bold else 'normal'),fg=fg or TOKEN_COLORS['text'],bg=bg or parent.cget('bg'),**kw)
 
     def button(self,parent,text,command,primary=True):
-        button=tk.Button(parent,text=text,command=command,font=font_at(11, 'bold'),bg=GREEN if primary else 'white',fg='white' if primary else GREEN,activebackground=TOKEN_COLORS['primary_dark'] if primary else TOKEN_COLORS['tint'],activeforeground='white' if primary else GREEN,relief='flat',bd=0,padx=12,pady=10,cursor='hand2',takefocus=True,highlightthickness=2,highlightcolor=GREEN)
-        normal=GREEN if primary else 'white'
-        hover='#236743' if primary else TOKEN_COLORS['tint']
+        button=tk.Button(parent,text=text,command=command,font=font_at(11, 'bold'),bg=TOKEN_COLORS['primary'] if primary else TOKEN_COLORS['surface'],fg='white' if primary else TOKEN_COLORS['primary_text'],activebackground=TOKEN_COLORS['primary_dark'] if primary else TOKEN_COLORS['tint'],activeforeground='white' if primary else TOKEN_COLORS['primary_text'],relief='flat',bd=0,padx=12,pady=10,cursor='hand2',takefocus=True,highlightthickness=2,highlightcolor=TOKEN_COLORS['primary'])
+        normal=TOKEN_COLORS['primary'] if primary else TOKEN_COLORS['surface']
+        hover=TOKEN_COLORS['primary_hover'] if primary else TOKEN_COLORS['tint']
         def paint(color):
             if getattr(button,'_ready',True) and str(button.cget('state')) != 'disabled':button.configure(bg=color)
         button.bind('<Enter>',lambda e:paint(hover),add='+')
@@ -64,7 +62,7 @@ class HomeDashboard:
             state['active']=active
             # No font or padding changes: these trigger Tk geometry propagation.
             # A stronger border and text emphasis provide a stable zoom-like focus.
-            card.configure(highlightbackground=GREEN if active else UI_COLORS['border'])
+            card.configure(highlightbackground=TOKEN_COLORS['primary'] if active else UI_COLORS['border'])
             # Zoom inside the fixed slot: siblings and layout never move.
             if active:
                 card.lift()
@@ -72,15 +70,15 @@ class HomeDashboard:
             else:
                 card.place_configure(x=0,y=0,relwidth=1,relheight=1,width=0,height=0)
             for label,font,fg in original:
-                if label.winfo_exists():label.configure(fg=GREEN if active else fg)
+                if label.winfo_exists():label.configure(fg=TOKEN_COLORS['primary_text'] if active else fg)
         bind_hover(card,set_hover,region=slot,also=(slot,))
 
     def render(self):
         app=self.app;sid=app.student['id'];self._timers=set()
-        grid=tk.Frame(self.body,bg=BG);grid.pack(fill='both',expand=True)
+        grid=tk.Frame(self.body,bg=TOKEN_COLORS['background']);grid.pack(fill='both',expand=True)
         grid.grid_columnconfigure(0,weight=1);grid.grid_columnconfigure(1,minsize=320)
-        left=tk.Frame(grid,bg=BG);left.grid(row=0,column=0,sticky='nsew',padx=(0,16))
-        right=tk.Frame(grid,bg=BG,width=320);right.grid(row=0,column=1,sticky='ns');right.grid_propagate(False)
+        left=tk.Frame(grid,bg=TOKEN_COLORS['background']);left.grid(row=0,column=0,sticky='nsew',padx=(0,16))
+        right=tk.Frame(grid,bg=TOKEN_COLORS['background'],width=320);right.grid(row=0,column=1,sticky='ns');right.grid_propagate(False)
         # Paint the complete empty dashboard layout before querying progress.
         self._home_left=left;self._home_right=right
         self._title_lbl=next((c for c in self.body.winfo_children() if isinstance(c,tk.Label)),None)
@@ -94,7 +92,7 @@ class HomeDashboard:
         if not self.alive:return
         # Cover the grid while widgets are built: any redraw (e.g. update_idletasks used
         # for measuring) can then only paint this veil, never half-built, unhidden widgets.
-        veil=tk.Frame(self._home_left.master,bg=BG);veil.place(x=0,y=0,relwidth=1,relheight=1)
+        veil=tk.Frame(self._home_left.master,bg=TOKEN_COLORS['background']);veil.place(x=0,y=0,relwidth=1,relheight=1)
         try:self._populate_inner()
         finally:
             try:veil.destroy()
@@ -155,34 +153,37 @@ class HomeDashboard:
         W={'hooks':{},'cards':[]}
         def stage_0():
             if not self.alive:return
-            hero=tk.Frame(left,bg=GREEN,padx=22,pady=20);hero.pack(fill='x',pady=(0,18))
+            hero=tk.Frame(left,bg=TOKEN_COLORS['primary'],padx=22,pady=20);hero.pack(fill='x',pady=(0,18))
             hero.grid_columnconfigure(0,weight=1)
-            self.label(hero,f"Chào {app.student['name']} · Welcome back",12,fg='white',bg=GREEN).grid(row=0,column=0,sticky='w')
+            self.label(hero,f"Chào {app.student['name']} · Welcome back",12,fg='white',bg=TOKEN_COLORS['primary']).grid(row=0,column=0,sticky='w')
             new=not completed
             title='Bắt đầu học · Start' if new else f'Tiếp tục: {next_lesson[0]} · Level {next_lesson[1]}' if next_lesson else 'Bắt đầu học · Start'
-            self.label(hero,title,19,True,'white',GREEN,wraplength=510,justify='left').grid(row=1,column=0,sticky='w',pady=(9,5))
-            self.label(hero,f'Bài {next_lesson[2]}/{self._lessons(next_lesson[3],next_lesson[1])}' if next_lesson else 'Chọn bài học đầu tiên',11,fg=TOKEN_COLORS['tint'],bg=GREEN).grid(row=2,column=0,sticky='w')
+            self.label(hero,title,19,True,'white',TOKEN_COLORS['primary'],wraplength=510,justify='left').grid(row=1,column=0,sticky='w',pady=(9,5))
+            self.label(hero,f'Bài {next_lesson[2]}/{self._lessons(next_lesson[3],next_lesson[1])}' if next_lesson else 'Chọn bài học đầu tiên',11,fg='white',bg=TOKEN_COLORS['primary']).grid(row=2,column=0,sticky='w')
             btn=self.button(hero,'Học tiếp · Continue' if not new else 'Bắt đầu học · Start',app.topic_page,False)
             btn.grid(row=3,column=0,sticky='w',pady=(16,0))
             btn.bind('<Return>',lambda e:app.topic_page(),add='+')
             lesson_n=self._lessons(next_lesson[3],next_lesson[1]) if next_lesson else 10
             pct=(sum(1 for i in range(1,lesson_n+1) if next_lesson and f'{next_lesson[3]}:{next_lesson[1]}:{i}' in completed)/lesson_n) if next_lesson else 0
-            ring=ProgressRing(hero,value=0,size=96,bg=GREEN);ring.grid(row=0,column=1,rowspan=4,padx=(12,0))
+            ring=ProgressRing(hero,size=96,stroke=8,bg=TOKEN_COLORS['primary'],
+                              track=TOKEN_COLORS['progress_track'],progress=TOKEN_COLORS['accent'],
+                              text_color='white',text_font=font_at(16,'bold'))
+            ring.grid(row=0,column=1,rowspan=4,padx=(12,0))
             W['hooks'][ring]=lambda r=ring,p=pct:self.animate_ring(r,p)
             W['hero']=hero
         def stage_1():
             if not self.alive:return
             W['title2']=self.label(left,'Hôm nay học gì? · What to do today',16,True);W['title2'].pack(anchor='w',pady=(0,12))
-            shortcuts=tk.Frame(left,bg=BG);shortcuts.pack(fill='x')
+            shortcuts=tk.Frame(left,bg=TOKEN_COLORS['background']);shortcuts.pack(fill='x')
             shortcuts.grid_columnconfigure((0,1,2),weight=1,uniform='short')
             actions=[('▤','Ôn Flashcard',f'{due} thẻ cần ôn',app.flashcards),('▣',t('reading'),'Đọc bài tiếp theo',app.reading_menu),('✎','Chép chính tả','Luyện nghe và viết',app.dictation_page)]
             for i,(icon,title,sub,action) in enumerate(actions):
-                slot=tk.Frame(shortcuts,bg=BG,width=10)
+                slot=tk.Frame(shortcuts,bg=TOKEN_COLORS['background'],width=10)
                 slot.grid(row=0,column=i,sticky='nsew',padx=(0 if i==0 else 5,0 if i==2 else 5),pady=4)
                 card=Card(shortcuts)   # child of the common parent so zoom is not clipped by the slot
-                self.label(card,icon,21,True,fg=GREEN).pack(anchor='w')
+                self.label(card,icon,21,True,fg=TOKEN_COLORS['primary_text']).pack(anchor='w')
                 self.label(card,title,12,True).pack(anchor='w',pady=(7,2))
-                self.label(card,sub,10,fg=MUTED,wraplength=150,justify='left').pack(anchor='w')
+                self.label(card,sub,10,fg=TOKEN_COLORS['muted'],wraplength=150,justify='left').pack(anchor='w')
                 go=self.button(card,'Mở  →',action,False);go.pack(anchor='w',pady=(10,0))
                 card.update_idletasks()
                 slot.configure(height=card.winfo_reqheight())
@@ -192,31 +193,31 @@ class HomeDashboard:
         def stage_2():
             if not self.alive:return
             games=self.button(left,'🎮  Chơi trò chơi · Games',app.games_page,False);games.pack(anchor='w',pady=(16,0))
-            W['footer']=self.label(left,'Mỗi ngày một chút, bạn sẽ tiến xa hơn! · Keep going!',11,fg=MUTED);W['footer'].pack(anchor='w',pady=(22,0))
+            W['footer']=self.label(left,'Mỗi ngày một chút, bạn sẽ tiến xa hơn! · Keep going!',11,fg=TOKEN_COLORS['muted']);W['footer'].pack(anchor='w',pady=(22,0))
             W['games']=games
         def stage_3():
             if not self.alive:return
             quest=Card(right);quest.pack(fill='x',pady=(0,14))
             self.label(quest,'Nhiệm vụ · Quests',15,True).pack(anchor='w',pady=(0,10))
             for q,count in quest_rows[:3]:
-                item=tk.Frame(quest,bg='white');item.pack(fill='x',pady=5)
+                item=tk.Frame(quest,bg=TOKEN_COLORS['surface']);item.pack(fill='x',pady=5)
                 self.label(item,str(q.get('title') or 'Nhiệm vụ'),10,True,wraplength=265,justify='left').pack(anchor='w')
                 needed=max(1,int(q['required']))
-                self.label(item,f'{min(count,needed)}/{needed} lượt',10,fg=MUTED).pack(anchor='w')
-                bar=ProgressBar(item,value=0,width=265,height=8,bg='white');bar.pack(anchor='w',pady=(3,5))
+                self.label(item,f'{min(count,needed)}/{needed} lượt',10,fg=TOKEN_COLORS['muted']).pack(anchor='w')
+                bar=ProgressBar(item,value=0,width=265,height=8,bg=TOKEN_COLORS['surface']);bar.pack(anchor='w',pady=(3,5))
                 W['hooks'][bar]=lambda b=bar,v=min(1,count/needed):self.animate_bar(b,v)
                 ready=count>=needed
                 claim=self.button(item,f"Nhận thưởng · +{q['gems']} ngọc",lambda item=q:self.claim(item),True)
                 claim.configure(state='normal' if ready else 'disabled');claim.pack(anchor='w')
-            if not quest_rows:self.label(quest,'Bạn đã hoàn thành các nhiệm vụ hiện có!',10,fg=MUTED,wraplength=260).pack(anchor='w')
+            if not quest_rows:self.label(quest,'Bạn đã hoàn thành các nhiệm vụ hiện có!',10,fg=TOKEN_COLORS['muted'],wraplength=260).pack(anchor='w')
             self.button(quest,'Xem tất cả nhiệm vụ',app.level_achievements_page,False).pack(anchor='w',pady=(8,0))
             W['quest']=quest
         def stage_4():
             if not self.alive:return
             streak_card=Card(right);streak_card.pack(fill='x')
             self.label(streak_card,'Chuỗi ngày học · Streak',15,True).pack(anchor='w')
-            self.label(streak_card,f'🔥 {streak} ngày liên tiếp',17,True,fg=GREEN).pack(anchor='w',pady=(12,4))
-            clock=self.label(streak_card,'',12,fg=MUTED);clock.pack(anchor='w')
+            self.label(streak_card,f'🔥 {streak} ngày liên tiếp',17,True,fg=TOKEN_COLORS['primary_text']).pack(anchor='w',pady=(12,4))
+            clock=self.label(streak_card,'',12,fg=TOKEN_COLORS['muted']);clock.pack(anchor='w')
             def tick():
                 if not self.alive:return
                 clock.configure(text=datetime.datetime.now().strftime('%d/%m/%Y  ·  %H:%M:%S'))
@@ -238,7 +239,7 @@ class HomeDashboard:
         def walk(w):
             if isinstance(w,tk.Canvas):
                 pm=w.master
-                items.append({'w':w,'canvas':True,'opts':{'bg':str(w.cget('bg'))},'pbg':seen[pm]['bg'] if pm in seen else BG})
+                items.append({'w':w,'canvas':True,'opts':{'bg':str(w.cget('bg'))},'pbg':seen[pm]['bg'] if pm in seen else TOKEN_COLORS['background']})
                 return
             opts={}
             for o in ('bg','fg','highlightbackground','disabledforeground'):
@@ -246,7 +247,7 @@ class HomeDashboard:
                 except tk.TclError:pass
             seen[w]=opts
             pm=w.master
-            items.append({'w':w,'canvas':False,'opts':opts,'pbg':seen[pm]['bg'] if (w is not root and pm in seen) else BG})
+            items.append({'w':w,'canvas':False,'opts':opts,'pbg':seen[pm]['bg'] if (w is not root and pm in seen) else TOKEN_COLORS['background']})
             for c in w.winfo_children():walk(c)
         walk(root)
         return items
@@ -256,9 +257,9 @@ class HomeDashboard:
             w=it['w']
             try:
                 if it['canvas']:
-                    w.configure(bg=BG);w.delete('all');continue
+                    w.configure(bg=TOKEN_COLORS['background']);w.delete('all');continue
                 if isinstance(w,tk.Button):w._ready=False
-                for o in it['opts']:w.configure(**{o:BG})
+                for o in it['opts']:w.configure(**{o:TOKEN_COLORS['background']})
             except tk.TclError:pass
 
     def _at(self,ms,fn):
@@ -273,16 +274,16 @@ class HomeDashboard:
                     w=it['w'];o=it['opts']
                     try:
                         if it['canvas']:
-                            w.configure(bg=self._blend(BG,o['bg'],f));continue
+                            w.configure(bg=self._blend(TOKEN_COLORS['background'],o['bg'],f));continue
                         if isinstance(w,tk.Button):
-                            c=self._blend(BG,it['pbg'],f)
+                            c=self._blend(TOKEN_COLORS['background'],it['pbg'],f)
                             w.configure(bg=c,fg=c,highlightbackground=c)
                             if 'disabledforeground' in o:w.configure(disabledforeground=c)
                             continue
-                        c=self._blend(BG,o['bg'],f);kw={'bg':c}
+                        c=self._blend(TOKEN_COLORS['background'],o['bg'],f);kw={'bg':c}
                         if 'fg' in o:kw['fg']=c
                         if 'highlightbackground' in o:
-                            kw['highlightbackground']=self._blend(BG,o['highlightbackground'],f) if (it is items[0] and not isinstance(w,tk.Label)) else c
+                            kw['highlightbackground']=self._blend(TOKEN_COLORS['background'],o['highlightbackground'],f) if (it is items[0] and not isinstance(w,tk.Label)) else c
                         w.configure(**kw)
                     except tk.TclError:pass
             self._at(start+dur*f,go)
@@ -404,18 +405,12 @@ class HomeDashboard:
         return any(r[1]==column for r in self.app.db.conn.execute(f'PRAGMA table_info({table})'))
 
     def animate_ring(self,ring,target):
-        if self.jobs.reduced: self._ring_value(ring,target);return
+        if self.jobs.reduced: ring.draw(target);return
         start=time.monotonic()
         def frame():
-            t=min(1,(time.monotonic()-start)/.4);self._ring_value(ring,target*smoothstep(t))
+            t=min(1,(time.monotonic()-start)/.4);ring.draw(target*smoothstep(t))
             if t<1:self.jobs.schedule(frame)
         frame()
-
-    def _ring_value(self,ring,value):
-        ring.delete('all');s=96
-        ring.create_oval(7,7,s-7,s-7,outline='#A5D0B4',width=8)
-        ring.create_arc(7,7,s-7,s-7,start=90,extent=-360*value,style='arc',outline=TOKEN_COLORS['accent'],width=8)
-        ring.create_text(s/2,s/2,text=f'{value:.0%}',fill='white',font=font_at(16, 'bold'))
 
     def animate_bar(self,bar,target):
         if self.jobs.reduced:bar.value=target;bar.draw(265,8);return

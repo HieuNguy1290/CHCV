@@ -1,0 +1,23 @@
+[
+  {
+    "number": 1,
+    "type": "image_sentence_fill",
+    "prompt": "Look and choose:",
+    "crop": [59, 95, 322, 358],
+    "blank_text": "The .... is shining.",
+    "options": ["sun", "sail"],
+    "answer_index": 0,
+    "review": "Ảnh đang hiện chữ sun in đậm trong câu và còn thẻ sail. Cách dựng lại ô trống và đáp án sun cần được người soạn xác nhận."
+  },
+  {
+    "number": 2,
+    "type": "listening_image_choice",
+    "prompt": "Choose the correct answer:",
+    "choices": [
+      {"label": "zail", "crop": [195, 208, 333, 352]},
+      {"label": "sail", "crop": [658, 208, 797, 352]}
+    ],
+    "answer_index": 1,
+    "review": "Hai lựa chọn theo ảnh gốc là zail và sail. MP3 được ghép theo tên. sail là đáp án đề xuất theo chính tả, cần nghe xác nhận trước khi nhập."
+  }
+]

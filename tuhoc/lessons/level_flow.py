@@ -297,7 +297,13 @@ class LevelFlowMixin:
         """Persistent, immediately visible back/previous/next controls."""
         bar=tk.Frame(body,bg='#EDF3FF',padx=12,pady=9)
         bar.pack(fill='x',pady=(0,15))
-        tk.Button(bar,text='←  Chọn Lesson',command=self.topic_page,
+        def back_to_map():
+            morph=getattr(self,'morph',None)
+            lesson=getattr(self,'_selected_lesson',None)
+            if morph and lesson:
+                morph.begin(self._page_heading,f'lesson-row:{lesson}',f'Lesson {lesson}')
+            self.topic_page()
+        tk.Button(bar,text='←  Chọn Lesson',command=back_to_map,
                   bg=TOKEN_COLORS['surface'],fg='#26345E',font=font_at(11, 'bold'),
                   bd=0,padx=12,pady=9,cursor='hand2').pack(side='left',padx=(0,9))
         tk.Button(bar,text='⌂  Chủ đề',command=self.topic_page,
@@ -318,6 +324,9 @@ class LevelFlowMixin:
 
     def level_lesson(self,theme,level):
         body=self.layout(self._lesson_breadcrumb(theme, level, getattr(self, '_selected_lesson', 1) or 1))
+        morph=getattr(self,'morph',None)
+        if morph:
+            morph.arrive('lesson-heading',self._page_heading)
         self._level_navigation(body,theme,level,'lesson')
         # Presentation-only lesson heading: original lesson content and actions remain.
         banner=tk.Frame(body,bg='#EDF1FF',padx=20,pady=15,
@@ -357,18 +366,28 @@ class LevelFlowMixin:
             # SDL runs on a worker thread: never open Tk dialogs or write the
             # database there. Transfer selected text to the Tk event loop.
             import queue
+            from threading import Event
             vocabulary_requests = queue.Queue()
+            finished = Event()
+            learner = self.student['id'] if self.student else None
+            language = self.lang
+            word_key = self.learning.wordkey
             launch_settings['_on_add_vocabulary'] = vocabulary_requests.put
+
+            def same_context():
+                return (body.winfo_exists() and self.student is not None
+                        and self.student['id'] == learner and self.lang == language)
+
             def process_vocabulary_requests():
                 try:
-                    if not self.winfo_exists():
+                    if not same_context():
                         return
                     while True:
                         try:
                             phrase = vocabulary_requests.get_nowait()
                         except queue.Empty:
                             break
-                        if getattr(self, 'lang', 'en') == 'vi':
+                        if language == 'vi':
                             meaning = ''
                         else:
                             meaning = simpledialog.askstring(
@@ -376,23 +395,39 @@ class LevelFlowMixin:
                                 f'Nhập nghĩa hoặc ghi chú cho “{phrase}”:', parent=self)
                             if meaning is None:
                                 continue
+                        if not same_context():
+                            return
                         try:
                             self.db.save_word_in_source(
-                                self.student['id'], self.learning.wordkey(phrase),
-                                meaning.strip(), 'lesson', theme, level)
+                                learner, word_key(phrase), meaning.strip(), 'lesson', theme, level,
+                                lang=language)
                             dialogs.showinfo('Đã lưu',
                                                 f'Đã thêm “{phrase}” vào Flashcard.', parent=self)
                         except Exception as exc:
                             dialogs.showerror('Lỗi lưu từ vựng', str(exc), parent=self)
                 finally:
-                    if self.winfo_exists() and (not vocabulary_requests.empty() or
-                            getattr(self, '_lesson_vocab_poll_until', 0) > time.monotonic()):
-                        self.after(200, process_vocabulary_requests)
-            self._lesson_vocab_poll_until = time.monotonic() + 86400
-            self.after(200, process_vocabulary_requests)
+                    if same_context() and (not finished.is_set() or not vocabulary_requests.empty()):
+                        poll_job[0] = body.after(200, poll)
+                    elif body.winfo_exists():
+                        body.unbind('<Destroy>', destroy_binding)
+
+            poll_job = [None]
+
+            def poll():
+                poll_job[0] = None
+                process_vocabulary_requests()
+
+            def cancel_poll(event):
+                if event.widget is body and poll_job[0] is not None:
+                    body.after_cancel(poll_job[0])
+                    poll_job[0] = None
+
             started = launch(self._lesson_breadcrumb(theme, level, getattr(self, '_selected_lesson', 1) or 1), lesson, resolved,
-                             getattr(self, 'data_dir', None), launch_settings)
-            if not started:
+                             getattr(self, 'data_dir', None), launch_settings, finished=finished)
+            if started and learner is not None:
+                destroy_binding = body.bind('<Destroy>', cancel_poll, add='+')
+                poll_job[0] = body.after(200, poll)
+            elif not started:
                 dialogs.showinfo('Lesson Studio', 'Mot cua so Pygame khac dang mo.', parent=self)
         expand_button = tk.Button(banner, text='⛶  MỞ RỘNG TOÀN MÀN HÌNH', command=open_expanded_lesson,
                   font=font_at(10, 'bold'), bg='#405ED5', fg='white',
@@ -1039,14 +1074,7 @@ class LevelFlowMixin:
         if not items:
             dialogs.showinfo('Chưa có câu hỏi','Chủ đề / level này chưa có câu hỏi. Hãy nhập dữ liệu qua Quản lý levels hoặc Excel.')
             return
-        self._lesson_quiz_active=True
-        self._quiz_generation=getattr(self,'_quiz_generation',0)+1
-        self._quiz_pending_index=None
-        self._quiz_launch_retries=0
-        self.s_theme=theme;self.s_level=level;self.s_lesson=selected_lesson;self.s_started=time.monotonic()
-        self.s_questions=items;self.s_answers=[];self.s_wrong=[]
-        self.s_combo=0;self.s_xp=0;self.s_retry=False;self._quiz_saved=False;self._quiz_timer_started=time.monotonic()
-        self.session_quiz(0)
+        self.start_session(theme, level, quiz_only=True, lesson=selected_lesson, questions=items)
 
     def lesson_progress_page(self):
         body=self.layout('Tiến độ học tập · Level / Lesson')
@@ -1368,6 +1396,7 @@ class LevelFlowMixin:
         from tuhoc.studio.studio_list import copy_question, find_rows, remove_at
         from tuhoc.ui.ui_components import Toast
         from tuhoc.storage.safe_storage import commit_json
+        from tuhoc.ui.level_package_actions import export_level_package, import_level_package
 
         preserved_form = getattr(self, '_question_editor_form_state', None)
         body = self.layout('Thêm / sửa bài tập')
@@ -2041,6 +2070,35 @@ class LevelFlowMixin:
             return find_rows(question_rows,search_var.get(),
                              sort_by={'Mã':'id','Nội dung':'prompt'}.get(sort_var.get()),filters=filters)
 
+        def export_shared_questions(as_topic=False):
+            if as_topic:
+                code = theme_var.get()
+                topic = next((entry for entry in load_themes(self.curriculum.data_dir)
+                              if entry['code'] == code), None)
+                if topic is None:
+                    messagebox.showinfo('Xuất gói chủ đề', 'Chọn một chủ đề trong bộ lọc trước khi xuất.', parent=self)
+                    return
+                questions = [row for row in question_rows if row.get('theme') == code]
+                export_level_package(self, questions, ['topic', code], topic=topic)
+            else:
+                scope = [theme_var.get(), level_var.get(), lesson_var.get(), type_filter.get(), search_var.get().strip()]
+                export_level_package(self, [row for _, row in available_rows()], scope)
+
+        def import_shared_questions():
+            target = import_level_package(self, preferred=(theme_var.get(), level_var.get(), lesson_var.get()))
+            if target is not None:
+                theme, level, lesson = target
+                self._question_editor_filter_state = {'theme': theme}
+                if level is not None:
+                    self._question_editor_filter_state.update(level=str(level), lesson=str(lesson))
+                self.question_editor()
+
+        share_bar = tk.Frame(body, bg='white', padx=8, pady=4)
+        share_bar.pack(fill='x', before=status)
+        self.action_button(share_bar, 'Xuất gói theo bộ lọc', export_shared_questions).pack(side='left', padx=(0, 8))
+        self.action_button(share_bar, 'Xuất gói chủ đề', lambda: export_shared_questions(True)).pack(side='left', padx=(0, 8))
+        self.action_button(share_bar, 'Nhập gói bài tập', import_shared_questions).pack(side='left')
+
         def update_selector_options(reset=False):
             # Each selector is independent: selecting one must not overwrite or
             # restrict the choices already selected in the other two selectors.
@@ -2127,7 +2185,9 @@ class LevelFlowMixin:
                  ('Level', lambda o: self._display_name('level', o.get('theme',''), o.get('level',''))),
                  ('Lesson', lambda o: self._display_name('lesson', o.get('theme',''), o.get('level',''), o.get('lesson') or 1)),
                  ('Dạng bài tập', lambda o: QUESTION_LABELS.get(o.get('type'), o.get('type',''))),
-                 ('Nội dung câu hỏi', lambda o: o.get('prompt',''))],
+                 ('Nội dung câu hỏi', lambda o: o.get('prompt','')),
+                 ('Nguồn chia sẻ', lambda o: (o.get('shared_source') or {}).get('author')
+                  or (o.get('shared_source') or {}).get('title', ''))],
                 edit, delete, start + 1,duplicate=lambda i:edit(i,clone=True))
             tk.Label(pager, text=f'Trang {start // page_size + 1}/{max(1, (total + page_size - 1) // page_size)}',
                      bg='white', fg='#285D40', font=font_at(10, 'bold')).pack(side='left', padx=9)
@@ -2172,7 +2232,7 @@ class LevelFlowMixin:
             variable.trace_add('write',change_filter)
         render_rows()
 
-    def level_editor(self,kind):
+    def level_editor(self,kind, *, lesson_theme=None):
         if kind == 'questions':
             return self.question_editor()
         body=self.layout({'lessons':'Thêm bài học','questions':'Thêm bài tập','vocab':'Thêm từ vựng','blocks':'Thêm khối nội dung','reading':'Thêm bài đọc / Reading'}[kind])
@@ -2392,6 +2452,35 @@ class LevelFlowMixin:
                     combo.bind('<FocusIn>', refresh_themes)
                     combo.configure(postcommand=refresh_themes)
                 filter_vars[field] = (variable, option_map)
+            if lesson_theme is not None:
+                variable, options = filter_vars['theme']
+                variable.set(next((label for label, code in options.items() if code == lesson_theme), 'Tất cả'))
+
+            from tuhoc.storage.question_packages import LESSON_KINDS
+            from tuhoc.ui.level_package_actions import export_level_package, import_level_package
+
+            def export_shared_lessons():
+                variable, options = filter_vars['theme']
+                code = options.get(variable.get())
+                topic = next((entry for entry in load_themes(self.curriculum.data_dir)
+                              if entry['code'] == code), None)
+                if topic is None:
+                    messagebox.showinfo('Xuất gói bài học', 'Chọn một chủ đề trong bộ lọc trước khi xuất.', parent=self)
+                    return
+                content = {key: [row for row in self._levels(key) if row.get('theme') == code]
+                           for key in LESSON_KINDS}
+                questions = [row for row in self._levels('questions') if row.get('theme') == code]
+                export_level_package(self, questions, ['lessons', code], topic=topic, content=content)
+
+            def import_shared_lessons():
+                target = import_level_package(self, lesson_pack=True)
+                if target is not None:
+                    self.level_editor('lessons', lesson_theme=target[0])
+
+            shares = tk.Frame(body, bg=body['bg'])
+            shares.pack(fill='x', pady=(0, 6))
+            self.action_button(shares, 'Xuất gói bài học', export_shared_lessons).pack(side='left', padx=(0, 8))
+            self.action_button(shares, 'Nhập gói bài học', import_shared_lessons).pack(side='left')
             list_frame = tk.Frame(body, bg=body['bg'])
             list_frame.pack(fill='x')
             navigation = tk.Frame(body, bg=body['bg'])
@@ -2432,6 +2521,7 @@ class LevelFlowMixin:
             # Show the existing lesson list before the create form, so it is
             # visible immediately rather than below the page fold.
             filters.pack_configure(before=chooser)
+            shares.pack_configure(before=chooser)
             list_frame.pack_configure(before=chooser)
             navigation.pack_configure(before=chooser)
             return

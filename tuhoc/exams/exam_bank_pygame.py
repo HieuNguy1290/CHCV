@@ -11,7 +11,7 @@ import os
 import sys
 import pygame
 from tuhoc.exercises.pygame_scroll import ScrollThumb
-from tkinter import Tk, filedialog
+from tkinter import Tk, filedialog, simpledialog
 from tuhoc.exams.exam_bank import ExamBank, SUBJECTS
 from tuhoc.storage.safe_storage import commit_json
 from tuhoc.studio.studio_list import find_rows, remove_at
@@ -21,6 +21,7 @@ TYPES=[('choice','Đọc câu hỏi – chọn đáp án'),('true_false','Đúng
 MATCH_MODES=['Chữ ↔ Chữ','Hình ↔ Hình','Hỗn hợp (Chữ ↔ Hình)','Hỗn hợp (Hình ↔ Chữ)']
 EDITABLE={'listening_choice','listening_fill','image_multi_choice','picture_missing_letters','picture_choice','choice','true_false','fill','error','order','matching','sentence_gaps','conversation_gaps','passage_gaps'}
 BG=(244,247,252); WHITE=(255,255,255); INK=(32,47,71); MUTED=(104,118,139); BLUE=(47,103,206); LINE=(217,226,239); RED=(176,57,57)
+ICON_DIR = PROJECT_ROOT / 'assets' / 'library_reader_tools'
 
 class BankManager:
     def __init__(self,root):
@@ -29,6 +30,11 @@ class BankManager:
         self.edit_layout=None
         self._scrollbar = ScrollThumb()
         self._scrollbar_tab = None
+        self._icons = {}
+        self._tooltips = []
+        self._tooltip_clip = None
+        self._tooltip_hover = None
+        self._tooltip_since = 0
     def font(self,size,bold=False):
         # Prefer bundled Windows Unicode fonts; pygame's default font lacks Vietnamese glyphs.
         paths=[r'C:\Windows\Fonts\segoeuib.ttf' if bold else r'C:\Windows\Fonts\segoeui.ttf',
@@ -102,19 +108,42 @@ class BankManager:
                         if e.key==pygame.K_F11:self.maximize()
                         else:self.key(e)
                 self.mouse_pos=pygame.mouse.get_pos()
-                self.draw();
+                self.draw()
                 if self.multiline_open:self.draw_multiline()
-                elif self.dropdown:self.draw_dropdown()
+                elif self.dropdown:
+                    self._tooltips.clear()
+                    self.draw_dropdown()
                 if self.remove_request:self.draw_remove()
+                if pygame.mouse.get_focused() and not (self.multiline_open or self.remove_request):
+                    self.draw_tooltip()
+                else:
+                    self._tooltip_hover = None
                 pygame.display.flip();clock.tick(30)
         finally:
             pygame.key.stop_text_input()
             pygame.display.quit();pygame.quit()
-    def text(self,txt,x,y,font=None,color=INK,maxwidth=None):
-        font=font or self.f;s=str(txt).replace('\n',' ')
-        if maxwidth:
-            while s and font.size(s)[0]>maxwidth:s=s[:-2]+'…'
-        self.screen.blit(font.render(s,True,color),(x,y))
+    @staticmethod
+    def fit_text(value, font, width):
+        if width is None or font.size(value)[0] <= width:
+            return value
+        if font.size('…')[0] > width:
+            return ''
+        low, high = 0, len(value)
+        while low < high:
+            middle = (low + high + 1) // 2
+            if font.size(value[:middle] + '…')[0] <= width:
+                low = middle
+            else:
+                high = middle - 1
+        return value[:low] + '…'
+
+    def text(self, txt, x, y, font=None, color=INK, maxwidth=None, *, reveal=False):
+        font = font or self.f
+        value = str(txt).replace('\n', ' ')
+        fitted = self.fit_text(value, font, maxwidth)
+        if reveal and fitted != value and maxwidth > 0:
+            self.hint(pygame.Rect(x, y, maxwidth, font.get_height()), value)
+        self.screen.blit(font.render(fitted, True, color), (x, y))
     def rect(self,r,color=WHITE,border=None,radius=10):
         pygame.draw.rect(self.screen,color,r,border_radius=radius)
         if border:pygame.draw.rect(self.screen,border,r,1,border_radius=radius)
@@ -122,12 +151,67 @@ class BankManager:
         mx,my=self.mouse_pos
         return r.collidepoint(mx,my+self._hover_offset)
 
-    def btn(self,label,r,callback,selected=False,disabled=False):
+    def icon(self, name, rect, size=20):
+        key = (name, size)
+        if key not in self._icons:
+            self._icons[key] = pygame.transform.smoothscale(
+                pygame.image.load(str(ICON_DIR / f'{name}.png')), (size, size),
+            )
+        image = self._icons[key]
+        self.screen.blit(image, image.get_rect(center=rect.center))
+
+    def hint(self, rect, label):
+        rect = rect.clip(self.screen.get_clip()).move(0, -self._hover_offset)
+        if self._tooltip_clip is not None:
+            rect = rect.clip(self._tooltip_clip)
+        if rect.w and rect.h:
+            self._tooltips.append((rect, label))
+
+    def draw_tooltip(self):
+        hovered = next((item for item in reversed(self._tooltips)
+                        if item[0].collidepoint(self.mouse_pos)), None)
+        now = pygame.time.get_ticks()
+        if hovered != self._tooltip_hover:
+            self._tooltip_hover, self._tooltip_since = hovered, now
+            return
+        if hovered is None or now - self._tooltip_since < 350:
+            return
+        anchor, label = hovered
+        area = self.screen.get_rect().inflate(-12, -12)
+        font = self.sm
+        padding, gap = 8, 6
+        width = min(380, area.w - 2 * padding)
+        step = font.get_linesize()
+        rows = max(1, (area.h - 2 * padding) // step)
+        lines = self.wrap_lines(label, font, width)
+        if len(lines) > rows:
+            lines = lines[:rows - 1] + [lines[rows - 1] + '…']
+        lines = [self.fit_text(line, font, width) for line in lines]
+        box = pygame.Rect(anchor.left, anchor.bottom + gap,
+                          max(font.size(line)[0] for line in lines) + 2 * padding,
+                          len(lines) * step + 2 * padding)
+        if box.right > area.right:
+            box.right = anchor.right
+        if box.bottom > area.bottom:
+            box.bottom = anchor.top - gap
+        box.clamp_ip(area)
+        self.rect(box, INK, radius=6)
+        for i, line in enumerate(lines):
+            self.text(line, box.x + padding, box.y + padding + i * step, font, WHITE)
+
+    def btn(self,label,r,callback,selected=False,disabled=False,*,icon=None,compact_icon=None):
         hover=not disabled and self.hovering(r)
         bg=(220,233,255) if hover else (225,235,252) if selected else (236,241,249) if not disabled else (245,246,248)
         self.rect(r,bg,BLUE if selected or hover else LINE,8)
         if hover:pygame.draw.rect(self.screen,BLUE,r,2,border_radius=8)
-        self.text(label,r.x+12,r.y+(r.h-self.sm.get_height())//2,self.sm,MUTED if disabled else BLUE if selected or hover else INK,r.w-22)
+        clipped = self.sm.size(label)[0] > r.w - 22
+        symbol = icon or (compact_icon if clipped else None)
+        if symbol:
+            self.icon(symbol, r, min(20, r.h - 6))
+        else:
+            self.text(label,r.x+12,r.y+(r.h-self.sm.get_height())//2,self.sm,MUTED if disabled else BLUE if selected or hover else INK,r.w-22)
+        if symbol or clipped:
+            self.hint(r, label)
         if not disabled:self.actions.append((r,callback))
     def field(self,label,key,r,placeholder='',editable=True):
         self.text(label,r.x,r.y-22,self.sm,MUTED)
@@ -153,19 +237,32 @@ class BankManager:
         if not values:return
         if self.dropdown and self.dropdown['attr']==attr:
             self.dropdown=None;return
-        self.active=None;self.dropdown={'attr':attr,'values':values,'rect':pygame.Rect(rect),'labels':labels or {}}
+        anchor = pygame.Rect(rect)
+        if attr == 'edit_type':
+            anchor.move_ip(0, -self.edit_scroll)
+        self.active=None;self.dropdown={'attr':attr,'values':values,'rect':anchor,'labels':labels or {}}
         self.dropdown_scroll=0
         current=getattr(self,attr,None)
-        if current in values:self.dropdown_scroll=max(0,values.index(current)-3)
+        if current in values:
+            self.dropdown_scroll = max(0, min(values.index(current) - 3, len(values) - self.dropdown_visible()))
 
     def dropdown_visible(self):
         if not self.dropdown:return 0
-        r=self.dropdown['rect'];available=max(120,self.size[1]-r.bottom-20)
-        return max(2,min(9,available//38))
+        r = self.dropdown['rect']
+        available = max(self.size[1] - r.bottom - 9, r.top - 9)
+        return max(1, min(9, len(self.dropdown['values']), (available - 8) // 38))
 
     def dropdown_box(self):
-        r=self.dropdown['rect'];visible=self.dropdown_visible()
-        return pygame.Rect(r.x,r.bottom+3,max(r.w,230),visible*38+8)
+        r = self.dropdown['rect']
+        height = self.dropdown_visible() * 38 + 8
+        names = self.dropdown['labels']
+        label_width = max(self.sm.size(names.get(value, str(value)))[0] for value in self.dropdown['values'])
+        width = min(self.size[0] - 12, max(r.w, 230, min(420, label_width + 28)))
+        box = pygame.Rect(r.x, r.bottom + 3, width, height)
+        if box.bottom > self.size[1] - 6:
+            box.bottom = r.top - 3
+        box.clamp_ip(pygame.Rect(6, 6, self.size[0] - 12, self.size[1] - 12))
+        return box
 
     def dropdown_click(self,pos):
         d=self.dropdown;box=self.dropdown_box()
@@ -188,7 +285,7 @@ class BankManager:
             value=d['values'][i];label=d['labels'].get(value,str(value));r=pygame.Rect(box.x+4,box.y+4+(i-start)*38,box.w-8,37)
             if value==getattr(self,d['attr'],None) or self.hovering(r):
                 self.rect(r,(227,237,252),BLUE if self.hovering(r) else None,5)
-            self.text(label,r.x+10,r.y+8,self.sm,INK,r.w-20)
+            self.text(label,r.x+10,r.y+8,self.sm,INK,r.w-20,reveal=True)
         if len(d['values'])>self.dropdown_visible():
             self.text(f'{start+1}–{end}/{len(d["values"])}  •  cuộn để xem thêm',box.x+8,max(0,box.y-19),self.sm,BLUE)
 
@@ -346,16 +443,18 @@ class BankManager:
         # Draw content on a virtual surface, then clip it to a scrollable viewport.
         viewport_top=262;viewport_bottom=h-58
         virtual_h=max(1370,650+len(self.match_pairs)*120) if self.edit_type=='matching' else 1160 if self.edit_type=='reading_group' else 1370
+        maximum=max(0,virtual_h-viewport_bottom)
+        self.edit_scroll=min(maximum,self.edit_scroll)
+        area=pygame.Rect(0,viewport_top,w,max(1,viewport_bottom-viewport_top))
         real=self.screen;prior=len(self.actions)
         surface=pygame.Surface((w,virtual_h));surface.fill(BG)
         self.screen=surface
         self._hover_offset=self.edit_scroll
+        self._tooltip_clip=area
         self.draw_edit(w,virtual_h)
+        self._tooltip_clip=None
         self._hover_offset=0
         self.screen=real
-        maximum=max(0,virtual_h-viewport_top-(viewport_bottom-viewport_top))
-        self.edit_scroll=min(maximum,self.edit_scroll)
-        area=pygame.Rect(0,viewport_top,w,max(1,viewport_bottom-viewport_top))
         real.blit(surface,(0,viewport_top),pygame.Rect(0,viewport_top+self.edit_scroll,w,area.h))
         transformed=[]
         for rect,cb in self.actions[prior:]:
@@ -568,23 +667,85 @@ class BankManager:
 
     def draw(self):
         s=self.screen;w,h=self.size;s.fill(BG);self.actions=[]
+        self._tooltips.clear()
         self.text('NGÂN HÀNG KIỂM TRA',28,22,self.h)
         self.text('Quản lý nội dung  /  Bộ câu hỏi theo Level',30,59,self.sm,MUTED)
-        self.btn('Phóng to / Thu nhỏ',pygame.Rect(w-285,23,163,36),self.maximize)
+        self.btn('Thu nhỏ cửa sổ' if self.maximized else 'Phóng to cửa sổ',
+                 pygame.Rect(w-163,23,42,36),self.maximize,
+                 icon='collapse' if self.maximized else 'expand')
         self.btn('Đóng',pygame.Rect(w-112,23,84,36),lambda:setattr(self,'running',False))
         for i,(name,key) in enumerate([('Danh sách câu hỏi','bank'),('Thêm / Sửa câu hỏi','edit'),('Cấu hình đề','config')]):
             self.btn(name,pygame.Rect(28+i*190,92,181,38),lambda v=key:(self.begin() if v=='edit' and self.tab!='edit' else self.change_tab(v)),self.tab==key)
         if self.tab=='bank':
             self.btn('Nạp bộ lớp 2',pygame.Rect(w-151,92,123,38),self.install_grade2)
+            self.btn('Xuất gói câu hỏi', pygame.Rect(w-124,61,42,27), lambda:self.share_bank(True), icon='redo')
+            self.btn('Nhập gói câu hỏi', pygame.Rect(w-76,61,42,27), self.share_bank, icon='undo')
         self.rect(pygame.Rect(28,148,w-56,108),WHITE,LINE)
         for i,(label,attr,values) in enumerate([('Môn học','subject',list(SUBJECTS)),('Lớp','grade',self.bank.grades()),('Bài học','lesson',self.bank.lessons(self.grade,self.subject)),('Level','level',list(range(1,11))) ]):
             x=46+i*(w-92)//4;self.text(label,x,163,self.sm,MUTED)
             current=getattr(self,attr);display=SUBJECTS.get(current,current) if attr=='subject' else ('Level '+str(current) if attr=='level' else current)
-            r=pygame.Rect(x,186,(w-116)//4-14,45);self.btn(str(display)+'  ▼',r,lambda a=attr,v=values,rr=r:self.open_dropdown(a,v,rr,SUBJECTS if a=='subject' else {k:'Level '+str(k) for k in v} if a=='level' else self.lesson_labels(v) if a=='lesson' else None))
+            r=pygame.Rect(x,186,(w-116)//4-14,45);self.btn(str(display)+'  ▼',r,lambda a=attr,v=values,rr=r:self.open_dropdown(a,v,rr,SUBJECTS if a=='subject' else {k:'Level '+str(k) for k in v} if a=='level' else self.lesson_labels(v) if a=='lesson' else None), compact_icon='note')
         if self.tab=='bank':self.draw_bank(w,h)
         elif self.tab=='edit':self.draw_scrollable_edit(w,h)
         else:self.draw_scrollable_config(w,h)
         if self.message:self.text(self.message,32,h-27,self.sm,RED if self.message.startswith(('Lỗi','Dạng')) else BLUE,w-65)
+
+    def share_bank(self, export=False):
+        from tuhoc.exams import bank_packages
+        from tuhoc.storage.question_packages import EXTENSION
+
+        root = Tk()
+        root.withdraw()
+        root.attributes('-topmost', True)
+        types = [('Gói ngân hàng TuHoc', '*' + EXTENSION)]
+        try:
+            if export:
+                rows = self.scope()
+                if not rows:
+                    self.message = 'Bài đang chọn chưa có câu hỏi hoặc bài đọc.'
+                    return
+                path = filedialog.asksaveasfilename(parent=root, title='Xuất bài đang chọn',
+                                                    filetypes=types, defaultextension=EXTENSION)
+                if path:
+                    groups = [row for row in rows if row.get('_group')]
+                    bank_packages.export_bank(path, self.bank, self.subject, self.grade, self.lesson,
+                                              [row for row in rows if not row.get('_group')], groups)
+                    self.message = f'Đã xuất gói gồm {len(rows) - len(groups)} câu đơn và {len(groups)} nhóm bài đọc.'
+                return
+            path = filedialog.askopenfilename(parent=root, title='Nhập gói ngân hàng kiểm tra', filetypes=types)
+            if not path:
+                return
+            package = bank_packages.read_bank(path)
+            status = bank_packages.bank_status(self.bank, package)
+            if status == 'duplicate':
+                self.message = 'Phiên bản này đã được nhập trước đó.'
+                return
+            scope = package.scope
+            version = '\nĐã có bản trước. Bản này sẽ được thêm thành bài riêng.' if status == 'update' else ''
+            preview = [row.get('prompt') or row['type'] for row in package.questions[:4]]
+            preview += [group['title'] for group in package.groups[:3]]
+            sample = '\n'.join('• ' + line[:100] for line in preview)
+            name = simpledialog.askstring('Nhập vào bài mới',
+                                          f'{SUBJECTS[scope["subject"]]} · Lớp {scope["grade"]}\n'
+                                          f'{len(package.questions)} câu đơn · {len(package.groups)} nhóm bài đọc\n'
+                                          f'{sample}{version}\n\nTên bài mới:',
+                                          initialvalue=scope['lesson'], parent=root)
+            if name is None:
+                return
+            added = bank_packages.import_bank(self.bank, package, name, allow_update=status == 'update')
+            if added:
+                self.subject, self.grade, self.lesson = added['subject'], added['grade'], added['lesson']
+                self.filter_type = self.filter_diff = 'all'
+                self.search = ''
+                self.set_page(1)
+                self.message = 'Đã nhập vào bài riêng: ' + self.lesson
+            else:
+                self.message = 'Phiên bản này đã được nhập trước đó.'
+        except (OSError, ValueError, KeyError, TypeError, RecursionError) as exc:
+            self.message = 'Lỗi chia sẻ ngân hàng: ' + str(exc)
+        finally:
+            root.destroy()
+
     def draw_bank(self,w,h):
         scoped=self.scope();counts=[0]*5
         for q in scoped:
@@ -597,10 +758,17 @@ class BankManager:
         self.rect(pygame.Rect(28,272,w-56,80),WHITE,LINE)
         self.text(f'Tổng câu tính điểm: {sum(counts)}  |  Level {self.level} cần {n} câu',46,284,self.b)
         for i in range(5):self.text(f'M{i+1}: {counts[i]}/{need[i]}',46+i*(w-100)//5,321,self.sm,BLUE if counts[i]>=need[i] else RED)
-        self.field('Tìm mã / nội dung','search',pygame.Rect(30,391,310,41),'Tìm câu hỏi...')
-        self.btn('Dạng: '+('Tất cả' if self.filter_type=='all' else dict(TYPES).get(self.filter_type,self.filter_type)),pygame.Rect(355,391,max(155,min(365,w-680)),41),lambda:self.open_dropdown('filter_type',['all']+[t[0] for t in TYPES],pygame.Rect(355,391,max(155,min(365,w-680)),41),dict([('all','Tất cả')]+TYPES)))
-        self.btn('Mức: '+('Tất cả' if self.filter_diff=='all' else 'M'+self.filter_diff),pygame.Rect(w-300,391,133,41),lambda:self.open_dropdown('filter_diff',['all','1','2','3','4','5'],pygame.Rect(w-300,391,133,41),{'all':'Tất cả',**{str(i):'M'+str(i) for i in range(1,6)}}))
-        self.btn('+ Thêm câu hỏi',pygame.Rect(w-156,391,128,41),lambda:self.begin())
+        search = pygame.Rect(30,391,min(310,w//3),41)
+        add = pygame.Rect(w-72,391,44,41)
+        difficulty = pygame.Rect(add.left-132,391,122,41)
+        kind = pygame.Rect(search.right+12,391,difficulty.left-search.right-22,41)
+        self.field('Tìm mã / nội dung','search',search,'Tìm câu hỏi...')
+        self.btn('Dạng: '+('Tất cả' if self.filter_type=='all' else dict(TYPES).get(self.filter_type,self.filter_type)),
+                 kind,lambda:self.open_dropdown('filter_type',['all']+[t[0] for t in TYPES],kind,dict([('all','Tất cả')]+TYPES)),
+                 compact_icon='textbox')
+        self.btn('Mức: '+('Tất cả' if self.filter_diff=='all' else 'M'+self.filter_diff),
+                 difficulty,lambda:self.open_dropdown('filter_diff',['all','1','2','3','4','5'],difficulty,{'all':'Tất cả',**{str(i):'M'+str(i) for i in range(1,6)}}))
+        self.btn('Thêm câu hỏi',add,self.begin,icon='larger')
         matched=find_rows(scoped,self.search,sort_by=self.sort_by or None,
                           filters={'type':None if self.filter_type=='all' else self.filter_type})
         rows=[row for _,row in matched if self.filter_diff=='all'
@@ -645,13 +813,24 @@ class BankManager:
             if self.hovering(row_rect):
                 self.rect(row_rect,(238,245,255),BLUE,5)
             pygame.draw.line(self.screen,LINE,(40,y),(w-40,y))
-            self.text(q.get('id','')[:23],43,y+9,self.sm,BLUE,w//4-55)
-            self.text(q.get('prompt','') or q.get('title',''),w//4,y+9,self.sm,INK,w*7//20)
-            self.text(dict(TYPES).get(q.get('type'),q.get('type')),w*3//5,y+9,self.sm,MUTED,max(55,w-245-w*3//5))
+            self.text(q.get('id',''),43,y+9,self.sm,BLUE,w//4-55,reveal=True)
+            self.text(q.get('prompt','') or q.get('title',''),w//4,y+9,self.sm,INK,w*3//5-w//4-12,reveal=True)
+            question_type = str(q.get('type', ''))
+            kind_label = dict(TYPES).get(question_type, question_type)
+            kind_cell = pygame.Rect(w*3//5,y+5,max(20,w-248-w*3//5),28)
+            if self.sm.size(kind_label)[0] <= kind_cell.w:
+                self.text(kind_label,kind_cell.x,y+9,self.sm,MUTED)
+            else:
+                symbol = ('picture' if 'picture' in question_type or 'image' in question_type else
+                          'read' if question_type.startswith('listening') else
+                          'note' if q.get('_group') else 'textbox')
+                self.icon(symbol, pygame.Rect(kind_cell.x, kind_cell.y, 24, 28), 17)
+                self.hint(kind_cell, kind_label)
             self.text('M'+str(q.get('difficulty')) if not q.get('_group') else str(len(q.get('questions',[])))+' câu',w-239,y+9,self.sm)
-            self.btn('Sửa',pygame.Rect(w-177,y+5,42,28),lambda r=q:self.begin(r))
-            self.btn('Sao',pygame.Rect(w-129,y+5,42,28),lambda r=q:self.duplicate(r))
-            self.btn('Xóa',pygame.Rect(w-81,y+5,42,28),lambda r=q:self.request_remove(r))
+            item = 'bài đọc' if q.get('_group') else 'câu hỏi'
+            self.btn('Sửa '+item,pygame.Rect(w-177,y+5,42,28),lambda r=q:self.begin(r),icon='draw')
+            self.btn('Sao chép '+item,pygame.Rect(w-129,y+5,42,28),lambda r=q:self.duplicate(r),icon='note')
+            self.btn('Xóa '+item,pygame.Rect(w-81,y+5,42,28),lambda r=q:self.request_remove(r),icon='clear')
         self.screen.set_clip(old_clip)
         self.actions=self.actions[:action_start]+[(r.clip(viewport),cb) for r,cb in self.actions[action_start:] if r.colliderect(viewport)]
         self.draw_scrollbar(pygame.Rect(frame.right-9,viewport.y,5,viewport.h),
@@ -660,10 +839,10 @@ class BankManager:
             self.text('Không có câu hỏi phù hợp với bộ lọc hiện tại.',46,viewport.y+18,self.sm,MUTED,max(100,w-100))
         # Footer never overlaps the table or its final row.
         y=footer_top+8
-        self.text(f'Đã hiển thị: {min(self.page*10,total)}/{total}   |   Trang {self.page}/{pages}   |   10 dòng/trang',33,y+9,self.sm,INK,max(120,w-420))
+        self.text(f'{min(self.page*10,total)}/{total} mục · Trang {self.page}/{pages}',33,y+9,self.sm,INK,max(120,w-420))
         self.btn('Đầu',pygame.Rect(w-346,y,64,34),lambda:self.set_page(1),disabled=self.page==1)
-        self.btn('<',pygame.Rect(w-274,y,52,34),lambda:self.set_page(max(1,self.page-1)),disabled=self.page==1)
-        self.btn('>',pygame.Rect(w-214,y,52,34),lambda:self.set_page(min(pages,self.page+1)),disabled=self.page==pages)
+        self.btn('Trang trước',pygame.Rect(w-274,y,52,34),lambda:self.set_page(max(1,self.page-1)),disabled=self.page==1,icon='collapse')
+        self.btn('Trang sau',pygame.Rect(w-214,y,52,34),lambda:self.set_page(min(pages,self.page+1)),disabled=self.page==pages,icon='expand')
         self.btn('Cuối',pygame.Rect(w-154,y,87,34),lambda:self.set_page(pages),disabled=self.page==pages)
         if self.removed and time.monotonic()<=self.removed[0]:
             self.btn('Hoàn tác',pygame.Rect(30,y+4,105,34),self.undo_remove)
@@ -679,7 +858,7 @@ class BankManager:
         self.scroll=0
     def draw_edit(self,w,h):
         self.text('Bộ soạn thảo theo từng dạng câu hỏi',32,274,self.b)
-        self.btn('Dạng: '+dict(TYPES)[self.edit_type]+'  ▼',pygame.Rect(30,313,w-60,43),lambda:self.open_dropdown('edit_type',[t[0] for t in TYPES],pygame.Rect(30,313,w-60,43),dict(TYPES)))
+        self.btn('Dạng: '+dict(TYPES)[self.edit_type]+'  ▼',pygame.Rect(30,313,w-60,43),lambda:self.open_dropdown('edit_type',[t[0] for t in TYPES],pygame.Rect(30,313,w-60,43),dict(TYPES)),compact_icon='textbox')
         self.text('Mã: '+(self.edit_id or 'Tạo tự động khi lưu'),35,368,self.sm,MUTED)
         self.btn('Chỉnh bố cục', pygame.Rect(w-189,360,158,38), self.edit_visual_layout)
         required=[]
@@ -730,7 +909,7 @@ class BankManager:
                     rect=pygame.Rect(xx,yy,max(90,rw),43)
                     value=pair[side]
                     if image_side:
-                        self.btn(('Ảnh: '+os.path.basename(value) if value else '+ Chọn hình ảnh'),rect,lambda ix=i,sd=side:self.pick_match_image(ix,sd))
+                        self.btn(('Ảnh: '+os.path.basename(value) if value else '+ Chọn hình ảnh'),rect,lambda ix=i,sd=side:self.pick_match_image(ix,sd),compact_icon='picture')
                     else:
                         self.rect(rect,WHITE,BLUE if self.active==f'match_{i}_{side}' else LINE,7)
                         self.text(value or 'Nhập chữ...',rect.x+10,rect.y+12,self.sm,INK if value else MUTED,rect.w-20)
@@ -744,7 +923,7 @@ class BankManager:
             self.text('Chọn 2–4 ảnh đáp án; đánh dấu một ảnh đúng.',x,y,self.sm,MUTED);y+=42
             images=self.form.setdefault('image_options',[])
             for i,path in enumerate(images):
-                self.btn('Ảnh '+str(i+1)+': '+os.path.basename(path),pygame.Rect(x,y,wide-240,40),lambda ix=i:self.pick_option_image(ix))
+                self.btn('Ảnh '+str(i+1)+': '+os.path.basename(path),pygame.Rect(x,y,wide-240,40),lambda ix=i:self.pick_option_image(ix),compact_icon='picture')
                 self.btn('Đáp án đúng' if self.form.get('image_correct')==path else 'Chọn đúng',pygame.Rect(x+wide-226,y,140,40),lambda p=path:self.form.__setitem__('image_correct',p),self.form.get('image_correct')==path)
                 self.btn('Xóa',pygame.Rect(x+wide-78,y,76,40),lambda ix=i:self.remove_option_image(ix))
                 y+=51

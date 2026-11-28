@@ -111,6 +111,9 @@ class AudioPanel(tk.Frame):
 def open_dictation(app, store, article, back, next_article=None):
     path = store.resolve_media(article['audio'], 'audio')
     body = app.layout(f"Chép chính tả · {article['title']}")
+    morph=getattr(app,'morph',None)
+    if morph:
+        morph.arrive(f"practice:{article['id']}",app._page_heading)
     app.label(body, 'Nghe và chép lại toàn bộ bài.', 12).pack(anchor='w', pady=(0, 8))
     if path:
         AudioPanel(body, app, path).pack(fill='x', pady=6)

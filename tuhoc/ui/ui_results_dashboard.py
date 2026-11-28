@@ -2,7 +2,8 @@
 import tkinter as tk
 from datetime import date, datetime, timedelta
 from collections import defaultdict
-from tuhoc.ui.ui_components import Badge, RoundedButton
+from PIL import ImageDraw
+from tuhoc.ui.ui_components import Badge, RoundedButton, _SHAPE_SCALE, _shape_layer, _shape_photo
 from tuhoc.ui.ui_tokens import font_at
 
 BLUE='#327ED9'; YELLOW='#F5C34D'; DARK='#31435F'; MUTED='#6D7890'; LINE='#E4E8F0'; WHITE='#FFFFFF'
@@ -96,15 +97,27 @@ def dashboard(parent,db,sid,on_retry=None):
     groups=defaultdict(int)
     for theme,level,started,seconds,correct,total_q in rows:groups[str(theme)]+=1
     palette=[BLUE,YELLOW,'#8CB5E5','#536B8B','#55B7A4','#B29EE8']
-    all_count=sum(groups.values());angle=90
+    all_count=sum(groups.values())
     if all_count:
+        angle = -90
+        layer = _shape_layer(260, 205)
+        draw = ImageDraw.Draw(layer)
+        bounds = tuple(point * _SHAPE_SCALE for point in (27, 8, 217, 198))
         for i,(name,count) in enumerate(sorted(groups.items(),key=lambda p:-p[1])):
-            span=360*count/all_count;pie.create_arc(27,8,217,198,start=angle,extent=-span,fill=palette[i%len(palette)],outline=WHITE,width=2)
-            angle-=span
+            span = 360 * count / all_count
+            color = palette[i % len(palette)]
+            if count == all_count:
+                draw.ellipse(bounds, fill=color, outline=WHITE, width=2 * _SHAPE_SCALE)
+            else:
+                draw.pieslice(bounds, angle, angle + span, fill=color, outline=WHITE,
+                              width=2 * _SHAPE_SCALE)
+            angle += span
             row=tk.Frame(legend,bg='#F6F7FA');row.pack(fill='x',pady=3,ipady=7)
             tk.Label(row,text='■',bg='#F6F7FA',fg=palette[i%len(palette)],font=(FONT,13)).pack(side='left',padx=10)
             text(row,name,10,bg='#F6F7FA').pack(side='left')
             text(row,f'{count/all_count:.0%}',10,True,bg='#F6F7FA').pack(side='right',padx=12)
+        pie._chart_image = _shape_photo(pie, layer, 260, 205)
+        pie.create_image(0, 0, anchor='nw', image=pie._chart_image)
     else:
         text(legend,'Chưa có phiên học để phân bổ.',11,fg=MUTED).pack(anchor='w')
     text(bottom,'Biểu đồ sử dụng dữ liệu học tập đã lưu; các nhóm chưa có dữ liệu sẽ không được tự tạo.',9,fg=MUTED).pack(anchor='w',pady=(10,0))

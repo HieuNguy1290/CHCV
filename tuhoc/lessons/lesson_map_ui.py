@@ -2,11 +2,92 @@
 from tuhoc.ui.ui_tokens import COLORS as TOKEN_COLORS, font_at
 import tkinter as tk
 import tkinter.font as tkfont
+from tkinter import ttk
 import math
 from tuhoc.ui.theme_config import UI_COLORS as C
 from tuhoc.ui.ui_components import Card, Chip, ProgressBar, Tooltip, Toast, bind_hover
 from tuhoc.lessons.lesson_display_names import display_name
 from tuhoc.ui.ui_keys import GRID_MOVES, keyboard_button
+
+
+class _TopicScrollIndicator(tk.Canvas):
+    """Slim draggable indicator for the topic strip's horizontal viewport."""
+
+    def __init__(self,parent,topics):
+        super().__init__(parent,height=14,highlightthickness=0,bg=C['background'],
+                         cursor='hand2',takefocus=True)
+        self.topics=topics
+        self.first,self.last=0.0,1.0
+        self.grab_offset=None
+        self.track=self.create_line(0,7,0,7,width=3,capstyle='round')
+        self.thumb=self.create_line(0,7,0,7,width=5,capstyle='round')
+        self.bind('<Configure>',self._paint)
+        self.bind('<Button-1>',self._press)
+        self.bind('<B1-Motion>',self._drag)
+        self.bind('<ButtonRelease-1>',self._release)
+        for event in ('<Enter>','<Leave>','<FocusIn>','<FocusOut>'):
+            self.bind(event,self._paint)
+        self.bind('<Left>',lambda _e:self._step(-1))
+        self.bind('<Right>',lambda _e:self._step(1))
+
+    def set(self,first,last):
+        self.first,self.last=float(first),float(last)
+        if self.last-self.first>=0.99999:
+            self.grab_offset=None
+            self.pack_forget()
+            return
+        if not self.winfo_manager():
+            self.pack(fill='x',pady=(1,0))
+        self._paint()
+
+    def _geometry(self):
+        width=max(1,self.winfo_width()-16)
+        visible=min(1.0,self.last-self.first)
+        thumb_width=min(width,max(38,width*visible))
+        travel=width-thumb_width
+        left=8+travel*min(1.0,self.first/max(1e-8,1-visible))
+        return width,thumb_width,travel,left
+
+    def _paint(self,event=None):
+        if not self.winfo_manager():
+            return
+        width,thumb_width,_,left=self._geometry()
+        inside=0<=self.winfo_pointerx()-self.winfo_rootx()<self.winfo_width() and (
+            0<=self.winfo_pointery()-self.winfo_rooty()<self.winfo_height())
+        active=self.grab_offset is not None or inside or self.focus_get() is self
+        base=self.winfo_rgb(C['background'])
+        accent=self.winfo_rgb(C['primary_text'])
+        def blend(opacity):
+            return '#{:02x}{:02x}{:02x}'.format(*[round((a+(b-a)*opacity)/257) for a,b in zip(base,accent)])
+        self.coords(self.track,8,7,8+width,7)
+        self.coords(self.thumb,left,7,left+thumb_width,7)
+        self.itemconfigure(self.track,fill=blend(.16))
+        self.itemconfigure(self.thumb,fill=blend(.87 if active else .60))
+
+    def _press(self,event):
+        self.focus_set()
+        _,width,_,left=self._geometry()
+        self.grab_offset=event.x-left if left<=event.x<=left+width else width/2
+        self._drag(event)
+        return 'break'
+
+    def _drag(self,event):
+        if self.grab_offset is not None:
+            _,_,travel,_=self._geometry()
+            if travel>0:
+                fraction=max(0,min(1,(event.x-8-self.grab_offset)/travel))
+                self.topics.xview_moveto(fraction*(1-self.last+self.first))
+            self._paint()
+        return 'break'
+
+    def _release(self,_event):
+        self.grab_offset=None
+        self._paint()
+
+    def _step(self,direction):
+        self.topics.xview_scroll(direction,'units')
+        return 'break'
+
 
 class LessonMap:
     def __init__(self, app, map_mode=False):
@@ -45,10 +126,18 @@ class LessonMap:
             title_lbl.configure(fg=title_bg)
         head=tk.Frame(self.body,bg=C['background']);head.pack(fill='x',pady=(0,12))
         topic_lbl=self.label(head,'Chủ đề · Topics',13,True,fg=C['background']);topic_lbl.pack(side='left')
+        self._topic_picker=ttk.Combobox(head,values=[title for _,title,_,_ in self.themes],
+                                       state='readonly',width=26)
+        self._topic_picker.pack(side='right')
+        self._topic_picker.bind('<<ComboboxSelected>>',
+                                self._select_topic)
         strip=tk.Frame(self.body,bg=C['background']);strip.pack(fill='x',pady=(0,12))
-        cv=tk.Canvas(strip,height=56,bg=C['background'],highlightthickness=0)
+        cv=tk.Canvas(strip,height=56,bg=C['background'],highlightthickness=0,xscrollincrement=0)
+        bar=_TopicScrollIndicator(strip,cv)
+        cv.configure(xscrollcommand=bar.set)
         cv.pack(fill='x');inner=tk.Frame(cv,bg=C['background']);window=cv.create_window((0,0),window=inner,anchor='nw')
-        inner.bind('<Configure>',lambda e:cv.configure(scrollregion=cv.bbox('all')))
+        inner.bind('<Configure>',lambda _e:cv.configure(scrollregion=cv.bbox('all')))
+        self._topic_canvas=cv
         topic_chips=[]
         chip_sizes=[]
         for code,title,icon,color in self.themes:
@@ -71,6 +160,10 @@ class LessonMap:
             chip.bind('<Button-1>',lambda e,t=code:self.change_theme(t))
             chip.bind('<Return>',lambda e,t=code:self.change_theme(t))
             chip.bind('<space>',lambda e,t=code:self.change_theme(t))
+            wheels=('<MouseWheel>','<Shift-MouseWheel>','<Button-4>','<Button-5>')
+            for widget in (slot,chip):
+                for sequence in wheels:
+                    widget.bind(sequence,self._scroll_topics,add='+')
             # The same topic strip appears in both Lessons and Level Map.
             # Keep the active topic visibly selected while hovering others.
             def topic_hover(active, widget=chip, tcode=code):
@@ -81,8 +174,8 @@ class LessonMap:
                     normal_bg=C['primary'] if is_selected else C['tint']
                     normal_fg='white' if is_selected else C['text']
                     widget.configure(
-                        bg=('#226847' if is_selected else '#D4EADD') if active else normal_bg,
-                        fg='white' if is_selected else (C['primary'] if active else normal_fg),
+                        bg=(C['primary_hover'] if is_selected else C['tint']) if active else normal_bg,
+                        fg='white' if is_selected else (C['primary_text'] if active else normal_fg),
                         relief='flat', bd=0)
                     widget._hover_active=active
                     # Only the chip moves; its fixed slot never changes size.
@@ -91,6 +184,7 @@ class LessonMap:
                     pass
             # Hover region is the fixed union of the rest/raised chip area.
             chip._hover_fn=topic_hover
+            chip.bind('<FocusIn>',lambda _e,w=chip:self._reveal_topic(w),add='+')
             chip.bind('<FocusIn>',lambda e,fn=topic_hover:fn(True),add='+')
             chip.bind('<FocusOut>',lambda e,fn=topic_hover:fn(False),add='+')
         self.body.update_idletasks()
@@ -100,8 +194,12 @@ class LessonMap:
             slot.configure(width=width+4,height=slot_h)
             chip.place(x=2,y=12,width=width,height=height)
             bind_hover(slot,chip._hover_fn,inset=(0,6,0,max(0,slot_h-(12+height))))
-        cv.bind('<MouseWheel>',lambda e:cv.xview_scroll(-1 if e.delta>0 else 1,'units'))
-        cv.configure(xscrollincrement=45)
+        cv.configure(height=max((slot.winfo_reqheight() for slot,_ in chip_sizes),default=56))
+        for sequence in ('<MouseWheel>','<Shift-MouseWheel>','<Button-4>','<Button-5>'):
+            cv.bind(sequence,self._scroll_topics,add='+')
+        self._chips=topic_chips
+        self._sync_topic_picker()
+        cv.after_idle(self._sync_topic_picker)
         columns=tk.Frame(self.body,bg=C['background']);columns.pack(fill='both',expand=True)
         columns.grid_columnconfigure(0,weight=1);columns.grid_columnconfigure(1,minsize=400)
         left=tk.Frame(columns,bg=C['background']);left.grid(row=0,column=0,sticky='nsew',padx=(0,16))
@@ -111,7 +209,6 @@ class LessonMap:
         right.configure(bg=C['background'],highlightbackground=C['background'])
         level_lbl=self.label(left,'Chọn Level · Select a level',14,True,fg=C['background']);level_lbl.pack(anchor='w',pady=(0,8))
         self._level_lbl=level_lbl
-        self._chips=topic_chips
         self.level_grid=tk.Frame(left,bg=C['background']);self.level_grid.pack(fill='both',expand=True)
         foot_lbl=self.label(left,'Công Cha Nghĩa Mẹ. Con mãi khắc ghi.',10,fg=C['background']);foot_lbl.pack(anchor='w',pady=6)
         self._foot_lbl=foot_lbl
@@ -136,6 +233,41 @@ class LessonMap:
         self.body.bind('<Down>',lambda e:self.move(5),add='+')
         self.body.bind('<Return>',lambda e:self.select(self.level),add='+')
         self.body.bind('<Escape>',lambda e:self.app.home(),add='+')
+
+    def _scroll_topics(self,event):
+        canvas=self._topic_canvas
+        first,last=canvas.xview()
+        if last-first>=1:
+            return None
+        direction=-1 if getattr(event,'num',None)==4 or event.delta>0 else 1
+        canvas.xview_scroll(direction,'units')
+        return 'break'
+
+    def _reveal_topic(self,chip):
+        canvas=self._topic_canvas
+        bounds=canvas.bbox('all')
+        if not bounds or canvas.winfo_width()<=1:
+            return
+        edge=canvas.canvasx(0)
+        left=chip.master.winfo_x()
+        right=left+chip.master.winfo_width()
+        width=canvas.winfo_width()
+        if left<edge:
+            canvas.xview_moveto(left/max(1,bounds[2]))
+        elif right>edge+width:
+            canvas.xview_moveto(max(0,right-width)/max(1,bounds[2]))
+
+    def _sync_topic_picker(self):
+        for index,chip in enumerate(self._chips):
+            if chip._code==self.theme:
+                self._topic_picker.current(index)
+                self._reveal_topic(chip)
+                break
+
+    def _select_topic(self,_event):
+        index=self._topic_picker.current()
+        if index>=0:
+            self.change_theme(self.themes[index][0])
 
     def fade_text(self,lbl,fg,bg,start,dur=240):
         steps=8
@@ -170,8 +302,8 @@ class LessonMap:
                             fg=self._blend_color(background,fg,t))
                     # Wave and hover share the same fixed coordinate system.
                     widget.place_configure(y=(6 if widget._hover_active else 12+dy))
-                self.later(delay+index*150+frame*38,update)
-        return delay+max(0,len(chips)-1)*150+steps*38
+                self.later(delay+min(index,5)*60+frame*38,update)
+        return delay+min(max(0,len(chips)-1),5)*60+steps*38
 
     def _blend_color(self, start, end, fraction):
         # Tk resolves both named colors (e.g. white) and hexadecimal colors.
@@ -239,7 +371,7 @@ class LessonMap:
             if not card.winfo_exists() or not getattr(card,'_hover',False):return
             x,y=card.winfo_pointerxy()
             tip=tk.Toplevel(card);tip.wm_overrideredirect(True);tip.geometry(f'+{x+16}+{y+22}')
-            tk.Label(tip,text='Cần hoàn thành level trước để mở khóa.',bg=C['text'],fg='white',padx=8,pady=5).pack()
+            tk.Label(tip,text='Cần hoàn thành level trước để mở khóa.',bg=C['surface'],fg=C['text'],padx=8,pady=5).pack()
             self._tip=tip
         self._tip_job=self.app.after(350,go)
 
@@ -249,7 +381,7 @@ class LessonMap:
         card._hover=active
         if active:self._tip_show(n)
         else:self._tip_hide()
-        color='#DDF2E4' if active else base
+        color=C['tint'] if active else base
         card.configure(bg=color,highlightbackground=C['primary'] if active else self._edge(n))
         for child in card.winfo_children():child.configure(bg=color)
         # Zoom: only the card grows inside its fixed slot; the grid never reflows.
@@ -270,7 +402,7 @@ class LessonMap:
         for col in range(5):self.level_grid.grid_columnconfigure(col,weight=1)
         for n in range(1,maximum+1):
             text,done,unlocked=self.status(n)
-            bg=C['tint'] if done else C['studying'] if unlocked else '#EEF0EE'
+            bg=C['tint'] if done else C['studying'] if unlocked else C['disabled']
             edge=C['primary'] if n==self.level else '#C99A24' if unlocked and not done else C['border']
             slot=tk.Frame(self.level_grid,bg=C['background'],width=10)
             slot.grid(row=(n-1)//5,column=(n-1)%5,padx=5,pady=5,sticky='nsew')
@@ -344,6 +476,7 @@ class LessonMap:
         if code==self.theme:return
         self.app._lesson_map_theme=code;self.app._lesson_map_level=1
         self.theme=code;self.level=1
+        self._sync_topic_picker()
         for chip in self._chips:
             if not chip.winfo_exists():continue
             selected=chip._code==code
@@ -376,16 +509,27 @@ class LessonMap:
     def select(self,n):
         if not self.app.learning.unlocked(self.app.student['id'],self.theme,n):
             Toast(self.app,'Level đang khóa');return
+        morph=getattr(self.app,'morph',None)
+        animate=morph is not None and n!=self.level
+        if animate:
+            morph.begin(self._cards[n][0],'level-detail',f'Level {n}')
         self.level=n;self.app._lesson_map_level=n;self.app._lesson_map_theme=self.theme
         # Restyle in place: no widget rebuild, no re-fade, no flicker.
         for k,(card,base) in self._cards.items():
             if not getattr(card,'_hover',False):
                 card.configure(highlightbackground=self._edge(k))
         self.draw_detail()
+        if animate:
+            morph.arrive('level-detail',self.details)
 
-    def open_lesson(self,lesson,mode):
+    def open_lesson(self,lesson,mode,anchor=None):
         self.app._lesson_map_theme=self.theme;self.app._lesson_map_level=self.level
         self.app._selected_lesson=lesson
+        if hasattr(self,'_lesson_list_canvas'):
+            self.app._lesson_list_scroll=(self.theme,self.level,self._lesson_list_canvas.yview()[0])
+        morph=getattr(self.app,'morph',None)
+        if morph and mode=='lesson':
+            morph.begin(anchor,'lesson-heading',f'Lesson {lesson}')
         action=self.app.level_lesson if mode=='lesson' else self.app.level_quiz
         action(self.theme,self.level)
 
@@ -396,40 +540,48 @@ class LessonMap:
     def draw_detail(self,intro=None):
         """intro=(text_start,rows_start) in ms plays the entrance; None shows instantly."""
         for w in self.details.winfo_children():w.destroy()
-        content=tk.Frame(self.details,bg='white')
+        content=tk.Frame(self.details,bg=C['surface'])
         title=next((x[1] for x in self.themes if x[0]==self.theme),self.theme)
-        head1=self.label(content,f"{display_name(self.app.curriculum.data_dir, 'level', self.theme, self.level)} · {title}",16,True,bg='white',wraplength=355)
+        head1=self.label(content,f"{display_name(self.app.curriculum.data_dir, 'level', self.theme, self.level)} · {title}",16,True,bg=C['surface'],wraplength=355)
         head1.pack(anchor='w')
-        head2=self.label(content,'Góc học tập!',10,fg=C['muted'],bg='white')
+        head2=self.label(content,'Góc học tập!',10,fg=C['muted'],bg=C['surface'])
         head2.pack(anchor='w',pady=(4,12))
-        canvas=tk.Canvas(content,bg='white',highlightthickness=0,width=360,height=410)
+        canvas=tk.Canvas(content,bg=C['surface'],highlightthickness=0,width=360,height=410)
+        self._lesson_list_canvas=canvas
         canvas.pack(fill='both',expand=True,side='left')
         bar=tk.Scrollbar(content,orient='vertical',command=canvas.yview);bar.pack(side='right',fill='y')
         canvas.configure(yscrollcommand=bar.set)
-        list_frame=tk.Frame(canvas,bg='white');canvas.create_window((0,0),window=list_frame,anchor='nw')
-        list_frame.bind('<Configure>',lambda e:canvas.configure(scrollregion=canvas.bbox('all')))
+        list_frame=tk.Frame(canvas,bg=C['surface']);canvas.create_window((0,0),window=list_frame,anchor='nw')
+        offset=getattr(self.app,'_lesson_list_scroll',None)
+        def update_region(_event):
+            nonlocal offset
+            canvas.configure(scrollregion=canvas.bbox('all'))
+            if offset and offset[:2]==(self.theme,self.level):
+                canvas.yview_moveto(offset[2])
+                offset=None
+        list_frame.bind('<Configure>',update_region)
         completed=self.app.db.lesson_completed(self.app.student['id'],f'{self.theme}_{self.level}')
         unlocked=self.app.learning.unlocked(self.app.student['id'],self.theme,self.level)
         items=[]
         lesson_total=self._lesson_total(self.theme,self.level)
         for i in range(1,lesson_total+1):
-            slot=tk.Frame(list_frame,bg='white',width=10)
+            slot=tk.Frame(list_frame,bg=C['surface'],width=10)
             slot.pack(fill='x',pady=3,padx=(0,6))
-            row=tk.Frame(list_frame,bg='white',highlightthickness=1,highlightbackground=C['border'],padx=9,pady=7)
-            accent=tk.Frame(row,bg='white',width=4);accent.place(x=0,y=0,relheight=1)
+            row=tk.Frame(list_frame,bg=C['surface'],highlightthickness=1,highlightbackground=C['border'],padx=9,pady=7)
+            accent=tk.Frame(row,bg=C['surface'],width=4);accent.place(x=0,y=0,relheight=1)
             # Legacy completion is tracked at theme/level granularity, not by lesson index.
             status='Xong' if completed else 'Đang học' if unlocked else 'Chưa mở'
-            self.label(row,display_name(self.app.curriculum.data_dir, 'lesson', self.theme, self.level, i),11,True,bg='white').pack(anchor='w')
-            self.label(row,status,9,fg=C['muted'],bg='white').pack(anchor='w')
-            actions=tk.Frame(row,bg='white');actions.pack(fill='x',pady=(5,0))
+            self.label(row,display_name(self.app.curriculum.data_dir, 'lesson', self.theme, self.level, i),11,True,bg=C['surface']).pack(anchor='w')
+            self.label(row,status,9,fg=C['muted'],bg=C['surface']).pack(anchor='w')
+            actions=tk.Frame(row,bg=C['surface']);actions.pack(fill='x',pady=(5,0))
             for mode,text in [('lesson','Học'),('quiz','Bài tập')]:
-                b=tk.Button(actions,text=text,font=font_at(10, 'bold'),bg='white' if mode=='lesson' else C['primary'],fg=C['primary'] if mode=='lesson' else 'white',relief='solid',bd=1,padx=12,pady=5,cursor='hand2' if unlocked else 'arrow',state='normal' if unlocked else 'disabled',command=lambda k=i,m=mode:self.open_lesson(k,m))
+                b=tk.Button(actions,text=text,font=font_at(10, 'bold'),bg=C['surface'] if mode=='lesson' else C['primary'],fg=C['primary_text'] if mode=='lesson' else 'white',relief='solid',bd=1,padx=12,pady=5,cursor='hand2' if unlocked else 'arrow',state='normal' if unlocked else 'disabled',command=lambda k=i,m=mode,w=row:self.open_lesson(k,m,w))
                 b.pack(side='left',padx=(0,8))
                 keyboard_button(b)
                 b.configure(highlightcolor=C['focus'])
                 if unlocked:
-                    base='white' if mode=='lesson' else C['primary']
-                    over=C['tint'] if mode=='lesson' else '#236743'
+                    base=C['surface'] if mode=='lesson' else C['primary']
+                    over=C['tint'] if mode=='lesson' else C['primary_hover']
                     b.bind('<Enter>',lambda e,w=b,color=over:w.configure(bg=color),add='+')
                     b.bind('<Leave>',lambda e,w=b,color=base:w.configure(bg=color),add='+')
                     b.bind('<FocusIn>',lambda e,w=b,color=over:w.configure(bg=color),add='+')
@@ -438,17 +590,18 @@ class LessonMap:
             def hover_row(_event, active, holder=row, accent=accent):
                 try:
                     if not holder.winfo_exists() or not holder.place_info():return
-                    color=C['tint'] if active else 'white'
+                    color=C['tint'] if active else C['surface']
                     # Shift right 4px by moving the row inside its fixed slot.
                     holder.place_configure(x=4 if active else 0)
                     holder.configure(bg=color,highlightbackground=C['primary'] if active else C['border'])
                     for child in holder.winfo_children():
                         if child is accent:
-                            child.configure(bg=C['primary'] if active else 'white')
+                            child.configure(bg=C['primary'] if active else C['surface'])
                         elif isinstance(child,(tk.Label,tk.Frame)):
                             child.configure(bg=color)
                 except tk.TclError: pass
             bind_hover(row,lambda a,fn=hover_row:fn(None,a),region=slot,also=(slot,))
+            row.lesson_morph_key=f'lesson-row:{i}'
             items.append((row,slot))
         self.body.update_idletasks()
         for row,slot in items:
@@ -456,6 +609,9 @@ class LessonMap:
         def put(row,slot,x):
             if row.winfo_exists() and slot.winfo_exists():
                 row.place(in_=slot,x=x,y=0,relheight=1,relwidth=1,width=-4)
+                morph=getattr(self.app,'morph',None)
+                if morph and x==0:
+                    morph.arrive(row.lesson_morph_key,row)
         if intro is None:
             content.pack(fill='both',expand=True)
             for row,slot in items:put(row,slot,0)

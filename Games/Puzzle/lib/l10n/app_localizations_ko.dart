@@ -1,0 +1,5935 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Korean (`ko`).
+class AppLocalizationsKo extends AppLocalizations {
+  AppLocalizationsKo([String locale = 'ko']) : super(locale);
+
+  @override
+  String get appTitle => '퍼즐 게임';
+
+  @override
+  String get home => '홈';
+
+  @override
+  String get settings => '설정';
+
+  @override
+  String get playAgain => '다시 플레이';
+
+  @override
+  String get playNext => '다음 놀이';
+
+  @override
+  String get seeCompleted => '퍼즐 검토';
+
+  @override
+  String get finish => '종료';
+
+  @override
+  String get congrats => '축하합니다';
+
+  @override
+  String get perfectGradient => '완벽한 그라데이션!';
+
+  @override
+  String get wellDone => '잘했습니다';
+
+  @override
+  String get timeUp => '시간 종료!';
+
+  @override
+  String get victory => '승리!';
+
+  @override
+  String get gameWin => '잘하셨습니다!';
+
+  @override
+  String get completed => '완료!';
+
+  @override
+  String get score => '점수';
+
+  @override
+  String get timeLeft => '시간';
+
+  @override
+  String get trials => '시도';
+
+  @override
+  String get numberRule => '숫자 규칙';
+
+  @override
+  String get colorRule => '색상 규칙';
+
+  @override
+  String get valid => '유효';
+
+  @override
+  String get invalid => '유효하지 않음';
+
+  @override
+  String get even => '짝수';
+
+  @override
+  String get odd => '홀수';
+
+  @override
+  String get red => '빨강';
+
+  @override
+  String get green => '초록';
+
+  @override
+  String get blue => '파랑';
+
+  @override
+  String get yes => '예';
+
+  @override
+  String get no => '아니요';
+
+  @override
+  String get trueLabel => '참';
+
+  @override
+  String get falseLabel => '거짓';
+
+  @override
+  String get clear => '지우기';
+
+  @override
+  String get north => '북';
+
+  @override
+  String get south => '남';
+
+  @override
+  String get east => '동';
+
+  @override
+  String get west => '서';
+
+  @override
+  String get target => '목표';
+
+  @override
+  String get moves => '이동';
+
+  @override
+  String get trialMode => '시도 모드';
+
+  @override
+  String get trialModeDescription => '60초 타이머 대신 20개 해결 시 종료';
+
+  @override
+  String get keepScreenAwake => '화면 켜짐 유지';
+
+  @override
+  String get keepScreenAwakeDescription => '게임 플레이 중 화면이 꺼지는 것을 방지합니다';
+
+  @override
+  String get appearance => '외형';
+
+  @override
+  String get language => '언어';
+
+  @override
+  String get gameplay => '게임플레이';
+
+  @override
+  String get contactEmail => 'Contact Email';
+
+  @override
+  String get supportUs => '후원하기';
+
+  @override
+  String get systemLegal => '시스템 및 법적 정보';
+
+  @override
+  String get games => '게임';
+
+  @override
+  String get solvedToday => '오늘 해결함';
+
+  @override
+  String get searchGames => '게임 검색...';
+
+  @override
+  String get readyToStart => '두뇌 운동을 시작할 준비가 되셨나요?';
+
+  @override
+  String get greatStart => '좋은 시작입니다! 이 기세를 이어가세요.';
+
+  @override
+  String get onFire => '대단해요! 두뇌가 활성화되고 있습니다.';
+
+  @override
+  String get incredible => '믿기지 않네요! 당신은 퍼즐 마스터입니다.';
+
+  @override
+  String get noGamesMatch => '검색 결과와 일치하는 게임이 없습니다';
+
+  @override
+  String get categoryAll => '전체';
+
+  @override
+  String get categoryAttention => '주의력';
+
+  @override
+  String get categoryLogic => '논리';
+
+  @override
+  String get categoryMath => '수학';
+
+  @override
+  String get categoryWord => '언어';
+
+  @override
+  String get categoryMemory => '기억력';
+
+  @override
+  String get categorySpatial => '공간지각';
+
+  @override
+  String get themeLight => '라이트';
+
+  @override
+  String get themeDark => '다크';
+
+  @override
+  String get themeSystem => '시스템';
+
+  @override
+  String get starOnGithub => 'GitHub에서 별 주기';
+
+  @override
+  String get sponsorOnGithub => 'GitHub에서 후원하기';
+
+  @override
+  String get privacyPolicy => '개인정보 처리방침';
+
+  @override
+  String get termsOfService => '서비스 약관';
+
+  @override
+  String get licenses => '라이선스';
+
+  @override
+  String findWordSubtitle(int maxTries, int wordLength) {
+    return '숨겨진 $wordLength자리 단어를 찾을 기회가 $maxTries번 남았습니다.';
+  }
+
+  @override
+  String wordFoundMessage(String word) {
+    return '단어를 찾았습니다: $word';
+  }
+
+  @override
+  String gameOverMessage(String word) {
+    return '정답은: $word';
+  }
+
+  @override
+  String get gameOver => '게임 종료';
+
+  @override
+  String get crosswordTitle => '크로스워드';
+
+  @override
+  String get crosswordSubtitle => '제공된 힌트를 바탕으로 격자를 올바른 단어로 채우세요.';
+
+  @override
+  String get wordSearchTitle => '단어 찾기';
+
+  @override
+  String get radicalRootsTitle => '근호 계산';
+
+  @override
+  String get radicalRootsSubtitle =>
+      '주어진 수의 제곱근 또는 세제곱근을 구하세요. 필요한 경우 가장 가까운 정수로 반올림하세요.';
+
+  @override
+  String get radicalRootsGoalReached => '목표 달성!';
+
+  @override
+  String get radicalRootsTimeUp => '시간 종료!';
+
+  @override
+  String radicalRootsScoreMessage(int score) {
+    return '$score개의 근호를 정확히 계산했습니다!';
+  }
+
+  @override
+  String radicalRootsTryAgainMessage(int score) {
+    return '계속 연습하세요! $score개의 근호를 계산했습니다.';
+  }
+
+  @override
+  String get radicalRootsStart => '계산 시작';
+
+  @override
+  String get radicalRootsDescription => '60초 동안 가능한 한 많이 푸세요.';
+
+  @override
+  String get radicalRootsBest => '최고 기록';
+
+  @override
+  String get radicalRootsSeconds => '60초';
+
+  @override
+  String get romanArithmeticTitle => '로마 숫자 산술';
+
+  @override
+  String get romanArithmeticSubtitle => '로마 숫자를 사용하여 덧셈과 뺄셈 문제를 푸세요.';
+
+  @override
+  String get romanArithmeticGoalReached => '백인대장 레벨!';
+
+  @override
+  String get romanArithmeticTimeUp => '시간 종료!';
+
+  @override
+  String romanArithmeticScoreMessage(int score) {
+    return '$score개의 로마 숫자 문제를 풀었습니다!';
+  }
+
+  @override
+  String romanArithmeticTryAgainMessage(int score) {
+    return '왔노라, 보았노라, 이겼노라! $score문제를 풀었습니다.';
+  }
+
+  @override
+  String get romanArithmeticStart => '퀘스트 시작';
+
+  @override
+  String get romanArithmeticDescription => '변환하고 푸세요. 제한 시간은 60초입니다.';
+
+  @override
+  String get romanArithmeticBest => '최고 기록';
+
+  @override
+  String get romanArithmeticSeconds => '60초';
+
+  @override
+  String get wordSearchSubtitle => '격자에서 숨겨진 단어를 모두 찾으세요. 드래그하여 선택합니다.';
+
+  @override
+  String get missingVowelsTitle => '모음 찾기';
+
+  @override
+  String get missingVowelsSubtitle => '모음이 숨겨진 단어를 식별하세요.';
+
+  @override
+  String get missingVowelsWin => '모음 복구 완료!';
+
+  @override
+  String get missingVowelsHowToPlay =>
+      '모음(A, E, I, O, U)이 숨겨진 단어가 표시됩니다. 전체 단어를 맞혀보세요!';
+
+  @override
+  String get wordScrambleTitle => '단어 재배열';
+
+  @override
+  String get wordScrambleSubtitle => '글자를 탭하여 숨겨진 단어를 완성하세요!';
+
+  @override
+  String get wordScrambleWin => '단어 완성!';
+
+  @override
+  String get sudokuTitle => '스도쿠';
+
+  @override
+  String get sudokuSubtitle => '모든 행, 열, 3x3 박스에 1부터 9까지의 숫자가 하나씩 들어가도록 채우세요.';
+
+  @override
+  String get minesweeperTitle => '지뢰찾기';
+
+  @override
+  String get minesweeperSubtitle => '지뢰를 밟지 않고 모든 지뢰를 찾아내세요.';
+
+  @override
+  String get minesweeperWin => '승리!';
+
+  @override
+  String get minesweeperMines => '지뢰';
+
+  @override
+  String get minesweeperStatus => '상태';
+
+  @override
+  String get minesweeperWon => '승리함';
+
+  @override
+  String get minesweeperBoom => '폭발';
+
+  @override
+  String get minesweeperPlaying => '플레이 중';
+
+  @override
+  String get minesweeperReveal => '공개';
+
+  @override
+  String get minesweeperFlag => '깃발';
+
+  @override
+  String get game2048Title => '2048';
+
+  @override
+  String get game2048Subtitle => '아무 방향으로나 밀어서 타일을 합치고 2048 타일에 도달하세요!';
+
+  @override
+  String get nonogramTitle => '노노그램';
+
+  @override
+  String get nonogramSubtitle => '논리 힌트를 사용하여 숨겨진 이미지를 찾아내세요.';
+
+  @override
+  String get nonogramWin => '이미지 완성!';
+
+  @override
+  String get magnetsTitle => '마그넷';
+
+  @override
+  String get magnetsSubtitle => '극 수에 따라 그리드에 자석을 배치하세요.';
+
+  @override
+  String get magnetsHowToPlay =>
+      '도미노 크기의 용기에 \'+\' 및 \'-\' 자석을 채우거나 비워 둡니다. 행과 열의 힌트는 해당 라인의 각 극의 총 수를 지정합니다. 동일한 극은 직교하여 인접할 수 없습니다.';
+
+  @override
+  String get magnetsWinTitle => '극성 균형!';
+
+  @override
+  String get magnetsWinMessage => '모든 자석이 완벽하게 배치되었습니다!';
+
+  @override
+  String get lighthousesTitle => '등대';
+
+  @override
+  String get lighthousesSubtitle => '등대 힌트에 따라 배를 배치하세요.';
+
+  @override
+  String get lighthousesHowToPlay =>
+      '그리드에 1x1 배를 배치하세요. 등대는 가로 및 세로로 보이는 배의 총 수를 나타냅니다. 배는 등대나 서로에게 대각선으로도 닿을 수 없습니다.';
+
+  @override
+  String get lighthousesWinTitle => '바다 안전!';
+
+  @override
+  String get lighthousesWinMessage => '모든 등대가 배를 완벽하게 안내하고 있습니다!';
+
+  @override
+  String get dominosaTitle => '도미노사';
+
+  @override
+  String get dominosaSubtitle => '그리드에 숨겨진 모든 도미노를 찾으세요.';
+
+  @override
+  String get dominosaHowToPlay =>
+      '인접한 모든 숫자 쌍이 정확히 하나의 도미노로 덮이도록 숫자 그리드에 전체 도미노 세트를 배치하세요. 각 숫자 쌍은 세트에 단 한 번만 존재합니다.';
+
+  @override
+  String get dominosaWinTitle => '도미노 마스터!';
+
+  @override
+  String get dominosaWinMessage => '모든 도미노를 찾아 배치했습니다!';
+
+  @override
+  String get skyscrapersTitle => '스카이스크래퍼';
+
+  @override
+  String get skyscrapersSubtitle => '그리드를 건물 높이로 채우세요.';
+
+  @override
+  String get skyscrapersHowToPlay =>
+      '각 행과 열에 각 높이가 정확히 한 번씩 포함되도록 그리드를 높이(1-N)로 채우세요. 가장자리의 힌트는 해당 방향에서 보이는 건물의 수를 나타내며, 높은 건물이 낮은 건물을 가립니다.';
+
+  @override
+  String get skyscrapersWinTitle => '스카이라인 복구!';
+
+  @override
+  String get skyscrapersWinMessage => '모든 건물이 완벽하게 배치되었습니다!';
+
+  @override
+  String get nurikabeTitle => '누리카베';
+
+  @override
+  String get nurikabeSubtitle => '연결된 바다와 분리된 섬을 만드세요.';
+
+  @override
+  String get nurikabeHowToPlay =>
+      '셀을 칠하여 하나의 연결된 \'바다\'를 만듭니다(2x2 블록 금지). 칠하지 않은 셀은 \'섬\'을 형성하며, 각 섬에는 총 면적을 나타내는 숫자가 정확히 하나 포함됩니다.';
+
+  @override
+  String get nurikabeWinTitle => '바다가 흐른다!';
+
+  @override
+  String get nurikabeWinMessage => '섬이 분리되고 바다가 연결되었습니다!';
+
+  @override
+  String get fillominoTitle => '필로미노';
+
+  @override
+  String get fillominoSubtitle => '그리드를 지정된 크기의 폴리오미노로 나눕니다.';
+
+  @override
+  String get fillominoHowToPlay =>
+      '그리드를 폴리오미노로 나누어 크기 N의 각 폴리오미노가 모든 셀에 숫자 N을 포함하도록 합니다. 같은 크기의 폴리오미노는 직교하여 인접할 수 없습니다.';
+
+  @override
+  String get fillominoWinTitle => '그리드 분할!';
+
+  @override
+  String get fillominoWinMessage => '논리로 완벽하게 타일링되었습니다!';
+
+  @override
+  String get hitoriTitle => '히토리';
+
+  @override
+  String get hitoriSubtitle => '각 행과 열의 중복 숫자를 칠하세요.';
+
+  @override
+  String get hitoriHowToPlay =>
+      '어떤 행이나 열에서도 숫자가 두 번 이상 나타나지 않도록 셀을 칠하세요. 칠한 셀은 (직교하여) 인접할 수 없으며, 칠하지 않은 모든 셀은 하나의 연결된 그룹을 형성해야 합니다.';
+
+  @override
+  String get hitoriWinTitle => '히토리 마스터!';
+
+  @override
+  String get hitoriWinMessage => '모든 중복을 성공적으로 해결했습니다!';
+
+  @override
+  String get pathFinderTitle => '경로 찾기';
+
+  @override
+  String get pathFinderSubtitle => 'S에서 E까지 숨겨진 경로를 찾으세요.';
+
+  @override
+  String get pathFinderWin => '경로 마스터!';
+
+  @override
+  String get helpRulesHeading => 'Rules & Conditions:';
+
+  @override
+  String get helpDefaultObjective =>
+      'Objective: Solve the puzzle by completing the goals.';
+
+  @override
+  String get helpKakuroRules =>
+      'Goal: Fill all empty white cells with digits from 1 to 9.\nSum Rule: The digits in each horizontal or vertical consecutive block (run) must add up to the clue number shown in the triangle above or to the left.\nUnique Rule: No digit can be repeated within the same block (row run or column run).';
+
+  @override
+  String get helpFutoshikiRules =>
+      'Goal: Fill the grid with numbers so that every row and column contains each number exactly once.\nInequality Rule: Respect the greater-than (>) and less-than (<) signs between adjacent cells.\nUnique Rule: No number can be repeated in any row or column.';
+
+  @override
+  String get helpAkariRules =>
+      'Goal: Place light bulbs in white cells to illuminate the entire grid.\nIllumination Rule: A bulb illuminates all cells in its row and column, unless blocked by a black cell.\nNo-Clash Rule: No two light bulbs may illuminate each other.\nClue Rule: Numbered black cells indicate exactly how many light bulbs must be placed in their four adjacent (orthogonal) cells.';
+
+  @override
+  String get helpSudokuRules =>
+      'Goal: Fill the 9x9 grid with numbers 1 to 9.\nUnique Rule: Each row, column, and 3x3 sub-grid must contain all numbers from 1 to 9 without duplicates.';
+
+  @override
+  String get helpAlphabetSudokuRules =>
+      'Goal: Fill the 9x9 grid with letters from A to I.\nUnique Rule: Each row, column, and 3x3 sub-grid must contain all letters from A to I without duplicates.';
+
+  @override
+  String get helpSlitherlinkRules =>
+      'Goal: Connect dots on the grid to form a single, continuous loop.\nLoop Rule: The loop must be closed, must not self-intersect, and cannot have branches.\nClue Rule: Numbers inside cells indicate exactly how many of their 4 surrounding borders are part of the loop. Empty cells can have any number of borders.';
+
+  @override
+  String get helpBridgesRules =>
+      'Goal: Connect all circular islands with horizontal or vertical bridges.\nBridge Rules: Bridges cannot cross each other or pass through other islands.\nCount Rule: At most two bridges can connect any pair of islands.\nIsland Rule: The number on an island indicates exactly how many bridges must connect to it. All islands must end up connected in a single network.';
+
+  @override
+  String get helpKenkenRules =>
+      'Goal: Fill the grid with numbers 1 to N (where N is the grid size).\nUnique Rule: Each row and column must contain every number exactly once.\nCage Rule: The numbers in each outlined group of cells (cage) must combine to produce the target value using the shown math operator (+, -, ×, ÷).';
+
+  @override
+  String get helpNurikabeRules =>
+      'Goal: Partition the grid into white islands and a continuous blue stream (sea).\nIsland Rule: Each white island must contain exactly one numbered cell, and its cell count must equal that number.\nStream Rule: All blue stream cells must be connected diagonally or orthogonally.\nBlock Rule: The blue stream cannot form 2x2 solid blocks of water cells.';
+
+  @override
+  String get helpHitoriRules =>
+      'Goal: Shade cells to eliminate duplicate numbers in rows and columns.\nUnique Rule: In the final grid, no unshaded number can appear more than once in any row or column.\nAdjacency Rule: Shaded (black) cells cannot touch horizontally or vertically.\nConnectivity Rule: All unshaded cells must be connected to form a single continuous area.';
+
+  @override
+  String get helpNonogramRules =>
+      'Goal: Shade cells in the grid to reveal a hidden pixel image.\nClue Rule: The numbers at the start of each row and column indicate the sizes of consecutive blocks of shaded cells.\nSpacing Rule: There must be at least one empty cell separating consecutive blocks in a row or column.';
+
+  @override
+  String get helpSkyscrapersRules =>
+      'Goal: Fill the grid with numbers 1 to N representing skyscrapers of different heights.\nUnique Rule: Each row and column must contain every height exactly once.\nVisibility Rule: The numbers around the border indicate how many skyscrapers are visible from that direction (taller buildings block shorter ones behind them).';
+
+  @override
+  String get helpDominosaRules =>
+      'Goal: Reconstruct a complete set of dominoes on the grid.\nRule: Draw borders around pairs of adjacent cells to form distinct dominoes. Each possible domino combination must appear exactly once in the grid.';
+
+  @override
+  String get helpLighthousesRules =>
+      'Goal: Find all hidden ships in the grid.\nRule: Lighthouses (numbered cells) fire beams horizontally and vertically. The number indicates how many ships they illuminate in total.\nRule: Ships cannot touch lighthouses or other ships, even diagonally.';
+
+  @override
+  String get helpMagnetsRules =>
+      'Goal: Place magnetic plates (positive/negative poles) or blank plates in the grid.\nRule: Like magnetic poles (+ and +, or - and -) cannot touch orthogonally.\nRule: Numbers on the borders indicate how many positive (+) and negative (-) poles are in each row/column.';
+
+  @override
+  String get helpChangeBlindnessRules =>
+      'Goal: Spot the single tile that changes color or shape between alternating flickers.\nFlicker Rule: The board briefly flickers every second. Watch closely to detect what changes.\nTime & Score: You have 60 seconds. Each correct spot earns +1 point and advances you to the next trial.\nPenalty: Tapping an incorrect tile reduces remaining time by 2 seconds.';
+
+  @override
+  String get helpSemanticDistanceRules =>
+      'Goal: Guess the secret hidden word before time runs out.\nInput: Type any word into the input field and press send.\nDistance Score: Each submitted guess shows a semantic distance score indicating conceptual distance to the secret word.\nClues: Lower distance scores mean warmer/closer (e.g. 10 is very close, 80 is unrelated).\nVictory: Submit the exact secret word to get a distance of 0.0 and solve the puzzle.';
+
+  @override
+  String get helpD2AttentionInstructions =>
+      'You will see rows of letters \"d\" and \"p\" with small dashes above and/or below them.\n\nSelect ONLY the letters \"d\" that have EXACTLY two dashes in total (e.g. 1 above and 1 below, or 2 above, or 2 below).\n\nIgnore all \"p\"s and any \"d\"s with 1, 3, or 4 dashes. Tap SUBMIT when you have finished scanning the board.';
+
+  @override
+  String get helpSpatialConflictInstructions =>
+      'A word (\"LEFT\" or \"RIGHT\") will appear on either the left or right side of the screen.\n\nIgnore which side the word physically appears on. Only pay attention to the text word itself and tap the matching button below.';
+
+  @override
+  String get helpSpotlightTrackInstructions =>
+      'A bright cyan target will move along a path. The screen will be dark except for a sweeping spotlight.\n\nThe target is ONLY visible when the spotlight shines on it.\n\nMentally track the target when it enters the dark. Once it stops moving, tap where you think it ended.';
+
+  @override
+  String get helpSilhouetteMatchOrthoInstructions =>
+      '1. Drag your finger on the 3D viewport at the top to rotate and inspect the 3D block figure.\n\n2. Look at the challenge target perspective (TOP, FRONT, or SIDE view).\n\n3. Match the 3D block figure to its correct 2D silhouette option below.\n\n4. Tap the correct option (A, B, or C) and tap \"SUBMIT RESPONSE\" to check!';
+
+  @override
+  String get helpRotatingMazeInstructions =>
+      '1. Use the directional buttons at the bottom to guide the marble (red/gold sphere) to the exit (green portal).\n\n2. Every 5 moves, the entire maze rotates 90 degrees!\n\n3. Plan ahead: the rotation will shift the walls, blocking old paths and opening new ones.\n\n4. Direct navigation inputs map dynamically to screen space so \"UP\" always rolls the marble \"UP\" on your screen!';
+
+  @override
+  String get helpShadowPivotInstructions =>
+      '1. Drag on the 3D viewport to rotate the block figure.\n\n2. Observe the target light source direction (FRONT, SIDE, or TOP).\n\n3. Choose the correct 2D shadow (silhouette) that the light would cast.\n\n4. Select your answer and tap \"CHECK RESPONSE\".';
+
+  @override
+  String get guideTitle => 'Guide';
+
+  @override
+  String get guideCategoryMathLogic => 'Math & Logic';
+
+  @override
+  String get guideCategoryFlexibility => 'Flexibility';
+
+  @override
+  String get guideCategorySpeed => 'Speed';
+
+  @override
+  String get guideMissing => 'Guide not found.';
+
+  @override
+  String get guideSummary => 'Solving guide & important tips';
+
+  @override
+  String get guideObjective => 'Objective & Rules';
+
+  @override
+  String get guideControls => 'Controls & Interaction';
+
+  @override
+  String get guideWalkthrough => 'Step-by-Step Gameplay';
+
+  @override
+  String get guideStrategies => 'Solving Strategies & Tips';
+
+  @override
+  String get howToPlay => '게임 방법';
+
+  @override
+  String get gotIt => '확인';
+
+  @override
+  String get akariTitle => '아카리';
+
+  @override
+  String get akariSubtitle => '모든 흰색 칸을 밝히세요';
+
+  @override
+  String get akariHowToPlay => '모든 흰색 칸을 밝히세요';
+
+  @override
+  String get akariWinTitle => '점등 완료!';
+
+  @override
+  String get akariWinMessage => '모든 곳이 완벽하게 밝혀졌습니다.';
+
+  @override
+  String get arithmeticChainTitle => '체인 계산';
+
+  @override
+  String get arithmeticChainSubtitle => '머릿속으로 누적 합계를 계산하세요';
+
+  @override
+  String get arithmeticChainWinTitle => '레벨 업!';
+
+  @override
+  String get arithmeticChainWinMessage => '암산 실력이 대단하시네요!';
+
+  @override
+  String get arithmeticChainLoseTitle => '다시 시도';
+
+  @override
+  String arithmeticChainLoseMessage(String answer) {
+    return '정답은 $answer였습니다.';
+  }
+
+  @override
+  String get arithmeticChainStart => '시작';
+
+  @override
+  String get arithmeticChainNext => '다음';
+
+  @override
+  String get attentionalBlinkTitle => '주의력 깜빡임';
+
+  @override
+  String get attentionalBlinkSubtitleWatch => '숫자를 주의 깊게 보세요';
+
+  @override
+  String get attentionalBlinkSubtitleInput => '보았던 두 숫자를 입력하세요';
+
+  @override
+  String attentionalBlinkScoreMessage(int score) {
+    return '$score개의 목표를 맞혔습니다!';
+  }
+
+  @override
+  String get balanceScaleTitle => '천칭 저울';
+
+  @override
+  String get balanceScaleSubtitle => '저울을 바탕으로 마지막 아이템의 무게를 추론하세요.';
+
+  @override
+  String get balanceScaleWinTitle => '균형 달성!';
+
+  @override
+  String get balanceScaleWinMessage => '무게를 올바르게 추론했습니다!';
+
+  @override
+  String get balanceScaleLoseTitle => '불균형';
+
+  @override
+  String get balanceScaleLoseMessage => '올바른 균형을 찾기 위해 다시 시도해보세요.';
+
+  @override
+  String get balanceScaleBack => '뒤로';
+
+  @override
+  String get balanceScaleSubmit => '제출';
+
+  @override
+  String get binaryPuzzleTitle => '이진 퍼즐';
+
+  @override
+  String get binaryPuzzleSubtitle =>
+      '0과 1로 채우세요. 동일한 숫자가 3개 이상 인접할 수 없습니다. 각 행과 열의 0과 1의 개수는 같아야 합니다.';
+
+  @override
+  String get binaryPuzzleWinTitle => '잘했습니다';
+
+  @override
+  String get binaryPuzzleWinMessage => '완벽한 논리로 이진 퍼즐을 해결했습니다!';
+
+  @override
+  String get blockEscapeTitle => '블록 탈출';
+
+  @override
+  String get blockEscapeSubtitle => '블록을 밀어서 주요 블록이 출구로 나갈 수 있도록 길을 만드세요.';
+
+  @override
+  String get blockEscapeWinTitle => '탈출!';
+
+  @override
+  String get blockEscapeWinMessage => '주요 블록을 위한 길을 성공적으로 만들었습니다!';
+
+  @override
+  String get boxCompletionTitle => '상자 완성';
+
+  @override
+  String get boxCompletionSubtitle => '어떤 입체도형을 만들 수 있을까요?';
+
+  @override
+  String boxCompletionScoreMessage(int score, int totalTrials) {
+    return '$totalTrials번 중 $score번 성공했습니다!';
+  }
+
+  @override
+  String get boxCompletionOptions => '옵션';
+
+  @override
+  String get bridgesTitle => '다리 놓기';
+
+  @override
+  String get bridgesSubtitle =>
+      '섬들을 다리로 연결하세요. 각 섬은 정해진 수의 다리가 필요합니다. 다리는 서로 교차할 수 없습니다.';
+
+  @override
+  String get bridgesWinTitle => '연결 완료!';
+
+  @override
+  String get bridgesWinMessage => '모든 섬을 성공적으로 연결했습니다!';
+
+  @override
+  String get calculationSprintTitle => '계산 스프린트';
+
+  @override
+  String get calculationSprintSubtitle => '60초 동안 최대한 많은 수식을 해결하세요.';
+
+  @override
+  String get calculationSprintGoalReached => '목표 달성!';
+
+  @override
+  String get calculationSprintTimeUp => '시간 종료';
+
+  @override
+  String calculationSprintScoreMessage(int score) {
+    return '훌륭한 계산 속도입니다! $score점을 획득했습니다.';
+  }
+
+  @override
+  String calculationSprintTryAgainMessage(int score) {
+    return '$score점을 획득했습니다. 최고 기록에 도전해보세요!';
+  }
+
+  @override
+  String get calculationSprintBest => '최고 기록';
+
+  @override
+  String get calculationSprintSeconds => '60초';
+
+  @override
+  String get calculationSprintDescription => '수식을 빠르게 해결하세요.\n오답 시 3초가 차감됩니다!';
+
+  @override
+  String get calculationSprintStart => '스프린트 시작';
+
+  @override
+  String get categoryFluencyTitle => '카테고리 유창성';
+
+  @override
+  String get categoryFluencySubtitle => '카테고리에 속하는 아이템을 입력하세요';
+
+  @override
+  String get categoryFluencyExpert => '유창성 전문가!';
+
+  @override
+  String get categoryFluencyTimeUp => '시간 종료!';
+
+  @override
+  String get categoryFluencyWinMessage => '어휘력이 정말 풍부하시네요!';
+
+  @override
+  String categoryFluencyFoundMessage(int count) {
+    return '$count개의 단어를 찾았습니다.';
+  }
+
+  @override
+  String get categoryFluencyCategoryLabel => '카테고리:';
+
+  @override
+  String get categoryFluencyEnterItem => '아이템 입력...';
+
+  @override
+  String categoryFluencyWordCount(int entered, int target) {
+    return '$entered / $target 단어';
+  }
+
+  @override
+  String get changeBlindnessTitle => '변화맹';
+
+  @override
+  String get changeBlindnessSubtitle => '변화하는 아이템을 찾으세요';
+
+  @override
+  String changeBlindnessScore(int score) {
+    return '점수: $score';
+  }
+
+  @override
+  String changeBlindnessFoundMessage(int score) {
+    return '$score개의 변화를 찾았습니다!';
+  }
+
+  @override
+  String get choiceRtTitle => '선택 반응 시간';
+
+  @override
+  String get choiceRtSubtitle => '활성화된 사각형을 최대한 빨리 탭하세요';
+
+  @override
+  String choiceRtAvgMessage(String avg) {
+    return '평균 반응 시간: ${avg}ms';
+  }
+
+  @override
+  String choiceRtTimeRemaining(int time) {
+    return '남은 시간: $time초';
+  }
+
+  @override
+  String choiceRtTaps(int count) {
+    return '탭 횟수: $count';
+  }
+
+  @override
+  String get colorFloodTitle => '컬러 플러드';
+
+  @override
+  String colorFloodSubtitle(int moves, int maxMoves) {
+    return '이동: $moves / $maxMoves';
+  }
+
+  @override
+  String get colorFloodSuccess => '플러드 성공!';
+
+  @override
+  String get colorFloodDryLand => '시도 실패...';
+
+  @override
+  String get colorFloodWinMessage => '격자 전체를 색상으로 가득 채웠습니다!';
+
+  @override
+  String get colorFloodLoseMessage => '이동 횟수를 모두 소모했습니다. 다시 시도해보세요!';
+
+  @override
+  String get colorMatchTitle => '컬러 매치';
+
+  @override
+  String get colorMatchSubtitle => '슬라이더를 조절하여 목표 색상과 최대한 비슷하게 맞추세요.';
+
+  @override
+  String get colorMatchTarget => '목표';
+
+  @override
+  String get colorMatchYours => '내 색상';
+
+  @override
+  String get colorMatchCheck => '확인';
+
+  @override
+  String get colorMatchResult => '일치 결과';
+
+  @override
+  String colorMatchAccuracy(String accuracy) {
+    return '정확도: $accuracy%';
+  }
+
+  @override
+  String get corsiBlocksTitle => '코시 블록';
+
+  @override
+  String get corsiBlocksSubtitle => '블록이 켜지는 순서를 기억하고 똑같이 탭하세요.';
+
+  @override
+  String get corsiBlocksWinTitle => '공간지각 마스터!';
+
+  @override
+  String get corsiBlocksLoseTitle => '기억 오류';
+
+  @override
+  String corsiBlocksMessage(int score, int span) {
+    return '$score개의 시퀀스를 맞혔습니다! 공간 기억 폭이 $span에 도달했습니다.';
+  }
+
+  @override
+  String get corsiBlocksWatch => '패턴을 기억하세요';
+
+  @override
+  String get corsiBlocksRepeat => '패턴을 반복하세요';
+
+  @override
+  String get corsiBlocksExcellent => '훌륭합니다!';
+
+  @override
+  String get corsiBlocksSpan => '범위';
+
+  @override
+  String get crownTitle => '크라운';
+
+  @override
+  String get crownSubtitle =>
+      '각 행, 열, 색상 영역에 왕관을 하나씩 배치하세요. 왕관은 대각선을 포함하여 서로 인접할 수 없습니다.';
+
+  @override
+  String get crownCrowned => '성공!';
+
+  @override
+  String get crownSuccess => '완벽한 논리로 모든 왕관을 배치했습니다.';
+
+  @override
+  String get cryptogramTitle => '크립토그램';
+
+  @override
+  String get cryptogramSubtitle =>
+      '암호화된 글자를 해독하여 비밀 메시지를 찾으세요! 각 암호 글자는 실제 글자를 나타냅니다.';
+
+  @override
+  String get cryptogramBroken => '암호 해독!';
+
+  @override
+  String get cryptogramEncrypted => '암호화됨';
+
+  @override
+  String get cryptogramSuccess => '메시지를 완벽하게 해독했습니다.';
+
+  @override
+  String get cryptogramTryAgain => '다시 시도하여 암호를 풀어보세요.';
+
+  @override
+  String get digitSpanReverseTitle => '역순 기억';
+
+  @override
+  String get digitSpanReverseSubtitleMemorize => '숫자를 기억하세요';
+
+  @override
+  String get digitSpanReverseSubtitleEnter => '숫자를 역순으로 입력하세요';
+
+  @override
+  String get digitSpanReverseWinTitle => '레벨 업!';
+
+  @override
+  String get digitSpanReverseWinMessage => '작업 기억력이 인상적입니다!';
+
+  @override
+  String get digitSpanReverseLoseTitle => '다시 시도';
+
+  @override
+  String digitSpanReverseLoseMessage(String sequence) {
+    return '올바른 역순 시퀀스는 $sequence였습니다.';
+  }
+
+  @override
+  String get dividedAttentionTitle => '분할 주의력';
+
+  @override
+  String get dividedAttentionSubtitle => '별 ⭐은 왼쪽 | 빨간색 🔴은 오른쪽 탭';
+
+  @override
+  String get dividedAttentionGameOverTitle => '집중력 분산';
+
+  @override
+  String dividedAttentionGameOverMessage(int score) {
+    return '멀티태스킹은 어렵네요! 점수는 $score점입니다.';
+  }
+
+  @override
+  String dividedAttentionScore(int score) {
+    return '점수: $score';
+  }
+
+  @override
+  String get doubleNBackTitle => '더블 N-Back';
+
+  @override
+  String doubleNBackSubtitle(int n) {
+    return '$n단계 전의 자극과 일치하는지 맞히세요';
+  }
+
+  @override
+  String get doubleNBackGameOverTitle => '게임 종료';
+
+  @override
+  String doubleNBackGameOverMessage(int score) {
+    return '더블 N-Back에서 $score점을 기록했습니다!';
+  }
+
+  @override
+  String doubleNBackScore(int score) {
+    return '점수: $score';
+  }
+
+  @override
+  String get doubleNBackPositionMatch => '위치 일치';
+
+  @override
+  String get doubleNBackLetterMatch => '글자 일치';
+
+  @override
+  String get faceNameAssociationTitle => '얼굴-이름 연상';
+
+  @override
+  String get faceNameAssociationSubtitleStudy => '각 얼굴의 이름을 기억하세요';
+
+  @override
+  String get faceNameAssociationSubtitleTest => '이분은 누구일까요?';
+
+  @override
+  String get faceNameAssociationPerfect => '완벽합니다!';
+
+  @override
+  String get faceNameAssociationGameOver => '게임 종료';
+
+  @override
+  String get faceNameAssociationWinMessage => '얼굴과 이름을 기억하는 능력이 훌륭하시네요!';
+
+  @override
+  String faceNameAssociationLoseMessage(int correct, int total) {
+    return '$total개 중 $correct개를 맞혔습니다.';
+  }
+
+  @override
+  String get faceNameAssociationStartTest => '테스트 시작';
+
+  @override
+  String get flankerTestWinTitle => '놀라운 집중력!';
+
+  @override
+  String get flankerTestLoseTitle => '주의 산만';
+
+  @override
+  String flankerTestScoreMessage(int score) {
+    return '$score개를 올바르게 맞혔습니다!';
+  }
+
+  @override
+  String get flankerTestTitle => '플랭커 테스트';
+
+  @override
+  String get flankerTestSubtitle => '주변 화살표를 무시하고 중앙 화살표의 방향을 가리키세요.';
+
+  @override
+  String get flankerTestLeft => '왼쪽';
+
+  @override
+  String get flankerTestRight => '오른쪽';
+
+  @override
+  String get fractionMatchTitle => '분수 매치';
+
+  @override
+  String get fractionMatchSubtitle => '그림에 알맞은 분수를 찾으세요';
+
+  @override
+  String get fractionMatchLoseTitle => '불일치';
+
+  @override
+  String fractionMatchLoseMessage(String correctAnswer) {
+    return '정답은 $correctAnswer였습니다.';
+  }
+
+  @override
+  String get goNoGoTitle => 'Go / No-Go';
+
+  @override
+  String get goNoGoSubtitle => '초록색은 탭하고, 빨간색은 무시하세요!';
+
+  @override
+  String get goNoGoLoseTitle => '반응 실패';
+
+  @override
+  String get goNoGoLoseMessage => '억제 조절 능력을 테스트 중입니다!';
+
+  @override
+  String get goNoGoTapAnywhere => '시작하려면 아무 곳이나 탭하세요';
+
+  @override
+  String get groceryListTitle => '식료품 목록';
+
+  @override
+  String get groceryListSubtitleMemorize => '아이템과 카테고리를 기억하세요';
+
+  @override
+  String get groceryListSubtitleTest => '이 아이템은 어느 카테고리에 속했나요?';
+
+  @override
+  String get groceryListWinTitle => '쇼핑 전문가!';
+
+  @override
+  String get groceryListLoseTitle => '잊으신 게 있나요?';
+
+  @override
+  String groceryListScoreMessage(int score) {
+    return '식료품 목록 게임에서 $score점을 기록했습니다!';
+  }
+
+  @override
+  String get groceryListReady => '준비되었습니다';
+
+  @override
+  String get groceryListWhereBelong => '어디에 속할까요?';
+
+  @override
+  String get hueSortTitle => '색상 정렬';
+
+  @override
+  String get hueSortSubtitle =>
+      '타일을 교체하여 모서리 색상 간의 부드러운 변화를 만드세요. 점이 있는 타일은 고정되어 있습니다.';
+
+  @override
+  String get hueSortWinTitle => '완벽한 그라데이션!';
+
+  @override
+  String get hueSortWinMessage => '색상 스펙트럼을 완벽하게 정렬했습니다!';
+
+  @override
+  String hueSortWrongTiles(int count) {
+    return '잘못된 위치의 타일: $count';
+  }
+
+  @override
+  String get kenkenTitle => '켄켄';
+
+  @override
+  String get kenkenWinTitle => '천재!';
+
+  @override
+  String get kenkenLoseTitle => '게임 종료';
+
+  @override
+  String get kenkenWinMessage => '켄켄 퍼즐을 해결했습니다!';
+
+  @override
+  String get kenkenLoseMessage => '행/열 및 케이지 규칙을 확인하세요.';
+
+  @override
+  String kenkenSubtitle(int size) {
+    return '행/열에 중복 없이 1-$size까지 채우세요';
+  }
+
+  @override
+  String get letterCancellationTitle => '글자 지우기';
+
+  @override
+  String get letterCancellationTitleFull => '글자 지우기 테스트';
+
+  @override
+  String letterCancellationScoreMessage(int score) {
+    return '$score개의 글자를 찾았습니다!';
+  }
+
+  @override
+  String letterCancellationSubtitle(String target) {
+    return '\"$target\" 글자를 모두 찾으세요';
+  }
+
+  @override
+  String get letterCancellationFound => '찾음';
+
+  @override
+  String get letterCancellationTime => '시간';
+
+  @override
+  String get lightsOutTitle => '라이츠 아웃';
+
+  @override
+  String get lightsOutSubtitle => '타일을 탭하면 자신과 인접한 타일이 반전됩니다. 모든 불을 꺼서 해결하세요.';
+
+  @override
+  String get lightsOutWinTitle => '퍼즐 해결!';
+
+  @override
+  String get lightsOutWinMessage => '성공적으로 모든 불을 껐습니다!';
+
+  @override
+  String get symmetryTitle => '대칭';
+
+  @override
+  String get symmetrySubtitle => '왼쪽의 패턴을 오른쪽 빈 격자에 대칭으로 만드세요.';
+
+  @override
+  String get semanticLinkTitle => '의미 연결';
+
+  @override
+  String get semanticLinkSubtitle => '세 단어를 모두 연결하는 단어를 찾으세요';
+
+  @override
+  String get reflexTapTitle => '반사 탭';
+
+  @override
+  String get visualStatisticalLearningTitle => '시각적 학습';
+
+  @override
+  String get orbitTapTitle => '오빗 탭';
+
+  @override
+  String get orbitTapSubtitle => '공이 게이트에 맞춰질 때 탭하세요';
+
+  @override
+  String get orbitTapTapToHit => '공이 게이트에 들어갈 때 탭하세요';
+
+  @override
+  String get schulteTableTitle => '슐테 테이블';
+
+  @override
+  String get multipleObjectTrackingTitle => '객체 추적';
+
+  @override
+  String get multipleObjectTrackingSubtitle => '강조된 객체를 관찰하고 이동을 추적한 뒤 선택하세요.';
+
+  @override
+  String get sdmtTitle => 'SDMT 테스트';
+
+  @override
+  String get sdmtSubtitle => '위의 키를 사용하여 기호에 맞는 숫자를 찾으세요.';
+
+  @override
+  String get memoryMatrixTitle => '기억 행렬';
+
+  @override
+  String get memoryMatrixSubtitle => '패턴을 기억하고 타일을 탭하세요.';
+
+  @override
+  String get mentalAbacusTitle => '정신 주판';
+
+  @override
+  String get mentalAbacusSubtitle => '주판을 사용하여 계산하세요';
+
+  @override
+  String get spellingSprintTitle => '스펠링 스프린트';
+
+  @override
+  String get spellingSprintSubtitle => '제한 시간 내에 최대한 많은 단어의 철자를 맞히세요.';
+
+  @override
+  String get stopSignalTitle => '정지 신호';
+
+  @override
+  String get stopSignalSubtitle => '화살표 방향을 탭하되, 화살표가 빨간색으로 변하면 즉시 멈추세요.';
+
+  @override
+  String get staircaseMemoryTitle => '계단 기억';
+
+  @override
+  String get vigilanceTaskTitle => '경계 태스크';
+
+  @override
+  String get vigilanceTaskSubtitle => '바늘이 한 칸을 건너뛸 때 버튼을 탭하세요';
+
+  @override
+  String get logicalSyllogismsTitle => '논리적 삼단논법';
+
+  @override
+  String get logicalSyllogismsSubtitle => '결론이 논리적으로 타당합니까?';
+
+  @override
+  String get mathPathTitle => '수학 경로';
+
+  @override
+  String get mathPathSubtitle => '합계가 목표 수치와 정확히 일치하는 경로를 찾으세요.';
+
+  @override
+  String get sternbergTaskTitle => '스턴버그 태스크';
+
+  @override
+  String get sternbergTaskMemorize => '글자를 기억하세요';
+
+  @override
+  String get sternbergTaskWasLetterSet => '이 글자가 목록에 있었나요?';
+
+  @override
+  String sternbergTaskScore(int score) {
+    return '스턴버그 태스크에서 $score점을 기록했습니다!';
+  }
+
+  @override
+  String get verbalAnalogiesTitle => '언어 유추';
+
+  @override
+  String get verbalAnalogiesSubtitle => '관계를 완성하세요';
+
+  @override
+  String get typingSpeedTitle => '타이핑 속도';
+
+  @override
+  String get typingSpeedSubtitle => '문장을 보이는 대로 최대한 빨리 입력하세요!';
+
+  @override
+  String get wordLadderTitle => '워드 래더';
+
+  @override
+  String get wordLadderSubtitle => '한 번에 한 글자씩 바꿔서 단어들을 연결하세요.';
+
+  @override
+  String get tangleFixTitle => '엉킴 풀기';
+
+  @override
+  String get tangleFixSubtitle => '선이 겹치지 않도록 정리하세요';
+
+  @override
+  String get oddRotationTitle => '이상한 회전';
+
+  @override
+  String get oddRotationSubtitle => '하나만 반전되어 있습니다. 찾을 수 있나요?';
+
+  @override
+  String get towerOfLondonTitle => '런던 탑';
+
+  @override
+  String get towerOfLondonSubtitle => '목표 구성과 일치시키세요';
+
+  @override
+  String get symbolicFlankerTitle => '기호 플랭커';
+
+  @override
+  String get symbolicFlankerSubtitle => '중앙의 기호에 집중하세요';
+
+  @override
+  String get stroopTestTitle => '스트룹 테스트';
+
+  @override
+  String get stroopTestSubtitle => '단어의 의미가 아닌, 글자의 색상을 맞히세요!';
+
+  @override
+  String get wisconsinCardSortingTitle => '위스콘신 카드 분류';
+
+  @override
+  String get wisconsinCardSortingSubtitle => '카드를 위의 네 장 중 하나와 분류 규칙에 맞춰 매치하세요';
+
+  @override
+  String get nBackTitle => 'N-Back 테스트';
+
+  @override
+  String get nBackSubtitle => '현재 글자가 2단계 전의 글자와 일치하면 \'일치\'를 탭하세요.';
+
+  @override
+  String get rhythmMasterTitle => '리듬 마스터';
+
+  @override
+  String get rhythmMasterSubtitle => '박자에 맞춰 탭하세요';
+
+  @override
+  String get pixelMimicTitle => '픽셀 미믹';
+
+  @override
+  String get targetNumberTitle => '목표 숫자 24';
+
+  @override
+  String targetNumberSubtitle(int target) {
+    return '4개의 숫자를 모두 사용하여 $target를 만드세요';
+  }
+
+  @override
+  String get mirrorTracingTitle => '거울 따라 그리기';
+
+  @override
+  String get mirrorTracingSubtitle => '별을 따라 그리세요! 조작 방향이 반대입니다.';
+
+  @override
+  String get wordSurgeTitle => '워드 서지';
+
+  @override
+  String get wordSurgeSubtitle => '유의어 및 반의어';
+
+  @override
+  String get perspectiveTakingTitle => '관점 수용';
+
+  @override
+  String get perspectiveTakingTopDownView => '위에서 본 모습';
+
+  @override
+  String get perspectiveTakingChoosePerspective => '관점을 선택하세요';
+
+  @override
+  String get perspectiveTakingCongrats => '공간 관계를 파악하는 능력이 뛰어나시네요.';
+
+  @override
+  String perspectiveTakingSubtitle(String targetDirName) {
+    return '$targetDirName에서 본 모습은 무엇인가요?';
+  }
+
+  @override
+  String get paperFoldingTitle => '종이 접기';
+
+  @override
+  String get paperFoldingSubtitle => '종이를 펼쳤을 때 어떤 모습일까요?';
+
+  @override
+  String get waterSortTitle => '워터 소트';
+
+  @override
+  String get waterSortSubtitle => '각 튜브에 한 가지 색상만 남도록 색상을 분류하세요.';
+
+  @override
+  String get numericalEstimationTitle => '수치 추정';
+
+  @override
+  String get numericalEstimationSubtitle => '가장 가까운 정답을 빨리 고르세요!';
+
+  @override
+  String get lockPatternTitle => '잠금 패턴';
+
+  @override
+  String get lockPatternSubtitle =>
+      '비밀 패턴을 찾으세요. 시도할 때마다 위치와 점에 대한 피드백이 제공됩니다.';
+
+  @override
+  String get primeHunterTitle => '소수 사냥꾼';
+
+  @override
+  String get primeHunterSubtitle => '소수는 왼쪽 | 합성수는 오른쪽으로 미세요';
+
+  @override
+  String get tracePathTitle => '경로 추적';
+
+  @override
+  String get tracePathSubtitle => '목표 경로를 최대한 정확하게 따라가세요';
+
+  @override
+  String get ruleSwitcherTitle => '규칙 전환';
+
+  @override
+  String get ruleSwitcherSubtitle => '현재 규칙을 적용하세요';
+
+  @override
+  String get choiceReactionTimeTitle => '선택 반응 시간';
+
+  @override
+  String get pathRecallTitle => '경로 기억';
+
+  @override
+  String get switchTaskTitle => '전환 태스크';
+
+  @override
+  String get switchTaskSubtitle => '규칙에 주의하세요! 모양 맞추기와 색상 맞추기 사이에서 전환됩니다.';
+
+  @override
+  String get mentalRotationTitle => '정신적 회전';
+
+  @override
+  String get mentalRotationSubtitle => '회전된 이 도형들은 같은 도형인가요?';
+
+  @override
+  String get missingOperatorTitle => '연산자 찾기';
+
+  @override
+  String get missingOperatorSubtitle => '수식을 완성하기 위해 빈칸을 채우세요';
+
+  @override
+  String get wordMastermindTitle => '워드 마스터마인드';
+
+  @override
+  String get wordMastermindSubtitle =>
+      '4글자 코드를 맞히세요! B는 위치와 글자 모두 일치, C는 글자만 일치합니다.';
+
+  @override
+  String get simonSequenceTitle => '사이먼 시퀀스';
+
+  @override
+  String get symbolLogicTitle => '기호 논리';
+
+  @override
+  String get symbolLogicSubtitle =>
+      '시각적 방정식을 풀어 각 기호의 값을 찾으세요. 마지막 방정식의 결과는 무엇일까요?';
+
+  @override
+  String get silhouetteMatchTitle => '실루엣 매치';
+
+  @override
+  String get silhouetteMatchSubtitle => '이 물체와 일치하는 실루엣은 무엇인가요?';
+
+  @override
+  String get operationSpanTitle => '작업 범위';
+
+  @override
+  String get operationSpanMathPhase => '방정식이 맞습니까?';
+
+  @override
+  String get operationSpanLetterPhase => '글자를 기억하세요';
+
+  @override
+  String get operationSpanRecallPhase => '기억한 글자들을 순서대로 입력하세요';
+
+  @override
+  String get operationSpanRoundComplete => '라운드 종료!';
+
+  @override
+  String operationSpanScore(int score) {
+    return '작업 범위 게임에서 $score점을 기록했습니다!';
+  }
+
+  @override
+  String get slidePuzzleTitle => '슬라이드 퍼즐';
+
+  @override
+  String get slidePuzzleNewGame => '새 게임';
+
+  @override
+  String get slidePuzzleInstructions => '빈 공간으로 타일을 밀어서 숫자를 순서대로 정렬하세요.';
+
+  @override
+  String get slidePuzzleTileSlider => '타일 슬라이더';
+
+  @override
+  String get slidePuzzleCongrats => '성공적으로 모든 타일을 정렬했습니다.';
+
+  @override
+  String get visualSearchTitle => '시각적 검색';
+
+  @override
+  String get visualSearchSubtitle => '격자에서 유일한 기호를 찾으세요';
+
+  @override
+  String get trailMakingTitle => '길 만들기';
+
+  @override
+  String get trailMakingSubtitle => '숫자를 순서대로(1 -> 2 -> 3...) 최대한 빨리 연결하세요.';
+
+  @override
+  String get matrixReasoningTitle => '행렬 추론';
+
+  @override
+  String get matrixReasoningSubtitle => '3x3 격자의 패턴을 완성하세요';
+
+  @override
+  String get tentsAndTreesTitle => '텐트와 나무';
+
+  @override
+  String get tentsAndTreesSubtitle =>
+      '나무 옆에 텐트를 배치하세요. 숫자는 각 행/열에 필요한 텐트의 수입니다. 텐트는 서로 닿을 수 없습니다.';
+
+  @override
+  String get quickMathTitle => '빠른 수학';
+
+  @override
+  String get magicSquaresTitle => '마방진';
+
+  @override
+  String magicSquaresSubtitle(int targetSum) {
+    return '모든 행, 열, 대각선의 합이 $targetSum이 되어야 합니다.';
+  }
+
+  @override
+  String get objectShuffleTitle => '물체 셔플';
+
+  @override
+  String get pipesTitle => '파이프';
+
+  @override
+  String get pipesSubtitle => '같은 색상의 점들을 파이프로 연결하세요.';
+
+  @override
+  String get oddOneOutTitle => '다른 것 찾기';
+
+  @override
+  String get oddOneOutSubtitle => '색상이 다른 타일을 찾으세요.';
+
+  @override
+  String get einsteinRiddleTitle => '아인슈타인 수수께끼';
+
+  @override
+  String get einsteinRiddleSubtitle => '힌트를 사용하여 각 집의 속성을 추론하세요.';
+
+  @override
+  String get einsteinRiddleHowToPlay =>
+      '각 집은 고유한 속성(색상, 국적, 애완동물 등)을 가지고 있습니다. 제공된 힌트를 사용해 격자를 채워 전체 해결책을 찾으세요.';
+
+  @override
+  String get einsteinRiddleColor => '색상';
+
+  @override
+  String get einsteinRiddleNationality => '국적';
+
+  @override
+  String get einsteinRiddleDrink => '음료';
+
+  @override
+  String get einsteinRiddlePet => '반려동물';
+
+  @override
+  String get einsteinRiddleSmoke => '담배';
+
+  @override
+  String get einsteinRiddleHouse => '집';
+
+  @override
+  String get mirrorImageTitle => '거울 이미지';
+
+  @override
+  String get mirrorImageSubtitle => '올바른 거울 반사 이미지를 찾으세요.';
+
+  @override
+  String get mirrorImageHowToPlay => '모양을 보고 옵션 중에서 올바른 거울 반사 이미지를 선택하세요.';
+
+  @override
+  String get mentalMappingTitle => '정신적 지도';
+
+  @override
+  String get mentalMappingSubtitle => '방향을 따라가며 목적지를 찾으세요.';
+
+  @override
+  String get mentalMappingHowToPlay =>
+      '동서남북 방향 시퀀스가 표시됩니다. 격자 중앙에서 시작해 머릿속으로 경로를 따라간 뒤 최종 목적지를 선택하세요.';
+
+  @override
+  String get memoryPalaceTitle => '기억의 궁전';
+
+  @override
+  String get memoryPalaceSubtitle => '어떤 단어가 어느 위치에 있었는지 기억하세요.';
+
+  @override
+  String get memoryPalaceHowToPlay =>
+      '단어들이 격자의 여러 위치에 나타납니다. 위치를 기억한 뒤, 원래 위치에 단어들을 다시 배치하세요.';
+
+  @override
+  String get countingSheepTitle => '양 세기';
+
+  @override
+  String get countingSheepSubtitle => '양을 몇 마리 보았나요?';
+
+  @override
+  String get countingSheepHowToPlay =>
+      '양이 화면을 빠르게 가로질러 달려갑니다. 지나가는 양의 수를 세고 마지막에 총합을 입력하세요.';
+
+  @override
+  String get faceTraitAssociationTitle => '얼굴-특징 연상';
+
+  @override
+  String get faceTraitAssociationSubtitle => '각 얼굴의 특징을 기억하세요';
+
+  @override
+  String get faceTraitAssociationHowToPlay =>
+      '얼굴들과 함께 이름, 직업, 취미가 표시됩니다. 이 관계를 기억한 뒤, 나중에 각 얼굴의 특정 특징을 맞히세요.';
+
+  @override
+  String get mentalCalendarTitle => '정신력 달력';
+
+  @override
+  String get mentalCalendarSubtitle => '요일을 계산하세요';
+
+  @override
+  String get mentalCalendarHowToPlay =>
+      '무작위 날짜가 표시됩니다. 암산(또는 둠스데이 알고리즘)을 사용하여 해당 날짜가 무슨 요일인지 맞히세요.';
+
+  @override
+  String get vocabularyBuilderTitle => '어휘력 향상';
+
+  @override
+  String get vocabularyBuilderSubtitle => '제한 시간 내에 유의어와 반의어를 맞히세요.';
+
+  @override
+  String get vocabularyBuilderHowToPlay =>
+      '목표 단어와 관계(유의어 또는 반의어)가 주어집니다. 옵션 중에서 관계에 맞는 단어를 고르세요. 시간이 촉박하니 서두르세요!';
+
+  @override
+  String get correct => '정답';
+
+  @override
+  String get incorrect => '오답';
+
+  @override
+  String get grammarPoliceTitle => '문법 경찰';
+
+  @override
+  String get grammarPoliceSubtitle => '문장이 문법적으로 올바른지 또는 오류가 포함되어 있는지 확인하세요.';
+
+  @override
+  String get grammarPoliceHowToPlay =>
+      '화면 중앙에 문장이 나타납니다. 문법적으로 올바른지 또는 오류가 있는지 결정하세요. 괜찮으면 \'정답\'을, 실수를 발견하면 \'오답\'을 누르세요. 모든 생명을 잃지 마세요!';
+
+  @override
+  String get reverseStroopTitle => '역 스트룹';
+
+  @override
+  String get reverseStroopSubtitle => '집중 대상이 바뀌는 스트룹 테스트의 변형입니다.';
+
+  @override
+  String get reverseStroopHowToPlay =>
+      '지침에 주의하세요! \'텍스트\'라고 나오면 단어의 의미를, \'색상\'이라고 나오면 글자의 색상을 맞히세요. 집중력을 테스트하기 위해 규칙이 자주 바뀝니다.';
+
+  @override
+  String get game2048Instruction => '아무 방향으로나 밀어서 합치세요';
+
+  @override
+  String get fibonacciMergeTitle => '피보나치 머지';
+
+  @override
+  String get fibonacciMergeSubtitle =>
+      '연속된 피보나치 수(1, 1, 2, 3, 5, 8, 13...)를 합치세요.';
+
+  @override
+  String get sequenceSleuthTitle => '수열 탐정';
+
+  @override
+  String get sequenceSleuthSubtitle => '수학적 수열에서 빠진 숫자를 찾으세요.';
+
+  @override
+  String get divisibilityDashTitle => '배수 대시';
+
+  @override
+  String get divisibilityDashSubtitle => '주어진 숫자의 한 자리 약수(2-9)를 모두 탭하세요.';
+
+  @override
+  String get percentagePeakTitle => '퍼센트 피크';
+
+  @override
+  String get percentagePeakSubtitle => '암산으로 퍼센트 계산을 빠르게 해결하세요.';
+
+  @override
+  String get vennNumbersTitle => '벤 다이어그램 숫자';
+
+  @override
+  String get vennNumbersSubtitle => '숫자를 벤 다이어그램의 올바른 영역으로 분류하세요.';
+
+  @override
+  String get commonDenominatorTitle => '공통 분모';
+
+  @override
+  String get commonDenominatorSubtitle => '최대공약수나 최소공배수를 찾으세요.';
+
+  @override
+  String get angleFinderTitle => '각도 찾기';
+
+  @override
+  String get angleFinderSubtitle => '기하학 문제에서 빠진 각도를 계산하세요.';
+
+  @override
+  String get sumSnakeTitle => '합계 스네이크';
+
+  @override
+  String get sumSnakeSubtitle => '인접한 숫자를 연결하여 목표 합계에 도달하세요.';
+
+  @override
+  String get baseShiftTitle => '진법 변환 블리츠';
+
+  @override
+  String get baseShiftSubtitle => '10진수로 해결';
+
+  @override
+  String get baseShiftDescription => '수식을 풀고 답을 10진수(Base 10)로 입력하세요.';
+
+  @override
+  String get baseShiftEquation => '수식';
+
+  @override
+  String get baseShiftHint => '10진수 결과 입력...';
+
+  @override
+  String get baseShiftCorrect => '정답입니다!';
+
+  @override
+  String get baseShiftIncorrect => '틀렸습니다!';
+
+  @override
+  String get baseShiftSubmit => '제출';
+
+  @override
+  String get baseShiftQuickGuide => '빠른 가이드:';
+
+  @override
+  String get baseShiftBinary => '2진수 (bin): 2진법 (0, 1)';
+
+  @override
+  String get baseShiftHex => '16진수 (0x): 16진법 (0-9, A-F)';
+
+  @override
+  String get baseShiftDecimal => '10진수 (dec): 10진법 (0-9)';
+
+  @override
+  String get baseShiftWinTitle => '수학 마법사!';
+
+  @override
+  String get baseShiftWinMessage => '5개의 진법 변환 수식을 모두 맞혔습니다!';
+
+  @override
+  String get blockCount3DTitle => '3D 블록 세기';
+
+  @override
+  String get blockCount3DSubtitle => '드래그하여 회전 • 숨겨진 블록 세기';
+
+  @override
+  String get blockCount3DHowMany => '블록이 몇 개인가요?';
+
+  @override
+  String get blockCount3DSubmitGuess => '답안 제출';
+
+  @override
+  String get blockCount3DNotQuite => '아쉬워요! 회전시켜서 다시 세어보세요.';
+
+  @override
+  String get blockCount3DExcellent => '훌륭합니다';
+
+  @override
+  String blockCount3DWinMessage(int count) {
+    return '$count개의 블록을 모두 정확히 찾았습니다!';
+  }
+
+  @override
+  String get blockCount3DHowToPlayDescription =>
+      '1. 3D 뷰포트를 손가락으로 드래그하여 블록 스택을 회전시킵니다.\n\n2. 스택에 있는 모든 블록의 개수를 셉니다.\n\n3. 기억하세요: 공중에 떠 있는 블록은 아래에 구조적 지지 블록이 있어야 합니다 (숨겨진 블록!).\n\n4. 입력 필드에 정답을 입력하고 \"답안 제출\"을 눌러 확인하세요.';
+
+  @override
+  String get alphabetSudokuTitle => '알파벳 스도쿠';
+
+  @override
+  String get alphabetSudokuSubtitle => '모든 행, 열, 박스에 A-I 글자가 들어가도록 격자를 채우세요.';
+
+  @override
+  String get alphabetSudokuWinTitle => '스도쿠 해결!';
+
+  @override
+  String get alphabetSudokuWinMessage => '멋져요! 알파벳을 완벽히 마스터했습니다.';
+
+  @override
+  String get classicMazeTitle => '클래식 미로';
+
+  @override
+  String get classicMazeSubtitle => '탐험하고 해결하기 • 매번 새로운 미로';
+
+  @override
+  String get classicMazeWinTitle => '미로 탈출';
+
+  @override
+  String classicMazeWinMessage(int count) {
+    return '놀라운 길 찾기 능력이네요! $count번의 이동으로 미로를 풀었습니다.';
+  }
+
+  @override
+  String get classicMazeMoves => '이동 횟수: ';
+
+  @override
+  String get classicMazeHowToPlayDescription =>
+      '1. 빛나는 노란 구슬(플레이어)을 오른쪽 하단의 초록색 포털(출구)로 인도하세요.\n\n2. 미로 위를 스와이프하거나, 키보드 화살표 키, 또는 하단의 화살표 버튼을 사용하여 이동합니다.\n\n3. 보라색 흔적은 탐험한 경로를 보여줍니다. 왔던 길을 되돌아가면 흔적이 지워집니다!\n\n4. 상단 바에서 난이도를 조절하여 더 큰 미로에 도전해 보세요!';
+
+  @override
+  String get conjunctionSearchTitle => '결합 탐색';
+
+  @override
+  String get conjunctionSearchSubtitle => '주의 집중 및 특징 결합';
+
+  @override
+  String get conjunctionSearchWinTitle => '승리';
+
+  @override
+  String get conjunctionSearchWinMessage => '완벽한 집중력으로 모든 목표를 찾았습니다!';
+
+  @override
+  String get conjunctionSearchHowToPlayDescription =>
+      '지시사항에 특정 모양과 색상 조합이 표시됩니다. 밀집된 격자에서 최대한 빨리 찾아 탭하세요. 방해물 모양은 색상이나 모양 중 하나를 공유하므로 자세히 살펴보세요!';
+
+  @override
+  String get conjunctionSearchRound => '라운드: ';
+
+  @override
+  String get conjunctionSearchScore => '점수: ';
+
+  @override
+  String get conjunctionSearchFind => '찾을 대상: ';
+
+  @override
+  String get shapeCircle => '원';
+
+  @override
+  String get shapeSquare => '사각형';
+
+  @override
+  String get shapeTriangle => '삼각형';
+
+  @override
+  String get shapeStar => '별';
+
+  @override
+  String get shapeRectangle => '직사각형';
+
+  @override
+  String get shapeEllipse => '타원';
+
+  @override
+  String get shapeTrapezoid => '사다리꼴';
+
+  @override
+  String get colorRedLabel => '빨강';
+
+  @override
+  String get colorBlueLabel => '파랑';
+
+  @override
+  String get colorGreenLabel => '초록';
+
+  @override
+  String get colorAmberLabel => '황색';
+
+  @override
+  String get cubeNetFoldTitle => '입체도형 전개도';
+
+  @override
+  String get cubeNetFoldSubtitle => '일치하는 3D 정육면체 선택';
+
+  @override
+  String get cubeNetFoldWinTitle => '정답';
+
+  @override
+  String get cubeNetFoldWinMessage => '완벽한 3D 공간 전개 논리를 가지고 계시네요!';
+
+  @override
+  String get cubeNetFoldHowToPlayDescription =>
+      '1. 상단의 펼쳐진 2D 전개도를 보세요.\n\n2. 머릿속으로 전개도를 접어 3D 정육면체를 만듭니다.\n\n3. 아래 옵션 중에서 해당 정육면체의 올바른 3D 관점을 선택하세요.\n\n4. 주의: 전개도에서 마주 보는 면은 3D에서 인접할 수 없으며, 인접한 면들의 순서가 일치해야 합니다!';
+
+  @override
+  String get cubeNetFoldUnfoldedNet => '펼쳐진 2D 전개도';
+
+  @override
+  String get cubeNetFoldWhichMatches => '어떤 정육면체가 일치하나요?';
+
+  @override
+  String get cubeNetFoldIncorrect => '잘못된 전개 논리입니다! 다시 시도하거나 선택을 변경하세요.';
+
+  @override
+  String get cubeNetFoldSubmitChoice => '선택 제출';
+
+  @override
+  String get cubeNetFoldFailed => '실패 (다시 시도 탭)';
+
+  @override
+  String get faceTraitAssociationMemorize => '4명 모두 기억하기';
+
+  @override
+  String faceTraitAssociationPersonOf(int current, int total) {
+    return '인물 $current / 전체 $total';
+  }
+
+  @override
+  String get faceTraitAssociationWhatOccupation => '이분들의 직업은 무엇인가요?';
+
+  @override
+  String get faceTraitAssociationWhatHobby => '이분들의 취미는 무엇인가요?';
+
+  @override
+  String get faceTraitAssociationWinTitle => '기억력 마스터!';
+
+  @override
+  String get faceTraitAssociationLoseTitle => '게임 종료';
+
+  @override
+  String faceTraitAssociationScoreMessage(int correct, int total) {
+    return '$total개 중 $correct개를 맞혔습니다.';
+  }
+
+  @override
+  String get topologyTitle => '위상수학';
+
+  @override
+  String get topologySubtitle =>
+      '이 모양들은 위상적으로 동일합니까? (자르거나 붙이지 않고 하나를 다른 하나로 변형할 수 있습니까?)';
+
+  @override
+  String get topologyWinTitle => '기하학 천재!';
+
+  @override
+  String get topologyWinMessage => '10개의 위상학적 쌍을 정확히 찾았습니다!';
+
+  @override
+  String get topologyScore => '점수: ';
+
+  @override
+  String get semanticDistanceTitle => '의미론적 거리';
+
+  @override
+  String get semanticDistanceSubtitle => '단어 사이의 개념적 거리를 측정하세요';
+
+  @override
+  String get oxymoronHuntTitle => '모순 어구 찾기';
+
+  @override
+  String get oxymoronHuntSubtitle => '그리드에서 서로 모순되는 단어를 연결하세요';
+
+  @override
+  String get portmanteauSplitTitle => '혼성어 분리';
+
+  @override
+  String get portmanteauSplitSubtitle => '혼성어를 구성하는 원래 단어들을 식별하세요';
+
+  @override
+  String get chainReactionTitle => '연쇄 반응';
+
+  @override
+  String get chainReactionSubtitle => '겹치는 글자를 사용하여 단어를 연결하세요';
+
+  @override
+  String get rhymeMasterTitle => '라임 마스터';
+
+  @override
+  String get rhymeMasterSubtitle => '대상 단어와 라임이 맞는 단어를 찾으세요';
+
+  @override
+  String get definitionDashTitle => '정의 대시';
+
+  @override
+  String get definitionDashSubtitle => '정의에 맞는 올바른 단어를 매칭하세요';
+
+  @override
+  String get syllableStackTitle => '음절 쌓기';
+
+  @override
+  String get syllableStackSubtitle => '음절을 쌓아서 완성된 단어를 만드세요';
+
+  @override
+  String get sentenceUnscrambleTitle => '문장 재배열';
+
+  @override
+  String get sentenceUnscrambleSubtitle => '단어를 재정렬하여 올바른 문장을 만드세요';
+
+  @override
+  String get grammarSortTitle => '문법 분류';
+
+  @override
+  String get grammarSortSubtitle => '단어를 품사별로 분류하세요';
+
+  @override
+  String get vowelReconstructTitle => '모음 재구성';
+
+  @override
+  String get vowelReconstructSubtitle => '문장에서 빠진 모음을 채우세요';
+
+  @override
+  String get consonantReconstructTitle => '자음 재구성';
+
+  @override
+  String get consonantReconstructSubtitle => '문장에서 빠진 자음을 채우세요';
+
+  @override
+  String get homophoneHuntTitle => '동음이의어 찾기';
+
+  @override
+  String get silentLetterSearchTitle => '묵음 찾기';
+
+  @override
+  String get silentLetterSearchSubtitle => '주어진 단어에서 묵음을 식별하세요';
+
+  @override
+  String get palindromeBuilderTitle => '회문 만들기';
+
+  @override
+  String get palindromeBuilderSubtitle => '최소한의 글자를 추가하여 회문을 만드세요';
+
+  @override
+  String get phoneticGuessTitle => '발음 추측';
+
+  @override
+  String get phoneticGuessSubtitle => '발음 표기를 보고 단어를 맞히세요';
+
+  @override
+  String get spoonerismSolverTitle => '어두음 교체 해결';
+
+  @override
+  String get spoonerismSolverSubtitle => '문구에 대한 올바른 어두음 교체 사례를 찾으세요';
+
+  @override
+  String get etymonOddballTitle => '어원 이방인';
+
+  @override
+  String get etymonOddballSubtitle => '어원이 다른 단어를 찾으세요';
+
+  @override
+  String get etymologyOriginTitle => '어원 유래';
+
+  @override
+  String get etymologyOriginSubtitle => '외래어의 유래 언어를 추측하세요';
+
+  @override
+  String get affixFactoryTitle => '접사 공장';
+
+  @override
+  String get affixFactorySubtitle => '접두사와 접미사를 사용하여 올바른 단어를 만드세요';
+
+  @override
+  String get cognateCatchTitle => '동원어 잡기';
+
+  @override
+  String get cognateCatchSubtitle => '진짜 동원어와 거짓 친구를 구별하세요';
+
+  @override
+  String get compoundConnectTitle => '복합어 연결';
+
+  @override
+  String get compoundConnectSubtitle => '두 단어를 결합하여 복합어를 만드세요';
+
+  @override
+  String get pangramSprintTitle => '팬그램 스프린트';
+
+  @override
+  String get pangramSprintSubtitle => '알파벳의 모든 글자를 사용하여 문장을 만드세요';
+
+  @override
+  String get anagramDefinitionTitle => '애너그램 정의';
+
+  @override
+  String get anagramDefinitionSubtitle => '정의를 바탕으로 애너그램을 푸세요';
+
+  @override
+  String get letterBridgeTitle => '글자 다리';
+
+  @override
+  String get letterBridgeSubtitle => '두 단어를 연결하는 빠진 글자를 찾으세요';
+
+  @override
+  String get letterFrequencyScanTitle => '글자 빈도 스캔';
+
+  @override
+  String get letterFrequencyScanSubtitle => '텍스트에 글자가 몇 번 나타나는지 세어보세요';
+
+  @override
+  String get oneLetterShiftTitle => '한 글자 변환';
+
+  @override
+  String get oneLetterShiftSubtitle => '글자 하나를 바꿔서 한 단어를 다른 단어로 변환하세요';
+
+  @override
+  String vocabularyBuilderMessage(String arg0) {
+    return '잘하셨습니다! 어휘력이 대단하시네요. 점수: $arg0';
+  }
+
+  @override
+  String get symmetryMessage => '수술과 같은 정밀함으로 패턴을 완벽하게 대칭으로 맞추셨습니다.';
+
+  @override
+  String get temporalOrderMessage => '놀랍습니다! 시간 순서 기억력이 매우 정확하시네요.';
+
+  @override
+  String get temporalOrderMessage1 => '순서 기억이 틀렸습니다. 연습하면 더 좋아질 거예요!';
+
+  @override
+  String get wordSearchMessage => '예리한 관찰력으로 모든 단어를 성공적으로 찾았습니다.';
+
+  @override
+  String colorMatchMessage(String arg0) {
+    return '정확도: $arg0%';
+  }
+
+  @override
+  String semanticLinkMessage(String arg0) {
+    return '$arg0점을 획득하셨습니다!';
+  }
+
+  @override
+  String reflexTapMessage(String arg0) {
+    return '$arg0개의 타겟을 탭하셨습니다!';
+  }
+
+  @override
+  String get angleFinderMessage => '기하학적 직관력이 완벽하시네요!';
+
+  @override
+  String angleFinderMessage1(String arg0) {
+    return '정답은 $arg0°였습니다.';
+  }
+
+  @override
+  String angleFinderText(String arg0) {
+    return '$arg0°';
+  }
+
+  @override
+  String visualStatisticalLearningMessage(String arg0) {
+    return '$arg0개의 패턴을 맞히셨습니다!';
+  }
+
+  @override
+  String nonogramText(String arg0) {
+    return '오류: $arg0';
+  }
+
+  @override
+  String mentalCalendarMessage(String arg0) {
+    return '10문제 중 $arg0문제를 맞히셨습니다!';
+  }
+
+  @override
+  String orbitTapMessage(String arg0) {
+    return '$arg0번 탭하는 데 성공하셨습니다!';
+  }
+
+  @override
+  String schulteTableMessage(String arg0) {
+    return '테이블을 $arg0만에 완료하셨습니다.\n주변시 확장을 위해 계속 연습하세요!';
+  }
+
+  @override
+  String get schulteTableText => '테스트 시작';
+
+  @override
+  String get relationalMemoryMessage => '공간 관계 기억 정확도가 대단합니다!';
+
+  @override
+  String sudokuText(String arg0) {
+    return '오류: $arg0';
+  }
+
+  @override
+  String sdmtMessage(String arg0) {
+    return '$arg0개의 기호를 맞추셨습니다! 이 테스트는 스캐닝 속도와 시각적 주의력을 측정합니다.';
+  }
+
+  @override
+  String get futoshikiMessage => '놀랍습니다! Futoshiki 라틴 방진을 해결하셨습니다.';
+
+  @override
+  String letterFrequencyScanMessage(String arg0, String arg1) {
+    return '\"$arg1\"의 출현 횟수 $arg0번을 정확히 세셨습니다.';
+  }
+
+  @override
+  String letterFrequencyScanText(String arg0) {
+    return '틀렸습니다. 개수는 $arg0개였습니다.';
+  }
+
+  @override
+  String get memoryMatrixMessage => '인상적입니다! 작업 기억력이 날카로우시네요. 오늘의 목표 달성!';
+
+  @override
+  String get memoryMatrixMessage1 => '집중해서 다시 시도해 보세요. 기억력 점수를 높일 수 있습니다.';
+
+  @override
+  String get contextCluesMessage => '훌륭합니다! 어휘력과 맥락 분석 능력이 최고 수준입니다.';
+
+  @override
+  String get contextCluesMessage1 =>
+      '잘못된 단어를 선택했습니다! 언어 맥락 추론 능력을 훈련하고 다시 시도해 보세요.';
+
+  @override
+  String oneLetterShiftMessage(String arg0, String arg1) {
+    return '$arg0에서 $arg1(으)로 정확하게 변환하셨습니다.';
+  }
+
+  @override
+  String get mentalAbacusMessage => '암산 능력이 최고 수준입니다.';
+
+  @override
+  String fractionMatcherMessage(String arg0) {
+    return '표현 방식을 매칭하여 $arg0점을 획득하셨습니다!';
+  }
+
+  @override
+  String get spellingSprintMessage => '10개 단어의 철자를 모두 맞히셨습니다!';
+
+  @override
+  String spellingSprintMessage1(String arg0) {
+    return '$arg0개의 단어 철자를 맞히셨습니다.';
+  }
+
+  @override
+  String stopSignalMessage(String arg0) {
+    return '$arg0번의 정확한 반응을 보여주셨습니다! 이 테스트는 계획된 행동을 억제하는 능력을 측정합니다.';
+  }
+
+  @override
+  String grammarPoliceMessage(String arg0) {
+    return '게임 종료! 문법의 세계에서 질서를 유지하셨습니다. 점수: $arg0';
+  }
+
+  @override
+  String consonantReconstructMessage(String arg0) {
+    return '재구성을 통해 $arg0점을 획득하셨습니다!';
+  }
+
+  @override
+  String rhymeMasterMessage(String arg0, String arg1) {
+    return '$arg1개 중 $arg0개의 라임을 찾으셨습니다!';
+  }
+
+  @override
+  String vigilanceTaskMessage(String arg0, String arg1, String arg2) {
+    return '적중: $arg0, 놓침: $arg1\n오경보: $arg2';
+  }
+
+  @override
+  String get silhouetteMatchOrthoMessage => '완벽한 직교 정렬 능력을 갖추셨습니다!';
+
+  @override
+  String get silhouetteMatchOrthoText => '확인';
+
+  @override
+  String get silhouetteMatchOrthoText1 => '투영 시점이 틀렸습니다! 재설정을 눌러 다시 시도하세요.';
+
+  @override
+  String fibonacciMergeMessage(String arg0, String arg1) {
+    return '$arg0: $arg1';
+  }
+
+  @override
+  String factorFinderMessage(String arg0) {
+    return '모든 약수를 찾아 $arg0점을 획득하셨습니다!';
+  }
+
+  @override
+  String logicalSyllogismsMessage(String arg0) {
+    return '$arg0개의 삼단논법을 정확히 풀었습니다!';
+  }
+
+  @override
+  String get rotatingMazeMessage => '회전하는 미로를 성공적으로 통과하셨습니다!';
+
+  @override
+  String get rotatingMazeText => '확인';
+
+  @override
+  String get rotatingMazeText1 => '🌀 미로가 90° 회전했습니다! 그리드가 이동했습니다!';
+
+  @override
+  String get mathPathMessage => '목표 합계에 도달하는 경로를 찾았습니다!';
+
+  @override
+  String get bridgesMessage => '모든 섬을 성공적으로 연결했습니다!';
+
+  @override
+  String compoundConnectMessage(String arg0, String arg1) {
+    return '합성어는 $arg0$arg1입니다.';
+  }
+
+  @override
+  String get pangramSprintMessage => '26개의 모든 알파벳을 사용하여 문장을 만들었습니다.';
+
+  @override
+  String get mirrorImageMessage => '대칭 이미지를 완벽하게 식별했습니다.';
+
+  @override
+  String get mirrorImageText => '거울 이미지';
+
+  @override
+  String reverseStroopMessage(String arg0) {
+    return '$arg0점을 획득했습니다! 지침을 주의 깊게 확인하세요.';
+  }
+
+  @override
+  String get verbalAnalogiesMessage => '관계 유추 능력이 뛰어나시네요.';
+
+  @override
+  String corsiBlocksMessage1(String arg0, String arg1) {
+    return '$arg1개의 시퀀스를 기억했습니다! 당신의 공간 기억 폭이 $arg0에 도달했습니다.';
+  }
+
+  @override
+  String wordLadderMessage(String arg0, String arg1, String arg2) {
+    return '$arg2단계 만에 $arg0와(과) $arg1을(를) 성공적으로 연결했습니다.';
+  }
+
+  @override
+  String d2AttentionMessage(String arg0) {
+    return '놀라운 선택적 탐색 능력입니다! 최종 점수: $arg0.';
+  }
+
+  @override
+  String get d2AttentionText => '게임 방법';
+
+  @override
+  String get d2AttentionText1 => '확인';
+
+  @override
+  String get tangleFixMessage => '모든 선이 꼬임 없이 정리되었습니다.';
+
+  @override
+  String get distractorMatrixMessage => '대단합니다! 수학적 방해 요소에도 불구하고 패턴을 기억해냈습니다!';
+
+  @override
+  String get distractorMatrixMessage1 => '방해 요소에 걸려들었네요! 작업 기억력을 다시 훈련해 보세요.';
+
+  @override
+  String sentenceUnscrambleMessage(String arg0) {
+    return '문장 배열을 통해 $arg0점을 획득했습니다!';
+  }
+
+  @override
+  String get kakuroMessage => '대단합니다! 모든 합계 세그먼트를 완벽하게 맞췄습니다.';
+
+  @override
+  String symbolicFlankerMessage(String arg0, String arg1) {
+    return '$arg1개 중 $arg0개를 맞췄습니다!';
+  }
+
+  @override
+  String stroopTestMessage(String arg0) {
+    return '$arg0개를 맞췄습니다! 단어가 아니라 글자 색상에 집중하세요.';
+  }
+
+  @override
+  String wisconsinCardSortingMessage(String arg0) {
+    return '$arg0장의 카드를 올바르게 분류했습니다!';
+  }
+
+  @override
+  String nBackMessage(String arg0) {
+    return '$arg0번의 2-back 매치를 달성했습니다! 작업 기억력은 멀티태스킹에 필수적입니다.';
+  }
+
+  @override
+  String rhythmMasterMessage(String arg0, String arg1) {
+    return '$arg0번의 퍼펙트 히트로 $arg1점을 획득했습니다!';
+  }
+
+  @override
+  String groceryListMessage(String arg0, Object score) {
+    return '장보기 목록 게임에서 $arg0점을 획득했습니다!';
+  }
+
+  @override
+  String get groceryListText => '나';
+
+  @override
+  String get mirrorTracingMessage => '뇌의 협응 능력이 성공적으로 재조정되었습니다.';
+
+  @override
+  String moduloClockMessage(String arg0) {
+    return '훌륭한 모듈러 암산 협응력입니다! 점수: $arg0';
+  }
+
+  @override
+  String moduloClockMessage1(String arg0, String arg1, String arg2) {
+    return '$arg1개 중 $arg0개의 모듈러 시계 솔루션을 해결했습니다. 점수: $arg2';
+  }
+
+  @override
+  String get crownMessage => '완벽한 논리로 모든 왕관을 성공적으로 배치했습니다.';
+
+  @override
+  String dualCodingMessage(String arg0) {
+    return '환상적인 이중 과제 수행 능력입니다! 작업 기억력 점수: $arg0';
+  }
+
+  @override
+  String inequalityDashMessage(String arg0) {
+    return '부등식 맞추기에서 $arg0점을 획득했습니다!';
+  }
+
+  @override
+  String sourceMonitoringMessage(String arg0, String arg1) {
+    return '$arg1개 중 $arg0점을 획득했습니다!';
+  }
+
+  @override
+  String get sourceMonitoringText => '회상 시작';
+
+  @override
+  String get memoryPalaceText => '사용 가능한 단어';
+
+  @override
+  String target10Message(String arg0) {
+    return '10 만들기 게임에서 $arg0점을 획득했습니다!';
+  }
+
+  @override
+  String get paperFoldingMessage => '머릿속으로 패턴을 그려낼 수 있군요.';
+
+  @override
+  String topologyText(String arg0, String arg1) {
+    return '$arg0$arg1 / 10';
+  }
+
+  @override
+  String get waterSortMessage => '모든 색상을 완벽하게 분류했습니다!';
+
+  @override
+  String anagramDefinitionMessage(String arg0) {
+    return '정답은 바로 \"$arg0\"였습니다.';
+  }
+
+  @override
+  String game2048Message(String arg0, String arg1, String arg2) {
+    return '$arg0: $arg1\n$arg2';
+  }
+
+  @override
+  String game2048Message1(String arg0, String arg1) {
+    return '$arg0: $arg1';
+  }
+
+  @override
+  String numericalEstimationMessage(String arg0) {
+    return '$arg0번 정확하게 추정했습니다.';
+  }
+
+  @override
+  String grammarSortMessage(String arg0) {
+    return '$arg0개의 단어를 올바르게 분류했습니다!';
+  }
+
+  @override
+  String vowelReconstructMessage(String arg0) {
+    return '모음 재구성을 통해 $arg0점을 획득했습니다!';
+  }
+
+  @override
+  String spatialConflictMessage(String arg0, String arg1) {
+    return '$arg1번의 오류와 함께 $arg0점을 기록했습니다!';
+  }
+
+  @override
+  String get spatialConflictText => '게임 방법';
+
+  @override
+  String get spatialConflictText1 => '확인';
+
+  @override
+  String tracePathMessage(String arg0) {
+    return '정확도는 $arg0%였습니다!';
+  }
+
+  @override
+  String ruleSwitcherMessage(String arg0, String arg1) {
+    return '$arg1개 중 $arg0개를 맞췄습니다!';
+  }
+
+  @override
+  String collatzMessage(String arg0, String arg1) {
+    return '$arg0단계를 거쳤습니다. 최소 가능 단계는 $arg1이었습니다.';
+  }
+
+  @override
+  String get collatzText => '/ 2';
+
+  @override
+  String get collatzText1 => '+ 1';
+
+  @override
+  String get collatzText2 => '3n + 1';
+
+  @override
+  String divisibilityDashMessage(String arg0) {
+    return '$arg0개의 숫자를 해결했습니다!';
+  }
+
+  @override
+  String switchTaskMessage(String arg0) {
+    return '$arg0개를 맞췄습니다! 빠른 전환은 정신적 유연성의 핵심입니다.';
+  }
+
+  @override
+  String sequenceSleuthMessage(String arg0) {
+    return '$arg0개의 시퀀스를 해결했습니다!';
+  }
+
+  @override
+  String changeBlindnessMessage(String arg0) {
+    return '$arg0개의 변화를 찾았습니다!';
+  }
+
+  @override
+  String mentalRotationMessage(String arg0) {
+    return '$arg0개의 도형을 올바르게 회전시켰습니다!';
+  }
+
+  @override
+  String wordMastermindMessage(String arg0) {
+    return '암호를 풀었습니다!\n단어는 $arg0였습니다.';
+  }
+
+  @override
+  String wordMastermindMessage1(String arg0) {
+    return '숨겨진 단어는 $arg0였습니다.';
+  }
+
+  @override
+  String wordMastermindText(String arg0) {
+    return '$arg0';
+  }
+
+  @override
+  String get simonSequenceMessage => '10개의 타일을 모두 기억했습니다!';
+
+  @override
+  String get simonSequenceMessage1 => '시퀀스를 마스터하려면 다시 시도해 보세요.';
+
+  @override
+  String oxymoronHuntMessage(String arg0) {
+    return '$arg0개의 모순 형용사를 찾았습니다!';
+  }
+
+  @override
+  String spotlightTrackMessage(String arg0) {
+    return '놀라운 공간 추적 능력입니다! $arg0점을 획득했습니다.';
+  }
+
+  @override
+  String get spotlightTrackText => '게임 방법';
+
+  @override
+  String get spotlightTrackText1 => '확인';
+
+  @override
+  String get spotlightTrackText2 => '라운드 시작';
+
+  @override
+  String vennNumbersMessage(String arg0) {
+    return '$arg0개의 숫자를 분류했습니다!';
+  }
+
+  @override
+  String get vennNumbersText => '둘 다 아님';
+
+  @override
+  String get vennNumbersText1 => '둘 다';
+
+  @override
+  String get silhouetteMatchMessage => '당신의 뇌는 3D를 2D로 변환하는 능력이 뛰어납니다.';
+
+  @override
+  String sumSnakeMessage(String arg0) {
+    return '목표치 $arg0에 완벽하게 도달했습니다!';
+  }
+
+  @override
+  String get sumSnakeText => '경로 지우기';
+
+  @override
+  String percentagePeakMessage(String arg0) {
+    return '$arg0개의 백분율 문제를 해결했습니다!';
+  }
+
+  @override
+  String trailMakingMessage(String arg0) {
+    return '$arg0개의 트레일을 완료했습니다! 이 테스트는 시각적 탐색 속도와 정신적 유연성을 측정합니다.';
+  }
+
+  @override
+  String matrixReasoningMessage(String arg0) {
+    return '$arg0개의 행렬을 올바르게 완료했습니다!';
+  }
+
+  @override
+  String get tentsAndTreesMessage => '모든 텐트를 성공적으로 배치했습니다.';
+
+  @override
+  String klotskiMessage(String arg0) {
+    return '환상적인 슬라이딩입니다! $arg0번의 이동 만에 영웅 블록을 탈출시켰습니다.';
+  }
+
+  @override
+  String sumPyramidMessage(String arg0) {
+    return '$arg0개의 숫자 피라미드를 성공적으로 해결했습니다!';
+  }
+
+  @override
+  String simonCommandMessage(String arg0) {
+    return '훌륭한 선택적 반응과 집중력입니다! 총점: $arg0';
+  }
+
+  @override
+  String simonCommandMessage1(String arg0, String arg1) {
+    return '$arg0점을 획득했지만 제한 시간 내에 $arg1번의 매치에 도달하지 못했습니다.';
+  }
+
+  @override
+  String syllableStackMessage(String arg0) {
+    return '음절 쌓기로 $arg0점을 획득했습니다!';
+  }
+
+  @override
+  String get slitherlinkMessage => '멋집니다! 루프 퍼즐을 성공적으로 완료했습니다.';
+
+  @override
+  String quickMathMessage(String arg0) {
+    return '$arg0개의 문제를 해결했습니다!';
+  }
+
+  @override
+  String commonDenominatorMessage(String arg0) {
+    return '$arg0개의 최대공약수/최소공배수 문제를 해결했습니다!';
+  }
+
+  @override
+  String chainReactionMessage(String arg0, String arg1) {
+    return '최종 점수는 $arg0점입니다. $arg1개의 단어로 체인을 만들었습니다.';
+  }
+
+  @override
+  String chainReactionText(String arg0) {
+    return '$arg0';
+  }
+
+  @override
+  String get associativePairsMessage => '훌륭합니다! 시각적 특징들을 완벽하게 연관시켰습니다.';
+
+  @override
+  String get associativePairsMessage1 => '잘못된 연관입니다! 기억력을 높여서 다시 시도해 보세요.';
+
+  @override
+  String portmanteauSplitMessage(String arg0) {
+    return '$arg0개의 혼성어를 분리했습니다!';
+  }
+
+  @override
+  String get magicSquaresText => '지우기';
+
+  @override
+  String alphabetSudokuText(String arg0) {
+    return '오류: $arg0';
+  }
+
+  @override
+  String get pipesMessage => '모든 파이프를 연결하고 그리드를 채웠습니다.';
+
+  @override
+  String get dualMirrorMessage => '두 아이콘을 모두 목표 지점까지 이동시켰습니다!';
+
+  @override
+  String binaryCodeMessage(String arg0) {
+    return '놀라운 십진법 변환 속도입니다! 최종 점수: $arg0';
+  }
+
+  @override
+  String binaryCodeMessage1(String arg0, String arg1) {
+    return '$arg0개의 이진수를 올바르게 변환했습니다. 점수: $arg1';
+  }
+
+  @override
+  String oddOneOutMessage(String arg0) {
+    return '50개의 다른 그림을 찾았습니다! 최종 점수: $arg0';
+  }
+
+  @override
+  String oddOneOutMessage1(String arg0) {
+    return '점수: $arg0';
+  }
+
+  @override
+  String letterBridgeMessage(String arg0) {
+    return '다리 역할을 하는 글자를 찾았습니다: $arg0';
+  }
+
+  @override
+  String get imReady => '준비 완료';
+
+  @override
+  String get soptTitle => '자기 주문 포인팅';
+
+  @override
+  String get soptSubtitle => '매번 다른 카드를 탭하세요. 포지션이 뒤바뀐다!';
+
+  @override
+  String get soptWinTitle => '시퀀스 마스터!';
+
+  @override
+  String soptGameOverMessage(int score) {
+    return '섞인 카드를 성공적으로 추적하여 $score 점을 획득하셨습니다!';
+  }
+
+  @override
+  String get soptChooseNovel => '새 카드를 탭하세요.';
+
+  @override
+  String get soptGreatJob => '정말 잘했어요!';
+
+  @override
+  String get soptAlreadyTapped => '이미 탭했습니다!';
+
+  @override
+  String get soptGrid => '그리드';
+
+  @override
+  String get contRecogTitle => '지속적인 인식';
+
+  @override
+  String get contRecogSubtitle => '이 세션에서 이전에 이 카드를 본 적이 있나요?';
+
+  @override
+  String get contRecogWinTitle => '인정 천재!';
+
+  @override
+  String contRecogGameOverMessage(int score) {
+    return '$score 점의 정답을 획득하셨습니다!';
+  }
+
+  @override
+  String get contRecogCorrect => '옳은!';
+
+  @override
+  String get contRecogWrong => '잘못된!';
+
+  @override
+  String get contRecogOldOrNew => '이것은 오래된 것입니까, 새로운 것입니까?';
+
+  @override
+  String get contRecogNew => '새로운';
+
+  @override
+  String get contRecogOld => '오래된';
+
+  @override
+  String get contRecogSeenPool => '본 풀';
+
+  @override
+  String get dnmsTitle => '일치하지 않는 메모리';
+
+  @override
+  String get dnmsSubtitle => '기억된 샘플에 없는 카드를 탭하세요.';
+
+  @override
+  String get dnmsWinTitle => '비매칭 전문가!';
+
+  @override
+  String dnmsGameOverMessage(int score) {
+    return '지연된 비매칭에서 $score 정답을 획득하셨습니다!';
+  }
+
+  @override
+  String get dnmsChooseNovel => '새 카드를 탭하세요.';
+
+  @override
+  String get dnmsMemorizeSample => '이 카드를 기억해두세요';
+
+  @override
+  String get dnmsWaitForIt => '기다려 보세요...';
+
+  @override
+  String get dnmsExcellent => '훌륭한!';
+
+  @override
+  String get dnmsSampleTapped => '그게 바로 샘플이었어요!';
+
+  @override
+  String get dnmsCards => '카드';
+
+  @override
+  String get symSpanTitle => '대칭 범위';
+
+  @override
+  String get symSpanSubtitle => '수직 대칭을 식별하면서 세포 패턴을 기억해 보세요.';
+
+  @override
+  String get symSpanWinTitle => '대칭 마스터!';
+
+  @override
+  String symSpanGameOverMessage(int score) {
+    return '레이아웃을 기억하고 대칭성을 식별하여 $score 점을 획득하셨습니다!';
+  }
+
+  @override
+  String get symSpanMemorizeRed => '적혈구 위치 기억하기';
+
+  @override
+  String get symSpanIsSymmetric => '패턴이 대칭인가요?';
+
+  @override
+  String get symSpanRecallSequence => '올바른 순서로 순서를 불러오세요';
+
+  @override
+  String get symSpanGreatJob => '정말 잘했어요!';
+
+  @override
+  String get symSpanTryAgain => '다시 시도해 보세요!';
+
+  @override
+  String get symSpanLength => '길이';
+
+  @override
+  String get readingSpanTitle => '독서 범위';
+
+  @override
+  String get readingSpanSubtitle => '일련의 글자를 기억하면서 문장을 확인해보세요.';
+
+  @override
+  String get readingSpanWinTitle => '독서 전문가!';
+
+  @override
+  String readingSpanGameOverMessage(int score) {
+    return '읽기 범위 기억력 챌린지에서 $score 점을 획득하셨습니다!';
+  }
+
+  @override
+  String get readingSpanTrueFalse => '이 진술은 사실인가, 거짓인가?';
+
+  @override
+  String get readingSpanMemorizeLetter => '이 편지를 기억해 두세요';
+
+  @override
+  String get readingSpanRecallLetters => '순서대로 편지를 불러오세요';
+
+  @override
+  String get readingSpanGreatJob => '정말 잘했어요!';
+
+  @override
+  String get readingSpanTryAgain => '다시 시도해 보세요!';
+
+  @override
+  String readingSpanYourSequence(String sequence) {
+    return '귀하의 시퀀스: $sequence';
+  }
+
+  @override
+  String get readingSpanLength => '길이';
+
+  @override
+  String get readingSpanSentence1 => '태양은 동쪽에서 뜬다.';
+
+  @override
+  String get readingSpanSentence2 => '얼음이 끓고 있습니다.';
+
+  @override
+  String get readingSpanSentence3 => '물고기는 물속에서 숨을 쉴 수 있습니다.';
+
+  @override
+  String get readingSpanSentence4 => '개는 날개가 있어서 날 수 있어요.';
+
+  @override
+  String get readingSpanSentence5 => '물은 섭씨 0도에서 언다.';
+
+  @override
+  String get readingSpanSentence6 => '고양이는 작은 개처럼 짖습니다.';
+
+  @override
+  String get readingSpanSentence7 => '나무는 여름에 푸른 잎을 가지고 있습니다.';
+
+  @override
+  String get readingSpanSentence8 => '비는 땅에서 위로 내립니다.';
+
+  @override
+  String get readingSpanSentence9 => '삼각형은 네 개의 동일한 변을 가지고 있습니다.';
+
+  @override
+  String get readingSpanSentence10 => '사과는 달콤한 과일의 일종입니다.';
+
+  @override
+  String get readingSpanSentence11 => '달은 체다 치즈로 만들어졌습니다.';
+
+  @override
+  String get readingSpanSentence12 => '자동차에는 굴러가는 바퀴가 있습니다.';
+
+  @override
+  String get readingSpanSentence13 => '불은 얼어붙을 정도로 차갑습니다.';
+
+  @override
+  String get readingSpanSentence14 => '종이는 가공된 목재로 만들어집니다.';
+
+  @override
+  String get readingSpanSentence15 => '새는 날 수 있도록 깃털을 가지고 있습니다.';
+
+  @override
+  String get readingSpanSentence16 => '바나나는 소나무에서 자랍니다.';
+
+  @override
+  String get readingSpanSentence17 => '코끼리는 개미보다 작습니다.';
+
+  @override
+  String get readingSpanSentence18 => '책에는 인쇄된 텍스트 페이지가 포함되어 있습니다.';
+
+  @override
+  String get countingSpanTitle => '계산 범위';
+
+  @override
+  String get countingSpanSubtitle => '파란색 원만 계산합니다. 그런 다음 카운트 순서를 기억해 보세요.';
+
+  @override
+  String get countingSpanWinTitle => '계산 천재!';
+
+  @override
+  String countingSpanGameOverMessage(int score) {
+    return 'Counting Span 메모리 챌린지에서 $score 점을 획득하셨습니다!';
+  }
+
+  @override
+  String get countingSpanCountCircles => '파란색 원만 계산';
+
+  @override
+  String get countingSpanRecallCounts => '올바른 순서로 회수 횟수를 기억하세요';
+
+  @override
+  String get countingSpanGreatJob => '정말 잘했어요!';
+
+  @override
+  String get countingSpanTryAgain => '다시 시도해 보세요!';
+
+  @override
+  String countingSpanYourSequence(String sequence) {
+    return '귀하의 시퀀스: $sequence';
+  }
+
+  @override
+  String get countingSpanLength => '길이';
+
+  @override
+  String get objDispTitle => '객체 변위';
+
+  @override
+  String get objDispSubtitle => '레이아웃을 기억하세요. 위치가 바뀌는 하나의 개체를 찾아 탭하세요.';
+
+  @override
+  String get objDispWinTitle => '공간 천재!';
+
+  @override
+  String objDispGameOverMessage(int score) {
+    return '$score 개의 대체된 개체를 올바르게 식별했습니다!';
+  }
+
+  @override
+  String get objDispMemorizeAll => '모든 배치를 기억하세요';
+
+  @override
+  String get objDispWaitingShift => '레이아웃 변경을 기다리는 중...';
+
+  @override
+  String get objDispTapMoved => '이동한 개체를 탭하세요.';
+
+  @override
+  String get objDispExcellent => '훌륭한!';
+
+  @override
+  String get objDispWrongObject => '잘못된 개체입니다!';
+
+  @override
+  String get objDispItems => '품목';
+
+  @override
+  String get mandalaTitle => '만다라 리콜';
+
+  @override
+  String get mandalaSubtitle => '색상 구성을 기억하세요. 색상을 선택하고 타일을 다시 칠하세요.';
+
+  @override
+  String get mandalaWinTitle => '만다라 아티스트!';
+
+  @override
+  String mandalaGameOverMessage(int score) {
+    return '색상이 있는 기하학적 레이아웃을 재현하여 $score 점을 획득하셨습니다!';
+  }
+
+  @override
+  String get mandalaMemorizeColors => '타일 ​​색상을 기억하세요';
+
+  @override
+  String get mandalaPaintCells => '원본과 일치하도록 셀 페인트';
+
+  @override
+  String get mandalaExcellent => '훌륭한!';
+
+  @override
+  String get mandalaIncorrectMatch => '일치하지 않습니다!';
+
+  @override
+  String get mandalaSubmitRepaint => '다시 그리기 제출';
+
+  @override
+  String get mandalaTiles => '타일';
+
+  @override
+  String get runningSpanTitle => '러닝 스팬';
+
+  @override
+  String get runningSpanSubtitle => '편지를 조심하세요. 멈추면 마지막 N자를 순서대로 입력하세요.';
+
+  @override
+  String get runningSpanWinTitle => '버퍼 마스터!';
+
+  @override
+  String runningSpanGameOverMessage(int score) {
+    return '실행 메모리 범위에서 $score 점을 획득하셨습니다!';
+  }
+
+  @override
+  String runningSpanPrepareRecall(int count) {
+    return '마지막 $count 글자를 기억할 준비를 하세요.';
+  }
+
+  @override
+  String get runningSpanWatchCarefully => '조심히 보세요...';
+
+  @override
+  String runningSpanEnterLast(int count) {
+    return '마지막 $count 자를 입력하세요.';
+  }
+
+  @override
+  String get runningSpanGreatJob => '정말 잘했어요!';
+
+  @override
+  String get runningSpanIncorrectBuffer => '버퍼가 잘못되었습니다!';
+
+  @override
+  String runningSpanRecallLast(int count) {
+    return '지난 $count 회기';
+  }
+
+  @override
+  String get runningSpanStopsRandomly => '스트림이 무작위로 중지됩니다!';
+
+  @override
+  String runningSpanEntered(String sequence) {
+    return '입력됨: $sequence';
+  }
+
+  @override
+  String get runningSpanNItems => 'N-항목';
+
+  @override
+  String get spatialCabinetTitle => '공간 캐비닛';
+
+  @override
+  String get spatialCabinetSubtitle => '어떤 캐비닛 서랍에 어떤 물건이 들어 있는지 기억하세요.';
+
+  @override
+  String get spatialCabinetWinTitle => '캐비닛 전문가!';
+
+  @override
+  String spatialCabinetGameOverMessage(int score) {
+    return '공간 캐비닛 메모리에서 $score 점을 획득하셨습니다!';
+  }
+
+  @override
+  String get spatialCabinetMemorize => '물건 위치 기억하기';
+
+  @override
+  String spatialCabinetWhereIs(String itemName) {
+    return '$itemName 은 어디에 있나요?';
+  }
+
+  @override
+  String get spatialCabinetCorrect => '옳은!';
+
+  @override
+  String get spatialCabinetWrongDrawer => '서랍이 틀렸어요!';
+
+  @override
+  String get spatialCabinetItems => '품목';
+
+  @override
+  String get cabinetItemKey => '열쇠';
+
+  @override
+  String get cabinetItemApple => '사과';
+
+  @override
+  String get cabinetItemDiamond => '다이아몬드';
+
+  @override
+  String get cabinetItemBook => '책';
+
+  @override
+  String get cabinetItemUmbrella => '우산';
+
+  @override
+  String get cabinetItemCoffee => '커피';
+
+  @override
+  String get cabinetItemLock => '잠그다';
+
+  @override
+  String get cabinetItemPet => '애완 동물';
+
+  @override
+  String get cabinetItemCar => '자동차';
+
+  @override
+  String get gamesTitleLabel => '게임';
+
+  @override
+  String get playGame => 'Play';
+
+  @override
+  String get randomGame => 'Random';
+
+  @override
+  String get filterUnsolved => 'Unsolved';
+
+  @override
+  String get filterFavorites => 'Favorites';
+
+  @override
+  String get categoryLogicDescription =>
+      'Deduction, patterns & strategic problem solving';
+
+  @override
+  String get categoryMathDescription =>
+      'Mental arithmetic, number theory & calculations';
+
+  @override
+  String get categoryWordDescription =>
+      'Vocabulary, linguistics, anagrams & verbal fluency';
+
+  @override
+  String get categoryMemoryDescription =>
+      'Working memory, sequence recall & spatial retention';
+
+  @override
+  String get categorySpatialDescription =>
+      'Mental rotation, 3D visualization & geometry';
+
+  @override
+  String get categoryAttentionDescription =>
+      'Focus, reaction speed & cognitive flexibility';
+
+  @override
+  String get categoryAllDescription =>
+      'Brain training puzzles and cognitive exercises';
+
+  @override
+  String get yourFavorites => '즐겨찾기';
+
+  @override
+  String get readyForWorkout => '일일 두뇌 운동 준비가 되셨나요?';
+
+  @override
+  String get greatStartKeepGoing => '좋은 시작입니다! 계속 진행하세요.';
+
+  @override
+  String get onFireToday => '오늘 컨디션이 최고네요!';
+
+  @override
+  String get incredibleSolvingToday => '오늘 놀라운 해결 능력입니다!';
+
+  @override
+  String get newGameLabel => '신규';
+
+  @override
+  String get slitherlinkTitle => '슬리더링크';
+
+  @override
+  String get slitherlinkSubtitle => '숫자 힌트를 사용하여 핀 그리드를 루프로 연결하세요.';
+
+  @override
+  String get futoshikiTitle => '후토시키';
+
+  @override
+  String get futoshikiSubtitle => '부등호 힌트로 그리드를 채우세요.';
+
+  @override
+  String get kakuroTitle => '카쿠로';
+
+  @override
+  String get kakuroSubtitle => '숫자와 합계를 사용하여 크로스워드를 푸세요.';
+
+  @override
+  String get inequalityDashTitle => '부등식 대시';
+
+  @override
+  String get inequalityDashSubtitle => '시간 압박 속에서 부등식을 푸세요.';
+
+  @override
+  String get factorFinderTitle => '인수 찾기';
+
+  @override
+  String get factorFinderSubtitle => '목표 숫자의 모든 인수를 찾으세요.';
+
+  @override
+  String get collatzTitle => '콜라츠 경로';
+
+  @override
+  String get collatzSubtitle => '3N+1 수열을 탐색하세요.';
+
+  @override
+  String get sumPyramidTitle => '합계 피라미드';
+
+  @override
+  String get sumPyramidSubtitle => '합계 수학 힌트로 피라미드 셀을 채우세요.';
+
+  @override
+  String get target10Title => '타겟 10';
+
+  @override
+  String get target10Subtitle => '숫자 타일을 조합하여 합계 10을 만드세요.';
+
+  @override
+  String get fractionMatcherTitle => '분수 매칭';
+
+  @override
+  String get fractionMatcherSubtitle => '시각적으로 같은 분수를 일치시키세요.';
+
+  @override
+  String get dualCodingTitle => '이중 코딩';
+
+  @override
+  String get dualCodingSubtitle => '글자와 기호를 동시에 일치시키세요.';
+
+  @override
+  String get distractorMatrixTitle => '방해 요소 매트릭스';
+
+  @override
+  String get distractorMatrixSubtitle => '방해 요소 중에서 목표 모양을 찾으세요.';
+
+  @override
+  String get temporalOrderTitle => '시간적 순서';
+
+  @override
+  String get temporalOrderSubtitle => '시간순 수열을 기억해내세요.';
+
+  @override
+  String get associativePairsTitle => '연상 쌍';
+
+  @override
+  String get associativePairsSubtitle => '대응하는 기호를 쌍으로 묶어 일치시키세요.';
+
+  @override
+  String get blockCount3dTitle => '3D 블록 계산';
+
+  @override
+  String get blockCount3dSubtitle => '3차원 공간의 블록 개수를 세세요.';
+
+  @override
+  String get rotatingMazeTitle => '회전 미로';
+
+  @override
+  String get rotatingMazeSubtitle => '미로를 회전시켜 공을 출구로 인도하세요.';
+
+  @override
+  String get silhouetteMatchOrthoTitle => '실루엣 매칭 (정투영)';
+
+  @override
+  String get silhouetteMatchOrthoSubtitle => '3D 물체와 정투영 그림자를 일치시키세요.';
+
+  @override
+  String get spatialConflictTitle => '공간적 갈등';
+
+  @override
+  String get spatialConflictSubtitle => '텍스트와 방향의 불일치를 해결하세요.';
+
+  @override
+  String get spotlightTrackTitle => '스포트라이트 추적';
+
+  @override
+  String get spotlightTrackSubtitle => '움직이는 그림자 속에서 깜박이는 아이템을 추적하세요.';
+
+  @override
+  String get d2AttentionTitle => 'd2 주의력 테스트';
+
+  @override
+  String get d2AttentionSubtitle => '엄격한 기준에 따라 목표 기호를 탭하세요.';
+
+  @override
+  String get dualMirrorTitle => '듀얼 미러 내비게이션';
+
+  @override
+  String get dualMirrorSubtitle => '두 개의 미로를 동시에 통과하세요.';
+
+  @override
+  String get contextCluesTitle => '문맥 힌트';
+
+  @override
+  String get contextCluesSubtitle => '문맥 힌트로부터 숨겨진 단어를 추론하세요.';
+
+  @override
+  String get digitSpanReverseSubtitle => '숫자를 역순으로 기억해내세요.';
+
+  @override
+  String get faceNameAssociationSubtitle => '제시된 다양한 얼굴의 이름을 기억해내세요.';
+
+  @override
+  String get staircaseMemorySubtitle => '단계별 순서로 블록을 암기하세요.';
+
+  @override
+  String get choiceReactionTimeSubtitle => '힌트와 일치하는 특정 버튼을 빠르게 탭하세요.';
+
+  @override
+  String get attentionalBlinkSubtitle => '스트림 속에서 빠르게 깜박이는 목표를 포착하세요.';
+
+  @override
+  String get visualStatisticalLearningSubtitle => '시각적으로 시간적 도형 패턴을 학습하세요.';
+
+  @override
+  String get sternbergTaskSubtitle => '기호가 기억 세트에 있었는지 기억해내세요.';
+
+  @override
+  String get operationSpanSubtitle => '계산을 풀면서 알파벳 문자열을 기억해내세요.';
+
+  @override
+  String get continuousRecognitionTitle => '연속 인식';
+
+  @override
+  String get continuousRecognitionSubtitle => '제시된 카드가 이전 것인지 새로운 것인지 식별하세요.';
+
+  @override
+  String get symmetrySpanTitle => '대칭 범위';
+
+  @override
+  String get symmetrySpanSubtitle => '수직 대칭 결정을 내리면서 셀 좌표를 기억해내세요.';
+
+  @override
+  String get objectDisplacementTitle => '물체 이동';
+
+  @override
+  String get objectDisplacementSubtitle => '배치를 학습하고 이동한 단 하나의 물체를 탭하세요.';
+
+  @override
+  String get mandalaRecallTitle => '만다라 회상';
+
+  @override
+  String get mandalaRecallSubtitle => '색상 타일을 암기하고 팔레트에서 만다라를 다시 칠하세요.';
+
+  @override
+  String get runningMemorySpanTitle => '러닝 스팬';
+
+  @override
+  String get runningMemorySpanSubtitle => '흐르는 글자를 모니터링하고 마지막 N개 아이템을 기억해내세요.';
+
+  @override
+  String get spatialCabinetMemoryTitle => '공간 캐비닛';
+
+  @override
+  String get spatialCabinetMemorySubtitle => '캐비닛 문 뒤의 아이템을 암기하고 위치를 찾으세요.';
+
+  @override
+  String get pathRecallSubtitle => '경로 선택을 암기하고 반복하세요.';
+
+  @override
+  String get objectShuffleSubtitle => '깊은 컵 아래에서 섞이는 아이템을 추적하세요.';
+
+  @override
+  String get groceryListSubtitle => '리스트의 아이템을 암기하고 체크하세요.';
+
+  @override
+  String get quickMathSubtitle => '최고 속도로 산수 문제를 푸세요.';
+
+  @override
+  String get mathGuessTitle => '숫자 맞히기';
+
+  @override
+  String get mathGuessSubtitle => '15번의 기회 내에 숨겨진 숫자를 맞히세요.';
+
+  @override
+  String get reflexTapSubtitle => '자극을 인간이 가능한 한 가장 빠르게 탭하세요.';
+
+  @override
+  String get pixelMimicSubtitle => '픽셀 그리드 위의 디자인 패턴을 모방하세요.';
+
+  @override
+  String get simonSequenceSubtitle => '기억으로부터 도형 순서를 반복하세요.';
+
+  @override
+  String get slidePuzzleSubtitle => '정사각형 슬라이딩 그리드 타일을 재배치하세요.';
+
+  @override
+  String get findWordTitle => '단어 찾기';
+
+  @override
+  String get schulteTableSubtitle => '1부터 25까지의 숫자를 탭하세요.';
+
+  @override
+  String get simonCommandTitle => '사이먼 명령';
+
+  @override
+  String get simonCommandSubtitle => '음성 지시를 빠르게 수행하세요.';
+
+  @override
+  String get binaryCodeTitle => '이진수 스피드';
+
+  @override
+  String get binaryCodeSubtitle => '이진수 코드를 십진수로 변환하세요.';
+
+  @override
+  String get moduloClockTitle => '나머지 시계';
+
+  @override
+  String get moduloClockSubtitle => '시계를 사용하여 수학 방정식을 계산하세요.';
+
+  @override
+  String get chimpTestTitle => '침팬지 테스트';
+
+  @override
+  String get chimpTestSubtitle => '무작위 숫자를 오름차순으로 탭하세요.';
+
+  @override
+  String get relationalMemoryTitle => '관계 기억';
+
+  @override
+  String get relationalMemorySubtitle => '정확한 그리드 아이템 위치를 기억해내세요.';
+
+  @override
+  String get factBinderTitle => '팩트 바인더';
+
+  @override
+  String get factBinderSubtitle => '기호를 연결하고 진술 내용을 기억해내세요.';
+
+  @override
+  String get sourceMonitoringTitle => '소스 모니터링';
+
+  @override
+  String get sourceMonitoringSubtitle => '문맥을 기억하세요.';
+
+  @override
+  String get klotskiTitle => '클로츠키 탈출';
+
+  @override
+  String get klotskiSubtitle => '블록을 슬라이드하여 출구에 도달하세요.';
+
+  @override
+  String get homophoneHuntSubtitle => '철자가 올바른 동음이의어를 선택하세요';
+
+  @override
+  String get laserLinkTitle => '레이저 링크';
+
+  @override
+  String get laserLinkSubtitle => '거울을 회전시켜 레이저를 반사하고 모든 타겟을 활성화합니다.';
+
+  @override
+  String get laserLinkCongrats => '정밀한 반사! 전체 그리드에 성공적으로 전력을 공급했습니다.';
+
+  @override
+  String get crossSectionSliceTitle => '단면 슬라이스';
+
+  @override
+  String get crossSectionSliceSubtitle => '특정 각도에서 본 3D 객체의 올바른 2D 단면을 식별합니다.';
+
+  @override
+  String get crossSectionSliceCongrats => '놀라운 3D 시각화! 모양의 내부를 정확히 꿰뚫어 보았습니다.';
+
+  @override
+  String get shadowPivotTitle => '쉐도우 피벗';
+
+  @override
+  String get shadowPivotCongrats => '역동적인 공간 추론! 빛과 그림자를 마ستر했습니다.';
+
+  @override
+  String get shadowPivotSubtitle => '3D 객체가 서로 다른 축으로 회전할 때 투영되는 그림자를 예측합니다.';
+
+  @override
+  String get interlockPuzzleTitle => '인터록 퍼즐';
+
+  @override
+  String get interlockPuzzleSubtitle => '복잡하게 맞물린 블록을 올바른 순서로 분해하거나 조립합니다.';
+
+  @override
+  String get interlockPuzzleCongrats => '논리적 해체! 퍼즐을 완벽하게 풀어냈습니다.';
+
+  @override
+  String get pathIntersectTitle => '경로 교차';
+
+  @override
+  String get pathIntersectSubtitle => '충돌 없이 각각의 타겟에 도달하기 위해 여러 경로를 동시에 탐색합니다.';
+
+  @override
+  String get pathIntersectCongrats => '동기화된 내비게이션! 모든 타겟에 완벽하게 도달했습니다.';
+
+  @override
+  String get negativeSpaceDetectionTitle => '네거티브 스페이스';
+
+  @override
+  String get negativeSpaceDetectionSubtitle => '물체 사이의 빈 공간에 의해 형성된 모양을 식별합니다.';
+
+  @override
+  String get negativeSpaceDetectionCongrats =>
+      '예리한 통찰력! 존재하지 않는 것을 보는 기술을 마스터하셨군요.';
+
+  @override
+  String get compassMazeTitle => '나침반 미로';
+
+  @override
+  String get compassMazeSubtitle => '나침반 방향에 따라 이동 방향이 바뀌는 미로를 탐색합니다.';
+
+  @override
+  String get compassMazeCongrats => '전문가급 내비게이션! 변화하는 방향을 뚫고 출구를 찾았습니다.';
+
+  @override
+  String get complexFoldingNetsTitle => '전개도 접기';
+
+  @override
+  String get complexFoldingNetsSubtitle =>
+      '비표준 2D 전개도를 접었을 때 형성될 복잡한 3D 모양을 결정합니다.';
+
+  @override
+  String get complexFoldingNetsCongrats => '고급 접기 논리! 3D 형태를 성공적으로 시각화했습니다.';
+
+  @override
+  String get compassMazeMessage => '나침반을 사용하여 미로를 탐색하세요.';
+
+  @override
+  String get negativeSpaceDetectionMessage => '공간에 숨겨진 물체를 식별하세요.';
+
+  @override
+  String get shikakuTitle => '시카쿠';
+
+  @override
+  String get shikakuSubtitle => '숫자에 맞게 격자를 정사각형과 직사각형으로 나눕니다.';
+
+  @override
+  String get countdownMathTitle => '카운트다운 수학';
+
+  @override
+  String get countdownMathSubtitle => '무작위 숫자를 결합하여 세 자리 목표를 계산하세요.';
+
+  @override
+  String get narrativeRecallTitle => '내러티브 회상';
+
+  @override
+  String get narrativeRecallSubtitle => '이야기를 읽고 구체적인 양적, 사실적 세부 사항을 기억해 보세요.';
+
+  @override
+  String get shellGameTitle => '쉘 게임';
+
+  @override
+  String get shellGameSubtitle => '셔플링 컵이 장소를 바꾸면서 숨겨진 공을 추적하세요.';
+
+  @override
+  String get typoglycemiaDecoderTitle => '혈당증 디코더';
+
+  @override
+  String get typoglycemiaDecoderSubtitle => '뒤죽박죽된 문장을 빠르게 풀고 읽으세요.';
+
+  @override
+  String get shapeShifterTitle => '형태 변형기';
+
+  @override
+  String get shapeShifterSubtitle => '대상 모양-색상 조합을 탭합니다.';
+
+  @override
+  String get gokigenNanameTitle => '고키겐 나나메';
+
+  @override
+  String get gokigenNanameSubtitle => '루프 없이 점을 연결하려면 대각선을 그립니다.';
+
+  @override
+  String get matrixMultiplierTitle => '매트릭스 승수';
+
+  @override
+  String get matrixMultiplierSubtitle => '대상에 곱할 행과 열을 선택합니다.';
+
+  @override
+  String get wordAssociationRecallTitle => '단어 연관';
+
+  @override
+  String get wordAssociationRecallSubtitle => '쌍을 이루는 단어 연관을 기억에서 불러냅니다.';
+
+  @override
+  String get gearRotationTitle => '기어 회전';
+
+  @override
+  String get gearRotationSubtitle => '마지막 기어의 회전 방향을 예측합니다.';
+
+  @override
+  String get wordWheelTitle => '워드휠';
+
+  @override
+  String get wordWheelSubtitle => '가운데 글자를 포함하여 바퀴에 있는 글자를 사용하여 단어를 만드세요.';
+
+  @override
+  String get oddEvenFlashTitle => '홀짝 플래시';
+
+  @override
+  String get oddEvenFlashSubtitle => '색상 규칙과 숫자 패리티를 빠르게 일치시킵니다.';
+
+  @override
+  String get norinoriTitle => '노리노리';
+
+  @override
+  String get norinoriSubtitle => '각 방에서 정확히 두 개의 연결된 셀을 가리십시오.';
+
+  @override
+  String get algebraicBalanceTitle => '대수 균형';
+
+  @override
+  String get algebraicBalanceSubtitle => '방정식을 풀어 목표 합계를 찾습니다.';
+
+  @override
+  String get patternSequenceDrawTitle => '패턴 리콜';
+
+  @override
+  String get patternSequenceDrawSubtitle => '그리드에서 애니메이션 경로 시퀀스를 반복합니다.';
+
+  @override
+  String get tangramTitle => '탱그램 퍼즐';
+
+  @override
+  String get tangramSubtitle => '대상 실루엣을 채우기 위해 모양을 정렬합니다.';
+
+  @override
+  String get semanticAssociationTitle => '협회 단어';
+
+  @override
+  String get semanticAssociationSubtitle => '세 가지 단서를 모두 연결하는 단어를 찾으세요.';
+
+  @override
+  String get peripheralFocusTitle => '주변 초점';
+
+  @override
+  String get peripheralFocusSubtitle => '수학 문제를 푸는 동안 깜박이는 측면 패널에 반응하세요.';
+
+  @override
+  String get masyuTitle => '마슈 루프';
+
+  @override
+  String get masyuSubtitle => 'Masyu 원 규칙과 일치하는 단일 루프를 그립니다.';
+
+  @override
+  String get mathMazeTitle => '수학 미로';
+
+  @override
+  String get mathMazeSubtitle => '목표 합계로 평가되는 경로를 추적합니다.';
+
+  @override
+  String get storyBuilderTitle => '스토리 빌더';
+
+  @override
+  String get storyBuilderSubtitle => '이야기의 연대순 순서를 재구성합니다.';
+
+  @override
+  String get mirrorMazeTitle => '거울 미로';
+
+  @override
+  String get mirrorMazeSubtitle => '대각선 거울을 사용하여 레이저 빔의 방향을 바꿉니다.';
+
+  @override
+  String get wordGridConnectionTitle => '단어 연결';
+
+  @override
+  String get wordGridConnectionSubtitle => '16개의 단어를 4개 카테고리로 그룹화합니다.';
+
+  @override
+  String get shapeShifterPeripheralTitle => '주변 형상';
+
+  @override
+  String get shapeShifterPeripheralSubtitle => '중앙 값을 일치시키면서 주변 모양 변화를 추적합니다.';
+
+  @override
+  String get soundWaveMatchTitle => '사운드 웨이브 매치';
+
+  @override
+  String get soundWaveMatchSubtitle => '시각적 파동 주파수가 피치 변화와 일치할 때 탭하세요.';
+
+  @override
+  String get multiTrackCounterTitle => '다중 트랙 카운터';
+
+  @override
+  String get multiTrackCounterSubtitle => '카운터가 목표 배수로 증가할 때 탭하세요.';
+
+  @override
+  String get colorWordMatchUpTitle => '컬러 매치업';
+
+  @override
+  String get colorWordMatchUpSubtitle =>
+      '변화하는 규칙에 따라 두 가지 색상의 단어가 일치하는지 확인합니다.';
+
+  @override
+  String get signalAndNoiseTitle => '신호 및 소음';
+
+  @override
+  String get signalAndNoiseSubtitle => '정적 노이즈에 숨겨진 대상 영숫자를 찾습니다.';
+
+  @override
+  String get focusTunnelTitle => '포커스 터널';
+
+  @override
+  String get focusTunnelSubtitle => '움직이는 터널 벽에 나타나는 일치하는 기호를 식별합니다.';
+
+  @override
+  String get targetPursuerTitle => '표적 추적자';
+
+  @override
+  String get targetPursuerSubtitle => '여러 개의 겹치는 원을 추적하고 원래 대상을 선택합니다.';
+
+  @override
+  String get gridGazeTitle => '그리드 시선';
+
+  @override
+  String get gridGazeSubtitle => '다른 지속 시간으로 깜박이는 그리드 셀을 식별합니다.';
+
+  @override
+  String get doubleTroubleTitle => '더블 트러블';
+
+  @override
+  String get doubleTroubleSubtitle => '분할 화면에서 두 가지 간단한 게임을 동시에 플레이하세요.';
+
+  @override
+  String get syncRhythmTitle => '동기화 리듬';
+
+  @override
+  String get syncRhythmSubtitle => '시각적 메트로놈 스윕이 당김 비트와 일치할 때 탭하세요.';
+
+  @override
+  String get ghostTapTitle => '고스트 탭';
+
+  @override
+  String get ghostTapSubtitle => '보이지 않는 펄스가 최대 높이에 도달하면 탭하세요.';
+
+  @override
+  String get attentionalRsvpTitle => '주의 깊게 참석 회신';
+
+  @override
+  String get attentionalRsvpSubtitle => '빠른 일련 문자 플래시에 나타나는 숫자를 식별합니다.';
+
+  @override
+  String get colorMazeNavTitle => '컬러 미로 탐색';
+
+  @override
+  String get colorMazeNavSubtitle => '동적 권한 색상과 일치하는 미로 타일을 탐색하세요.';
+
+  @override
+  String get dynamicSalienceTitle => '역동적인 돌출성';
+
+  @override
+  String get dynamicSalienceSubtitle => '약간 다른 역학으로 움직이는 모양을 찾아보세요.';
+
+  @override
+  String get chalkAndTalkTitle => '분필과 대화';
+
+  @override
+  String get chalkAndTalkSubtitle => '시각적 방해 요소를 무시하면서 오디오에서 들리는 단어를 입력합니다.';
+
+  @override
+  String get blinkDetectorTitle => '깜박임 감지기';
+
+  @override
+  String get blinkDetectorSubtitle => '빠르게 두 번 깜박이는 그리드 면을 탭하세요.';
+
+  @override
+  String get frequencyTapTitle => '주파수 탭';
+
+  @override
+  String get frequencyTapSubtitle => '목표 광 펄스 주파수와 일치하는 버튼을 누릅니다.';
+
+  @override
+  String get yajilinTitle => 'Yajilin';
+
+  @override
+  String get yajilinSubtitle => '검은색 셀을 배치하고 단서와 일치하는 단일 루프를 그립니다.';
+
+  @override
+  String get heyawakeTitle => 'Heyawake';
+
+  @override
+  String get heyawakeSubtitle => '인접한 검은색 셀이 없는 격자형 방을 가리십시오.';
+
+  @override
+  String get gokigenVariantTitle => '고키겐 변형';
+
+  @override
+  String get gokigenVariantSubtitle => '정점 수를 충족하는 루프 없는 대각선을 그립니다.';
+
+  @override
+  String get sheepAndWolvesTitle => '양과 늑대';
+
+  @override
+  String get sheepAndWolvesSubtitle => '양과 늑대를 분리하는 고리를 그립니다.';
+
+  @override
+  String get islandNurikabeTitle => '아일랜드 누리카베';
+
+  @override
+  String get islandNurikabeSubtitle => '숫자 크기 제약 조건과 일치하는 아일랜드를 형성합니다.';
+
+  @override
+  String get shakashakaTitle => '샤카샤카 직사각형';
+
+  @override
+  String get shakashakaSubtitle => '삼각형 타일을 배치하여 직사각형 흰색 영역을 형성합니다.';
+
+  @override
+  String get litsTetrisTitle => 'LITS 테트로미노';
+
+  @override
+  String get litsTetrisSubtitle => '인접한 중복 항목이 없는 방에 테트로미노를 배치하세요.';
+
+  @override
+  String get tapaWallTitle => '타파 벽';
+
+  @override
+  String get tapaWallSubtitle => '연속적인 검은색 벽 패턴을 형성하도록 셀에 음영을 지정합니다.';
+
+  @override
+  String get triangularBridgesTitle => '삼각형 교량';
+
+  @override
+  String get triangularBridgesSubtitle => '요구 사항을 충족하는 3방향으로 섬을 연결합니다.';
+
+  @override
+  String get rippleEffectTitle => '파급효과';
+
+  @override
+  String get rippleEffectSubtitle => '간격 거리 제약을 준수하여 방에 숫자를 입력합니다.';
+
+  @override
+  String get suguruTectonicTitle => '스구루 그리드';
+
+  @override
+  String get suguruTectonicSubtitle =>
+      '이웃이 동일하지 않은 상태에서 1부터 K까지의 숫자로 방 블록을 채웁니다.';
+
+  @override
+  String get tennerGridTitle => '테너 그리드';
+
+  @override
+  String get tennerGridSubtitle => '열 합계와 일치하는 숫자 0-9로 행을 채웁니다.';
+
+  @override
+  String get kakurasuSumsTitle => '카쿠라스 합계';
+
+  @override
+  String get kakurasuSumsSubtitle => '가중치가 부여된 행/열 인덱스 합계를 충족하도록 셀을 음영 처리합니다.';
+
+  @override
+  String get corralLoopTitle => '목장 루프';
+
+  @override
+  String get corralLoopSubtitle => '가시성과 일치하는 숫자를 포함하는 단일 루프를 그립니다.';
+
+  @override
+  String get stostoneTitle => '스토스톤 중력';
+
+  @override
+  String get stostoneSubtitle => '아래쪽 행을 완벽하게 채우기 위해 아래로 떨어지는 셀을 음영 처리합니다.';
+
+  @override
+  String get tripletsLogicTitle => '세 쌍둥이 트리오';
+
+  @override
+  String get tripletsLogicSubtitle => '3개가 연속되는 것을 피하고 3개의 도형으로 그리드를 채웁니다.';
+
+  @override
+  String get galaxiesSymTitle => '은하 대칭';
+
+  @override
+  String get galaxiesSymSubtitle => '그리드를 회전 대칭 은하 모양으로 나눕니다.';
+
+  @override
+  String get matrixMultiplierMatchTitle => '행렬 일치자';
+
+  @override
+  String get matrixMultiplierMatchSubtitle => '행과 열 값을 곱하여 대상 내적과 일치시킵니다.';
+
+  @override
+  String get primeFactorTreesTitle => '소인수 트리';
+
+  @override
+  String get primeFactorTreesSubtitle => '합성수를 소수 리프 인자 쌍으로 분해합니다.';
+
+  @override
+  String get vektorVectorTitle => '벡터 벡터';
+
+  @override
+  String get vektorVectorSubtitle => '벡터의 크기를 조절하여 그 합이 목표에 도달하도록 합니다.';
+
+  @override
+  String get binomialMatchTitle => '이항 일치';
+
+  @override
+  String get binomialMatchSubtitle => '인수분해된 이항 값과 이차 공식을 일치시킵니다.';
+
+  @override
+  String get percentageShoppingTitle => '백분율 쇼핑';
+
+  @override
+  String get percentageShoppingSubtitle => '할인율과 최종 결제 총액을 계산합니다.';
+
+  @override
+  String get cryptoArithmeticTitle => '암호화 연산';
+
+  @override
+  String get cryptoArithmeticSubtitle => '문자-숫자 대체 암호 수학 문제를 해결하세요.';
+
+  @override
+  String get fractionalPizzaTitle => '분수 피자';
+
+  @override
+  String get fractionalPizzaSubtitle => '목표 합계 분수와 일치하도록 피자 조각을 분할합니다.';
+
+  @override
+  String get numberBondsTitle => '번호 채권';
+
+  @override
+  String get numberBondsSubtitle => '노드 값을 대상 연결 합계와 동일하게 연결합니다.';
+
+  @override
+  String get gridSumLineTitle => '그리드 합계 라인';
+
+  @override
+  String get gridSumLineSubtitle => '값이 대상에 정확하게 평가되는 경로를 그립니다.';
+
+  @override
+  String get binaryScaleBalanceTitle => '바이너리 스케일 밸런스';
+
+  @override
+  String get binaryScaleBalanceSubtitle => '2의 거듭제곱 블록을 사용하여 소수점 무게의 균형을 맞춥니다.';
+
+  @override
+  String get moduloPathTitle => '모듈로 경로';
+
+  @override
+  String get moduloPathSubtitle => '모듈로 나머지 값과 일치하는 그리드 셀을 탐색합니다.';
+
+  @override
+  String get digitSwapEqTitle => '숫자 교환 방정식';
+
+  @override
+  String get digitSwapEqSubtitle => '두 방정식을 모두 수정하려면 방정식 사이의 한 자리 숫자를 바꾸세요.';
+
+  @override
+  String get areaPerimeterMatchTitle => '면적 및 둘레';
+
+  @override
+  String get areaPerimeterMatchSubtitle => '대상 영역 및 둘레 값과 일치하는 직사각형을 그립니다.';
+
+  @override
+  String get inequalityBalanceOpsTitle => '불평등 균형';
+
+  @override
+  String get inequalityBalanceOpsSubtitle => '복잡한 수학 용어 사이에 부등식 기호를 배치합니다.';
+
+  @override
+  String get graphCoordinatePlotTitle => '그래프 플로터';
+
+  @override
+  String get graphCoordinatePlotSubtitle => '선형/2차 곡선과 일치하는 그리드 좌표를 플롯합니다.';
+
+  @override
+  String get baseConversionRunTitle => '기본 변환';
+
+  @override
+  String get baseConversionRunSubtitle => '2진수, 10진수, 16진수, 8진수 사이의 값을 변환합니다.';
+
+  @override
+  String get unitConverterProTitle => '단위 변환기';
+
+  @override
+  String get unitConverterProSubtitle => '시간 제한 내에서 빠른 단위 변환에 응답합니다.';
+
+  @override
+  String get auditoryNBackTitle => '청각 N-백';
+
+  @override
+  String get auditoryNBackSubtitle => '기억에서 N 단계 뒤로 들리는 음성 문자를 일치시킵니다.';
+
+  @override
+  String get abstractPatternRecallTitle => '패턴 레이어링';
+
+  @override
+  String get abstractPatternRecallSubtitle => '기억 연구를 통해 계층화된 다채로운 모양을 재구성합니다.';
+
+  @override
+  String get roomInspectorTitle => '룸 인스펙터';
+
+  @override
+  String get roomInspectorSubtitle => '화면이 비어 있는 동안 수정된 가구를 식별합니다.';
+
+  @override
+  String get voiceToFaceMatchTitle => '음성-얼굴 일치';
+
+  @override
+  String get voiceToFaceMatchSubtitle => '음성 오디오 음성 클립과 연결된 올바른 얼굴을 선택하세요.';
+
+  @override
+  String get spatialGridMemory3DTitle => '3차원 공간 기억';
+
+  @override
+  String get spatialGridMemory3DSubtitle =>
+      '회전된 3D 큐브 그리드 구조에서 깜박이는 블록을 떠올려보세요.';
+
+  @override
+  String get sequenceStackTitle => '시퀀스 스택';
+
+  @override
+  String get sequenceStackSubtitle => '플레이트 스택 추가 및 제거를 순서대로 재구성합니다.';
+
+  @override
+  String get semanticCategoryRecallTitle => '카테고리 리콜';
+
+  @override
+  String get semanticCategoryRecallSubtitle =>
+      '요청된 카테고리 타겟과 일치하는 학습 단어를 식별합니다.';
+
+  @override
+  String get gridDisplacementTitle => '그리드 변위';
+
+  @override
+  String get gridDisplacementSubtitle => '레이아웃을 원본과 비교하여 이동된 아이콘을 식별합니다.';
+
+  @override
+  String get soundSequenceMatchTitle => '사운드 시퀀스 일치';
+
+  @override
+  String get soundSequenceMatchSubtitle => '가상 키보드에서 연주되는 음표 시퀀스를 반복합니다.';
+
+  @override
+  String get cardCountingMemoryTitle => '카드 카운터';
+
+  @override
+  String get cardCountingMemorySubtitle => '지속적인 카드 거래 실행에서 이미 처리된 카드를 식별합니다.';
+
+  @override
+  String get directionsRecallTitle => '길찾기 리콜';
+
+  @override
+  String get directionsRecallSubtitle => '메모리에서 경로 방향과 일치하는 그리드 맵을 탐색합니다.';
+
+  @override
+  String get eventTimelineMemoryTitle => '이벤트 타임라인';
+
+  @override
+  String get eventTimelineMemorySubtitle => '역사적/허구적 사건 카드를 연대순으로 배열합니다.';
+
+  @override
+  String get featureMatrixRecallTitle => '기능 매트릭스';
+
+  @override
+  String get featureMatrixRecallSubtitle => '셀 모양-색상 속성에 대한 쿼리 프롬프트에 응답합니다.';
+
+  @override
+  String get delayedMatchSampleTitle => '지연된 경기';
+
+  @override
+  String get delayedMatchSampleSubtitle => '수학 방해 요소를 해결한 후 대상 기호를 일치시킵니다.';
+
+  @override
+  String get symbolDigitAssocTitle => '기호-숫자 연관';
+
+  @override
+  String get symbolDigitAssocSubtitle => '숫자 키와 일치하는 기호 번역 시트를 해결합니다.';
+
+  @override
+  String get dualTaskMemoryTitle => '이중 작업 메모리';
+
+  @override
+  String get dualTaskMemorySubtitle => '빠른 산술 작업을 해결하면서 단어 세트를 암기하세요.';
+
+  @override
+  String get actionSequenceRecallTitle => '액션 리콜';
+
+  @override
+  String get actionSequenceRecallSubtitle => '캐릭터 제스처 애니메이션 시퀀스를 순서대로 반복합니다.';
+
+  @override
+  String get tangramPolygonTitle => '탱그램핏';
+
+  @override
+  String get tangramPolygonSubtitle => '다각형 모양을 배열하여 실루엣 윤곽선을 채웁니다.';
+
+  @override
+  String get mazeNav3DTitle => '3D 미로 탐색';
+
+  @override
+  String get mazeNav3DSubtitle => '1인칭 시점에서 3D 등각 미로 경로를 탐색합니다.';
+
+  @override
+  String get isometricProjectionTitle => '아이소메트릭 프로젝터';
+
+  @override
+  String get isometricProjectionSubtitle => '3D 블록 그림을 직교 2D 상단/정면 뷰와 일치시킵니다.';
+
+  @override
+  String get polyominoPackingTitle => '폴리오미노 포장';
+
+  @override
+  String get polyominoPackingSubtitle => '무작위 폴리오미노 블록 조각을 대상 영역에 포장합니다.';
+
+  @override
+  String get spatialGridRotationTitle => '공간 그리드 회전';
+
+  @override
+  String get spatialGridRotationSubtitle => '축 좌표를 따라 회전된 3D 블록 배열을 일치시킵니다.';
+
+  @override
+  String get wireLoopGameTitle => '와이어 루프';
+
+  @override
+  String get wireLoopGameSubtitle => '접촉 없이 와이어 스플라인을 따라 금속 링을 드래그합니다.';
+
+  @override
+  String get origamiUnfoldTitle => '종이접기 펼치기';
+
+  @override
+  String get origamiUnfoldSubtitle => '접힌 시트를 펼친 후 홀 펀치 패턴을 식별합니다.';
+
+  @override
+  String get ropeTangleSolverTitle => '밧줄 풀기';
+
+  @override
+  String get ropeTangleSolverSubtitle => '선 교차가 0인 평면 그래프 레이아웃으로 노드를 드래그합니다.';
+
+  @override
+  String get gridFitTetrisTitle => '그리드 맞춤 솔버';
+
+  @override
+  String get gridFitTetrisSubtitle => '컨테이너 경계에 맞게 정적 불규칙 블록을 배열합니다.';
+
+  @override
+  String get vectorGridAlignmentTitle => '벡터 정렬';
+
+  @override
+  String get vectorGridAlignmentSubtitle =>
+      '그림자 템플릿 대상과 일치하도록 모양의 크기를 조정하고 회전합니다.';
+
+  @override
+  String get blockStackingPhysicsTitle => '블록 쌓기';
+
+  @override
+  String get blockStackingPhysicsSubtitle => '불규칙한 블록 패널을 쌓아 중력 무게의 균형을 맞춥니다.';
+
+  @override
+  String get crossSectionMatch3DTitle => '3D 단면';
+
+  @override
+  String get crossSectionMatch3DSubtitle => '3D 모양에서 잘라낸 2D 슬라이스 형상을 식별합니다.';
+
+  @override
+  String get symmetryPaintTitle => '대칭 페인트';
+
+  @override
+  String get symmetryPaintSubtitle => '대칭 축을 따라 반사되는 거울 이미지 세그먼트를 그립니다.';
+
+  @override
+  String get rollingBlockBloxTitle => '롤링 블록';
+
+  @override
+  String get rollingBlockBloxSubtitle => '블록 조각을 굴려 대상 슬롯에 수직으로 착륙시킵니다.';
+
+  @override
+  String get perspectiveShiftViewTitle => '관점 전환';
+
+  @override
+  String get perspectiveShiftViewSubtitle =>
+      '문자/단어의 철자가 나올 때까지 블록 클러스터를 회전합니다.';
+
+  @override
+  String get networkFlowSphericalTitle => '네트워크 흐름';
+
+  @override
+  String get networkFlowSphericalSubtitle => '래핑 원통형 좌표에 그리드 흐름을 연결합니다.';
+
+  @override
+  String get layeredSilhouetteBlendTitle => '실루엣 블렌드';
+
+  @override
+  String get layeredSilhouetteBlendSubtitle => '대상 반투명 모양과 일치하도록 색상 레이어를 쌓습니다.';
+
+  @override
+  String get wordWheelPangramTitle => '단어 철자 바꾸기';
+
+  @override
+  String get wordWheelPangramSubtitle => '바퀴의 중심 대상 문자를 포함하는 단어를 구성합니다.';
+
+  @override
+  String get letterGridSwapperTitle => '편지 교환기';
+
+  @override
+  String get letterGridSwapperSubtitle => '인접한 문자 타일을 바꿔서 행과 열 단어를 완성하세요.';
+
+  @override
+  String get synonymMatchTitle => '동의어 일치';
+
+  @override
+  String get synonymMatchSubtitle => '떨어지는 단어 대상을 동의어 또는 반의어와 일치시킵니다.';
+
+  @override
+  String get vowelDropTitle => '모음 드롭';
+
+  @override
+  String get vowelDropSubtitle => '단어를 완성하는 좌표 격자에 모음을 놓습니다.';
+
+  @override
+  String get letterBalanceScaleTitle => '단어 균형 척도';
+
+  @override
+  String get letterBalanceScaleSubtitle => '문자 값이 가중치의 균형을 이루는 단어를 철자합니다.';
+
+  @override
+  String get wordChainShiritoriTitle => '워드 체인';
+
+  @override
+  String get wordChainShiritoriSubtitle => '이전 문자 출력으로 시작하는 단어 루프를 연결합니다.';
+
+  @override
+  String get affixBuilderTitle => '접사 빌더';
+
+  @override
+  String get affixBuilderSubtitle => '접두사/접미사를 결합하여 대상 어휘를 구성합니다.';
+
+  @override
+  String get decipherCrypticCluesTitle => '비밀 해독기';
+
+  @override
+  String get decipherCrypticCluesSubtitle => '단어장난 퍼즐을 풀고 철자 수수께끼를 해독하세요.';
+
+  @override
+  String get boggleWordSearchTitle => '보글 커넥트';
+
+  @override
+  String get boggleWordSearchSubtitle => '인접한 연결된 경로를 추적하여 숨겨진 단어를 찾으세요.';
+
+  @override
+  String get idiomUnscrambleTitle => '숙어 Unscramble';
+
+  @override
+  String get idiomUnscrambleSubtitle => '관용어 의미와 일치하도록 뒤섞인 단어 배열을 정렬합니다.';
+
+  @override
+  String get letterPyramidsTitle => '편지 피라미드';
+
+  @override
+  String get letterPyramidsSubtitle => '계층당 단일 철자법 문자를 추가하여 단어 타워를 구축하세요.';
+
+  @override
+  String get soundAlikeHomophonesTitle => '동음이의어 일치';
+
+  @override
+  String get soundAlikeHomophonesSubtitle => '문장의 올바른 동음이의어 철자를 식별합니다.';
+
+  @override
+  String get wordGridSudokuTitle => '워드 스도쿠';
+
+  @override
+  String get wordGridSudokuSubtitle => '단어를 형성하는 그리드 행의 문자를 테셀레이션합니다.';
+
+  @override
+  String get portmanteauFactoryTitle => '포트만토 공장';
+
+  @override
+  String get portmanteauFactorySubtitle => '복합어를 생성하는 의미 구성 요소를 병합합니다.';
+
+  @override
+  String get codedCrosswordsCodeTitle => '코드워드 크로스워드';
+
+  @override
+  String get codedCrosswordsCodeSubtitle => '숫자와 문자 코드가 일치하는 그리드 십자말풀이를 풀어보세요.';
+
+  @override
+  String get wordSnakeTrailTitle => '워드 스네이크';
+
+  @override
+  String get wordSnakeTrailSubtitle => '주제별 단어를 철자하는 뱀 모양의 문자 흔적을 추적합니다.';
+
+  @override
+  String get typingRhythmSpeedTitle => '타이핑 흐름';
+
+  @override
+  String get typingRhythmSpeedSubtitle => '메트로놈 리듬 비트와 일치하는 어휘를 입력하세요.';
+
+  @override
+  String get errorSomethingWrong => 'Something went wrong';
+
+  @override
+  String get errorUnexpected => 'An unexpected error occurred';
+
+  @override
+  String get errorTryAgain => 'Try Again';
+
+  @override
+  String get leaveReview => 'Leave Review';
+
+  @override
+  String get reportError => 'Report Error';
+
+  @override
+  String get statsTitle => 'Stats';
+
+  @override
+  String get statsAchievements => 'Achievements';
+
+  @override
+  String get statsWeeklyActivity => 'Weekly Activity';
+
+  @override
+  String statsDayStreak(int days) {
+    return '$days Day Streak';
+  }
+
+  @override
+  String get statsTotalXp => 'Total XP';
+
+  @override
+  String get statsSolved => 'Solved';
+
+  @override
+  String statsLevel(int level) {
+    return 'Level $level';
+  }
+
+  @override
+  String get statsMaintainStreak => 'Maintain your streak!';
+
+  @override
+  String statsPercentToLevel(int percent, int level) {
+    return '$percent% to Level $level';
+  }
+
+  @override
+  String get statsCognitiveProfile => 'Cognitive Profile';
+
+  @override
+  String get statsLocked => 'Locked';
+
+  @override
+  String get achievementSeeker => 'Seeker';
+
+  @override
+  String get achievementSeekerDesc => 'Earn 100 XP';
+
+  @override
+  String get achievementApprentice => 'Apprentice';
+
+  @override
+  String get achievementApprenticeDesc => 'Earn 1,000 XP';
+
+  @override
+  String get achievementStrategist => 'Strategist';
+
+  @override
+  String get achievementStrategistDesc => 'Earn 5,000 XP';
+
+  @override
+  String get achievementElite => 'Elite';
+
+  @override
+  String get achievementEliteDesc => 'Earn 10,000 XP';
+
+  @override
+  String get achievementVeteran => 'Veteran';
+
+  @override
+  String get achievementVeteranDesc => 'Earn 25,000 XP';
+
+  @override
+  String get achievementMaster => 'Master';
+
+  @override
+  String get achievementMasterDesc => 'Earn 50,000 XP';
+
+  @override
+  String get achievementGrandmaster => 'Grandmaster';
+
+  @override
+  String get achievementGrandmasterDesc => 'Earn 100,000 XP';
+
+  @override
+  String get achievementLegend => 'Legend';
+
+  @override
+  String get achievementLegendDesc => 'Earn 250,000 XP';
+
+  @override
+  String get achievementMythic => 'Mythic';
+
+  @override
+  String get achievementMythicDesc => 'Earn 500,000 XP';
+
+  @override
+  String get achievementEternal => 'Eternal';
+
+  @override
+  String get achievementEternalDesc => 'Earn 1,000,000 XP';
+
+  @override
+  String get winFoundIt => 'Found It!';
+
+  @override
+  String get winExcellentTracking => 'Excellent tracking speed!';
+
+  @override
+  String get loseMissedIt => 'Missed It!';
+
+  @override
+  String get loseKeepEyes => 'Keep your eyes on the target.';
+
+  @override
+  String get winDecodedCorrectly => 'Decoded Correctly!';
+
+  @override
+  String get winDecodedMessage =>
+      'Your brain successfully read the jumbled text!';
+
+  @override
+  String get loseTryAgainDecryption => 'Try again to break the encryption.';
+
+  @override
+  String get winTargetReached => 'Target Reached!';
+
+  @override
+  String get winExcellentCalculations => 'Excellent calculations!';
+
+  @override
+  String get winCodeBroken => 'Code Broken!';
+
+  @override
+  String get winDecodedPerfectly => 'You decoded the message perfectly.';
+
+  @override
+  String get loseEncrypted => 'Encrypted';
+
+  @override
+  String get winAmazing => 'Amazing!';
+
+  @override
+  String get winReachedTarget => 'You reached the target number!';
+
+  @override
+  String get loseTryAgainSolution => 'Try again to find the solution.';
+
+  @override
+  String get winExcellent => 'Excellent!';
+
+  @override
+  String get winLevelUp => 'Level Up!';
+
+  @override
+  String get winPerfect => 'Perfect!';
+
+  @override
+  String get winFloodSuccess => 'Flood Success!';
+
+  @override
+  String get loseDryLand => 'Dry Land...';
+
+  @override
+  String get winRoundComplete => 'Round Complete';
+
+  @override
+  String get winStayVigilant => 'Stay Vigilant!';
+
+  @override
+  String get loseKeepWatch => 'Keep Watch!';
+
+  @override
+  String get winFocusMaster => 'Focus Master!';
+
+  @override
+  String get loseConcentrationBroken => 'Concentration Broken';
+
+  @override
+  String get winSpeedDemon => 'Speed Demon!';
+
+  @override
+  String get loseSlowSteady => 'Slow & Steady';
+
+  @override
+  String get loseTimeExpired => 'Time Expired';
+
+  @override
+  String get winSharpEyes => 'Sharp Eyes!';
+
+  @override
+  String get loseLostTrack => 'Lost Track';
+
+  @override
+  String get winOrbitMaster => 'Orbit Master!';
+
+  @override
+  String get loseOutOfSync => 'Out of Sync';
+
+  @override
+  String get winSharpReflexes => 'Sharp Reflexes!';
+
+  @override
+  String get loseOutOfTime => 'Out of Time';
+
+  @override
+  String get winSurgeComplete => 'Surge Complete!';
+
+  @override
+  String get loseTimeExpiredExcl => 'Time Expired!';
+
+  @override
+  String get winMathGenius => 'Math Genius!';
+
+  @override
+  String get loseTimeUp => 'Time Up';
+
+  @override
+  String get winPlanningMaster => 'Planning Master!';
+
+  @override
+  String get loseOutOfMoves => 'Out of Moves';
+
+  @override
+  String get winTotalControl => 'Total Control!';
+
+  @override
+  String get loseInhibitionFail => 'Inhibition Fail';
+
+  @override
+  String get winMimicMaster => 'Mimic Master!';
+
+  @override
+  String get losePatternMismatch => 'Pattern Mismatch';
+
+  @override
+  String get winMemoryMaster => 'Memory Master!';
+
+  @override
+  String get loseFadingEcho => 'Fading Echo';
+
+  @override
+  String get winNeuroMaster => 'Neuro-Master!';
+
+  @override
+  String get loseBrainFog => 'Brain Fog';
+
+  @override
+  String get winBrainWizard => 'Brain Wizard!';
+
+  @override
+  String get winSpatialMaster => 'Spatial Master!';
+
+  @override
+  String get loseLostInSpace => 'Lost in Space';
+
+  @override
+  String get winSequenceMaster => 'Sequence Master!';
+
+  @override
+  String get winCountingGenius => 'Counting Genius!';
+
+  @override
+  String get winNonMatchingExpert => 'Non-Matching Expert!';
+
+  @override
+  String get winSymmetryMaster => 'Symmetry Master!';
+
+  @override
+  String get winCabinetExpert => 'Cabinet Expert!';
+
+  @override
+  String get winSpatialGenius => 'Spatial Genius!';
+
+  @override
+  String get winReadingExpert => 'Reading Expert!';
+
+  @override
+  String get winRecognitionGenius => 'Recognition Genius!';
+
+  @override
+  String get winMandalaArtist => 'Mandala Artist!';
+
+  @override
+  String get winTrackerPro => 'Tracker Pro!';
+
+  @override
+  String get loseLostTrail => 'Lost Trail';
+
+  @override
+  String get winLogicMaster => 'Logic Master!';
+
+  @override
+  String get loseWrongAnswer => 'Wrong Answer';
+
+  @override
+  String get winPathfinder => 'Pathfinder!';
+
+  @override
+  String get loseLostYourWay => 'Lost Your Way';
+
+  @override
+  String get winMentalGymnast => 'Mental Gymnast!';
+
+  @override
+  String get loseWiresCrossed => 'Wires Crossed';
+
+  @override
+  String get winCorrect => 'Correct!';
+
+  @override
+  String get loseWrong => 'Wrong';
+
+  @override
+  String get winRhythmGod => 'Rhythm God!';
+
+  @override
+  String get loseOffBeat => 'Off Beat';
+
+  @override
+  String get winSteadyHands => 'Steady Hands!';
+
+  @override
+  String get loseShakyLine => 'Shaky Line';
+
+  @override
+  String get winEquationSolved => 'Equation Solved!';
+
+  @override
+  String get winMasterHunter => 'Master Hunter!';
+
+  @override
+  String get loseHuntEnded => 'Hunt Ended';
+
+  @override
+  String get winFluencyExpert => 'Fluency Expert!';
+
+  @override
+  String get loseTimeUpExcl => 'Time Up!';
+
+  @override
+  String get winSharpEye => 'Sharp Eye!';
+
+  @override
+  String get loseMismatched => 'Mismatched';
+
+  @override
+  String get winFibonacciMaster => 'Fibonacci Master!';
+
+  @override
+  String get winMathWizard => 'Math Wizard!';
+
+  @override
+  String get winPercentagePro => 'Percentage Pro!';
+
+  @override
+  String get winSleuthMaster => 'Sleuth Master!';
+
+  @override
+  String get winDivisibilityWhiz => 'Divisibility Whiz!';
+
+  @override
+  String get winVennMaster => 'Venn Master!';
+
+  @override
+  String get winChimpTestAced => 'Chimp Test Aced';
+
+  @override
+  String get loseTestFailed => 'Test Failed';
+
+  @override
+  String get winChimpMessage =>
+      'Sensational working memory span! You equal chimpanzee levels of cognitive recall.';
+
+  @override
+  String get loseChimpMessage =>
+      'You lost all lives. Keep training to scale up your memory grid capacity!';
+
+  @override
+  String get winPerfectRecall => 'Perfect Recall!';
+
+  @override
+  String get winRememberedAll => 'You remembered all details correctly!';
+
+  @override
+  String get loseSomeDetailsWrong =>
+      'Some details were remembered incorrectly.';
+
+  @override
+  String get winShikakuSolved => 'You successfully solved the Shikaku puzzle.';
+
+  @override
+  String get snackbarIncorrectSum => 'Incorrect sum! Try another one.';
+
+  @override
+  String get snackbarCorrectMatch => 'Correct match!';
+
+  @override
+  String get snackbarWrongMatch => 'Wrong match! Study a new shape.';
+
+  @override
+  String get snackbarAlignedPerfectly => 'Aligned perfectly! Next target...';
+
+  @override
+  String get snackbarNotAligned =>
+      'Not aligned yet! Keep adjusting the rotation, scale, or positions.';
+
+  @override
+  String snackbarWordMustContainCentral(String letter) {
+    return 'Word must contain the central letter \"$letter\"!';
+  }
+
+  @override
+  String get snackbarWordAlreadyFound => 'Word already found!';
+
+  @override
+  String get snackbarNotAValidWord => 'Not a valid word!';
+
+  @override
+  String get snackbarIncorrectLookClose =>
+      'Incorrect reading. Look closely at the words!';
+
+  @override
+  String snackbarIncorrectCorrectAnswer(String answer) {
+    return 'Incorrect! The correct answer was $answer';
+  }
+
+  @override
+  String get hideGame => '숨기기';
+
+  @override
+  String get unhideGame => '숨기기 해제';
+
+  @override
+  String get favoriteGame => '즐겨찾기';
+
+  @override
+  String get unfavoriteGame => '즐겨찾기 해제';
+
+  @override
+  String get hiddenGames => '숨겨진 게임';
+
+  @override
+  String showHiddenGames(int count) {
+    return '숨겨진 게임 보기 ($count)';
+  }
+
+  @override
+  String get noHiddenGames => '숨겨진 게임 없음';
+
+  @override
+  String get gameHidden => '게임 숨김 처리됨';
+
+  @override
+  String get undo => '실행 취소';
+
+  @override
+  String get snackbarCorrect => 'Correct!';
+
+  @override
+  String get snackbarIncorrectTryNew => 'Incorrect recall! Try a new grid.';
+
+  @override
+  String get snackbarAllCorrect => 'All associations correct!';
+
+  @override
+  String get snackbarIncorrectStudyAgain =>
+      'Incorrect translations! Study the association key again.';
+
+  @override
+  String get snackbarIncorrectArithmetic => 'Incorrect arithmetic! Try again.';
+
+  @override
+  String get snackbarCorrectRecall => 'Correct recall!';
+
+  @override
+  String get snackbarWrongRecall => 'Wrong recall selection! Try a new set.';
+
+  @override
+  String get snackbarPieceDoesNotFit => 'Piece does not fit there!';
+
+  @override
+  String snackbarInvalidStep(int mod, int modulus, int remainder) {
+    return 'Invalid step! $mod mod $modulus is not $remainder.';
+  }
+
+  @override
+  String snackbarIncorrectGroup(int tries) {
+    return 'Incorrect group! $tries tries remaining.';
+  }
+
+  @override
+  String get snackbarIncorrectSwapped =>
+      'Incorrect! Swapped items are highlighted in green.';
+
+  @override
+  String snackbarIncorrectDestination(int x, int y) {
+    return 'Incorrect! The final destination was ($x, $y).';
+  }
+
+  @override
+  String snackbarIncorrectCorrectCount(String suit, int count) {
+    return 'Incorrect! The correct count for $suit was $count.';
+  }
+
+  @override
+  String get snackbarIncorrectSequence =>
+      'Incorrect sequence! Watch closely again.';
+
+  @override
+  String get snackbarSequenceMatched =>
+      'Sequence matched! Increasing length...';
+
+  @override
+  String get snackbarIncorrectAnswer => 'Incorrect answer! Try again.';
+
+  @override
+  String snackbarIncorrectCorrectValue(String value) {
+    return 'Incorrect! The correct value was $value';
+  }
+
+  @override
+  String snackbarIncorrectSlices(int selected, String required) {
+    return 'Incorrect! You selected $selected slices, but need $required.';
+  }
+
+  @override
+  String get snackbarReachedEndNoMatch =>
+      'Reached end but total does not match target!';
+
+  @override
+  String get snackbarCorrectOrder => 'Correct chronological order!';
+
+  @override
+  String get snackbarIncorrectOrder => 'Incorrect order! Study again.';
+
+  @override
+  String snackbarIncorrectMissingValue(String value) {
+    return 'Incorrect! The missing value was $value';
+  }
+
+  @override
+  String snackbarIncorrectLetterDigit(String letter, int digit) {
+    return 'Incorrect! $letter = $digit';
+  }
+
+  @override
+  String snackbarIncorrectCorrectPoint(int x, int y) {
+    return 'Incorrect! The correct point was ($x, $y).';
+  }
+
+  @override
+  String get snackbarReachedExit => 'Reached the exit! Generating next maze...';
+
+  @override
+  String get snackbarCannotMoveBlocked =>
+      'Cannot move forward: Blocked by wall!';
+
+  @override
+  String snackbarIncorrectCorrectStack(String stack) {
+    return 'Incorrect! The correct final stack was: $stack';
+  }
+
+  @override
+  String get snackbarIncorrectStudyStory =>
+      'Incorrect sequence! Study the story again.';
+
+  @override
+  String snackbarScaleNotBalanced(int current, int target) {
+    return 'Scale is not balanced! Current weight is $current, Target is $target.';
+  }
+
+  @override
+  String get snackbarWordMatchedTracing => 'Word matched! Tracing next word...';
+
+  @override
+  String get snackbarIncorrectTraceFromStart =>
+      'Incorrect sequence! Try tracing from the start cell.';
+
+  @override
+  String snackbarIncorrectCorrectForm(String form) {
+    return 'Incorrect! The factored form is $form';
+  }
+
+  @override
+  String snackbarIncorrectInequality(
+      String left, int leftVal, String correct, String right, int rightVal) {
+    return 'Incorrect! $left ($leftVal) $correct $right ($rightVal)';
+  }
+
+  @override
+  String snackbarIncorrectBaseConversion(String answer) {
+    return 'Incorrect! The correct answer was $answer';
+  }
+
+  @override
+  String get snackbarIncorrectStudyPairs =>
+      'Incorrect! Let\'s study the pairs again.';
+
+  @override
+  String get snackbarAlignedCorrectly => 'Aligned and correctly identified!';
+
+  @override
+  String get snackbarIncorrectPerspective =>
+      'Incorrect perspective angle rotation! Try aligning them first.';
+
+  @override
+  String get btnShuffleCups => 'Shuffle Cups';
+
+  @override
+  String get btnSubmitGroup => 'Submit Group';
+
+  @override
+  String get btnYes => 'Yes';
+
+  @override
+  String get btnNo => 'No';
+
+  @override
+  String get btnGotIt => 'Got It';
+
+  @override
+  String get btnSubmit => 'Submit';
+
+  @override
+  String get btnShowHint => 'Show Hint';
+
+  @override
+  String get btnSubmitAlignment => 'Submit Alignment';
+
+  @override
+  String get btnSubmitLocation => 'Submit Location';
+
+  @override
+  String get btnStartDealing => 'Start Dealing';
+
+  @override
+  String get btnImReady => 'I\'m Ready';
+
+  @override
+  String get btnStartGame => 'Start Game';
+
+  @override
+  String get btnSubmitStack => 'Submit Stack';
+
+  @override
+  String get btnImReadyToAnswer => 'I\'m Ready to Answer';
+
+  @override
+  String get btnNoMatch => 'No Match';
+
+  @override
+  String get btnMatch => 'Match';
+
+  @override
+  String get btnMatchColor => '색상 일치';
+
+  @override
+  String get btnMatchWord => '단어 일치';
+
+  @override
+  String get btnGuess => 'Guess';
+
+  @override
+  String get btnPlayNow => 'Play Now';
+
+  @override
+  String get btnClear => 'Clear';
+
+  @override
+  String get phaseWatchCarefully => 'Watch carefully...';
+
+  @override
+  String get phaseTapCupWithBall => 'Tap the cup with the ball!';
+
+  @override
+  String get phaseTrackTheBall => 'Track the ball';
+
+  @override
+  String get phaseFindTheBall => 'Find the ball under the yellow cup!';
+
+  @override
+  String get phaseBallUnderCup =>
+      'The ball is under the highlighted cup. Remember it!';
+
+  @override
+  String get phaseWrongCup =>
+      'Wrong cup! The ball was under the highlighted cup.';
+
+  @override
+  String get phaseDecodeTheSentence => 'Decode the sentence';
+
+  @override
+  String get phaseFindTheTarget => 'Find the target';
+
+  @override
+  String get phaseTargetNumber => 'Target Number';
+
+  @override
+  String get phaseSelectNumberToBegin => 'Select a number to begin';
+
+  @override
+  String get phaseMemorizeDetails => 'Memorize the details';
+
+  @override
+  String get phaseReadAndMemorize => 'Read and Memorize Details:';
+
+  @override
+  String get phaseSolveTheGrid => 'Solve the grid';
+
+  @override
+  String get phaseDirectionsList => 'Directions List:';
+
+  @override
+  String get phaseYourStack => 'Your Stack';
+
+  @override
+  String get phaseEmpty => 'Empty';
+
+  @override
+  String get phaseTapToAdd => 'Tap to Add';
+
+  @override
+  String get phaseCalculationLabel => 'Calculation:';
+
+  @override
+  String phaseTimeLeft(int time) {
+    return 'Time: ${time}s';
+  }
+
+  @override
+  String get phaseRemember2Back => 'Remember 2 steps back';
+
+  @override
+  String get phaseMatch => 'Match';
+
+  @override
+  String get hintTypeRhymingWord => 'Type a rhyming word...';
+
+  @override
+  String get hintStartTyping => 'Start typing...';
+
+  @override
+  String get hintTypeHeardWord => 'Type the heard word';
+
+  @override
+  String get hintTypeGuess => 'Type your guess...';
+
+  @override
+  String get hintTypeAnswerHere => 'Type answer here';
+
+  @override
+  String get hintEnterNextWord => 'Enter next word...';
+
+  @override
+  String get howToPlayTitle => 'How to Play';
+
+  @override
+  String get howToPlayStep1 =>
+      '1. A secret number is chosen between 1 and 10,000.';
+
+  @override
+  String get howToPlayStep2 =>
+      '2. Type your guess on the number pad and submit it.';
+
+  @override
+  String get howToPlayStep3 =>
+      '3. If wrong, you will get feedback on whether the secret is higher or lower.';
+
+  @override
+  String get howToPlayStep4 =>
+      '4. You have exactly 15 attempts to find the secret number.';
+
+  @override
+  String get noGuessesYet => 'No Guesses Yet';
+
+  @override
+  String get chancesLeft => 'Chances Left';
+
+  @override
+  String get guessesMade => 'Guesses Made';
+
+  @override
+  String get feedbackFindNumber => 'Find the number between 1 and 10,000!';
+
+  @override
+  String get feedbackEnterNumber => 'Enter a number between 1 and 10,000!';
+
+  @override
+  String feedbackCorrectExcl(int number) {
+    return 'Correct! The number was $number.';
+  }
+
+  @override
+  String get feedbackCorrectEmoji => 'Correct!';
+
+  @override
+  String get feedbackTooLow => 'Too Low';
+
+  @override
+  String get feedbackTooHigh => 'Too High';
+
+  @override
+  String feedbackGameOver(int number) {
+    return 'Game Over! The number was $number.';
+  }
+
+  @override
+  String feedbackGuessResult(int guess, String result) {
+    return '$guess is $result!';
+  }
+
+  @override
+  String feedbackWinMessage(int number, int guesses) {
+    return 'Correct! You found $number with $guesses guesses left!';
+  }
+
+  @override
+  String feedbackLoseMessage(int number) {
+    return 'Out of guesses! The number was $number.';
+  }
+
+  @override
+  String get statTime => 'Time';
+
+  @override
+  String get statScore => 'Score';
+
+  @override
+  String get statGrid => 'Grid';
+
+  @override
+  String get statMatches => 'Matches';
+
+  @override
+  String get statLives => 'Lives';
+
+  @override
+  String get statBeats => 'Beats';
+
+  @override
+  String get statPerfect => 'Perfect';
+
+  @override
+  String get statSeenPool => 'Seen Pool';
+
+  @override
+  String get statCards => 'Cards';
+
+  @override
+  String get statSpan => 'Span';
+
+  @override
+  String get statLength => 'Length';
+
+  @override
+  String get statItems => 'Items';
+
+  @override
+  String get statProgress => 'Progress';
+
+  @override
+  String get statTrials => 'Trials';
+
+  @override
+  String get statTrails => 'Trails';
+
+  @override
+  String get statMoves => 'Moves';
+
+  @override
+  String get statFocalSearch => 'Focal search on oscillations';
+
+  @override
+  String get phaseMemorizeSequence => 'Memorize the sequence order';
+
+  @override
+  String get phaseDetermineOrder => 'Determine which item came first/last';
+
+  @override
+  String get phaseCorrectOrder => 'Correct order!';
+
+  @override
+  String get phaseWrongTimeline => 'Wrong timeline!';
+
+  @override
+  String get phaseWatchPattern => 'Watch the pattern';
+
+  @override
+  String get phaseRepeatPattern => 'Repeat the pattern';
+
+  @override
+  String get phaseExcellent => 'Excellent!';
+
+  @override
+  String get phaseTryAgain => 'Try again!';
+
+  @override
+  String get phaseChooseWordFit => 'Choose the word that fits';
+
+  @override
+  String get phaseExcellentContextual => 'Excellent contextual match!';
+
+  @override
+  String get phaseIncorrectMatch => 'Incorrect match';
+
+  @override
+  String get phaseMemorizePattern => 'Memorize the pattern';
+
+  @override
+  String get phaseSelectTiles => 'Select the tiles';
+
+  @override
+  String get phaseWrongTile => 'Wrong tile';
+
+  @override
+  String get phaseMemorizeRedCell => 'Memorize red cell location';
+
+  @override
+  String get phaseIsSymmetrical => 'Is the pattern symmetrical?';
+
+  @override
+  String get phaseRecallSequence => 'Recall sequence in correct order';
+
+  @override
+  String get phaseGreatJob => 'Great job!';
+
+  @override
+  String get phaseChooseNovelCard => 'Choose a novel card';
+
+  @override
+  String get phaseAlreadyTapped => 'Already tapped!';
+
+  @override
+  String get phaseCountBlueCircles => 'Count only blue circles';
+
+  @override
+  String get phaseRecallCountsOrder => 'Recall counts in correct order';
+
+  @override
+  String get phaseChooseNovel => 'Choose the novel card';
+
+  @override
+  String get phaseMemorizeCard => 'Memorize this card';
+
+  @override
+  String get phaseWaitForIt => 'Wait for it...';
+
+  @override
+  String get phaseThatWasSample => 'That was the sample!';
+
+  @override
+  String get phaseSolveDistractor => 'Solve the distractor question!';
+
+  @override
+  String get phaseSelectMemorized => 'Select the memorized cells';
+
+  @override
+  String get phasePerfectRecall => 'Perfect recall!';
+
+  @override
+  String get phaseWrongExcl => 'Wrong!';
+
+  @override
+  String get phaseMemorizePlacements => 'Memorize all placements';
+
+  @override
+  String get phaseWaitingForShift => 'Waiting for layout shift...';
+
+  @override
+  String get phaseTapMovedObject => 'Tap the object that moved';
+
+  @override
+  String get phaseWrongObject => 'Wrong object!';
+
+  @override
+  String get phaseStudyColorShape => 'Study the color-shape connections';
+
+  @override
+  String get phaseTapMatchingTrait => 'Tap the matching trait';
+
+  @override
+  String get phaseGreatRecall => 'Great recall!';
+
+  @override
+  String get phaseWrongLink => 'Wrong link!';
+
+  @override
+  String get phaseTrueOrFalse => 'Is this statement true or false?';
+
+  @override
+  String get phaseMemorizeLetter => 'Memorize this letter';
+
+  @override
+  String get phaseRecallLettersSequence => 'Recall letters in sequence';
+
+  @override
+  String get phaseMemorizeTileColors => 'Memorize tile colors';
+
+  @override
+  String get phasePaintCells => 'Paint cells to match original';
+
+  @override
+  String get phaseIncorrectMatchExcl => 'Incorrect match!';
+
+  @override
+  String get phaseKeepYourEyes => 'Keep your eyes on it!';
+
+  @override
+  String get phaseWhereIsTarget => 'Where is the target object?';
+
+  @override
+  String get phaseTrackStar => 'Track Star';
+
+  @override
+  String get dialogIncorrectSequenceStudy =>
+      'Incorrect sequence! Study the story again.';
+
+  @override
+  String get dialogStoryReconstruct =>
+      'Reconstruct the story by tapping sentences in order';
+
+  @override
+  String get dialogMemorizeOrder =>
+      'Memorize the chronological order of events';
+
+  @override
+  String get dialogMemorizeWordPairs => 'Memorize these word pairs';
+
+  @override
+  String get dialogWhichWordPaired => 'Which word was paired with the target?';
+
+  @override
+  String get dialogWatchSequence => 'Watch the sequence path';
+
+  @override
+  String get dialogRepeatPath => 'Repeat the path sequence';
+
+  @override
+  String get dialogShapeShifterTap => 'Tap shapes that match the active target';
+
+  @override
+  String get dialogFocusTunnelTap =>
+      'Tap incoming shapes ONLY if they match the symbol seen 2 steps ago (2-Back).';
+
+  @override
+  String get dialogSequenceStackBuild =>
+      'Mentally track stack operations, then rebuild the final stack from bottom to top.';
+
+  @override
+  String get dialogFactorTreeComplete =>
+      'Complete the factor tree by tapping nodes and matching factors!';
+
+  @override
+  String get dialogBinaryScaleBalance =>
+      'Balance the scale by selecting powers of two (binary weights) that sum to the target.';
+
+  @override
+  String get dialogMatrixMultiplierSelect =>
+      'Select one row and one column that multiply to the target';
+
+  @override
+  String get dialogOddEvenFlashTap =>
+      'Tap the card when the active rule is satisfied';
+
+  @override
+  String get dialogBaseConversionConvert =>
+      'Convert the value from the source base to the destination base.';
+
+  @override
+  String get dialogGhostTapSync =>
+      'Synchronize with the rhythm, then tap when the invisible pulse would reach peak size.';
+
+  @override
+  String get dialogFrequencyTapIdentify =>
+      'Identify which pulsing light matches the requested target frequency.';
+
+  @override
+  String get dialogLetterGridSwap =>
+      'Swap adjacent letters to form the target words in rows.';
+
+  @override
+  String get dialogGraphCoordinatePlot =>
+      'Plot the coordinates on the Cartesian plane satisfying the equation.';
+
+  @override
+  String get dialogDigitSwapEquation =>
+      'Swap one digit from the top equation with one from the bottom equation to make both correct.';
+
+  @override
+  String get dialogAreaPerimeterAdjust =>
+      'Adjust the rectangle dimensions to match the target area and perimeter.';
+
+  @override
+  String get dialogCrackCipher =>
+      'Crack character-digit substitution cipher math problems.';
+
+  @override
+  String get dialogPeripheralFocus =>
+      'Solve math center equations, tap side panels when they flash';
+
+  @override
+  String get dialogGokigenSatisfy =>
+      'Satisfy vertex clues and avoid closed loops';
+
+  @override
+  String get dialogPercentageCalculate =>
+      'Calculate discount percentages and final checkout totals.';
+
+  @override
+  String get dialogBinomialMatch =>
+      'Match quadratic formulas with factored binomial values.';
+
+  @override
+  String get dialogNumberBondsCalculate =>
+      'Calculate the missing value in the number bond hierarchy.';
+
+  @override
+  String get correctLowercase => 'correct';
+
+  @override
+  String get incorrectLowercase => 'incorrect';
+
+  @override
+  String get notAValidWord => 'Not a valid word';
+
+  @override
+  String get enterNumberRange => 'ENTER A NUMBER BETWEEN 1 AND 10,000!';
+
+  @override
+  String get correctExclEmoji => 'Correct!';
+
+  @override
+  String get wrongExcl => 'Wrong!';
+
+  @override
+  String get kurodokoTitle => 'Kurodoko';
+
+  @override
+  String get kurodokoSubtitle =>
+      'Place black cells so numbers see the exact count of white cells.';
+
+  @override
+  String get kurodokoWinTitle => 'WHERE IS BLACK SOLVED!';
+
+  @override
+  String get kurodokoWinMessage =>
+      'You mastered the visibility paths and isolated all black cells!';
+
+  @override
+  String get subitizingRushTitle => 'Subitize Rush';
+
+  @override
+  String get subitizingRushSubtitle =>
+      'Instantly identify the quantity of flashed dots without counting.';
+
+  @override
+  String get subitizingRushWinTitle => 'RAPID VISION!';
+
+  @override
+  String get subitizingRushWinMessage =>
+      'Your instant visual numerosity estimation is outstanding!';
+
+  @override
+  String get tapaTitle => 'Tapa';
+
+  @override
+  String get tapaSubtitle =>
+      'Shade cells to form a continuous wall without 2x2 blocks.';
+
+  @override
+  String get tapaWinTitle => 'TAPA WALL COMPLETED!';
+
+  @override
+  String get tapaWinMessage =>
+      'All numbered cell constraints perfectly satisfied!';
+
+  @override
+  String get exponentTowerTitle => 'Exponent Tower';
+
+  @override
+  String get exponentTowerSubtitle =>
+      'Order dynamic power expressions from smallest to largest.';
+
+  @override
+  String get exponentTowerWinTitle => 'TOWER STACKED!';
+
+  @override
+  String get exponentTowerWinMessage =>
+      'All power magnitudes calculated with perfect precision!';
+
+  @override
+  String get posnerSpatialCueingTitle => 'Spatial Cue';
+
+  @override
+  String get posnerSpatialCueingSubtitle =>
+      'React swiftly to directional target appearances following spatial cues.';
+
+  @override
+  String get posnerSpatialCueingWinTitle => 'ALERT VISION!';
+
+  @override
+  String get posnerSpatialCueingWinMessage =>
+      'Fast visual orienting and stimulus detection recorded!';
+
+  @override
+  String get gearTrainDirectionTitle => 'Gear Train';
+
+  @override
+  String get gearTrainDirectionSubtitle =>
+      'Deduce the rotation direction of the target gear in the mechanical train.';
+
+  @override
+  String get gearTrainDirectionWinTitle => 'MECHANISM SOLVED!';
+
+  @override
+  String get gearTrainDirectionWinMessage =>
+      'Kinematic gear rotational transmissions accurately traced!';
+
+  @override
+  String get continuousPairedAssociateTitle => 'Pair Associate';
+
+  @override
+  String get continuousPairedAssociateSubtitle =>
+      'Memorize symbol pairs and recall the matching partner.';
+
+  @override
+  String get continuousPairedAssociateWinTitle => 'PAIRS LINKED!';
+
+  @override
+  String get continuousPairedAssociateWinMessage =>
+      'Strong associative memory pathways established!';
+
+  @override
+  String get heyawakeWinTitle => 'ROOMS BALANCED!';
+
+  @override
+  String get heyawakeWinMessage =>
+      'All room division rules and white path connections satisfied!';
+
+  @override
+  String get setTheoryVennTitle => 'Venn Sets';
+
+  @override
+  String get setTheoryVennSubtitle =>
+      'Select the corresponding regions of the Venn diagram for the set formula.';
+
+  @override
+  String get setTheoryVennWinTitle => 'SET LOGIC MASTER!';
+
+  @override
+  String get setTheoryVennWinMessage =>
+      'All set operations, unions, and intersections deduced flawlessly!';
+
+  @override
+  String get navonHierarchicalTitle => 'Navon Global';
+
+  @override
+  String get navonHierarchicalSubtitle =>
+      'Identify either the large global letter or small local letters under prompt rules.';
+
+  @override
+  String get navonHierarchicalWinTitle => 'FOCUS SHARPENED!';
+
+  @override
+  String get navonHierarchicalWinMessage =>
+      'Outstanding selective attention and global-local perception!';
+
+  @override
+  String get masyuWinTitle => 'MASYU LOOP SOLVED!';
+
+  @override
+  String get masyuWinMessage =>
+      'All pearl turning and straight passage rules strictly satisfied!';
+
+  @override
+  String get primeGapHuntTitle => 'Prime Gap';
+
+  @override
+  String get primeGapHuntSubtitle =>
+      'Calculate the arithmetic difference between consecutive prime numbers.';
+
+  @override
+  String get primeGapHuntWinTitle => 'GAP CALCULATED!';
+
+  @override
+  String get primeGapHuntWinMessage =>
+      'Mastery of prime distribution and mental subtraction displayed!';
+
+  @override
+  String get yajilinWinTitle => 'YAJILIN SOLVED!';
+
+  @override
+  String get yajilinWinMessage =>
+      'All arrow clue raycasts and orthogonal black cell separations satisfied!';
+
+  @override
+  String get algebraicInequalitySolverTitle => 'Inequality';
+
+  @override
+  String get algebraicInequalitySolverSubtitle =>
+      'Solve linear single-variable algebraic inequalities swiftly.';
+
+  @override
+  String get algebraicInequalitySolverWinTitle => 'ALGEBRA EXPERT!';
+
+  @override
+  String get algebraicInequalitySolverWinMessage =>
+      'Fast inequality reduction and algebraic balance achieved!';
+
+  @override
+  String get attentionalBlinkProbeTitle => 'Blink Probe';
+
+  @override
+  String get attentionalBlinkProbeSubtitle =>
+      'Detect second target stimuli presented rapidly after primary targets.';
+
+  @override
+  String get attentionalBlinkProbeWinTitle => 'TEMPORAL FOCUS!';
+
+  @override
+  String get attentionalBlinkProbeWinMessage =>
+      'Exceptional temporal visual processing across the blink refractory window!';
+
+  @override
+  String get modularClockArithmeticTitle => 'Clock Modulo';
+
+  @override
+  String get modularClockArithmeticSubtitle =>
+      'Calculate cyclical clock time arithmetic under modulo 12 algebra.';
+
+  @override
+  String get modularClockArithmeticWinTitle => 'CLOCKWORK PRECISION!';
+
+  @override
+  String get modularClockArithmeticWinMessage =>
+      'All modular hour shifts calculated with ease!';
+
+  @override
+  String get temporalOrderJudgmentTitle => 'Time Order';
+
+  @override
+  String get temporalOrderJudgmentSubtitle =>
+      'Discriminate which of two millisecond-separated stimulus circles flashed first.';
+
+  @override
+  String get temporalOrderJudgmentWinTitle => 'ULTRA-FAST PERCEPTION!';
+
+  @override
+  String get temporalOrderJudgmentWinMessage =>
+      'High-resolution temporal distinction demonstrated!';
+
+  @override
+  String get polyominoTilingTitle => 'Polyomino';
+
+  @override
+  String get polyominoTilingSubtitle =>
+      'Rotate and assemble tetromino geometric shapes to tile the grid without gaps.';
+
+  @override
+  String get polyominoTilingWinTitle => 'GRID TILED!';
+
+  @override
+  String get polyominoTilingWinMessage =>
+      'Seamless geometric spatial arrangement completed!';
+
+  @override
+  String get pythagoreanTripleBuilderTitle => 'Pythagoras';
+
+  @override
+  String get pythagoreanTripleBuilderSubtitle =>
+      'Find the missing hypotenuse or leg value in integer Pythagorean triangles.';
+
+  @override
+  String get pythagoreanTripleBuilderWinTitle => 'GEOMETRY MASTER!';
+
+  @override
+  String get pythagoreanTripleBuilderWinMessage =>
+      'All right-triangle integer triples rapidly solved!';
+
+  @override
+  String get visualSearchConjunctionTitle => 'Conj. Search';
+
+  @override
+  String get visualSearchConjunctionSubtitle =>
+      'Quickly locate target shapes combining multiple feature dimensions (color and form).';
+
+  @override
+  String get visualSearchConjunctionWinTitle => 'CONJUNCTION FOCUS!';
+
+  @override
+  String get visualSearchConjunctionWinMessage =>
+      'Flawless multi-feature parallel and serial visual search!';
+
+  @override
+  String get wireframe3DRotationTitle => 'Wireframe 3D';
+
+  @override
+  String get wireframe3DRotationSubtitle =>
+      'Identify the correctly rotated 3D geometric wireframe following angular transformation.';
+
+  @override
+  String get wireframe3DRotationWinTitle => '3D ROTATION MASTER!';
+
+  @override
+  String get wireframe3DRotationWinMessage =>
+      'Precise 3D mental rotation and spatial orientation demonstrated!';
+
+  @override
+  String get wordPairAssociateMemoryTitle => 'Word Pairs';
+
+  @override
+  String get wordPairAssociateMemorySubtitle =>
+      'Memorize associated word connections and select the target paired with the cue.';
+
+  @override
+  String get wordPairAssociateMemoryWinTitle => 'ASSOCIATION MASTER!';
+
+  @override
+  String get wordPairAssociateMemoryWinMessage =>
+      'Strong episodic associative memory retention achieved!';
+
+  @override
+  String get binaryMatrixRankTitle => 'Matrix Rank';
+
+  @override
+  String get binaryMatrixRankSubtitle =>
+      'Determine the linear algebraic rank of the 3x3 binary matrix over Galois field GF(2).';
+
+  @override
+  String get binaryMatrixRankWinTitle => 'RANK COMPUTED!';
+
+  @override
+  String get binaryMatrixRankWinMessage =>
+      'Exact linear independence and matrix rank determined!';
+
+  @override
+  String get visualCrowdingAcuityTitle => 'Visual Crowd';
+
+  @override
+  String get visualCrowdingAcuitySubtitle =>
+      'Identify the opening direction of the center Landolt ring amid flanking distractors.';
+
+  @override
+  String get visualCrowdingAcuityWinTitle => 'SHARP PERCEPTION!';
+
+  @override
+  String get visualCrowdingAcuityWinMessage =>
+      'Excellent foveal spatial resolution under visual crowding conditions!';
+
+  @override
+  String get probeDigitSpanTitle => 'Digit Probe';
+
+  @override
+  String get probeDigitSpanSubtitle =>
+      'Observe a fast serial sequence of numbers and recall the item following the probe digit.';
+
+  @override
+  String get probeDigitSpanWinTitle => 'SERIAL PROBE MASTER!';
+
+  @override
+  String get probeDigitSpanWinMessage =>
+      'Flawless short-term serial position memory retrieval!';
+
+  @override
+  String get abReversalOddballTitle => 'A-B Reversal';
+
+  @override
+  String get abReversalOddballSubtitle =>
+      'Respond to target stimuli and dynamically switch response criteria upon rule reversal.';
+
+  @override
+  String get abReversalOddballWinTitle => 'FLEXIBILITY MASTER!';
+
+  @override
+  String get abReversalOddballWinMessage =>
+      'Exceptional cognitive switching and perceptual flexibility demonstrated!';
+
+  @override
+  String get conundrumAnagramTitle => 'Conundrum';
+
+  @override
+  String get conundrumAnagramSubtitle =>
+      'Unscramble all 9 letters to discover the hidden full dictionary word.';
+
+  @override
+  String get conundrumAnagramWinTitle => 'CONUNDRUM CRACKED!';
+
+  @override
+  String get conundrumAnagramWinMessage =>
+      'All 9-letter anagram conundrums successfully unscrambled!';
+
+  @override
+  String get vectorDotProductTitle => 'Dot Product';
+
+  @override
+  String get vectorDotProductSubtitle =>
+      'Calculate the algebraic inner product u • v = (u_x * v_x) + (u_y * v_y).';
+
+  @override
+  String get vectorDotProductWinTitle => 'INNER PRODUCT COMPUTED!';
+
+  @override
+  String get vectorDotProductWinMessage =>
+      'Exact geometric and algebraic vector projections achieved!';
+
+  @override
+  String get stroopNumberSizeTitle => 'Size Stroop';
+
+  @override
+  String get stroopNumberSizeSubtitle =>
+      'Compare either numerical magnitude or physical font size under Stroop interference.';
+
+  @override
+  String get stroopNumberSizeWinTitle => 'INHIBITION EXPERT!';
+
+  @override
+  String get stroopNumberSizeWinMessage =>
+      'Flawless perceptual conflict resolution under size-congruity Stroop!';
+
+  @override
+  String get wordLadderStepTitle => 'Word Ladder';
+
+  @override
+  String get wordLadderStepSubtitle =>
+      'Complete the single-letter transformation sequence between source and destination words.';
+
+  @override
+  String get wordLadderStepWinTitle => 'LADDER CLIMBED!';
+
+  @override
+  String get wordLadderStepWinMessage =>
+      'All single-letter step transformations completed!';
+
+  @override
+  String get corsiBackwardSpanTitle => 'Corsi Backward';
+
+  @override
+  String get corsiBackwardSpanSubtitle =>
+      'Observe a sequential spatial block tapping pattern and reproduce it in exact reverse order.';
+
+  @override
+  String get corsiBackwardSpanWinTitle => 'BACKWARD SPAN PRO!';
+
+  @override
+  String get corsiBackwardSpanWinMessage =>
+      'Exceptional visuospatial working memory manipulation and reverse sequencing!';
+}

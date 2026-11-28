@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "items": [
+    {
+      "id": "ct001",
+      "title": "Writing names!",
+      "audio": "audio/01 Listening 1.mp3",
+      "answer": "Rosy, Tim, Billy, Ms.Jones.",
+      "accepted_variants": [
+        "Rosy, Tim, Billy, Ms. Jones.",
+        "Rosy, Tim, Billy, Ms. Jones",
+        "Rosy Tim Billy Ms.Jones."
+      ],
+      "equivalences": []
+    },
+    {
+      "id": "ct002",
+      "title": "bbb",
+      "audio": "audio/1-02 Listening 2.mp3",
+      "answer": "aaaaaa",
+      "accepted_variants": [],
+      "equivalences": []
+    }
+  ]
+}

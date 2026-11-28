@@ -118,7 +118,15 @@ class LibraryMixin:
                 status.append('🔊 Có âm thanh')
             name = f"{article['title']}\n{' · '.join(status)}"
             self.label(row, name, 12).pack(side='left', fill='x', expand=True)
-            self.button(row, 'Mở bài', lambda key=text_id: self.library_article(key, mode)).pack(side='right')
+            def open_article(key=text_id,anchor=row,title=article['title']):
+                morph=getattr(self,'morph',None)
+                if morph:
+                    morph.begin(anchor,f'article:{key}',title)
+                return self.library_article(key,mode)
+            self.button(row, 'Mở bài', open_article).pack(side='right')
+            morph=getattr(self,'morph',None)
+            if morph:
+                morph.arrive(f'library-row:{text_id}',row)
         return body
 
     def library_article(self, text_id, mode='read'):
@@ -131,7 +139,15 @@ class LibraryMixin:
             return None
         topic_id = article['topic_id']
         body = self.layout(article['title'])
-        self.button(body, '← Về danh sách', lambda: self.library_topic(topic_id, mode)).pack(anchor='w')
+        heading=getattr(self,'_page_heading',None)
+        morph=getattr(self,'morph',None)
+        if morph:
+            morph.arrive(f'article:{text_id}',heading)
+        def back_to_topic():
+            if morph:
+                morph.begin(heading,f'library-row:{text_id}',article['title'])
+            return self.library_topic(topic_id,mode)
+        self.button(body, '← Về danh sách', back_to_topic).pack(anchor='w')
         self.label(body, f"{SUBJECTS[article['subject']]} · Mức độ {article['level']}", 11,
                    color=COLORS['muted']).pack(anchor='w', pady=8)
         if article['image']:
@@ -141,13 +157,12 @@ class LibraryMixin:
                 self._library_error(exc)
         actions = tk.Frame(body, bg=body.cget('bg'))
         actions.pack(anchor='w', pady=8)
-        default = 'Chép chính tả' if mode == 'dictation' else 'Đọc'
-        secondary = 'Đọc' if mode == 'dictation' else 'Chép chính tả'
-        for label in (default, secondary):
-            practice_mode = 'read' if label == 'Đọc' else 'dictation'
-            self.button(actions, label, lambda value=practice_mode: self.library_practice(text_id, value)).pack(
-                side='left', padx=(0, 8),
-            )
+        label = 'Chép chính tả' if mode == 'dictation' else 'Đọc'
+        def practice():
+            if morph:
+                morph.begin(heading,f'practice:{text_id}',article['title'])
+            return self.library_practice(text_id,mode)
+        self.button(actions, label, practice).pack(side='left')
         if article['glossary']:
             self.label(body, 'Từ khó', 14, True).pack(anchor='w', pady=(14, 4))
             for item in article['glossary']:
@@ -189,6 +204,11 @@ class LibraryMixin:
             topic_id = article['topic_id']
 
             def back():
+                morph=getattr(self,'morph',None)
+                page=getattr(self,'_library_reading_page',None)
+                anchor=page.center if mode=='read' and page is not None else getattr(self,'_page_heading',None)
+                if morph:
+                    morph.begin(anchor,f'library-row:{text_id}',article['title'])
                 return self.library_topic(topic_id, mode)
 
             if mode == 'read':

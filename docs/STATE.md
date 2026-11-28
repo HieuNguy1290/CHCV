@@ -2,6 +2,8 @@
 
 - Mã ứng dụng theo chức năng dưới `tuhoc/`. Công cụ kiểm tra chạy bằng `python -B -m tools.checks.<tên>`. Công cụ di trú và dữ liệu mẫu nằm dưới `tools/`.
 - `python -B main.py` và hai lệnh di trú cũ vẫn chạy. Đường dẫn hồ sơ, học liệu và tài nguyên được xác định từ gốc dự án.
+- Mục Kiểm tra có kho Bộ đề riêng trong `content_library/fixed_exams/`. Bộ đề dùng màn thi hiện có ở chế độ cuộn dọc, còn đề rút theo M1–M5 dùng chế độ từng câu.
+- Cài đặt hiển thị có theme Tối cho shell Tk, hồ sơ, chọn môn, Trang chủ, bản đồ bài học và trình soạn Bộ đề. Trong Bộ đề, nút Về đoạn văn cuộn đến đầu phần đang làm.
 
 ## Việc còn lại
 

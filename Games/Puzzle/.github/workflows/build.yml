@@ -1,0 +1,181 @@
+name: Build & Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g. v1.0.0)'
+        required: true
+        default: 'V2.0.0'
+
+permissions:
+  contents: write
+
+jobs:
+  build-ubuntu:
+    name: Build Android & Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '21'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Install Linux dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
+
+      - name: Get Dependencies
+        run: flutter pub get
+
+      - name: Setup Keystore
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > android/app/upload-keystore.jks
+          echo "storePassword=${{ secrets.STORE_PASSWORD }}" > android/key.properties
+          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
+          echo "storeFile=upload-keystore.jks" >> android/key.properties
+
+      - name: Build Android Artifacts
+        run: |
+          flutter build apk --release
+          flutter build apk --release --split-per-abi
+          flutter build appbundle --release
+
+      - name: Build Linux Artifacts
+        run: |
+          flutter build linux --release
+          cp -r build/linux/x64/release/bundle puzzle-games-linux
+          tar -czf puzzle-games-linux.tar.gz puzzle-games-linux
+
+      - name: Upload Ubuntu Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ubuntu-artifacts
+          path: |
+            build/app/outputs/flutter-apk/*.apk
+            build/app/outputs/bundle/release/*.aab
+            puzzle-games-linux.tar.gz
+
+  build-windows:
+    name: Build Windows
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Get Dependencies
+        run: flutter pub get
+
+      - name: Build Windows
+        run: flutter build windows --release
+
+      - name: Build MSIX
+        run: dart run msix:create
+
+      - name: Create Portable Zip
+        run: |
+          powershell Compress-Archive -Path build/windows/x64/runner/release/* -DestinationPath build/windows/x64/runner/release/puzzle-games-windows-portable.zip
+        shell: pwsh
+
+      - name: Upload Windows Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-artifacts
+          path: |
+            build/windows/x64/runner/release/puzzle-games-windows-portable.zip
+            build/windows/x64/runner/Release/*.msix
+
+  build-macos:
+    name: Build macOS
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install appdmg
+        run: npm install -g appdmg
+
+      - name: Get Dependencies
+        run: flutter pub get
+
+      - name: Build macOS
+        run: flutter build macos --release
+
+      - name: Create DMG
+        run: |
+          mkdir -p build/macos/dmg
+          appdmg macos/installer/appdmg.json build/macos/dmg/puzzle-games-macos.dmg
+
+      - name: Create Portable Zip
+        run: |
+          cd build/macos/Build/Products/Release
+          zip -ry puzzle-games-macos-portable.zip puzzle.app
+
+      - name: Upload macOS Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-artifacts
+          path: |
+            build/macos/dmg/puzzle-games-macos.dmg
+            build/macos/Build/Products/Release/puzzle-games-macos-portable.zip
+
+  release:
+    name: Create Unified Release
+    needs: [build-ubuntu, build-windows, build-macos]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Ubuntu Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: ubuntu-artifacts
+          path: release-artifacts
+
+      - name: Download Windows Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-artifacts
+          path: release-artifacts
+
+      - name: Download macOS Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-artifacts
+          path: release-artifacts
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          files: release-artifacts/**/*
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

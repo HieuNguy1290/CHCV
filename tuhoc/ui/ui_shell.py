@@ -46,6 +46,29 @@ class AppShell:
         self.sidebar.pack_forget()
         self.right.pack_forget()
 
+    def refresh_appearance(self, previous):
+        if previous == UI_COLORS:
+            return
+        foreground_roles = ('text','text_muted','primary','primary_text','disabled_text')
+        background_roles = ('surface','background','tint','border','primary','primary_hover','primary_dark','focus')
+        foreground = {previous[role]: UI_COLORS['primary_text' if role == 'primary' else role]
+                      for role in foreground_roles}
+        background = {previous[role]: UI_COLORS[role] for role in background_roles}
+        pending = [self.sidebar, self.right]
+        while pending:
+            widget = pending.pop()
+            if widget is not self.content:
+                pending.extend(widget.winfo_children())
+            options = widget.keys()
+            for option in ('background', 'foreground', 'activebackground',
+                           'activeforeground', 'highlightbackground', 'highlightcolor'):
+                if option in options:
+                    palette = foreground if 'foreground' in option else background
+                    color = palette.get(str(widget.cget(option)))
+                    if color is not None:
+                        widget.configure(**{option: color})
+        self.active(self._active_title, reset_tools=False)
+
     def _bind_sidebar_wheel(self, widget):
         # Bind only the sidebar's widgets; do not hijack wheel scrolling of the page.
         for sequence in ('<MouseWheel>', '<Button-4>', '<Button-5>'):
@@ -101,7 +124,7 @@ class AppShell:
             button.configure(bg=UI_COLORS['primary'], fg='white')
         else:
             button.configure(bg=UI_COLORS['tint'] if entering else UI_COLORS['surface'],
-                             fg=UI_COLORS['primary'] if entering else UI_COLORS['text'])
+                             fg=UI_COLORS['primary_text'] if entering else UI_COLORS['text'])
 
     def _make_nav_button(self, parent, text, command):
         btn = tk.Button(parent, text=text, anchor='w', bg=UI_COLORS['surface'],
@@ -129,11 +152,11 @@ class AppShell:
         header = tk.Frame(self.sidebar, bg=UI_COLORS['surface'])
         header.pack(side='top', fill='x')
         self._brand = tk.Label(header, text='TH' if narrow else 'Cùng Học Cùng Vui', bg=UI_COLORS['surface'],
-                 fg=UI_COLORS['primary'], font=UI_FONTS['page'])
+                 fg=UI_COLORS['primary_text'], font=UI_FONTS['page'])
         self._brand.pack(pady=(20, 5))
         self._header = header
         self.subject_name = tk.Label(header, text=self._subject_title(narrow),
-                                     bg=UI_COLORS['surface'], fg=UI_COLORS['primary'],
+                                     bg=UI_COLORS['surface'], fg=UI_COLORS['primary_text'],
                                      font=UI_FONTS['small'])
         self.subject_name.pack(pady=(0, 8))
         subject = self._make_nav_button(header, '▾' if narrow else '▾  Đổi môn', self._subject)
@@ -399,41 +422,15 @@ class AppShell:
             self._fade_widget(w, sd, i * 70, 200)
 
     def _intro_content(self):
-        v = self._veil_content
-        if v is not None and v.winfo_exists():
-            v.destroy(); self._veil_content = None
+        veil = self._veil_content
+        if veil is not None and veil.winfo_exists():
+            veil.destroy()
+            self._veil_content = None
         canvas = getattr(self.app, 'active_scroll_canvas', None)
         window = getattr(self.app, '_sidebar_slide_window', None)
-        if canvas is None or window is None:
-            return
-        app = self.app
-        try:
-            body = canvas.nametowidget(canvas.itemcget(window, 'window'))
-            body_h = max(body.winfo_reqheight(), body.winfo_height(), canvas.winfo_height())
-            # Same protocol as the sidebar slide in main.py: while the window is offset,
-            # freeze the scrollregion (the body's <Configure> handler skips while the
-            # slide job is set), otherwise the region is recomputed mid-slide and shakes.
-            app._sidebar_slide_job = 'intro'
-            canvas.configure(scrollregion=(0, 0, max(1, canvas.winfo_width()), body_h))
-            canvas.yview_moveto(0)
-            canvas.xview_moveto(0)
-            canvas.coords(window, -80, 0)
-        except tk.TclError:
-            app._sidebar_slide_job = None
-            return
-        steps = 10
-        for k in range(steps + 1):
-            f = k / steps; x = -round(80 * (1 - f) ** 2)
-            def go(x=x, last=(k == steps)):
-                if not canvas.winfo_exists():
-                    app._sidebar_slide_job = None
-                    return
-                canvas.coords(window, x, 0)
-                if last:
-                    app._sidebar_slide_job = None
-                    canvas.configure(scrollregion=canvas.bbox('all'))
-                    canvas.yview_moveto(0)
-            self._at(350 * f, go)
+        morph = getattr(self.app, '_start_page_morph', None)
+        if canvas is not None and window is not None and callable(morph):
+            morph(canvas, window, 1)
 
     def _subject_title(self, narrow=False):
         lang = getattr(self.app, 'lang', None)

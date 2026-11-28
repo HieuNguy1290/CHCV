@@ -73,7 +73,7 @@ class WaveformPlayer(tk.Toplevel):
         self.vol.set(85);self.vol.pack(side='left',padx=(2,12))
         self.speed_btn=tk.Button(bar,text='1.0×',bg='#E9EDF6',fg=INK,relief='flat',font=('Arial',12),command=self.change_speed)
         self.speed_btn.pack(side='left',padx=(0,14))
-        self._updating=False;self.protocol('WM_DELETE_WINDOW',self.close);self.after(80,self.tick);self.draw()
+        self._updating=False;self.protocol('WM_DELETE_WINDOW',self.close);self._tick_job=self.after(80,self.tick);self.draw()
     def draw(self):
         c=self.canvas;c.delete('all');w=max(1,c.winfo_width());h=max(1,c.winfo_height());mid=h/2
         c.create_line(0,mid,w,mid,fill=BORDER)
@@ -133,12 +133,24 @@ class WaveformPlayer(tk.Toplevel):
         def fmt(t):return f'{int(t)//60}:{int(t)%60:02}'
         self.clock.configure(text=f'{fmt(self.pos)} / {fmt(self.duration)}')
         self._updating=True;self.progress.set(self.pos);self._updating=False;self.draw()
-        self.after(80,self.tick)
+        self._tick_job=self.after(80,self.tick)
+
     def close(self):
-        try:
-            import pygame;pygame.mixer.music.stop()
-        except Exception:pass
-        if self._temp:
+        self.destroy()
+
+    def destroy(self):
+        tick = getattr(self, '_tick_job', None)
+        if tick is not None:
+            self.after_cancel(tick)
+            self._tick_job = None
+        if getattr(self, '_loaded_path', None) is not None:
+            import pygame
+
+            if pygame.mixer.get_init():
+                pygame.mixer.music.stop()
+                pygame.mixer.music.unload()
+            self._loaded_path = None
+        if getattr(self, '_temp', None):
             try:os.unlink(self._temp)
             except OSError:pass
-        self.destroy()
+        super().destroy()

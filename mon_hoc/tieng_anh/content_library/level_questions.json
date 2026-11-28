@@ -15681,141 +15681,244 @@
     "schema_version": "2.0"
   },
   {
+    "id": "VioeduEng-L1-B6-Q1",
     "theme": "VioeduEng",
-    "id": "ve5.1",
-    "prompt": "Look and choose:",
     "level": 1,
-    "lesson": 5,
-    "type": "image_letter_pick",
-    "layout": {},
-    "blank_text": "the .... is shining.",
-    "blank_answers": [
-      "sun"
-    ],
-    "distractors": [
-      "sail"
-    ],
+    "lesson": 6,
+    "type": "image_sentence_fill",
+    "prompt": "Look and choose:",
+    "schema_version": "2.0",
+    "accepted_answers": [],
+    "image": "media/VioeduEng-L1-B6-Q1.png",
+    "blank_text": "The .... is shining.",
     "options": [
       "sun",
       "sail"
     ],
+    "blank_answers": [
+      "sun"
+    ],
     "answer": "sun",
-    "image": "media/1.png",
-    "unordered_groups": false,
-    "audio": "",
-    "accepted_answers": [],
-    "schema_version": "2.0"
+    "distractors": [
+      "sail"
+    ]
   },
   {
+    "id": "VioeduEng-L1-B6-Q2",
     "theme": "VioeduEng",
-    "id": "ve5.2",
+    "level": 1,
+    "lesson": 6,
+    "type": "listening_image_choice",
     "prompt": "Choose the correct answer:",
+    "schema_version": "2.0",
+    "accepted_answers": [],
+    "audio": "media/VioeduEng-L1-B6-Q2.mp3",
+    "image_options": [
+      {
+        "image": "media/VioeduEng-L1-B6-Q2-option-1.png",
+        "label": "zail"
+      },
+      {
+        "image": "media/VioeduEng-L1-B6-Q2-option-2.png",
+        "label": "sail"
+      }
+    ],
+    "answer": "media/VioeduEng-L1-B6-Q2-option-2.png"
+  },
+  {
+    "id": "VioeduEng-L1-B5-Q1",
+    "theme": "VioeduEng",
+    "level": 1,
+    "lesson": 5,
+    "type": "image_sentence_fill",
+    "prompt": "Look and choose:",
+    "schema_version": "2.0",
+    "accepted_answers": [],
+    "image": "media/VioeduEng-L1-B5-Q1.png",
+    "blank_text": "The .... is shining.",
+    "options": [
+      "sun",
+      "sail"
+    ],
+    "blank_answers": [
+      "sun"
+    ],
+    "answer": "sun",
+    "distractors": [
+      "sail"
+    ]
+  },
+  {
+    "id": "VioeduEng-L1-B5-Q2",
+    "theme": "VioeduEng",
     "level": 1,
     "lesson": 5,
     "type": "listening_image_choice",
-    "layout": {
-      "version": 2,
-      "desktop": {
-        "audio_player": {
-          "x": 251,
-          "y": 98,
-          "width": 444,
-          "height": 103
-        }
-      }
-    },
-    "audio": "media/1_fc2b7ef07158.mp3",
+    "prompt": "Choose the correct answer:",
+    "schema_version": "2.0",
+    "accepted_answers": [],
+    "audio": "media/VioeduEng-L1-B5-Q2.mp3",
     "image_options": [
       {
-        "image": "media/2.1.png"
+        "image": "media/VioeduEng-L1-B5-Q2-option-1.png",
+        "label": "zail"
       },
       {
-        "image": "media/2.2.png"
+        "image": "media/VioeduEng-L1-B5-Q2-option-2.png",
+        "label": "sail"
       }
     ],
-    "options": [
-      "media/2.1.png",
-      "media/2.2.png"
-    ],
-    "answer": "media/2.2.png",
-    "correct_index": 1,
-    "accepted_answers": [],
-    "image": "",
-    "schema_version": "2.0"
+    "answer": "media/VioeduEng-L1-B5-Q2-option-2.png"
   },
   {
+    "id": "VioeduEng-L1-B5-Q3",
     "theme": "VioeduEng",
-    "id": "ve5.3",
-    "prompt": "Choose the correct answer:",
     "level": 1,
     "lesson": 5,
     "type": "listening_image_choice",
-    "layout": {},
-    "audio": "media/2.mp3",
+    "prompt": "Choose the correct answer:",
+    "schema_version": "2.0",
+    "accepted_answers": [],
+    "audio": "media/VioeduEng-L1-B5-Q3.mp3",
     "image_options": [
       {
-        "image": "media/3.1.png"
+        "image": "media/VioeduEng-L1-B5-Q3-option-1.png",
+        "label": "car"
       },
       {
-        "image": "media/3.2.png"
+        "image": "media/VioeduEng-L1-B5-Q3-option-2.png",
+        "label": "star"
       }
     ],
-    "options": [
-      "media/3.1.png",
-      "media/3.2.png"
-    ],
-    "answer": "media/3.2.png",
-    "correct_index": 1,
-    "accepted_answers": [],
-    "image": "",
-    "schema_version": "2.0"
+    "answer": "media/VioeduEng-L1-B5-Q3-option-2.png"
   },
   {
+    "id": "VioeduEng-L1-B5-Q4",
     "theme": "VioeduEng",
-    "id": "ve5.4",
-    "prompt": "Choose the correct answer:\nWhere is the sand?",
     "level": 1,
     "lesson": 5,
     "type": "image_multi_choice",
-    "layout": {
-      "version": 2,
-      "desktop": {
-        "option_0": {
-          "x": 65,
-          "y": 196,
-          "width": 270,
-          "height": 200,
-          "font_size": 18
-        },
-        "option_1": {
-          "x": 412,
-          "y": 196,
-          "width": 270,
-          "height": 200,
-          "font_size": 18
-        }
-      }
-    },
+    "prompt": "Choose the correct answer:\nWhere is the sand?",
+    "schema_version": "2.0",
+    "accepted_answers": [],
     "image_options": [
       {
-        "image": "media/4.1.png"
+        "image": "media/VioeduEng-L1-B5-Q4-option-1.png",
+        "label": ""
       },
       {
-        "image": "media/4.2.png"
+        "image": "media/VioeduEng-L1-B5-Q4-option-2.png",
+        "label": ""
       }
     ],
-    "options": [
-      "media/4.1.png",
-      "media/4.2.png"
-    ],
-    "answer": "media/4.1.png",
-    "correct_index": 0,
-    "image_size": [
-      120,
-      80
-    ],
+    "answer": "media/VioeduEng-L1-B5-Q4-option-1.png"
+  },
+  {
+    "id": "VioeduEng-L1-B5-Q5",
+    "theme": "VioeduEng",
+    "level": 1,
+    "lesson": 5,
+    "type": "image_multi_choice",
+    "prompt": "Choose the correct answer:\nLet’s eat the fish!",
+    "schema_version": "2.0",
     "accepted_answers": [],
-    "image": "",
-    "audio": ""
+    "image_options": [
+      {
+        "image": "media/VioeduEng-L1-B5-Q5-option-1.png",
+        "label": ""
+      },
+      {
+        "image": "media/VioeduEng-L1-B5-Q5-option-2.png",
+        "label": ""
+      }
+    ],
+    "answer": "media/VioeduEng-L1-B5-Q5-option-1.png"
+  },
+  {
+    "id": "VioeduEng-L1-B5-Q6",
+    "theme": "VioeduEng",
+    "level": 1,
+    "lesson": 5,
+    "type": "listening_choice",
+    "prompt": "Listen and choose:\nI can see a ....",
+    "schema_version": "2.0",
+    "accepted_answers": [],
+    "audio": "media/VioeduEng-L1-B5-Q6.mp3",
+    "options": [
+      "kitten",
+      "dog"
+    ],
+    "answer": "dog"
+  },
+  {
+    "id": "VioeduEng-L1-B5-Q7",
+    "theme": "VioeduEng",
+    "level": 1,
+    "lesson": 5,
+    "type": "picture_choice",
+    "prompt": "Choose the correct answer:",
+    "schema_version": "2.0",
+    "accepted_answers": [],
+    "image": "media/VioeduEng-L1-B5-Q7.png",
+    "options": [
+      "Fish",
+      "Beach",
+      "Sea"
+    ],
+    "answer": "Sea"
+  },
+  {
+    "id": "VioeduEng-L1-B5-Q8",
+    "theme": "VioeduEng",
+    "level": 1,
+    "lesson": 5,
+    "type": "picture_choice",
+    "prompt": "Look and choose:",
+    "schema_version": "2.0",
+    "accepted_answers": [],
+    "image": "media/VioeduEng-L1-B5-Q8.png",
+    "options": [
+      "Seashells",
+      "Sails"
+    ],
+    "answer": "Seashells"
+  },
+  {
+    "id": "VioeduEng-L1-B5-Q9",
+    "theme": "VioeduEng",
+    "level": 1,
+    "lesson": 5,
+    "type": "image_multi_choice",
+    "prompt": "Choose the correct answer:\nWhere is the sail?",
+    "schema_version": "2.0",
+    "accepted_answers": [],
+    "image_options": [
+      {
+        "image": "media/VioeduEng-L1-B5-Q9-option-1.png",
+        "label": ""
+      },
+      {
+        "image": "media/VioeduEng-L1-B5-Q9-option-2.png",
+        "label": ""
+      }
+    ],
+    "answer": "media/VioeduEng-L1-B5-Q9-option-2.png"
+  },
+  {
+    "id": "VioeduEng-L1-B5-Q10",
+    "theme": "VioeduEng",
+    "level": 1,
+    "lesson": 5,
+    "type": "choice",
+    "prompt": "Choose the correct answer:",
+    "schema_version": "2.0",
+    "accepted_answers": [],
+    "options": [
+      "Let’s sees!",
+      "Let’s see!",
+      "Let’s seeing!",
+      "Let’s ses!"
+    ],
+    "answer": "Let’s see!"
   }
 ]

@@ -59,13 +59,16 @@ _shutdown_requested = threading.Event()
 
 def close(parent=None):
     """Request immediate cancellation without tearing SDL down from Tk's thread."""
-    _shutdown_requested.set()
-    try:
-        import pygame
-        if pygame.display.get_init() and pygame.display.get_surface() is not None:
-            pygame.event.post(pygame.event.Event(pygame.QUIT))
-    except Exception:
-        pass
+    with _worker_lock:
+        if _session_owner is None or (parent is not None and _session_owner != id(parent)):
+            return
+        _shutdown_requested.set()
+        try:
+            import pygame
+            if pygame.display.get_init() and pygame.display.get_surface() is not None:
+                pygame.event.post(pygame.event.Event(pygame.QUIT))
+        except Exception:
+            pass
 
 
 def available():
@@ -80,12 +83,14 @@ def available():
 # Creating a new SDL thread per question can leave Windows with a black window.
 _jobs = queue.Queue()
 _feedback_jobs = queue.Queue()
-_worker_lock = threading.Lock()
+_worker_lock = threading.RLock()
 _worker_thread = None
+_idle_owner = None
+_session_owner = None
 
 # Keep the SDL window open this long after an answer, waiting for the next
 # question, so consecutive questions reuse the same window (no close/reopen).
-_KEEP_OPEN_SECONDS = None  # Remain open until explicit exit/cancel
+_KEEP_OPEN_SECONDS = 5  # Release an abandoned handoff if Tk never requests the next question.
 
 def _close_display():
     try:
@@ -101,7 +106,8 @@ def _idle_wait_for_next_job():
     """Keep the window responsive while waiting for the next question.
     Returns the next job, or None if the window should close."""
     import pygame
-    while True:
+    deadline = time.monotonic() + _KEEP_OPEN_SECONDS
+    while time.monotonic() < deadline:
         if _shutdown_requested.is_set() or _app_shutdown.is_set():
             return None
         try:
@@ -167,9 +173,10 @@ def _show_question_error(question, error):
 
 
 def _exercise_worker():
+    global _idle_owner, _session_owner
     pending = None
     while True:
-        prepared, results = pending if pending is not None else _jobs.get()
+        owner, prepared, results = pending if pending is not None else _jobs.get()
         pending = None
         answer = None
         started = time.monotonic()
@@ -190,17 +197,35 @@ def _exercise_worker():
         finally:
             _a21_log('question_end type=' + str(prepared.get('type', 'unknown')) +
                      ' elapsed_ms=' + str(round((time.monotonic() - started) * 1000)))
-            release_sdl_session()
+            keep_open = (answer is not None and prepared['_keep_window']
+                         and not (_shutdown_requested.is_set() or _app_shutdown.is_set()))
+            if keep_open:
+                with _worker_lock:
+                    _idle_owner = owner
+            else:
+                with _worker_lock:
+                    _close_display()
+                    _session_owner = None
+                    release_sdl_session()
             results.put(answer)
             _jobs.task_done()
         # Answered normally -> keep the window for the next question.
         # Cancelled / error / shutdown -> close it right away.
-        if answer is None or _shutdown_requested.is_set() or _app_shutdown.is_set():
-            _close_display()
-        else:
+        if keep_open:
             pending = _idle_wait_for_next_job()
             if pending is None:
-                _close_display()
+                with _worker_lock:
+                    _idle_owner = None
+                    _close_display()
+                    _session_owner = None
+                    try:
+                        _, _, cancelled = _jobs.get_nowait()
+                    except queue.Empty:
+                        pass
+                    else:
+                        cancelled.put_nowait(None)
+                        _jobs.task_done()
+                    release_sdl_session()
 
 def prepare_preview_question(parent, question):
     prepared = dict(question)
@@ -272,63 +297,75 @@ def launch(parent, question, on_answer, on_cancel=None, *, allow_feedback=True, 
 
     if _app_shutdown.is_set():
         return False
-    _shutdown_requested.clear()
     # The SDL window is a separate native window. Make the Tk application
     # modal while it is active so the user cannot edit the underlying screen.
     # Tk's grab affects Tk windows only; pygame still receives mouse/keyboard.
     modal_owner = None
-    previous_grab = None
+    grab_acquired = False
     modal_released = False
+    destroy_binding = None
+    poll_job = None
     def release_modal():
-        nonlocal modal_released
+        nonlocal modal_released, destroy_binding, poll_job
         if modal_released:
             return
         modal_released = True
+        if poll_job is not None:
+            parent.after_cancel(poll_job)
+            poll_job = None
+        if destroy_binding is not None:
+            parent.unbind('<Destroy>', destroy_binding)
+            destroy_binding = None
         try:
-            if modal_owner is not None and modal_owner.winfo_exists():
+            if grab_acquired and modal_owner is not None and modal_owner.winfo_exists():
                 if modal_owner.grab_current() == modal_owner:
                     modal_owner.grab_release()
-                if previous_grab is not None and previous_grab.winfo_exists():
-                    previous_grab.grab_set()
         except Exception:
             pass
 
-    # Reserve the shared SDL display before queueing: reject overlaps instead
-    # of accumulating pending windows or conflicting with reading screens.
-    if not acquire_sdl_session():
-        return False
-    try:
-        modal_owner = parent.winfo_toplevel()
-        previous_grab = modal_owner.grab_current()
-        # Do not steal a grab from a different modal dialog. The quiz preview
-        # may be launched inside a Tk Toplevel that already owns its grab.
-        if previous_grab is None or previous_grab == modal_owner:
-            modal_owner.grab_set()
-            if previous_grab == modal_owner:
-                previous_grab = None
-        else:
-            modal_owner = None
-    except Exception:
-        modal_owner = None
     # Optional effect, controlled from the existing Settings page.
     settings = getattr(parent, '_display_settings', {}) or {}
     feedback_enabled = allow_feedback and bool(settings.get('dragon_feedback_enabled', False))
     # Annotation tools: real quiz sessions only. Editor previews (allow_feedback=False)
     # must render exactly the saved layout, so they never get the dock.
     prepared['_tools_enabled'] = bool(allow_feedback) and bool(settings.get('exercise_tools_enabled', True))
+    prepared['_keep_window'] = allow_feedback
     results = queue.Queue(maxsize=1)
-    global _worker_thread
-    try:
-        with _worker_lock:
+    global _worker_thread, _idle_owner, _session_owner
+    with _worker_lock:
+        owner = id(parent)
+        reusing = (_idle_owner == owner and not _shutdown_requested.is_set()
+                   and not _app_shutdown.is_set())
+        if reusing:
+            _idle_owner = None
+        elif acquire_sdl_session():
+            _shutdown_requested.clear()
+            _session_owner = owner
+        else:
+            return False
+        try:
+            modal_owner = parent.winfo_toplevel()
+            if modal_owner.grab_current() is None:
+                modal_owner.grab_set()
+                grab_acquired = True
+        except Exception:
+            modal_owner = None
+        try:
             if _worker_thread is None or not _worker_thread.is_alive():
                 _worker_thread = threading.Thread(target=_exercise_worker, name='TuHocPygame', daemon=True)
                 _worker_thread.start()
-            _jobs.put_nowait((prepared, results))
-    except Exception:
-        release_modal()
-        release_sdl_session()
-        raise
+            _jobs.put_nowait((owner, prepared, results))
+        except Exception:
+            release_modal()
+            if reusing:
+                close(parent)
+            else:
+                _session_owner = None
+                release_sdl_session()
+            raise
     def poll():
+        nonlocal poll_job
+        poll_job = None
         if frames is not None:
             try:
                 size, pixels = frames.get_nowait()
@@ -345,12 +382,13 @@ def launch(parent, question, on_answer, on_cancel=None, *, allow_feedback=True, 
         except queue.Empty:
             try:
                 if parent.winfo_exists():
-                    parent.after(65, poll)
+                    poll_job = parent.after(65, poll)
             except Exception:
                 pass
             else:
                 if not parent.winfo_exists():
                     close(parent)
+                    release_modal()
             return
         # Unlock the editor before displaying results, opening another question,
         # or showing an error dialog. This also handles cancellation.
@@ -386,14 +424,16 @@ def launch(parent, question, on_answer, on_cancel=None, *, allow_feedback=True, 
         except Exception:
             traceback.print_exc()
     def _on_parent_destroy(event):
-        if event.widget is modal_owner:
+        if event.widget is parent:
             close(parent)
-    if modal_owner is not None:
-        try:
-            modal_owner.bind("<Destroy>", _on_parent_destroy, add="+")
-        except Exception:
-            pass
-    parent.after(65, poll)
+            release_modal()
+    try:
+        destroy_binding = parent.bind('<Destroy>', _on_parent_destroy, add='+')
+        poll_job = parent.after(65, poll)
+    except Exception:
+        close(parent)
+        release_modal()
+        raise
     return True
 
 

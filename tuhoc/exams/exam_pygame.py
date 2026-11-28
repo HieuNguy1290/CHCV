@@ -10,10 +10,12 @@ import datetime
 import copy
 import os
 import time
+import uuid
 import pygame
 from tuhoc.exercises.pygame_scroll import ScrollThumb
 from tuhoc.exams.exam_bank import ExamBank, SUBJECTS
 from tuhoc.exams.exam_grading import is_correct
+from tuhoc.exams.exam_document import ExamDocument
 
 VIRTUAL=(1100,720)
 READ_VIEWPORT = (694, 331)
@@ -62,7 +64,7 @@ def _layout_bottom(layout):
 
 
 class ExamUI:
-    def __init__(self,root,student_id=None):
+    def __init__(self,root,student_id=None,*,fixed_exam=None,preview=False,reduce_motion=False):
         self.bank=ExamBank(root);self.student_id=student_id
         self.running=True;self.mode='select';self.subject='tieng_anh';self.grade='';self.lesson='';self.level=1
         self.exam=None;self.answers={};self.index=0;self.deadline=0
@@ -78,6 +80,15 @@ class ExamUI:
         self.group_scroll={};self.passage_scroll={};self._focus_child_id=None;self._reading_active_child=None;self.group_passage_area=pygame.Rect(0,0,0,0);self.group_answer_area=pygame.Rect(0,0,0,0)
         self.font=None;self.bold=None;self.big=None;self.small=None
         self.match_pending=None;self.order_inputs={};self.gap_focus=0;self.review_scroll=0;self.review_detail=None;self._image_cache={};self._audio_path=None;self._audio_error=''
+        self.fixed_exam = fixed_exam
+        self.preview = preview
+        self.document = None
+        self._document_capture = False
+        self.reduce_motion = reduce_motion
+        self._last_frame = None
+        self._frame_mode = None
+        self._fade_from = None
+        self._fade_started = 0
 
     def open(self):
         pygame.init()
@@ -87,7 +98,10 @@ class ExamUI:
             self._set_mode(self.resolution)
             self.font=self._font(22);self.bold=self._font(24,True)
             self.big=self._font(36,True);self.small=self._font(18)
-            self._refresh_courses()
+            if self.fixed_exam is None:
+                self._refresh_courses()
+            else:
+                self._start()
             clock=pygame.time.Clock()
             while self.running and not _app_shutdown.is_set():
                 for ev in pygame.event.get():
@@ -115,13 +129,15 @@ class ExamUI:
                             self._scroll_active_pane(ev.key)
                         elif self.mode=='result' and ev.key==pygame.K_ESCAPE:self.review_detail=None;self._image_cache={};self._audio_path=None;self._audio_error=''
                         elif self.mode=='exam' and self.exam:
-                            q=self.exam['questions'][self.index]
+                            q=self._input_question()
+                            if q is None:continue
                             if q.get('type') in ('sentence_gaps','conversation_gaps','passage_gaps'):
                                 self._gap_key(q,ev)
                             if q.get('type') in ('fill','error','picture_missing_letters','listening_fill') and ev.key==pygame.K_BACKSPACE:
                                 self.answers[q['id']]=str(self.answers.get(q['id'],''))[:-1]
                     elif ev.type==pygame.TEXTINPUT and self.mode=='exam' and self.exam:
-                        q=self.exam['questions'][self.index]
+                        q=self._input_question()
+                        if q is None:continue
                         if q.get('type') in ('sentence_gaps','conversation_gaps','passage_gaps'):
                             self._gap_text(q,ev.text)
                         if q.get('type') in ('fill','error','picture_missing_letters','listening_fill'):
@@ -135,6 +151,8 @@ class ExamUI:
                         if self.dropdown:self.dropdown['scroll']=max(0,min(self.dropdown['maxscroll'],self.dropdown['scroll']-ev.y))
                         elif self.mode=='exam' and self.nav_area.collidepoint(self.mouse):
                             self._set_nav_page(self.nav_page-(1 if ev.y>0 else -1))
+                        elif self.mode=='exam' and self.document and self.read_area.collidepoint(self.mouse):
+                            self.document.scroll(self,self.document.offset-ev.y*44)
                         elif self.mode=='exam' and self._current_reading_group() and (self.group_passage_area.collidepoint(self.mouse) or self.group_answer_area.collidepoint(self.mouse)):
                             self._scroll_reading_pane('passage' if self.group_passage_area.collidepoint(self.mouse) else 'questions',-ev.y*44)
                         elif self.mode=='exam' and self.read_area.collidepoint(self.mouse):
@@ -242,9 +260,30 @@ class ExamUI:
                 label=str(choice)
                 while label and self.font.size(label)[0]>w-18:label=label[:-1]
                 self._text(s,label,x+10,top+i*42+7)
+        s=self._transition_frame(s)
         scale,(ox,oy)=self._transform();self.window.fill((223,230,239))
         output=pygame.transform.smoothscale(s,(max(1,round(VIRTUAL[0]*scale)),max(1,round(VIRTUAL[1]*scale))))
         self.window.blit(output,(round(ox),round(oy)));pygame.display.flip()
+
+    def _transition_frame(self, current):
+        if self.reduce_motion:
+            return current
+        now = time.monotonic()
+        if self._frame_mode != self.mode:
+            self._fade_from = self._last_frame
+            self._fade_started = now
+            self._frame_mode = self.mode
+        self._last_frame = current
+        if self._fade_from is None:
+            return current
+        progress = min(1,(now-self._fade_started)/.16)
+        if progress >= 1:
+            self._fade_from = None
+            return current
+        output = current.copy()
+        self._fade_from.set_alpha(round(125*(1-progress)**2))
+        output.blit(self._fade_from,(0,0))
+        return output
 
     def _draw_select(self,s):
         self._text(s,'TRUNG TÂM KIỂM TRA',65,53,self.big)
@@ -294,14 +333,84 @@ class ExamUI:
 
     def _start(self):
         try:
-            if not self.grade or not self.lesson:raise ValueError('Hãy chọn lớp và bài học.')
-            self.error=None
-            self.exam=self.bank.create_exam(self.grade,self.lesson,self.level,subject=self.subject,include_samples=True)
+            if self.fixed_exam is not None:
+                self.exam=copy.deepcopy(self.fixed_exam)
+                self.exam['id']=uuid.uuid4().hex
+                self.subject=self.exam['subject'];self.grade=self.exam['grade'];self.lesson=self.exam['lesson'];self.level=self.exam['level']
+                self.document=ExamDocument()
+            else:
+                if not self.grade or not self.lesson:raise ValueError('Hãy chọn lớp và bài học.')
+                self.exam=self.bank.create_exam(self.grade,self.lesson,self.level,subject=self.subject,include_samples=True)
         except (ValueError,KeyError,TypeError,OSError) as exc:self.error=str(exc);return
         self.answers={};self.index=0;self.scroll=0;self.flagged=set();self.nav_page=0;self.nav_filter='all';self.read_scroll={};self.match_pending=None;self.order_inputs={}
         self.gap_focus=0;self.group_scroll={};self.passage_scroll={};self._focus_child_id=None;self._reading_active_child=None
         self.deadline=time.time()+self.exam['minutes']*60;self.mode='exam';self.error=None
         pygame.key.start_text_input()
+
+    def _input_question(self):
+        index = self.document.focus if self.document else self.index
+        return self.exam['questions'][index] if index is not None else None
+
+    def _render_document_question(self, question, index):
+        saved = self.read_area, self.buttons, self.scroll, self.scroll_limit, self.gap_focus
+        self.read_area = pygame.Rect(0, 0, saved[0].width-16, 1)
+        self.buttons = []
+        self.scroll = 0
+        self._document_capture = True
+        self._document_surface = None
+        if self.document.focus != index:
+            self.gap_focus = -1
+        try:
+            target = pygame.Surface((1, 1))
+            if question['type'] in INTERACTIVE_TYPES:
+                self._draw_interactive(target,question)
+            else:
+                self._draw_reading(target,question)
+            content = self._document_surface
+            width = self.read_area.width
+            margin = 16
+            text_width = width-2*margin
+            passage = question.get('fixed_passage','')
+            paragraphs = [wrap(self.font, paragraph, text_width)
+                          for paragraph in passage.splitlines()] if passage else []
+            step = self.font.get_linesize()+7
+            section = question.get('fixed_section','')
+            section_lines = wrap(self.bold,section,text_width) if section else []
+            section_step = self.bold.get_linesize()+5
+            heading = 18 + len(section_lines)*section_step + sum(len(p)*step+5 for p in paragraphs)
+            block = pygame.Surface((width,heading+34+content.get_height()))
+            block.fill(WHITE)
+            y=10
+            for line in section_lines:
+                self._text(block,line,margin,y,self.bold)
+                y+=section_step
+            for paragraph in paragraphs:
+                for line in paragraph[:-1]:
+                    self._draw_passage_line(block,line,margin,y,text_width)
+                    y+=step
+                self._text(block,paragraph[-1],margin,y,self.font)
+                y+=step+5
+            self._text(block,f'Câu {index+1}',margin,heading,self.small,BLUE)
+            block.blit(content,(0,heading+34))
+            actions = [(rect.move(0,heading+34),action) for rect,action in self.buttons]
+            return block,actions,heading
+        finally:
+            self.read_area,self.buttons,self.scroll,self.scroll_limit,self.gap_focus=saved
+            self._document_capture=False
+            self._document_surface=None
+
+    def _draw_passage_line(self, surface, line, x, y, width):
+        words = line.split()
+        word_widths = [self.font.size(word)[0] for word in words]
+        gaps = len(words)-1
+        available = width-sum(word_widths)
+        if gaps < 1 or not 0 < available <= self.font.size(' ')[0]*3*gaps:
+            self._text(surface,line,x,y,self.font)
+            return
+        start = x
+        for index, (word, word_width) in enumerate(zip(words,word_widths)):
+            surface.blit(self.font.render(word,True,INK),(start+round(index*available/gaps),y))
+            start+=word_width
 
     def _group_span(self,index):
         """Return inclusive indices of a contiguous, eligible reading group."""
@@ -351,6 +460,9 @@ class ExamUI:
     def _move(self,step):
         """Previous/next navigates by a whole reading group, never by child."""
         if not self.exam:return
+        if self.document:
+            self.document.jump(self,self.index+step)
+            return
         self.read_scroll[self.index]=self.scroll
         start,end=self._group_span(self.index)
         target=(end+1 if step>0 else start-1) if step else self.index
@@ -361,6 +473,9 @@ class ExamUI:
     def _jump(self,index,focus_child=False):
         """Palette jumps to the containing group, retaining its first child as anchor."""
         if not self.exam:return
+        if self.document:
+            self.document.jump(self,index)
+            return
         self.read_scroll[self.index]=self.scroll
         start,end=self._group_span(index)
         self._focus_child_id=self.exam['questions'][index]['id'] if focus_child and end>start else None
@@ -402,8 +517,8 @@ class ExamUI:
         questions=self.exam['questions'];q=questions[self.index];n=len(questions)
         remaining=max(0,int(self.deadline-time.time()));timer=f'{remaining//60:02d}:{remaining%60:02d}'
         pygame.draw.rect(s,(25,58,99),(28,23,1044,137),border_top_left_radius=16,border_top_right_radius=16)
-        self._text(s,'BÀI KIỂM TRA',56,41,self.bold,WHITE)
-        summary=f'{SUBJECTS[self.subject]}  |  Lớp {self.grade}  |  {self.lesson}  |  Level {self.level}'
+        self._text(s,'XEM TRƯỚC BỘ ĐỀ' if self.preview else 'BỘ ĐỀ' if self.document else 'BÀI KIỂM TRA',56,41,self.bold,WHITE)
+        summary=self.exam['title'] if self.document else f'{SUBJECTS[self.subject]}  |  Lớp {self.grade}  |  {self.lesson}  |  Level {self.level}'
         self._text(s,summary,56,83,self.small,(209,226,245),width=770)
         pygame.draw.rect(s,(52,85,123),(879,39,157,75),border_radius=9)
         self._text(s,timer,903,45,self.big,(255,194,170) if remaining<300 else WHITE)
@@ -419,10 +534,14 @@ class ExamUI:
         start,end=self._group_span(self.index)
         position=f'Bài đọc: câu {start+1}-{end+1}/{n}' if end>start else f'Câu {self.index+1}/{n}'
         self._text(s,position,72,216,self.small,MUTED)
+        if self.document and self.document.passage_index(self) is not None:
+            self._button(s,'Về đoạn văn',(430,211,172,39),
+                         lambda:self.document.go_to_passage(self),small=True)
         self._button(s,'Bỏ cờ' if self._flagged_for(self.index) else 'Đánh dấu',(614,211,145,39),self._toggle_flag,small=True)
         self.read_area=pygame.Rect((68,260), READ_VIEWPORT)
         self.group_passage_area=pygame.Rect(0,0,0,0);self.group_answer_area=pygame.Rect(0,0,0,0)
-        if self._current_reading_group():self._draw_reading_group(s)
+        if self.document:self.document.draw(self,s)
+        elif self._current_reading_group():self._draw_reading_group(s)
         elif q.get('type') in INTERACTIVE_TYPES:self._draw_interactive(s,q)
         else:self._draw_reading(s,q)
         self._text(s,'DANH SÁCH CÂU',806,218,self.small,INK)
@@ -463,8 +582,8 @@ class ExamUI:
         if visible:self._text(s,f'Hiển thị {first+1}-{first+len(visible)}/{len(indices)}',806,554,self.small,MUTED)
         else:self._text(s,'Không có câu phù hợp',806,554,self.small,MUTED)
         self._text(s,f'Đã trả lời: {answered}/{n}',805,577,self.small,GREEN)
-        self._button(s,'Nhóm trước',(55,625,195,53),lambda:self._move(-1),small=True)
-        self._button(s,'Nhóm tiếp',(270,625,195,53),lambda:self._move(1),small=True)
+        self._button(s,'Câu trước' if self.document else 'Nhóm trước',(55,625,195,53),lambda:self._move(-1),small=True)
+        self._button(s,'Câu sau' if self.document else 'Nhóm tiếp',(270,625,195,53),lambda:self._move(1),small=True)
         self._button(s,'Nộp bài',(807,625,238,53),lambda:setattr(self,'mode','confirm'),True,small=True)
 
     def _play_audio(self,path):
@@ -484,7 +603,7 @@ class ExamUI:
         pygame.draw.rect(s,(225,238,253),rect,border_radius=8)
         pygame.draw.rect(s,BLUE,rect,2,border_radius=8)
         self._text(s,'▶ Phát lại âm thanh',x+12,y+10,self.small,INK)
-        if local:
+        if local or self._document_capture:
             self.buttons.append((rect,lambda p=path:self._play_audio(p)))
         else:
             screen_rect=pygame.Rect(self.read_area.x+rect.x,self.read_area.y+rect.y-self.scroll,rect.w,rect.h)
@@ -523,7 +642,10 @@ class ExamUI:
                     if key == 'review':
                         self.review_scroll = offset
                     elif key == 'body':
-                        self.scroll = self.read_scroll[self.index] = offset
+                        if self.document:
+                            self.document.scroll(self,offset)
+                        else:
+                            self.scroll = self.read_scroll[self.index] = offset
                     else:
                         self._scroll_reading_pane(key, offset, absolute=True)
                 return True
@@ -613,8 +735,11 @@ class ExamUI:
             value=str(self.answers.get(qid,''))
             rect=_position(input_geometry,(x,y+40,635,62))
             self._studio_region('input_area', rect)
-            pygame.draw.rect(s,WHITE,rect,border_radius=9);pygame.draw.rect(s,BLUE,rect,2,border_radius=9)
-            self._text(s,value+' |',rect.x+15,rect.y+13,resolve_font(input_geometry, self.font, 22),INK,width=max(1,rect.w-35))
+            focused = not self._document_capture or self.gap_focus >= 0
+            pygame.draw.rect(s,WHITE,rect,border_radius=9);pygame.draw.rect(s,BLUE if focused else BORDER,rect,2,border_radius=9)
+            self._text(s,value+(' |' if focused else ''),rect.x+15,rect.y+13,resolve_font(input_geometry, self.font, 22),INK,width=max(1,rect.w-35))
+            if self._document_capture:
+                self.buttons.append((rect,lambda:None))
             draw_extras(s,q,(self.read_area.width,640))
             self._finish_interactive(s,original_buttons,estimated);return
         if kind=='order':
@@ -673,6 +798,10 @@ class ExamUI:
         self._studio_group('answer_area', ('slot_', 'option_'))
         content_buttons=self.buttons
         self.buttons=original_buttons
+        if self._document_capture:
+            self._document_surface=canvas
+            self.buttons.extend(content_buttons)
+            return
         self.scroll_limit=max(0,height-self.read_area.height)
         self.scroll=max(0,min(self.scroll,self.scroll_limit))
         self.read_scroll[self.index]=self.scroll
@@ -803,6 +932,12 @@ class ExamUI:
 
     def _scroll_active_pane(self,key):
         """PageUp/PageDown/Home/End target the pane beneath the mouse."""
+        if self.document:
+            step=max(40,self.read_area.height-40)
+            offset={pygame.K_HOME:0,pygame.K_END:self.document.limit,
+                    pygame.K_PAGEUP:self.document.offset-step,pygame.K_PAGEDOWN:self.document.offset+step}
+            self.document.scroll(self,offset[key])
+            return
         group=self._current_reading_group()
         if not group:
             return
@@ -1094,7 +1229,7 @@ class ExamUI:
                 finally:
                     surface.set_clip(original_clip)
                 screen_rect=pygame.Rect(self.read_area.x+rect.x,self.read_area.y+rect.y-self.scroll,rect.w,rect.h)
-                clipped=screen_rect.clip(self.read_area)
+                clipped=rect if self._document_capture else screen_rect.clip(self.read_area)
                 if clipped.width and clipped.height:self.buttons.append((clipped,lambda val=opt,qid=q['id']:self.answers.__setitem__(qid,val)))
             elif kind=='image_option':
                 i,opt,rect,custom=value
@@ -1115,7 +1250,7 @@ class ExamUI:
                 except (pygame.error,OSError,ValueError):
                     surface.blit(self.small.render('Không thể tải ảnh đáp án',True,(176,57,57)),(rect.x+45,rect.y+52))
                 screen_rect=pygame.Rect(self.read_area.x+rect.x,self.read_area.y+rect.y-self.scroll,rect.w,rect.h)
-                clipped=screen_rect.clip(self.read_area)
+                clipped=rect if self._document_capture else screen_rect.clip(self.read_area)
                 if clipped.width and clipped.height:self.buttons.append((clipped,lambda val=opt,qid=q['id']:self.answers.__setitem__(qid,val)))
             elif kind=='styled_question':
                 value.draw(surface, INK)
@@ -1151,6 +1286,9 @@ class ExamUI:
                     yy+=font.get_linesize()+5
         visible=pygame.Rect(0,int(self.scroll),self.read_area.width,self.read_area.height)
         draw_extras(surface,q,(self.read_area.width,640))
+        if self._document_capture:
+            self._document_surface=surface
+            return
         s.blit(surface,self.read_area.topleft,visible)
         track = pygame.Rect(self.read_area.right-5,self.read_area.y,4,self.read_area.height)
         self.draw_scrollbar(s, 'body', track, self.read_area.height, self.scroll, self.scroll_limit, 25)
@@ -1198,7 +1336,11 @@ class ExamUI:
                      'question_snapshot':copy.deepcopy(qlist),
                      'ordered_answers':copy.deepcopy(self.order_inputs),
                      'graded_answers':{str(q['id']):bool(self._is_correct(q)) for q in qlist}}
-        try:self.bank.save_result(self.result);self.error=None
+        if self.document:
+            self.result.update(exam_mode='fixed',fixed_exam_id=self.exam.get('fixed_exam_id'))
+        try:
+            if not self.preview:self.bank.save_result(self.result)
+            self.error=None
         except (OSError,ValueError) as exc:self.error='Không lưu được lịch sử: '+str(exc)
         self.mode='result'
         self.review_scroll=0;self.review_detail=None;self._image_cache={};self._audio_path=None;self._audio_error='';self.review_scroll_limit=0
@@ -1245,6 +1387,9 @@ class ExamUI:
             self._draw_review_detail(s,questions[self.review_detail])
 
     def _another_exam(self):
+        if self.document:
+            self._start()
+            return
         self.mode='select';self.review_detail=None;self._image_cache={};self._audio_path=None;self._audio_error=''
 
     def _show_review(self,index):
@@ -1272,7 +1417,12 @@ class ExamUI:
         self._button(s,'Đóng xem lại',(680,542,265,44),lambda:setattr(self,'review_detail',None),small=True)
 
 
-def run_exam(root,student_id=None):ExamUI(root,student_id).open()
+def run_exam(root,student_id=None,reduce_motion=False):
+    ExamUI(root,student_id,reduce_motion=reduce_motion).open()
+
+
+def run_fixed_exam(root, student_id, exam, preview=False, reduce_motion=False):
+    ExamUI(root, student_id, fixed_exam=exam, preview=preview, reduce_motion=reduce_motion).open()
 
 
 

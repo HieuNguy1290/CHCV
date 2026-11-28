@@ -5,7 +5,7 @@ import copy
 import os
 import unicodedata
 import tkinter as tk
-from tkinter import colorchooser, simpledialog, filedialog, messagebox
+from tkinter import colorchooser, simpledialog, filedialog, messagebox, ttk
 from pathlib import Path
 
 
@@ -18,8 +18,45 @@ def available():
         return False
 
 
+class JustifiedLine:
+    """Use the same word positions for painting, hit testing and text marks."""
+
+    def __init__(self, pygame, font, text, width):
+        self.pygame = pygame
+        self.font = font
+        self.width = width
+        words = text.split()
+        widths = [font.size(word)[0] for word in words]
+        space = width - sum(widths)
+        gaps = len(words) - 1
+        self.runs = []
+        self.offsets = [0]
+        x = 0
+        for i, (word, word_width) in enumerate(zip(words, widths)):
+            self.runs.append((word, x))
+            self.offsets.extend(x + font.size(word[:end])[0] for end in range(1, len(word) + 1))
+            x += word_width
+            if i < gaps:
+                x += round((i + 1) * space / gaps) - round(i * space / gaps)
+                self.offsets.append(x)
+
+    def size(self, prefix):
+        return self.offsets[len(prefix)], self.font.get_height()
+
+    def render(self, text, antialias, color):
+        surface = self.pygame.Surface((self.width, self.font.get_height()), self.pygame.SRCALPHA)
+        for word, x in self.runs:
+            surface.blit(self.font.render(word, antialias, color), (x, 0))
+        return surface
+
+    def render_selection(self, text, start, end, color):
+        x1, x2 = self.offsets[start], self.offsets[end]
+        surface = self.render(text, True, color)
+        return surface.subsurface((x1, 0, max(1, x2 - x1), surface.get_height()))
+
+
 class EmbeddedReader(tk.Frame):
-    def __init__(self, master, item, image_file=None, speak=None, external_dock=False, on_add_vocab=None, on_play_audio=None, **kwargs):
+    def __init__(self, master, item, image_file=None, speak=None, external_dock=False, on_add_vocab=None, on_play_audio=None, *, reading_palette=None, **kwargs):
         super().__init__(master, bg='#eaf3f9', **kwargs)
         import pygame
         from PIL import Image, ImageTk
@@ -27,13 +64,18 @@ class EmbeddedReader(tk.Frame):
         pygame.font.init()
         self.item=item; self.image_file=image_file; self.speak=speak
         self.on_add_vocab=on_add_vocab; self.on_play_audio=on_play_audio
+        self.reading_palette = reading_palette
+        self.line_spacing = 1.65
+        self._serif_fonts = {}
         self._selection_range=None; self._selection_popup=None
         self.mode='select'; self.tool_colors={'draw':'#000000','fill':'#FFD600','highlight':'#FFF3A3','underline':'#E53935','textbox':'#202020','note':'#245c80'}; self.color=self.tool_colors['draw']; self.width=3
         self.strokes=[]; self.redo=[]; self.current=[]; self.notes=[]
         self._pictures=[]; self._picture_selected=None; self._picture_drag=None; self._picture_job=None; self._picture_history=[]; self._picture_future=[]
         self._select_start=None
         self._previous_layout=None
+        self._pending_reading_anchor = None
         self._resize_job=None; self._initial_render_job=None
+        self._picture_refresh_job=None; self._dock_lift_job=None
         self.zoom=1.0; self.reading_dark=False; self._image_ref=None; self._page_width=0; self._page_cache_key=None; self._page_cache_image=None
         # Floating, draggable tool dock: a single icon opens the palette on hover.
         # The dock is positioned over the reader, not in the document flow.
@@ -73,7 +115,8 @@ class EmbeddedReader(tk.Frame):
         self._inline_editor=None
         self._selected_box=None; self._box_drag=None; self._history=[]; self._future=[]
         self.status=tk.StringVar(value='Chế độ đọc: cuộn chuột để xem toàn bài. Nét vẽ chỉ tồn tại trong lần mở bài này.')
-        tk.Label(self,textvariable=self.status,bg='#eaf3f9',fg='#245c80',anchor='w',font=('Segoe UI',9)).pack(fill='x',padx=10)
+        if reading_palette is None:
+            tk.Label(self,textvariable=self.status,bg='#eaf3f9',fg='#245c80',anchor='w',font=('Segoe UI',9)).pack(fill='x',padx=10)
         outer=tk.Frame(self,bg='#eaf3f9');outer.pack(fill='both',expand=True,padx=7,pady=(3,8))
         self.canvas=tk.Canvas(outer,bg='#eaf3f9',highlightthickness=0,height=460)
         scrollbar=tk.Scrollbar(outer,orient='vertical',command=self.canvas.yview)
@@ -90,10 +133,16 @@ class EmbeddedReader(tk.Frame):
         reading_column.grid_rowconfigure(0,weight=1)
         reading_column.grid_columnconfigure(0,weight=1)
         self.canvas=tk.Canvas(reading_column,bg='#eaf3f9',highlightthickness=0,height=460)
-        scrollbar=tk.Scrollbar(reading_column,orient='vertical',command=self.canvas.yview)
+        if reading_palette is None:
+            scrollbar=tk.Scrollbar(reading_column,orient='vertical',command=self.canvas.yview)
+        else:
+            scrollbar=ttk.Scrollbar(reading_column,orient='vertical',command=self.canvas.yview,
+                                    style='LibraryReading.Vertical.TScrollbar')
         self.canvas.configure(yscrollcommand=scrollbar.set)
         self.canvas.grid(row=0,column=0,sticky='nsew')
         scrollbar.grid(row=0,column=1,sticky='ns')
+        self._scrollbar = scrollbar
+        self._reading_outer = outer
         # Use the outer frame to center a fixed-width reading column without
         # constraining its height; avoids blank pages after layout changes.
         def fit_column(event):
@@ -113,7 +162,8 @@ class EmbeddedReader(tk.Frame):
         self.canvas.bind('<Button-5>',lambda e:self._scroll_reader(3))
         self.canvas.bind('<Configure>',self._on_resize)
         self._reader_actions=tk.Frame(self,bg='#EAF3F9')
-        self._reader_actions.pack(side='bottom',fill='x',padx=12,pady=(0,16))
+        if reading_palette is None:
+            self._reader_actions.pack(side='bottom',fill='x',padx=12,pady=(0,16))
         for label,fn in [('🔊 Nghe bài đọc',self.play_reading_audio)]:
             tk.Button(self._reader_actions,text=label,command=fn,bg='#FFFFFF',fg='#205B88',
                 activebackground='#DCEFFF',font=('Segoe UI',10,'bold'),bd=0,highlightthickness=1,
@@ -122,9 +172,16 @@ class EmbeddedReader(tk.Frame):
             bg='#FFFFFF',fg='#205B88',activebackground='#DCEFFF',font=('Segoe UI',10,'bold'),
             bd=0,highlightthickness=1,highlightbackground='#A5C7E3',padx=14,pady=8,cursor='hand2')
         self._expand_reading_button.pack(side='left',padx=5)
+        if reading_palette is not None:
+            self._listen_button = tk.Button(self.canvas, text='▶ Nghe bài', command=self.play_reading_audio,
+                                            font=('Segoe UI', 11, 'bold'), relief='flat', padx=16, pady=6)
+            for key, units in (('<Up>', -1), ('<Down>', 1), ('<Prior>', -1), ('<Next>', 1)):
+                step = 'pages' if key in ('<Prior>', '<Next>') else 'units'
+                self.canvas.bind(key, lambda event, n=units, s=step: self.canvas.yview_scroll(n, s))
+            self.apply_reading_palette(reading_palette)
         self._initial_render_job=self.after(50,self.render)
         self._picture_job=self.after(45,self._animate_pictures)
-        if not external_dock:self.after(70,self._dock.lift)
+        if not external_dock:self._dock_lift_job=self.after(70,self._dock.lift)
 
     def add_picture(self):
         """Select an image; next click anchors it to the reading document."""
@@ -169,7 +226,10 @@ class EmbeddedReader(tk.Frame):
         if not getattr(self,'_pictures',None):return
         if getattr(self,'_picture_refresh_pending',False):return
         self._picture_refresh_pending=True
-        self.after_idle(self._refresh_pictures)
+        def refresh():
+            self._picture_refresh_job = None
+            self._refresh_pictures()
+        self._picture_refresh_job = self.after_idle(refresh)
 
     def delete_picture(self):
         pic=self._picture_selected
@@ -366,8 +426,11 @@ class EmbeddedReader(tk.Frame):
             self.render()
     def _on_resize(self,event):
         # Debounce resize storms without leaving stale callbacks behind.
-        if abs(event.width-self._page_width)<=12:
+        if abs(event.width-self._page_width)<=12 and self._pending_reading_anchor is None:
             return
+        self._schedule_render()
+
+    def _schedule_render(self):
         if self._resize_job is not None:
             try:self.after_cancel(self._resize_job)
             except tk.TclError:pass
@@ -380,7 +443,7 @@ class EmbeddedReader(tk.Frame):
 
     def destroy(self):
         # Avoid callbacks targeting a Canvas destroyed during page navigation.
-        for name in ('_resize_job','_initial_render_job'):
+        for name in ('_resize_job','_initial_render_job','_picture_refresh_job','_dock_lift_job'):
             job=getattr(self,name,None)
             if job is not None:
                 try:self.after_cancel(job)
@@ -414,6 +477,46 @@ class EmbeddedReader(tk.Frame):
             total+=len(line)+1
         return offsets
 
+    @property
+    def typography_locked(self):
+        return self.mode == 'draw' or bool(self.current or self.strokes)
+
+    def apply_reading_palette(self, palette):
+        self.reading_palette = palette
+        self.reading_dark = palette['dark']
+        for widget in (self, self._reading_outer, self.canvas.master, self.canvas):
+            widget.configure(bg=palette['page'])
+        style = ttk.Style(self)
+        scrollbar = self._scrollbar.cget('style')
+        style.configure(scrollbar, background=palette['panel'], troughcolor=palette['page'],
+                        arrowcolor=palette['ink'], bordercolor=palette['page'],
+                        lightcolor=palette['panel'], darkcolor=palette['panel'])
+        style.map(scrollbar, background=[('active', palette['selection'])])
+        self._listen_button.configure(bg=palette['accent'], fg=palette['accent_ink'],
+                                      activebackground=palette['accent'],
+                                      activeforeground=palette['accent_ink'])
+
+    def _reading_anchor(self):
+        lines = getattr(self, '_text_lines', [])
+        y = self.canvas.canvasy(0)
+        cached = getattr(self, '_last_reading_anchor', None)
+        if cached is not None and cached[0] == y:
+            return cached[1]
+        if not lines or y < lines[0][2]:
+            return None, y
+        index = next((i for i, line in enumerate(lines) if line[2] + line[4] >= y), len(lines) - 1)
+        offsets = self._line_offsets([line[0] for line in lines])
+        return offsets[index], y - lines[index][2]
+
+    def _restore_reading_anchor(self, anchor, height):
+        offset, y = anchor
+        if offset is not None and self._text_lines:
+            offsets = self._line_offsets([line[0] for line in self._text_lines])
+            index = max(i for i, start in enumerate(offsets) if start <= offset)
+            y += self._text_lines[index][2]
+        self.canvas.yview_moveto(max(0, y) / height)
+        self._last_reading_anchor = self.canvas.canvasy(0), anchor
+
     def _text_anchor_rects(self, annotation):
         anchor=annotation.get('text_span')
         if not anchor:return annotation.get('rects',[])
@@ -439,7 +542,10 @@ class EmbeddedReader(tk.Frame):
             px=pos[0]*ow;py=pos[1]*oh
             idx=min(range(len(old_lines)),key=lambda i:abs(old_lines[i][2]-py))
             line,lx,ly,font,size=old_lines[idx]
-            if abs(py-ly)>max(65,size*2):return (pos[0],pos[1])
+            if abs(py-ly)>max(65,size*2):
+                if self.reading_palette:
+                    return (px + new_lines[0][1] - old_lines[0][1]) / nw, py / nh
+                return (pos[0],pos[1])
             dx=max(0,px-lx)
             char=min(range(len(line)+1),key=lambda j:abs(font.size(line[:j])[0]-dx))
             offset=old_offsets[idx]+char
@@ -450,90 +556,154 @@ class EmbeddedReader(tk.Frame):
             char_new=max(0,min(len(text),offset-new_offsets[target]))
             nx=x+new_font.size(text[:char_new])[0]
             ny=y+(py-ly)*new_size/max(1,size)
+            if self.reading_palette:
+                nx += px - (lx + font.size(line[:char])[0])
+                ny = y + py - ly
             return (max(0,min(1,nx/max(1,nw))),max(0,min(1,ny/max(1,nh))))
-        for a in self._annotations:
-            if a['kind']=='highlight' and a.get('text_span'):continue
-            a['start']=remap(a['start']);a['end']=remap(a['end'])
+        collections = [self._annotations]
+        if self.reading_palette:
+            collections.extend(annotations for annotations, _ in self._history + self._future)
+            pictures = {id(pic): pic for pic in self._pictures}
+            def remap_picture(x, y):
+                nx, ny = remap(((x - 10) / ow, y / oh))
+                return 10 + nx * nw, ny * nh
+
+            for stack in (self._picture_history, self._picture_future):
+                for i, (action, pic, coords) in enumerate(stack):
+                    pictures[id(pic)] = pic
+                    if coords is not None:
+                        x, y, width, height = coords
+                        stack[i] = action, pic, (*remap_picture(x, y), width, height)
+            for pic in pictures.values():
+                pic['x'], pic['y'] = remap_picture(pic['x'], pic['y'])
+        for annotations in collections:
+            for a in annotations:
+                if a.get('text_span'):continue
+                a['start']=remap(a['start']);a['end']=remap(a['end'])
         self.notes=[(*remap((x,y)),note) for x,y,note in self.notes]
+
+    def _serif_font(self, size, bold=False):
+        key = size, bold
+        if key not in self._serif_fonts:
+            sample = 'ăâđêôơưẮằẵặấầẫậẻẽẹếềễệỏõọốồỗộớờỡợứừữựỳỵỷỹ'
+            font = self._reading_font(size, bold)
+            for family in ('Cambria', 'Times New Roman', 'Noto Serif', 'DejaVu Serif', 'Georgia', 'Liberation Serif'):
+                path = self.pg.font.match_font(family, bold=bold)
+                if path:
+                    try:
+                        candidate = self.pg.font.Font(path, size)
+                    except (OSError, ValueError):
+                        continue
+                    if all(metric is not None for metric in candidate.metrics(sample)):
+                        font = candidate
+                        break
+            self._serif_fonts[key] = font
+        return self._serif_fonts[key]
 
     def render(self):
         if not self.winfo_exists() or not self.canvas.winfo_exists():return
         # Rebuilding the page must not jump the reader back to the beginning.
         try: old_scroll=self.canvas.yview()[0]
         except (tk.TclError, IndexError): old_scroll=0.0
+        palette = self.reading_palette
+        anchor = (self._pending_reading_anchor or self._reading_anchor()) if palette else None
+        self._pending_reading_anchor = None
         pg=self.pg; w=max(240,self.canvas.winfo_width()-28);self._page_width=self.canvas.winfo_width()
         size=int(23*self.zoom);f=self._reading_font(size);titlefont=self._reading_font(int(30*self.zoom),bold=True)
-        content=str(self.item.get('content') or '')
-        lines=[]
-        for paragraph in content.splitlines() or ['']:
-            line=''
-            for word in paragraph.split():
-                candidate=(line+' '+word).strip()
-                if line and f.size(candidate)[0]>w-65:lines.append(line);line=word
-                else:line=candidate
-            lines.append(line)
+        column = min(640, w - 36) if palette else w - 65
+        left = (w - column) // 2 + 4 if palette else 30
+        if palette:
+            titlefont = self._serif_font(36, bold=True)
+            f = self._serif_font(size)
+        content = self.item.get('content')
+        if palette and content:
+            content = unicodedata.normalize('NFC', str(content))
+        if palette:
+            lines = []
+            for paragraph in str(content or '').splitlines() or ['']:
+                wrapped = self._wrap_lines(paragraph, f, column)
+                lines.extend((line, JustifiedLine(pg, f, line, column)
+                              if i < len(wrapped) - 1 and ' ' in line else f)
+                             for i, line in enumerate(wrapped))
+        else:
+            lines = [(line, f) for line in self._wrap_lines(content, f, column)]
         picture=None
         if self.image_file:
             try:
-                picture=self.Image.open(self.image_file).convert('RGB')
-                picture.thumbnail((w-65,int(260*self.zoom)))
+                with self.Image.open(self.image_file) as source:
+                    picture=source.convert('RGBA' if palette else 'RGB')
+                picture.thumbnail((column, 300 if palette else int(260*self.zoom)))
             except (OSError,ValueError):picture=None
         picture_height=picture.height+22 if picture else 0
-        line_h=int(39*self.zoom)
-        h=max(450,110+picture_height+len(lines)*line_h+55)
-        surf=pg.Surface((w,h));surf.fill((16,16,16) if self.reading_dark else (255,255,255))
-        surf.blit(titlefont.render(str(self.item.get('title') or 'Bài đọc'),True,((240,240,240) if self.reading_dark else (37,92,128))),(28,25))
-        y=95
+        line_h=max(f.get_linesize(), round(size * self.line_spacing)) if palette else int(39*self.zoom)
+        title = str(self.item.get('title') or 'Bài đọc')
+        if palette:
+            title = unicodedata.normalize('NFC', title)
+        title_lines = self._wrap_lines(title, titlefont, column) if palette else [title]
+        y = 32 + len(title_lines) * titlefont.get_linesize() + 22 if palette else 95
+        listen_y = y + picture_height
+        h = max(450, listen_y + 62 + len(lines) * line_h + 60) if palette else max(450,110+picture_height+len(lines)*line_h+55)
+        ink = pg.Color(palette['ink']) if palette else ((231,239,231) if self.reading_dark else (38,58,73))
+        surf=pg.Surface((w,h));surf.fill(pg.Color(palette['page']) if palette else ((16,16,16) if self.reading_dark else (255,255,255)))
+        title_ink = ink if palette else ((240,240,240) if self.reading_dark else (37,92,128))
+        for i, title_line in enumerate(title_lines):
+            surf.blit(titlefont.render(title_line, True, title_ink),
+                      (left if palette else 28, (32 if palette else 25) + i * titlefont.get_linesize()))
         if picture:
-            pic=pg.image.fromstring(picture.tobytes(),picture.size,'RGB')
+            pic=pg.image.fromstring(picture.tobytes(),picture.size,picture.mode)
             surf.blit(pic,((w-picture.width)//2,y));y+=picture_height
+        if palette:
+            y += 62
         self._text_lines=[]
-        for line in lines:
+        for line, line_font in lines:
             if line:
-                surf.blit(f.render(line,True,((231,239,231) if self.reading_dark else (38,58,73))),(30,y))
-                self._text_lines.append((line,30,y,f,size))
+                surf.blit(line_font.render(line, True, ink), (left, y))
+                self._text_lines.append((line,left,y,line_font,size))
             y+=line_h
-        new_layout={'lines':self._text_lines,'width':w,'height':h,'font_size':size}
+        new_layout={'lines':self._text_lines,'width':w,'height':h,'font_size':size, 'line_height':line_h}
         if self._previous_layout and (self._previous_layout['width']!=w or
                                       self._previous_layout['height']!=h or
-                                      self._previous_layout.get('font_size')!=size):
+                                      self._previous_layout.get('font_size')!=size or
+                                      self._previous_layout.get('line_height')!=line_h):
             self._reflow_annotations(self._previous_layout,new_layout)
+            if palette:
+                self._selection_range = None
+                self._selected_text_rects = []
         self._previous_layout=new_layout
         # Render highlight below text on the same RGB page: no Tk stipple/dots.
         # Text remains opaque and readable above the uniform highlight.
+        highlights = []
         for a in self._annotations:
             if a['kind'] != 'highlight':
                 continue
             try: rgb=tuple(int(a['color'][i:i+2],16) for i in (1,3,5))
             except (ValueError,IndexError):rgb=(255,243,163)
+            luminance = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]
             for bx1,by1,bx2,by2 in self._text_anchor_rects(a):
-                pg.draw.rect(surf,rgb,pg.Rect(int(bx1-10),int(by1),max(1,int(bx2-bx1)),max(1,int(by2-by1))))
-        if any(a['kind']=='highlight' for a in self._annotations):
+                clip = pg.Rect(int(bx1-10), int(by1), max(1, int(bx2-bx1)), max(1, int(by2-by1)))
+                highlights.append((clip, (24,24,24) if luminance >= 145 else (255,255,255)))
+                pg.draw.rect(surf, rgb, clip)
+        if highlights:
             # Redraw text *after* highlights. On dark pages choose ink per
             # highlighted background luminance, not the global dark-mode ink.
             # Otherwise pale-yellow highlights with near-white ink are unreadable.
-            for line,lx,ly,font,_ in self._text_lines:
-                if not self.reading_dark:
-                    surf.blit(font.render(line,True,(38,58,73)),(lx,ly))
+            for line,lx,ly,font,size in self._text_lines:
+                if not any(clip.top < ly + size + 5 and ly < clip.bottom for clip, _ in highlights):
                     continue
-                normal_ink=(238,238,238)
+                if not self.reading_dark:
+                    surf.blit(font.render(line,True,ink),(lx,ly))
+                    continue
+                normal_ink=ink if palette else (238,238,238)
                 surf.blit(font.render(line,True,normal_ink),(lx,ly))
                 # Clip glyphs to each highlight rectangle; this preserves the
                 # original text position and any previously drawn annotations.
-                for a in self._annotations:
-                    if a['kind']!='highlight':continue
-                    try:
-                        rgb=tuple(int(a['color'][i:i+2],16) for i in (1,3,5))
-                    except (ValueError,IndexError):rgb=(255,243,163)
-                    luminance=(0.2126*rgb[0]+0.7152*rgb[1]+0.0722*rgb[2])
-                    ink=(24,24,24) if luminance>=145 else (255,255,255)
-                    glyph=font.render(line,True,ink)
-                    for bx1,by1,bx2,by2 in self._text_anchor_rects(a):
-                        clip=pg.Rect(int(bx1-10),int(by1),max(1,int(bx2-bx1)),max(1,int(by2-by1)))
-                        previous=surf.get_clip()
-                        surf.set_clip(clip)
-                        surf.blit(glyph,(lx,ly))
-                        surf.set_clip(previous)
+                for clip, highlight_ink in highlights:
+                    if clip.top >= ly + size + 5 or clip.bottom <= ly:
+                        continue
+                    previous=surf.get_clip()
+                    surf.set_clip(clip)
+                    surf.blit(font.render(line, True, highlight_ink), (lx,ly))
+                    surf.set_clip(previous)
         raw=pg.image.tostring(surf,'RGB')
         self._image_ref=self.ImageTk.PhotoImage(self.Image.frombytes('RGB',(w,h),raw),master=self.canvas)
         self._hide_selection_popup()
@@ -541,8 +711,13 @@ class EmbeddedReader(tk.Frame):
         for pic in self._pictures:
             pic['item']=None;pic['handles']=[]
         self.canvas.create_image(10,0,anchor='nw',image=self._image_ref,tags=('page',))
+        if palette:
+            self.canvas.create_window(10 + left, listen_y, window=self._listen_button, anchor='nw')
         self.canvas.configure(scrollregion=(0,0,w+20,h))
-        self.canvas.yview_moveto(old_scroll)
+        if anchor is not None:
+            self._restore_reading_anchor(anchor, h)
+        else:
+            self.canvas.yview_moveto(old_scroll)
         for s in self.strokes:self._draw_stroke(s)
         for a in self._annotations:self._draw_annotation(a)
         self._draw_selection()
@@ -551,6 +726,22 @@ class EmbeddedReader(tk.Frame):
         for x,y,note in self.notes:self.canvas.create_text(10+x*w,y*h,text=note,anchor='nw',fill=('#BBDFFF' if self.reading_dark else '#2865aa'),font=('Segoe UI',self._annotation_font_size(),'bold'),tags='note')
         self.canvas.tag_raise('overlay_picture')
         self.canvas.tag_raise('overlay_picture_handle')
+
+    @staticmethod
+    def _wrap_lines(content, font, width):
+        lines = []
+        for paragraph in str(content or '').splitlines() or ['']:
+            line = ''
+            for word in paragraph.split():
+                candidate = f'{line} {word}'.strip()
+                if line and font.size(candidate)[0] > width:
+                    lines.append(line)
+                    line = word
+                else:
+                    line = candidate
+            lines.append(line)
+        return lines
+
     def _draw_annotation(self,a):
         w=max(240,self.canvas.winfo_width()-28)
         h=max(1,int(self.canvas.cget('scrollregion').split()[-1]))
@@ -562,7 +753,11 @@ class EmbeddedReader(tk.Frame):
         elif a['kind']=='fill':
             self.canvas.create_rectangle(min(x1,x2),min(y1,y2),max(x1,x2),max(y1,y2),fill=a['color'],outline='',tags='annotation')
         elif a['kind']=='underline':
-            self.canvas.create_line(x1,y2,x2,y2,fill=a['color'],width=3,tags='annotation')
+            if a.get('text_span'):
+                for left, _, right, bottom in self._text_anchor_rects(a):
+                    self.canvas.create_line(left,bottom-3,right,bottom-3,fill=a['color'],width=2,tags='annotation')
+            else:
+                self.canvas.create_line(x1,y2,x2,y2,fill=a['color'],width=3,tags='annotation')
         elif a['kind']=='textbox':
             a['_canvas_id']=self.canvas.create_text(x1,y1,text=a['text'],anchor='nw',fill=('#F0F0F0' if self.reading_dark and a['color']=='#202020' else a['color']),
                                     font=('Segoe UI',self._annotation_font_size()),tags='annotation')
@@ -582,9 +777,13 @@ class EmbeddedReader(tk.Frame):
             if a>=b:continue
             x1=10+lx+font.size(line[:a])[0]
             x2=10+lx+font.size(line[:b])[0]
-            self.canvas.create_rectangle(x1,ly-2,x2,ly+size+5,fill='#2478D4',outline='',tags='text_selection')
-            selected=line[a:b]
-            surface=font.render(selected,True,(255,255,255))
+            palette = self.reading_palette
+            self.canvas.create_rectangle(x1,ly-2,x2,ly+size+5,fill=palette['selection'] if palette else '#2478D4',outline='',tags='text_selection')
+            ink = self.pg.Color(palette['selection_ink']) if palette else (255,255,255)
+            if isinstance(font, JustifiedLine):
+                surface = font.render_selection(line, a, b, ink)
+            else:
+                surface = font.render(line[a:b], True, ink)
             raw=self.pg.image.tostring(surface,'RGBA')
             photo=self.ImageTk.PhotoImage(self.Image.frombytes('RGBA',surface.get_size(),raw),master=self.canvas)
             if not hasattr(self,'_selection_images'):self._selection_images=[]
@@ -840,7 +1039,8 @@ class EmbeddedReader(tk.Frame):
         elif self.mode=='draw':self.current=[self._ink_pos(event)]
         elif self.mode in ('highlight','underline','fill'):
             self._annotation_start=self._pos(event)
-            self._highlight_start=self._text_hit(event) if self.mode=='highlight' else None
+            self._highlight_start=self._text_hit(event) if self.mode=='highlight' or (
+                self.reading_palette and self.mode=='underline') else None
         elif self.mode=='textbox':
             self._start_inline_text(event)
         elif self.mode=='note':
@@ -952,7 +1152,7 @@ class EmbeddedReader(tk.Frame):
             self.current=[];self.redo.clear();self.render()
         elif self.mode in ('highlight','underline','fill') and self._annotation_start:
             end=self._pos(event)
-            if self.mode=='highlight':
+            if self.mode=='highlight' or (self.reading_palette and self.mode=='underline'):
                 hit_end=self._text_hit(event)
                 hit_start=getattr(self,'_highlight_start',None)
                 if hit_start is not None and hit_end is not None:
@@ -961,9 +1161,9 @@ class EmbeddedReader(tk.Frame):
                     span=(offsets[a[0]]+a[1],offsets[b[0]]+b[1])
                     if span[0]!=span[1]:
                         self._checkpoint()
-                        self._annotations.append({'kind':'highlight','start':self._annotation_start,
+                        self._annotations.append({'kind':self.mode,'start':self._annotation_start,
                             'end':end,'text_span':span,'rects':self._selection_boxes(a,b),
-                            'color':self.tool_colors['highlight']})
+                            'color':self.tool_colors[self.mode]})
                 self._highlight_start=None
             else:
                 self._checkpoint()

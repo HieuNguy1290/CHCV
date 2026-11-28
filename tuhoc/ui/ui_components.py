@@ -1,7 +1,21 @@
-"""Lightweight shared Tk canvas primitives; no external packages."""
+"""Shared Tk components with antialiased shapes for curved edges."""
 from tuhoc.ui.ui_tokens import DURATION, RADIUS, font_at
+import sys
 import tkinter as tk
+from PIL import Image, ImageDraw, ImageTk
 from tuhoc.ui.theme_config import UI_COLORS
+
+_SHAPE_SCALE = 4
+
+
+def _shape_layer(width, height):
+    return Image.new('RGBA', (width * _SHAPE_SCALE, height * _SHAPE_SCALE))
+
+
+def _shape_photo(canvas, layer, width, height):
+    image = layer.resize((width, height), Image.Resampling.LANCZOS)
+    return ImageTk.PhotoImage(image, master=canvas)
+
 
 def rounded_rect(canvas,x1,y1,x2,y2,r=16,fill='white',outline='',**kw):
     r=max(0,min(r,(x2-x1)/2,(y2-y1)/2))
@@ -24,11 +38,11 @@ class RoundedButton(tk.Canvas):
         self.variant=variant
         self._spinner=None
         self._frame=0
-        self._colors={'primary':UI_COLORS['primary'],'outline':'white',
+        self._colors={'primary':UI_COLORS['primary'],'outline':UI_COLORS['surface'],
                       'ghost':UI_COLORS['background']}
-        self._shape=rounded_rect(self,2,2,width-2,height-2,RADIUS['normal'],
-                                 fill=self._colors[variant],
-                                 outline=UI_COLORS['border'] if variant=='outline' else '')
+        self._shape_size = width, height
+        self._shape_fill = None
+        self._shape = self.create_image(0, 0, anchor='nw')
         self._label=self.create_text(width/2,height/2,font=font_at(12,'bold'))
         self.bind('<Button-1>',self._click)
         self.bind('<Return>',self._click)
@@ -59,7 +73,18 @@ class RoundedButton(tk.Canvas):
         blocked=self.disabled or self.loading
         icons=('◐','◓','◑','◒')
         icon=icons[self._frame%len(icons)] if self.loading else self.icon
-        self.itemconfigure(self._shape,fill=UI_COLORS['disabled'] if blocked else self._colors[self.variant])
+        fill = UI_COLORS['disabled'] if blocked else self._colors[self.variant]
+        if fill != self._shape_fill:
+            width, height = self._shape_size
+            scale = _SHAPE_SCALE
+            layer = _shape_layer(width, height)
+            ImageDraw.Draw(layer).rounded_rectangle(
+                (2 * scale, 2 * scale, (width - 2) * scale - 1, (height - 2) * scale - 1),
+                radius=RADIUS['normal'] * scale, fill=fill,
+                outline=UI_COLORS['border'] if self.variant == 'outline' else None, width=scale)
+            self._shape_image = _shape_photo(self, layer, width, height)
+            self.itemconfigure(self._shape, image=self._shape_image)
+            self._shape_fill = fill
         self.itemconfigure(self._label,text=f'{icon}  {self.text}' if icon else self.text,
                            fill=UI_COLORS['disabled_text'] if blocked else 'white'
                            if self.variant=='primary' else UI_COLORS['text'])
@@ -119,14 +144,51 @@ class ProgressBar(tk.Canvas):
         super().__init__(parent,width=width,height=height,highlightthickness=0,**kw)
         self.value=value;self.draw(width,height)
     def draw(self,w,h):
-        self.delete('all');rounded_rect(self,0,0,w,h,h/2,UI_COLORS['tint']);rounded_rect(self,0,0,max(h,min(w,w*self.value)),h,h/2,UI_COLORS['primary']) if self.value>0 else None
+        scale = _SHAPE_SCALE
+        width, height = max(1, round(w)), max(1, round(h))
+        layer = _shape_layer(width, height)
+        draw = ImageDraw.Draw(layer)
+        draw.rounded_rectangle((0, 0, width * scale - 1, height * scale - 1),
+                               radius=height * scale / 2, fill=UI_COLORS['tint'])
+        if self.value > 0:
+            filled = min(width, max(height, width * self.value))
+            draw.rounded_rectangle((0, 0, round(filled * scale) - 1, height * scale - 1),
+                                   radius=height * scale / 2, fill=UI_COLORS['primary'])
+        self._progress_image = _shape_photo(self, layer, width, height)
+        self.delete('all')
+        self.create_image(0, 0, anchor='nw', image=self._progress_image)
 
 class ProgressRing(tk.Canvas):
-    def __init__(self,parent,value=0,size=80,**kw):
+    def __init__(self,parent,value=0,size=80,*,track=None,progress=None,text_color=None,
+                 text_font=None,stroke=7,**kw):
         super().__init__(parent,width=size,height=size,highlightthickness=0,**kw)
-        self.create_oval(6,6,size-6,size-6,outline=UI_COLORS['border'],width=7)
-        self.create_arc(6,6,size-6,size-6,start=90,extent=-360*max(0,min(1,value)),style='arc',outline=UI_COLORS['primary'],width=7)
-        self.create_text(size/2,size/2,text=f'{value:.0%}',fill=UI_COLORS['text'])
+        self.size = size
+        self.stroke = stroke
+        self.track = track or UI_COLORS['border']
+        self.progress = progress or UI_COLORS['primary']
+        self.text_color = text_color or UI_COLORS['text']
+        self.text_font = text_font or font_at(12)
+        self.draw(value)
+
+    def draw(self, value):
+        value = max(0, min(1, value))
+        size = self.size
+        scale = _SHAPE_SCALE
+        inset = 3 * scale
+        bounds = (inset, inset, size * scale - inset - 1, size * scale - inset - 1)
+        layer = _shape_layer(size, size)
+        draw = ImageDraw.Draw(layer)
+        draw.ellipse(bounds, outline=self.track, width=self.stroke * scale)
+        if value == 1:
+            draw.ellipse(bounds, outline=self.progress, width=self.stroke * scale)
+        elif value > 0:
+            draw.arc(bounds, start=-90, end=-90 + value * 360,
+                     fill=self.progress, width=self.stroke * scale)
+        self._progress_image = _shape_photo(self, layer, size, size)
+        self.delete('all')
+        self.create_image(0, 0, anchor='nw', image=self._progress_image)
+        self.create_text(size / 2, size / 2, text=f'{value:.0%}',
+                         fill=self.text_color, font=self.text_font)
 
 class Chip(tk.Label):
     def __init__(self,parent,text,**kw):
@@ -196,7 +258,7 @@ class EmptyState(tk.Frame):
     def __init__(self,parent,text,*,icon='○',action=None,background=None):
         bg=background or UI_COLORS['surface']
         super().__init__(parent,bg=bg,padx=14,pady=12)
-        tk.Label(self,text=icon,bg=bg,fg=UI_COLORS['primary'],font=font_at(24,'bold')).pack()
+        tk.Label(self,text=icon,bg=bg,fg=UI_COLORS['primary_text'],font=font_at(24,'bold')).pack()
         tk.Label(self,text=text,bg=bg,fg=UI_COLORS['muted'],font=font_at(13),
                  wraplength=460,justify='center').pack()
         if action:
@@ -258,6 +320,45 @@ class Toast:
         self.frame.destroy()
 
 
+def _tooltip_work_area(widget, x, y):
+    if sys.platform == 'win32':
+        import ctypes
+        from ctypes import wintypes
+
+        class MonitorInfo(ctypes.Structure):
+            _fields_ = [('size', wintypes.DWORD), ('monitor', wintypes.RECT),
+                        ('work', wintypes.RECT), ('flags', wintypes.DWORD)]
+
+        user32 = ctypes.windll.user32
+        monitor_from_point = user32.MonitorFromPoint
+        monitor_from_point.argtypes = (wintypes.POINT, wintypes.DWORD)
+        monitor_from_point.restype = wintypes.HMONITOR
+        get_monitor_info = user32.GetMonitorInfoW
+        get_monitor_info.argtypes = (wintypes.HMONITOR, ctypes.POINTER(MonitorInfo))
+        get_monitor_info.restype = wintypes.BOOL
+        info = MonitorInfo()
+        info.size = ctypes.sizeof(info)
+        monitor = monitor_from_point(wintypes.POINT(x, y), 2)  # Nearest monitor.
+        if monitor and get_monitor_info(monitor, ctypes.byref(info)):
+            rect = info.work
+            return rect.left, rect.top, rect.right, rect.bottom
+    left, top = widget.winfo_vrootx(), widget.winfo_vrooty()
+    return left, top, left + widget.winfo_vrootwidth(), top + widget.winfo_vrootheight()
+
+
+def _tooltip_position(anchor, size, area):
+    x, y, anchor_width, anchor_height = anchor
+    width, height = size
+    left, top, right, bottom = area
+    gap = 5
+    if x + width > right:
+        x += anchor_width - width
+    below = y + anchor_height + gap
+    above = y - height - gap
+    preferred_y = above if below + height > bottom and above >= top else below
+    return max(left, min(x, right - width)), max(top, min(preferred_y, bottom - height))
+
+
 class Tooltip:
     def __init__(self,widget,text):
         self.widget=widget
@@ -275,10 +376,24 @@ class Tooltip:
 
     def show(self,event=None):
         self.job=None
-        self.tip=tk.Toplevel(self.widget)
-        self.tip.wm_overrideredirect(True)
-        self.tip.geometry(f'+{self.widget.winfo_rootx()}+{self.widget.winfo_rooty()+self.widget.winfo_height()+5}')
-        tk.Label(self.tip,text=self.text,bg=UI_COLORS['text'],fg='white',padx=8,pady=5).pack()
+        if not self.widget.winfo_viewable():
+            return
+        x, y = self.widget.winfo_rootx(), self.widget.winfo_rooty()
+        width, height = self.widget.winfo_width(), self.widget.winfo_height()
+        area = _tooltip_work_area(self.widget, x + width // 2, y + height // 2)
+        tip = self.tip = tk.Toplevel(self.widget)
+        tip.withdraw()
+        tip.wm_overrideredirect(True)
+        tk.Label(tip, text=self.text, bg=UI_COLORS['text'], fg=UI_COLORS['background'],
+                 padx=8, pady=5, wraplength=max(1, min(360, area[2] - area[0] - 16)),
+                 justify='left').pack()
+        tip.update_idletasks()
+        if self.tip is not tip:
+            return
+        x, y = _tooltip_position((x, y, width, height),
+                                 (tip.winfo_reqwidth(), tip.winfo_reqheight()), area)
+        tip.geometry(f'+{x}+{y}')
+        tip.deiconify()
 
     def hide(self,event=None):
         if self.job is not None:
